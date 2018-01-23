@@ -5,18 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-90545585-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>torch.cuda &mdash; PyTorch master documentation</title>
@@ -36,30 +25,21 @@
   
 
   
-  
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
-  
-    <link rel="stylesheet" href="_static/css/pytorch_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="PyTorch master documentation" href="index.html"/>
-        <link rel="next" title="torch.utils.ffi" href="ffi.html"/>
-        <link rel="prev" title="Legacy package - torch.legacy" href="legacy.html"/> 
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
+  <link rel="stylesheet" href="_static/css/pytorch_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="torch.utils.ffi" href="ffi.html" />
+    <link rel="prev" title="Legacy package - torch.legacy" href="legacy.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -76,7 +56,7 @@
 
           
             
-            <img src="_static/pytorch-logo-dark.svg" class="logo" />
+            <img src="_static/pytorch-logo-dark.svg" class="logo" alt="Logo"/>
           
           </a>
 
@@ -84,7 +64,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.2.0+e4701e6 ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.4.0a0+409b1c8 ) &#x25BC</a>
               </div>
             
           
@@ -128,7 +108,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="notes/cuda.html">CUDA semantics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notes/cuda.html#asynchronous-execution">Asynchronous execution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notes/cuda.html#cuda-streams">CUDA streams</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notes/cuda.html#memory-management">Memory management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notes/cuda.html#best-practices">Best practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notes/cuda.html#device-agnostic-code">Device-agnostic code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notes/cuda.html#use-pinned-memory-buffers">Use pinned memory buffers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notes/cuda.html#use-nn-dataparallel-instead-of-multiprocessing">Use nn.DataParallel instead of multiprocessing</a></li>
 </ul>
@@ -183,6 +169,7 @@
 <li class="toctree-l3"><a class="reference internal" href="torch.html#pointwise-ops">Pointwise Ops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="torch.html#reduction-ops">Reduction Ops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="torch.html#comparison-ops">Comparison Ops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torch.html#spectral-ops">Spectral Ops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="torch.html#other-operations">Other Operations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="torch.html#blas-and-lapack-operations">BLAS and LAPACK Operations</a></li>
 </ul>
@@ -267,6 +254,7 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#instancenorm1d"><span class="hidden-section">InstanceNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#instancenorm2d"><span class="hidden-section">InstanceNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#instancenorm3d"><span class="hidden-section">InstanceNorm3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#localresponsenorm"><span class="hidden-section">LocalResponseNorm</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#recurrent-layers">Recurrent layers</a><ul>
@@ -306,7 +294,6 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#crossentropyloss"><span class="hidden-section">CrossEntropyLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#nllloss"><span class="hidden-section">NLLLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#poissonnllloss"><span class="hidden-section">PoissonNLLLoss</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#nllloss2d"><span class="hidden-section">NLLLoss2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#kldivloss"><span class="hidden-section">KLDivLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#bceloss"><span class="hidden-section">BCELoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#bcewithlogitsloss"><span class="hidden-section">BCEWithLogitsLoss</span></a></li>
@@ -340,15 +327,17 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#packedsequence"><span class="hidden-section">PackedSequence</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pack-padded-sequence"><span class="hidden-section">pack_padded_sequence</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pad-packed-sequence"><span class="hidden-section">pad_packed_sequence</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#pad-sequence"><span class="hidden-section">pad_sequence</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#pack-sequence"><span class="hidden-section">pack_sequence</span></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nn.html#torch-nn-functional">torch.nn.functional</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#convolution-functions">Convolution functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id14"><span class="hidden-section">conv1d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id15"><span class="hidden-section">conv2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id16"><span class="hidden-section">conv3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id18"><span class="hidden-section">conv1d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id19"><span class="hidden-section">conv2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id20"><span class="hidden-section">conv3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#conv-transpose1d"><span class="hidden-section">conv_transpose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#conv-transpose2d"><span class="hidden-section">conv_transpose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#conv-transpose3d"><span class="hidden-section">conv_transpose3d</span></a></li>
@@ -374,50 +363,52 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#non-linear-activation-functions">Non-linear activation functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id17"><span class="hidden-section">threshold</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id18"><span class="hidden-section">relu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id19"><span class="hidden-section">hardtanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id20"><span class="hidden-section">relu6</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id21"><span class="hidden-section">elu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id22"><span class="hidden-section">selu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id21"><span class="hidden-section">threshold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id22"><span class="hidden-section">relu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id23"><span class="hidden-section">hardtanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id24"><span class="hidden-section">relu6</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id25"><span class="hidden-section">elu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id26"><span class="hidden-section">selu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#leaky-relu"><span class="hidden-section">leaky_relu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id23"><span class="hidden-section">prelu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id27"><span class="hidden-section">prelu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#rrelu"><span class="hidden-section">rrelu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id24"><span class="hidden-section">logsigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#glu"><span class="hidden-section">glu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id28"><span class="hidden-section">logsigmoid</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#hardshrink"><span class="hidden-section">hardshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id25"><span class="hidden-section">tanhshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id26"><span class="hidden-section">softsign</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id27"><span class="hidden-section">softplus</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id28"><span class="hidden-section">softmin</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id29"><span class="hidden-section">softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id30"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id29"><span class="hidden-section">tanhshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id30"><span class="hidden-section">softsign</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id31"><span class="hidden-section">softplus</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id32"><span class="hidden-section">softmin</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id33"><span class="hidden-section">softmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id34"><span class="hidden-section">softshrink</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id31"><span class="hidden-section">tanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id32"><span class="hidden-section">sigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id35"><span class="hidden-section">tanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id36"><span class="hidden-section">sigmoid</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#normalization-functions">Normalization functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#batch-norm"><span class="hidden-section">batch_norm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#local-response-norm"><span class="hidden-section">local_response_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#normalize"><span class="hidden-section">normalize</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#linear-functions">Linear functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id33"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id37"><span class="hidden-section">linear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id34"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id38"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id35"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id36"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id39"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id40"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="nn.html#id37">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nn.html#id41">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="nn.html#id38">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nn.html#id42">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
@@ -440,7 +431,7 @@
 <li class="toctree-l2"><a class="reference internal" href="nn.html#vision-functions">Vision functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pad"><span class="hidden-section">pad</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id40"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id44"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
@@ -476,6 +467,29 @@
 <li class="toctree-l2"><a class="reference internal" href="autograd.html#profiler">Profiler</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="distributions.html">torch.distributions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#distribution"><span class="hidden-section">Distribution</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#bernoulli"><span class="hidden-section">Bernoulli</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#beta"><span class="hidden-section">Beta</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#binomial"><span class="hidden-section">Binomial</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#categorical"><span class="hidden-section">Categorical</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#cauchy"><span class="hidden-section">Cauchy</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#chi2"><span class="hidden-section">Chi2</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#dirichlet"><span class="hidden-section">Dirichlet</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#exponential"><span class="hidden-section">Exponential</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#fishersnedecor"><span class="hidden-section">FisherSnedecor</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#gamma"><span class="hidden-section">Gamma</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#geometric"><span class="hidden-section">Geometric</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#gumbel"><span class="hidden-section">Gumbel</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#laplace"><span class="hidden-section">Laplace</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#normal"><span class="hidden-section">Normal</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#onehotcategorical"><span class="hidden-section">OneHotCategorical</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#pareto"><span class="hidden-section">Pareto</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#studentt"><span class="hidden-section">StudentT</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#uniform"><span class="hidden-section">Uniform</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#module-torch.distributions.kl"><cite>KL Divergence</cite></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="multiprocessing.html">torch.multiprocessing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="multiprocessing.html#strategy-management">Strategy management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multiprocessing.html#sharing-cuda-tensors">Sharing CUDA tensors</a></li>
@@ -504,6 +518,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#random-number-generator">Random Number Generator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#communication-collectives">Communication collectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#streams-and-events">Streams and events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#memory-management">Memory management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nvidia-tools-extension-nvtx">NVIDIA Tools Extension (NVTX)</a></li>
 </ul>
 </li>
@@ -520,32 +535,44 @@
 </ul>
 <p class="caption"><span class="caption-text">torchvision Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="torchvision/torchvision.html">torchvision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="torchvision/datasets.html">torchvision.datasets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html#mnist">MNIST</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html#coco">COCO</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#captions">Captions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#detection">Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="torchvision/index.html">torchvision</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html">torchvision.datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#mnist">MNIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#fashion-mnist">Fashion-MNIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#emnist">EMNIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#coco">COCO</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="torchvision/datasets.html#captions">Captions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="torchvision/datasets.html#detection">Detection</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html#lsun">LSUN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html#imagefolder">ImageFolder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html#imagenet-12">Imagenet-12</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html#cifar">CIFAR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html#stl10">STL10</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html#svhn">SVHN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html#phototour">PhotoTour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#lsun">LSUN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#imagefolder">ImageFolder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#imagenet-12">Imagenet-12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#cifar">CIFAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#stl10">STL10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#svhn">SVHN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#phototour">PhotoTour</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="torchvision/models.html">torchvision.models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="torchvision/transforms.html">torchvision.transforms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/transforms.html#transforms-on-pil-image">Transforms on PIL.Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/transforms.html#transforms-on-torch-tensor">Transforms on torch.*Tensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/transforms.html#conversion-transforms">Conversion Transforms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/transforms.html#generic-transforms">Generic Transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torchvision/models.html">torchvision.models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/models.html#id1">Alexnet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/models.html#id2">VGG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/models.html#id3">ResNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/models.html#id4">SqueezeNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/models.html#id5">DenseNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/models.html#inception-v3">Inception v3</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="torchvision/utils.html">torchvision.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torchvision/transforms.html">torchvision.transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#transforms-on-pil-image">Transforms on PIL Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#transforms-on-torch-tensor">Transforms on torch.*Tensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#conversion-transforms">Conversion Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#generic-transforms">Generic Transforms</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="torchvision/utils.html">torchvision.utils</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -557,7 +584,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">PyTorch</a>
@@ -567,7 +594,9 @@
 
       
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -655,6 +684,12 @@ is negative.</td>
 <dd><p>Returns the number of GPUs available.</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="torch.cuda.device_ctx_manager">
+<code class="descclassname">torch.cuda.</code><code class="descname">device_ctx_manager</code><a class="headerlink" href="#torch.cuda.device_ctx_manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#torch.cuda.device" title="torch.cuda.device"><code class="xref py py-class docutils literal"><span class="pre">device</span></code></a></p>
+</dd></dl>
+
 <dl class="class">
 <dt id="torch.cuda.device_of">
 <em class="property">class </em><code class="descclassname">torch.cuda.</code><code class="descname">device_of</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda.html#device_of"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.cuda.device_of" title="Permalink to this definition">¶</a></dt>
@@ -666,6 +701,33 @@ not allocated on a GPU, this is a no-op.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> (<a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a><em> or </em><em>Storage</em>) – object allocated on the selected device.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="torch.cuda.empty_cache">
+<code class="descclassname">torch.cuda.</code><code class="descname">empty_cache</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda.html#empty_cache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.cuda.empty_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Releases all unoccupied cached memory currently held by the caching
+allocator so that those can be used in other GPU application and visible in
+<cite>nvidia-smi</cite>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="torch.cuda.get_device_capability">
+<code class="descclassname">torch.cuda.</code><code class="descname">get_device_capability</code><span class="sig-paren">(</span><em>device</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda.html#get_device_capability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.cuda.get_device_capability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the cuda capability of a device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – device for which to return the name. This function is a
+no-op if this argument is negative.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the major and minor cuda capability of the device</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a>(<a class="reference internal" href="storage.html#torch.FloatStorage.int" title="torch.FloatStorage.int">int</a>, <a class="reference internal" href="storage.html#torch.FloatStorage.int" title="torch.FloatStorage.int">int</a>)</td>
 </tr>
 </tbody>
 </table>
@@ -687,9 +749,99 @@ no-op if this argument is negative.</td>
 </dd></dl>
 
 <dl class="function">
+<dt id="torch.cuda.init">
+<code class="descclassname">torch.cuda.</code><code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda.html#init"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.cuda.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize PyTorch’s CUDA state.  You may need to call
+this explicitly if you are interacting with PyTorch via
+its C API, as Python bindings for CUDA functionality will not
+be until this initialization takes place.  Ordinary users
+should not need this, as all of PyTorch’s CUDA methods
+automatically initialize CUDA state on-demand.</p>
+<p>Does nothing if the CUDA state is already initialized.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="torch.cuda.is_available">
 <code class="descclassname">torch.cuda.</code><code class="descname">is_available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda.html#is_available"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.cuda.is_available" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a bool indicating if CUDA is currently available.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="torch.cuda.max_memory_allocated">
+<code class="descclassname">torch.cuda.</code><code class="descname">max_memory_allocated</code><span class="sig-paren">(</span><em>device=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda.html#max_memory_allocated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.cuda.max_memory_allocated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the maxium GPU memory usage by tensors in bytes for a given
+device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – selected device. Returns statistic for the
+current device, given by
+<a class="reference internal" href="#torch.cuda.current_device" title="torch.cuda.current_device"><code class="xref py py-meth docutils literal"><span class="pre">current_device()</span></code></a>, if
+<a class="reference internal" href="#torch.cuda.device" title="torch.cuda.device"><code class="xref py py-attr docutils literal"><span class="pre">device</span></code></a> is <code class="docutils literal"><span class="pre">None</span></code> (default).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="torch.cuda.max_memory_cached">
+<code class="descclassname">torch.cuda.</code><code class="descname">max_memory_cached</code><span class="sig-paren">(</span><em>device=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda.html#max_memory_cached"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.cuda.max_memory_cached" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the maximum GPU memory managed by the caching allocator in bytes
+for a given device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – selected device. Returns statistic for the
+current device, given by
+<a class="reference internal" href="#torch.cuda.current_device" title="torch.cuda.current_device"><code class="xref py py-meth docutils literal"><span class="pre">current_device()</span></code></a>, if
+<a class="reference internal" href="#torch.cuda.device" title="torch.cuda.device"><code class="xref py py-attr docutils literal"><span class="pre">device</span></code></a> is <code class="docutils literal"><span class="pre">None</span></code> (default).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="torch.cuda.memory_allocated">
+<code class="descclassname">torch.cuda.</code><code class="descname">memory_allocated</code><span class="sig-paren">(</span><em>device=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda.html#memory_allocated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.cuda.memory_allocated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current GPU memory usage by tensors in bytes for a given
+device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – selected device. Returns statistic for the
+current device, given by
+<a class="reference internal" href="#torch.cuda.current_device" title="torch.cuda.current_device"><code class="xref py py-meth docutils literal"><span class="pre">current_device()</span></code></a>, if
+<a class="reference internal" href="#torch.cuda.device" title="torch.cuda.device"><code class="xref py py-attr docutils literal"><span class="pre">device</span></code></a> is <code class="docutils literal"><span class="pre">None</span></code> (default).</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is likely less than the amount shown in <cite>nvidia-smi</cite> since</p>
+</div>
+<p>some unused memory can be held by the caching allocator and some context
+needs to be created on GPU.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="torch.cuda.memory_cached">
+<code class="descclassname">torch.cuda.</code><code class="descname">memory_cached</code><span class="sig-paren">(</span><em>device=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda.html#memory_cached"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.cuda.memory_cached" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current GPU memory managed by the caching allocator in bytes
+for a given device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – selected device. Returns statistic for the
+current device, given by
+<a class="reference internal" href="#torch.cuda.current_device" title="torch.cuda.current_device"><code class="xref py py-meth docutils literal"><span class="pre">current_device()</span></code></a>, if
+<a class="reference internal" href="#torch.cuda.device" title="torch.cuda.device"><code class="xref py py-attr docutils literal"><span class="pre">device</span></code></a> is <code class="docutils literal"><span class="pre">None</span></code> (default).</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -724,6 +876,12 @@ stream.</p>
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Streams are per-device, and this function changes the “current
+stream” only for the currently selected device.  It is illegal to select
+a stream that belongs to a different device.</p>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -736,14 +894,14 @@ stream.</p>
 <h2>Random Number Generator<a class="headerlink" href="#random-number-generator" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="torch.cuda.get_rng_state">
-<code class="descclassname">torch.cuda.</code><code class="descname">get_rng_state</code><span class="sig-paren">(</span><em>device_id=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda/random.html#get_rng_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.cuda.get_rng_state" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">torch.cuda.</code><code class="descname">get_rng_state</code><span class="sig-paren">(</span><em>device=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda/random.html#get_rng_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.cuda.get_rng_state" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the random number generator state of the current
 GPU as a ByteTensor.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device_id</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – The device to return the RNG state of.
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – The device to return the RNG state of.
 Default: -1 (i.e., use the current device).</td>
 </tr>
 </tbody>
@@ -756,13 +914,13 @@ Default: -1 (i.e., use the current device).</td>
 
 <dl class="function">
 <dt id="torch.cuda.set_rng_state">
-<code class="descclassname">torch.cuda.</code><code class="descname">set_rng_state</code><span class="sig-paren">(</span><em>new_state</em>, <em>device_id=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda/random.html#set_rng_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.cuda.set_rng_state" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">torch.cuda.</code><code class="descname">set_rng_state</code><span class="sig-paren">(</span><em>new_state</em>, <em>device=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda/random.html#set_rng_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.cuda.set_rng_state" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the random number generator state of the current GPU.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_state</strong> (<em>torch.ByteTensor</em>) – The desired state</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_state</strong> (<a class="reference internal" href="tensors.html#torch.ByteTensor" title="torch.ByteTensor"><em>torch.ByteTensor</em></a>) – The desired state</td>
 </tr>
 </tbody>
 </table>
@@ -864,6 +1022,33 @@ corresponding to indices from <code class="docutils literal"><span class="pre">d
 </dd></dl>
 
 <dl class="function">
+<dt id="torch.cuda.comm.broadcast_coalesced">
+<code class="descclassname">torch.cuda.comm.</code><code class="descname">broadcast_coalesced</code><span class="sig-paren">(</span><em>tensors</em>, <em>devices</em>, <em>buffer_size=10485760</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda/comm.html#broadcast_coalesced"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.cuda.comm.broadcast_coalesced" title="Permalink to this definition">¶</a></dt>
+<dd><p>Broadcasts a sequence tensors to the specified GPUs.
+Small tensors are first coalesced into a buffer to reduce the number
+of synchronizations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tensors</strong> (<em>sequence</em>) – tensors to broadcast.</li>
+<li><strong>devices</strong> (<em>Iterable</em>) – an iterable of devices among which to broadcast.
+Note that it should be like (src, dst1, dst2, …), the first element
+of which is the source device to broadcast from.</li>
+<li><strong>buffer_size</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – maximum size of the buffer used for coalescing</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A tuple containing copies of the <code class="docutils literal"><span class="pre">tensor</span></code>, placed on devices
+corresponding to indices from <code class="docutils literal"><span class="pre">devices</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="torch.cuda.comm.reduce_add">
 <code class="descclassname">torch.cuda.comm.</code><code class="descname">reduce_add</code><span class="sig-paren">(</span><em>inputs</em>, <em>destination=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda/comm.html#reduce_add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.cuda.comm.reduce_add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sums tensors from multiple GPUs.</p>
@@ -947,6 +1132,9 @@ concatenating <code class="docutils literal"><span class="pre">tensors</span></c
 <dt id="torch.cuda.Stream">
 <em class="property">class </em><code class="descclassname">torch.cuda.</code><code class="descname">Stream</code><a class="reference internal" href="_modules/torch/cuda/streams.html#Stream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.cuda.Stream" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper around a CUDA stream.</p>
+<p>A CUDA stream is a linear sequence of execution that belongs to a specific
+device, independent from other streams.  See <a class="reference internal" href="notes/cuda.html#cuda-semantics"><span class="std std-ref">CUDA semantics</span></a> for
+details.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -995,6 +1183,11 @@ will be allocated.</td>
 <dt id="torch.cuda.Stream.synchronize">
 <code class="descname">synchronize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda/streams.html#Stream.synchronize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.cuda.Stream.synchronize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wait for all the kernels in this stream to complete.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a wrapper around <code class="docutils literal"><span class="pre">cudaStreamSynchronize()</span></code>: see
+<a class="reference external" href="http://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__STREAM.html">CUDA documentation</a> for more info.</p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -1009,6 +1202,13 @@ will be allocated.</td>
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>This is a wrapper around <code class="docutils literal"><span class="pre">cudaStreamWaitEvent()</span></code>: see <a class="reference external" href="http://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__STREAM.html">CUDA
+documentation</a> for more info.</p>
+<p class="last">This function returns without waiting for <code class="xref py py-attr docutils literal"><span class="pre">event</span></code>: only future
+operations are affected.</p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -1025,6 +1225,11 @@ submitted to a given stream at the time of call complete.</p>
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This function returns without waiting for currently enqueued
+kernels in <a class="reference internal" href="#torch.cuda.stream" title="torch.cuda.stream"><code class="xref py py-attr docutils literal"><span class="pre">stream</span></code></a>: only future operations are affected.</p>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -1039,10 +1244,10 @@ submitted to a given stream at the time of call complete.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>enable_timing</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) – indicates if the event should measure time
-(default: False)</li>
-<li><strong>blocking</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) – if true, <a class="reference internal" href="#torch.cuda.Event.wait" title="torch.cuda.Event.wait"><code class="xref py py-meth docutils literal"><span class="pre">wait()</span></code></a> will be blocking (default: False)</li>
-<li><strong>interprocess</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) – if true, the event can be shared between processes
-(default: False)</li>
+(default: <code class="docutils literal"><span class="pre">False</span></code>)</li>
+<li><strong>blocking</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) – if <code class="docutils literal"><span class="pre">True</span></code>, <a class="reference internal" href="#torch.cuda.Event.wait" title="torch.cuda.Event.wait"><code class="xref py py-meth docutils literal"><span class="pre">wait()</span></code></a> will be blocking (default: <code class="docutils literal"><span class="pre">False</span></code>)</li>
+<li><strong>interprocess</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) – if <code class="docutils literal"><span class="pre">True</span></code>, the event can be shared between processes
+(default: <code class="docutils literal"><span class="pre">False</span></code>)</li>
 </ul>
 </td>
 </tr>
@@ -1092,6 +1297,95 @@ submitted to a given stream at the time of call complete.</p>
 <dd><p>Makes a given stream wait for the event.</p>
 </dd></dl>
 
+</dd></dl>
+
+</div>
+<div class="section" id="memory-management">
+<h2>Memory management<a class="headerlink" href="#memory-management" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt>
+<code class="descclassname">torch.cuda.</code><code class="descname">empty_cache</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda.html#empty_cache"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Releases all unoccupied cached memory currently held by the caching
+allocator so that those can be used in other GPU application and visible in
+<cite>nvidia-smi</cite>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">torch.cuda.</code><code class="descname">memory_allocated</code><span class="sig-paren">(</span><em>device=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda.html#memory_allocated"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Returns the current GPU memory usage by tensors in bytes for a given
+device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – selected device. Returns statistic for the
+current device, given by
+<a class="reference internal" href="#torch.cuda.current_device" title="torch.cuda.current_device"><code class="xref py py-meth docutils literal"><span class="pre">current_device()</span></code></a>, if
+<a class="reference internal" href="#torch.cuda.device" title="torch.cuda.device"><code class="xref py py-attr docutils literal"><span class="pre">device</span></code></a> is <code class="docutils literal"><span class="pre">None</span></code> (default).</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is likely less than the amount shown in <cite>nvidia-smi</cite> since</p>
+</div>
+<p>some unused memory can be held by the caching allocator and some context
+needs to be created on GPU.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">torch.cuda.</code><code class="descname">max_memory_allocated</code><span class="sig-paren">(</span><em>device=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda.html#max_memory_allocated"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Returns the maxium GPU memory usage by tensors in bytes for a given
+device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – selected device. Returns statistic for the
+current device, given by
+<a class="reference internal" href="#torch.cuda.current_device" title="torch.cuda.current_device"><code class="xref py py-meth docutils literal"><span class="pre">current_device()</span></code></a>, if
+<a class="reference internal" href="#torch.cuda.device" title="torch.cuda.device"><code class="xref py py-attr docutils literal"><span class="pre">device</span></code></a> is <code class="docutils literal"><span class="pre">None</span></code> (default).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">torch.cuda.</code><code class="descname">memory_cached</code><span class="sig-paren">(</span><em>device=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda.html#memory_cached"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Returns the current GPU memory managed by the caching allocator in bytes
+for a given device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – selected device. Returns statistic for the
+current device, given by
+<a class="reference internal" href="#torch.cuda.current_device" title="torch.cuda.current_device"><code class="xref py py-meth docutils literal"><span class="pre">current_device()</span></code></a>, if
+<a class="reference internal" href="#torch.cuda.device" title="torch.cuda.device"><code class="xref py py-attr docutils literal"><span class="pre">device</span></code></a> is <code class="docutils literal"><span class="pre">None</span></code> (default).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">torch.cuda.</code><code class="descname">max_memory_cached</code><span class="sig-paren">(</span><em>device=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/cuda.html#max_memory_cached"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Returns the maximum GPU memory managed by the caching allocator in bytes
+for a given device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – selected device. Returns statistic for the
+current device, given by
+<a class="reference internal" href="#torch.cuda.current_device" title="torch.cuda.current_device"><code class="xref py py-meth docutils literal"><span class="pre">current_device()</span></code></a>, if
+<a class="reference internal" href="#torch.cuda.device" title="torch.cuda.device"><code class="xref py py-attr docutils literal"><span class="pre">device</span></code></a> is <code class="docutils literal"><span class="pre">None</span></code> (default).</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -1200,14 +1494,25 @@ zero-based depth of the range that is ended.</p>
     <script type="text/javascript" src="_static/js/theme.js"></script>
   
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
   </script>
-   
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-90545585-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
 
 </body>
 </html>

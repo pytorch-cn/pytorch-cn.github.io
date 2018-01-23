@@ -5,18 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-90545585-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>torch.onnx &mdash; PyTorch master documentation</title>
@@ -36,30 +25,21 @@
   
 
   
-  
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
-  
-    <link rel="stylesheet" href="_static/css/pytorch_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="PyTorch master documentation" href="index.html"/>
-        <link rel="next" title="torchvision" href="torchvision/torchvision.html"/>
-        <link rel="prev" title="torch.utils.model_zoo" href="model_zoo.html"/> 
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
+  <link rel="stylesheet" href="_static/css/pytorch_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="torchvision" href="torchvision/index.html" />
+    <link rel="prev" title="torch.utils.model_zoo" href="model_zoo.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -76,7 +56,7 @@
 
           
             
-            <img src="_static/pytorch-logo-dark.svg" class="logo" />
+            <img src="_static/pytorch-logo-dark.svg" class="logo" alt="Logo"/>
           
           </a>
 
@@ -84,7 +64,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.2.0+e4701e6 ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.4.0a0+409b1c8 ) &#x25BC</a>
               </div>
             
           
@@ -128,7 +108,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="notes/cuda.html">CUDA semantics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notes/cuda.html#asynchronous-execution">Asynchronous execution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notes/cuda.html#cuda-streams">CUDA streams</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notes/cuda.html#memory-management">Memory management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notes/cuda.html#best-practices">Best practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notes/cuda.html#device-agnostic-code">Device-agnostic code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notes/cuda.html#use-pinned-memory-buffers">Use pinned memory buffers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notes/cuda.html#use-nn-dataparallel-instead-of-multiprocessing">Use nn.DataParallel instead of multiprocessing</a></li>
 </ul>
@@ -183,6 +169,7 @@
 <li class="toctree-l3"><a class="reference internal" href="torch.html#pointwise-ops">Pointwise Ops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="torch.html#reduction-ops">Reduction Ops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="torch.html#comparison-ops">Comparison Ops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torch.html#spectral-ops">Spectral Ops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="torch.html#other-operations">Other Operations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="torch.html#blas-and-lapack-operations">BLAS and LAPACK Operations</a></li>
 </ul>
@@ -267,6 +254,7 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#instancenorm1d"><span class="hidden-section">InstanceNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#instancenorm2d"><span class="hidden-section">InstanceNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#instancenorm3d"><span class="hidden-section">InstanceNorm3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#localresponsenorm"><span class="hidden-section">LocalResponseNorm</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#recurrent-layers">Recurrent layers</a><ul>
@@ -306,7 +294,6 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#crossentropyloss"><span class="hidden-section">CrossEntropyLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#nllloss"><span class="hidden-section">NLLLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#poissonnllloss"><span class="hidden-section">PoissonNLLLoss</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#nllloss2d"><span class="hidden-section">NLLLoss2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#kldivloss"><span class="hidden-section">KLDivLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#bceloss"><span class="hidden-section">BCELoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#bcewithlogitsloss"><span class="hidden-section">BCEWithLogitsLoss</span></a></li>
@@ -340,15 +327,17 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#packedsequence"><span class="hidden-section">PackedSequence</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pack-padded-sequence"><span class="hidden-section">pack_padded_sequence</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pad-packed-sequence"><span class="hidden-section">pad_packed_sequence</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#pad-sequence"><span class="hidden-section">pad_sequence</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#pack-sequence"><span class="hidden-section">pack_sequence</span></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nn.html#torch-nn-functional">torch.nn.functional</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#convolution-functions">Convolution functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id14"><span class="hidden-section">conv1d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id15"><span class="hidden-section">conv2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id16"><span class="hidden-section">conv3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id18"><span class="hidden-section">conv1d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id19"><span class="hidden-section">conv2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id20"><span class="hidden-section">conv3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#conv-transpose1d"><span class="hidden-section">conv_transpose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#conv-transpose2d"><span class="hidden-section">conv_transpose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#conv-transpose3d"><span class="hidden-section">conv_transpose3d</span></a></li>
@@ -374,50 +363,52 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#non-linear-activation-functions">Non-linear activation functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id17"><span class="hidden-section">threshold</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id18"><span class="hidden-section">relu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id19"><span class="hidden-section">hardtanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id20"><span class="hidden-section">relu6</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id21"><span class="hidden-section">elu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id22"><span class="hidden-section">selu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id21"><span class="hidden-section">threshold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id22"><span class="hidden-section">relu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id23"><span class="hidden-section">hardtanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id24"><span class="hidden-section">relu6</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id25"><span class="hidden-section">elu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id26"><span class="hidden-section">selu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#leaky-relu"><span class="hidden-section">leaky_relu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id23"><span class="hidden-section">prelu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id27"><span class="hidden-section">prelu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#rrelu"><span class="hidden-section">rrelu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id24"><span class="hidden-section">logsigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#glu"><span class="hidden-section">glu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id28"><span class="hidden-section">logsigmoid</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#hardshrink"><span class="hidden-section">hardshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id25"><span class="hidden-section">tanhshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id26"><span class="hidden-section">softsign</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id27"><span class="hidden-section">softplus</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id28"><span class="hidden-section">softmin</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id29"><span class="hidden-section">softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id30"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id29"><span class="hidden-section">tanhshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id30"><span class="hidden-section">softsign</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id31"><span class="hidden-section">softplus</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id32"><span class="hidden-section">softmin</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id33"><span class="hidden-section">softmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id34"><span class="hidden-section">softshrink</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id31"><span class="hidden-section">tanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id32"><span class="hidden-section">sigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id35"><span class="hidden-section">tanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id36"><span class="hidden-section">sigmoid</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#normalization-functions">Normalization functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#batch-norm"><span class="hidden-section">batch_norm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#local-response-norm"><span class="hidden-section">local_response_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#normalize"><span class="hidden-section">normalize</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#linear-functions">Linear functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id33"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id37"><span class="hidden-section">linear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id34"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id38"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id35"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id36"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id39"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id40"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="nn.html#id37">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nn.html#id41">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="nn.html#id38">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nn.html#id42">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
@@ -440,7 +431,7 @@
 <li class="toctree-l2"><a class="reference internal" href="nn.html#vision-functions">Vision functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pad"><span class="hidden-section">pad</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id40"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id44"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
@@ -476,6 +467,29 @@
 <li class="toctree-l2"><a class="reference internal" href="autograd.html#profiler">Profiler</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="distributions.html">torch.distributions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#distribution"><span class="hidden-section">Distribution</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#bernoulli"><span class="hidden-section">Bernoulli</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#beta"><span class="hidden-section">Beta</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#binomial"><span class="hidden-section">Binomial</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#categorical"><span class="hidden-section">Categorical</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#cauchy"><span class="hidden-section">Cauchy</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#chi2"><span class="hidden-section">Chi2</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#dirichlet"><span class="hidden-section">Dirichlet</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#exponential"><span class="hidden-section">Exponential</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#fishersnedecor"><span class="hidden-section">FisherSnedecor</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#gamma"><span class="hidden-section">Gamma</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#geometric"><span class="hidden-section">Geometric</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#gumbel"><span class="hidden-section">Gumbel</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#laplace"><span class="hidden-section">Laplace</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#normal"><span class="hidden-section">Normal</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#onehotcategorical"><span class="hidden-section">OneHotCategorical</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#pareto"><span class="hidden-section">Pareto</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#studentt"><span class="hidden-section">StudentT</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#uniform"><span class="hidden-section">Uniform</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#module-torch.distributions.kl"><cite>KL Divergence</cite></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="multiprocessing.html">torch.multiprocessing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="multiprocessing.html#strategy-management">Strategy management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multiprocessing.html#sharing-cuda-tensors">Sharing CUDA tensors</a></li>
@@ -504,6 +518,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cuda.html#random-number-generator">Random Number Generator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cuda.html#communication-collectives">Communication collectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cuda.html#streams-and-events">Streams and events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cuda.html#memory-management">Memory management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cuda.html#nvidia-tools-extension-nvtx">NVIDIA Tools Extension (NVTX)</a></li>
 </ul>
 </li>
@@ -520,32 +535,44 @@
 </ul>
 <p class="caption"><span class="caption-text">torchvision Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="torchvision/torchvision.html">torchvision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="torchvision/datasets.html">torchvision.datasets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html#mnist">MNIST</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html#coco">COCO</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#captions">Captions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#detection">Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="torchvision/index.html">torchvision</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html">torchvision.datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#mnist">MNIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#fashion-mnist">Fashion-MNIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#emnist">EMNIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#coco">COCO</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="torchvision/datasets.html#captions">Captions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="torchvision/datasets.html#detection">Detection</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html#lsun">LSUN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html#imagefolder">ImageFolder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html#imagenet-12">Imagenet-12</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html#cifar">CIFAR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html#stl10">STL10</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html#svhn">SVHN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/datasets.html#phototour">PhotoTour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#lsun">LSUN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#imagefolder">ImageFolder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#imagenet-12">Imagenet-12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#cifar">CIFAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#stl10">STL10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#svhn">SVHN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/datasets.html#phototour">PhotoTour</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="torchvision/models.html">torchvision.models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="torchvision/transforms.html">torchvision.transforms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/transforms.html#transforms-on-pil-image">Transforms on PIL.Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/transforms.html#transforms-on-torch-tensor">Transforms on torch.*Tensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/transforms.html#conversion-transforms">Conversion Transforms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="torchvision/transforms.html#generic-transforms">Generic Transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torchvision/models.html">torchvision.models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/models.html#id1">Alexnet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/models.html#id2">VGG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/models.html#id3">ResNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/models.html#id4">SqueezeNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/models.html#id5">DenseNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/models.html#inception-v3">Inception v3</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="torchvision/utils.html">torchvision.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torchvision/transforms.html">torchvision.transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#transforms-on-pil-image">Transforms on PIL Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#transforms-on-torch-tensor">Transforms on torch.*Tensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#conversion-transforms">Conversion Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#generic-transforms">Generic Transforms</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="torchvision/utils.html">torchvision.utils</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -557,7 +584,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">PyTorch</a>
@@ -567,7 +594,9 @@
 
       
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -663,35 +692,31 @@ exporter to print out a human-readable representation of the network:</p>
 </div>
 <p>You can also verify the protobuf using the <a class="reference external" href="https://github.com/onnx/onnx/">onnx</a> library.
 You can install <code class="docutils literal"><span class="pre">onnx</span></code> with conda:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">ezyang</span> <span class="n">onnx</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">onnx</span>
 </pre></div>
 </div>
 <p>Then, you can run:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">onnx</span>
 
-<span class="n">graph</span> <span class="o">=</span> <span class="n">onnx</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;alexnet.proto&quot;</span><span class="p">)</span>
+<span class="c1"># Load the ONNX model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">onnx</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;alexnet.proto&quot;</span><span class="p">)</span>
 
 <span class="c1"># Check that the IR is well formed</span>
-<span class="n">onnx</span><span class="o">.</span><span class="n">checker</span><span class="o">.</span><span class="n">check_graph</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+<span class="n">onnx</span><span class="o">.</span><span class="n">checker</span><span class="o">.</span><span class="n">check_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 
 <span class="c1"># Print a human readable representation of the graph</span>
-<span class="n">onnx</span><span class="o">.</span><span class="n">helper</span><span class="o">.</span><span class="n">printable_graph</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+<span class="n">onnx</span><span class="o">.</span><span class="n">helper</span><span class="o">.</span><span class="n">printable_graph</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">graph</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To run the exported script with <a class="reference external" href="https://caffe2.ai/">caffe2</a>, you will need three things:</p>
 <ol class="arabic">
-<li><p class="first">You’ll need an install of Caffe2.  If you don’t have one already,
-you should make sure you have a Python 2 interpreter (Caffe2
-doesn’t officially support Python 3) and
-<a class="reference external" href="https://caffe2.ai/docs/getting-started.html">follow the install instructions</a>
-(no Conda packaging for Caffe2 is available at the moment).</p>
+<li><p class="first">You’ll need an install of Caffe2.  If you don’t have one already, Please
+<a class="reference external" href="https://caffe2.ai/docs/getting-started.html">follow the install instructions</a>.</p>
 </li>
 <li><p class="first">You’ll need <a class="reference external" href="https://github.com/onnx/onnx-caffe2">onnx-caffe2</a>, a
 pure-Python library which provides a Caffe2 backend for ONNX.  You can install <code class="docutils literal"><span class="pre">onnx-caffe2</span></code>
-with conda or pip:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">ezyang</span> <span class="n">onnx</span><span class="o">-</span><span class="n">caffe2</span>
-<span class="c1"># OR</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">onnx</span><span class="o">-</span><span class="n">caffe2</span>
+with pip:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">onnx</span><span class="o">-</span><span class="n">caffe2</span>
 </pre></div>
 </div>
 </li>
@@ -701,7 +726,7 @@ with conda or pip:</p>
 <span class="kn">import</span> <span class="nn">onnx_caffe2.backend</span> <span class="k">as</span> <span class="nn">backend</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">rep</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">&quot;CUDA:0&quot;</span><span class="p">)</span> <span class="c1"># or &quot;CPU&quot;</span>
+<span class="n">rep</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">&quot;CUDA:0&quot;</span><span class="p">)</span> <span class="c1"># or &quot;CPU&quot;</span>
 <span class="c1"># For the Caffe2 backend:</span>
 <span class="c1">#     rep.predict_net is the Caffe2 protobuf for the network</span>
 <span class="c1">#     rep.workspace is the Caffe2 workspace for the network</span>
@@ -736,34 +761,60 @@ and to also document these differences.</li>
 </div>
 <div class="section" id="supported-operators">
 <h2>Supported operators<a class="headerlink" href="#supported-operators" title="Permalink to this headline">¶</a></h2>
-<p>In this tech preview, only the following operators are supported:</p>
+<p>The following operators are supported:</p>
 <ul class="simple">
-<li>Add (inplace is discarded)</li>
-<li>Sub (inplace is discarded)</li>
-<li>Mul (inplace is discarded)</li>
-<li>Negate (inplace is discarded)</li>
-<li>Addmm (inplace is discarded, alpha and beta must be 1)</li>
-<li>Tanh (inplace is discarded)</li>
-<li>Sigmoid (inplace is discarded)</li>
-<li>Transpose</li>
-<li>View</li>
-<li>Permute</li>
-<li>Concat</li>
-<li>Squeeze (inplace is discarded)</li>
+<li>add (nonzero alpha not supported)</li>
+<li>sub (nonzero alpha not supported)</li>
+<li>mul</li>
+<li>div</li>
+<li>cat</li>
+<li>mm</li>
+<li>addmm</li>
+<li>neg</li>
+<li>sqrt</li>
+<li>tanh</li>
+<li>sigmoid</li>
+<li>mean</li>
+<li>sum</li>
+<li>prod</li>
+<li>t</li>
+<li>expand (only when used before a broadcasting ONNX operator; e.g., add)</li>
+<li>transpose</li>
+<li>view</li>
+<li>split</li>
+<li>squeeze</li>
+<li>prelu (single weight shared among input channels not supported)</li>
+<li>threshold (non-zero threshold/non-zero value not supported)</li>
+<li>leaky_relu</li>
+<li>glu</li>
+<li>softmax</li>
+<li>avg_pool2d (ceil_mode not supported)</li>
+<li>log_softmax</li>
+<li>unfold (experimental support with ATen-Caffe2 integration)</li>
+<li>elu</li>
+<li>concat</li>
+<li>abs</li>
+<li>index_select</li>
+<li>pow</li>
+<li>clamp</li>
+<li>max</li>
+<li>min</li>
+<li>eq</li>
+<li>exp</li>
+<li>permute</li>
+<li>Conv</li>
 <li>BatchNorm</li>
-<li>Convolution</li>
-<li>Embedding (only optional argument that is supported is <code class="docutils literal"><span class="pre">padding_idx</span></code>)</li>
-<li>Slice (only integer indexing is supported)</li>
-<li>Dropout (inplace is discarded)</li>
-<li>Relu (inplace is discarded)</li>
-<li>PReLU (inplace is discarded, sharing a single weight among all channels is not supported)</li>
-<li>LeakyRelu (inplace is discarded)</li>
-<li>MaxPool1d (ceil_mode must be False)</li>
-<li>MaxPool2d (ceil_mode must be False)</li>
-<li>AvgPool2d (ceil_mode must be False)</li>
+<li>MaxPool1d (ceil_mode not supported)</li>
+<li>MaxPool2d (ceil_mode not supported)</li>
+<li>MaxPool3d (ceil_mode not supported)</li>
+<li>Embedding (no optional arguments supported)</li>
+<li>RNN</li>
+<li>ConstantPadNd</li>
+<li>Dropout</li>
+<li>FeatureDropout (training mode not supported)</li>
+<li>Index (constant integer and tuple indices supported)</li>
 </ul>
-<p>We plan on expanding support to more operators; RNNs are high on our priority
-list.  The operator set above is sufficient to export the following models:</p>
+<p>The operator set above is sufficient to export the following models:</p>
 <ul class="simple">
 <li>AlexNet</li>
 <li>DCGAN</li>
@@ -771,23 +822,140 @@ list.  The operator set above is sufficient to export the following models:</p>
 <li>Inception (warning: this model is highly sensitive to changes in operator
 implementation)</li>
 <li>ResNet</li>
-<li>SqueezeNet</li>
 <li>SuperResolution</li>
 <li>VGG</li>
 <li><a class="reference external" href="https://github.com/pytorch/examples/tree/master/word_language_model">word_language_model</a></li>
 </ul>
-<p>The interface for specifying operator definitions is highly experimental
-and undocumented; adventurous users should note that the APIs will probably
+<p>Adding export support for operators is an <em>advance usage</em>.
+To achieve this, developers need to touch the source code of PyTorch.
+Please follow the <a class="reference external" href="https://github.com/pytorch/pytorch#from-source">instructions</a>
+for installing PyTorch from source.
+If the wanted operator is standardized in ONNX, it should be easy to add
+support for exporting such operator (adding a symbolic function for the operator).
+To confirm whether the operator is standardized or not, please check the
+<a class="reference external" href="https://github.com/onnx/onnx/blob/master/docs/Operators.md">ONNX operator list</a>.</p>
+<p>If the operator is an ATen operator, which means you can find the declaration
+of the function in <code class="docutils literal"><span class="pre">torch/csrc/autograd/generated/VariableType.h</span></code>
+(available in generated code in PyTorch install dir), you should add the symbolic
+function in <code class="docutils literal"><span class="pre">torch/onnx/symbolic.py</span></code> and follow the instructions listed as below:</p>
+<ul class="simple">
+<li>Define the symbolic function in
+<a class="reference external" href="https://github.com/pytorch/pytorch/blob/master/torch/onnx/symbolic.py">torch/onnx/symbolic.py</a>.
+Make sure the function has the same name as the ATen operator/function
+defined in <code class="docutils literal"><span class="pre">VariableType.h</span></code>.</li>
+<li>The first parameter is always the exported ONNX graph.
+Parameter names must EXACTLY match the names in <code class="docutils literal"><span class="pre">VariableType.h</span></code>,
+because dispatch is done with keyword arguments.</li>
+<li>Parameter ordering does NOT necessarily match what is in <code class="docutils literal"><span class="pre">VariableType.h</span></code>,
+tensors (inputs) are always first, then non-tensor arguments.</li>
+<li>In the symbolic function, if the operator is already standardized in ONNX,
+we only need to create a node to represent the ONNX operator in the graph.</li>
+<li>If the input argument is a tensor, but ONNX asks for a scalar, we have to
+explicitly do the conversion. The helper function <code class="docutils literal"><span class="pre">_scalar</span></code> can convert a
+scalar tensor into a python scalar, and <code class="docutils literal"><span class="pre">_if_scalar_type_as</span></code> can turn a
+Python scalar into a PyTorch tensor.</li>
+</ul>
+<p>If the operator is a non-ATen operator, the symbolic function has to be
+added in the corresponding PyTorch Function class. Please read the following
+instructions:</p>
+<ul class="simple">
+<li>Create a symbolic function named <code class="docutils literal"><span class="pre">symbolic</span></code> in the corresponding Function class.</li>
+<li>The first parameter is always the exported ONNX graph.</li>
+<li>Parameter names except the first must EXACTLY match the names in <code class="docutils literal"><span class="pre">forward</span></code>.</li>
+<li>The output tuple size must match the outputs of <code class="docutils literal"><span class="pre">forward</span></code>.</li>
+<li>In the symbolic function, if the operator is already standardized in ONNX,
+we just need to create a node to represent the ONNX operator in the graph.</li>
+</ul>
+<p>Symbolic functions should be implemented in Python. All of these functions interact
+with Python methods which are implemented via C++-Python bindings,
+but intuitively the interface they provide looks like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">operator</span><span class="o">/</span><span class="n">symbolic</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="o">*</span><span class="n">inputs</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Modifies Graph (e.g., using &quot;op&quot;), adding the ONNX operations representing</span>
+<span class="sd">  this PyTorch function, and returning a Value or tuple of Values specifying the</span>
+<span class="sd">  ONNX outputs whose values correspond to the original PyTorch return values</span>
+<span class="sd">  of the autograd Function (or None if an output is not supported by ONNX).</span>
+
+<span class="sd">  Arguments:</span>
+<span class="sd">    g (Graph): graph to write the ONNX representation into</span>
+<span class="sd">    inputs (Value...): list of values representing the variables which contain</span>
+<span class="sd">        the inputs for this function</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+
+<span class="k">class</span> <span class="nc">Value</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Represents an intermediate tensor value computed in ONNX.&quot;&quot;&quot;</span>
+  <span class="k">def</span> <span class="nf">type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns the Type of the value.&quot;&quot;&quot;</span>
+
+<span class="k">class</span> <span class="nc">Type</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">sizes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns a tuple of ints representing the shape of a tensor this describes.&quot;&quot;&quot;</span>
+
+<span class="k">class</span> <span class="nc">Graph</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">op</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opname</span><span class="p">,</span> <span class="o">*</span><span class="n">inputs</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create an ONNX operator &#39;opname&#39;, taking &#39;args&#39; as inputs</span>
+<span class="sd">    and attributes &#39;kwargs&#39; and add it as a node to the current graph,</span>
+<span class="sd">    returning the value representing the single output of this</span>
+<span class="sd">    operator (see the `outputs` keyword argument for multi-return</span>
+<span class="sd">    nodes).</span>
+
+<span class="sd">    The set of operators and the inputs/attributes they take</span>
+<span class="sd">    is documented at https://github.com/onnx/onnx/blob/master/docs/Operators.md</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        opname (string): The ONNX operator name, e.g., `Abs` or `Add`.</span>
+<span class="sd">        args (Value...): The inputs to the operator; usually provided</span>
+<span class="sd">            as arguments to the `symbolic` definition.</span>
+<span class="sd">        kwargs: The attributes of the ONNX operator, with keys named</span>
+<span class="sd">            according to the following convention: `alpha_f` indicates</span>
+<span class="sd">            the `alpha` attribute with type `f`.  The valid type specifiers are</span>
+<span class="sd">            `f` (float), `i` (int), `s` (string) or `t` (Tensor).  An attribute</span>
+<span class="sd">            specified with type float accepts either a single float, or a</span>
+<span class="sd">            list of floats (e.g., you would say `dims_i` for a `dims` attribute</span>
+<span class="sd">            that takes a list of integers).</span>
+<span class="sd">        outputs (int, optional):  The number of outputs this operator returns;</span>
+<span class="sd">            by default an operator is assumed to return a single output.</span>
+<span class="sd">            If `outputs` is greater than one, this functions returns a tuple</span>
+<span class="sd">            of output `Value`, representing each output of the ONNX operator</span>
+<span class="sd">            in positional.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>The ONNX graph C++ definition is in <code class="docutils literal"><span class="pre">torch/csrc/jit/ir.h</span></code>.</p>
+<p>Here is an example of handling missing symbolic function for <code class="docutils literal"><span class="pre">elu</span></code> operator.
+We try to export the model and see the error message as below:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="ne">UserWarning</span><span class="p">:</span> <span class="n">ONNX</span> <span class="n">export</span> <span class="n">failed</span> <span class="n">on</span> <span class="n">elu</span> <span class="n">because</span> <span class="n">torch</span><span class="o">.</span><span class="n">onnx</span><span class="o">.</span><span class="n">symbolic</span><span class="o">.</span><span class="n">elu</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">exist</span>
+<span class="ne">RuntimeError</span><span class="p">:</span> <span class="n">ONNX</span> <span class="n">export</span> <span class="n">failed</span><span class="p">:</span> <span class="n">Couldn</span><span class="s1">&#39;t export operator elu</span>
+</pre></div>
+</div>
+<p>The export fails because PyTorch does not support exporting <code class="docutils literal"><span class="pre">elu</span></code> operator.
+We find <code class="docutils literal"><span class="pre">virtual</span> <span class="pre">Tensor</span> <span class="pre">elu(const</span> <span class="pre">Tensor</span> <span class="pre">&amp;</span> <span class="pre">input,</span> <span class="pre">Scalar</span> <span class="pre">alpha,</span> <span class="pre">bool</span> <span class="pre">inplace)</span> <span class="pre">const</span> <span class="pre">override;</span></code>
+in <code class="docutils literal"><span class="pre">VariableType.h</span></code>. This means <code class="docutils literal"><span class="pre">elu</span></code> is an ATen operator.
+We check the <a class="reference external" href="http://https://github.com/onnx/onnx/blob/master/docs/Operators.md">ONNX operator list</a>,
+and confirm that <code class="docutils literal"><span class="pre">Elu</span></code> is standardized in ONNX.
+We add the following lines to <code class="docutils literal"><span class="pre">symbolic.py</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">elu</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">g</span><span class="o">.</span><span class="n">op</span><span class="p">(</span><span class="s2">&quot;Elu&quot;</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">alpha_f</span><span class="o">=</span><span class="n">_scalar</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Now PyTorch is able to export <code class="docutils literal"><span class="pre">elu</span></code> operator.</p>
+<p>There are more examples in
+<a class="reference external" href="https://github.com/pytorch/pytorch/blob/master/torch/onnx/symbolic.py">symbolic.py</a>,
+<a class="reference external" href="https://github.com/pytorch/pytorch/blob/99037d627da68cdf53d3d0315deceddfadf03bba/torch/autograd/_functions/tensor.py#L24">tensor.py</a>,
+<a class="reference external" href="https://github.com/pytorch/pytorch/blob/99037d627da68cdf53d3d0315deceddfadf03bba/torch/nn/_functions/padding.py#L8">padding.py</a>.</p>
+<p>The interface for specifying operator definitions is experimental;
+adventurous users should note that the APIs will probably
 change in a future interface.</p>
 </div>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="torch.onnx.export">
-<code class="descclassname">torch.onnx.</code><code class="descname">export</code><span class="sig-paren">(</span><em>model</em>, <em>args</em>, <em>f</em>, <em>export_params=True</em>, <em>verbose=False</em>, <em>training=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/onnx.html#export"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.onnx.export" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">torch.onnx.</code><code class="descname">export</code><span class="sig-paren">(</span><em>model</em>, <em>args</em>, <em>f</em>, <em>export_params=True</em>, <em>verbose=False</em>, <em>training=False</em>, <em>input_names=None</em>, <em>output_names=None</em>, <em>aten=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/onnx.html#export"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.onnx.export" title="Permalink to this definition">¶</a></dt>
 <dd><p>Export a model into ONNX format.  This exporter runs your model
-once in order to get a trace of its execution to be exported; at the
-moment, it does not support dynamic models (e.g., RNNs.)</p>
+once in order to get a trace of its execution to be exported;
+at the moment, it supports a limited set of dynamic models (e.g., RNNs.)</p>
 <p>See also: <span class="xref std std-ref">onnx-export</span></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -816,6 +984,13 @@ description of the trace being exported.</li>
 <li><strong>training</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>default False</em>) – export the model in training mode.  At
 the moment, ONNX is oriented towards exporting models for inference
 only, so you will generally not need to set this to True.</li>
+<li><strong>input_names</strong> (<em>list of strings</em><em>, </em><em>default empty list</em>) – names to assign to the
+input nodes of the graph, in order</li>
+<li><strong>output_names</strong> (<em>list of strings</em><em>, </em><em>default empty list</em>) – names to assign to the
+output nodes of the graph, in order</li>
+<li><strong>aten</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>default False</em>) – export the model in aten mode. If using aten mode,
+all the ops original exported by the functions in symbolic.py are exported
+as ATen ops.</li>
 </ul>
 </td>
 </tr>
@@ -836,7 +1011,7 @@ only, so you will generally not need to set this to True.</li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="torchvision/torchvision.html" class="btn btn-neutral float-right" title="torchvision" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="torchvision/index.html" class="btn btn-neutral float-right" title="torchvision" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="model_zoo.html" class="btn btn-neutral" title="torch.utils.model_zoo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -890,14 +1065,25 @@ only, so you will generally not need to set this to True.</li>
     <script type="text/javascript" src="_static/js/theme.js"></script>
   
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
   </script>
-   
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-90545585-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
 
 </body>
 </html>

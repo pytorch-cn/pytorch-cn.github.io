@@ -53,7 +53,8 @@ layout: default
                     <div class="option-label">CUDA</div>
                     <div class="option-set">
                         <div class="btn">7.5</div>
-                        <div class="btn selected">8.0</div>
+                        <div class="btn selected">8</div>
+                        <div class="btn">9</div>
                         <div class="btn">None</div>
                     </div>
                 </div>
@@ -63,6 +64,9 @@ layout: default
         <div class="command">
             <div class="label">Run this command:</div>
             <div class="text"></div>
+        </div>
+        <div class="title" align="right">
+          <h4><a href="/previous-versions/">Click here for previous versions of PyTorch</a></h4>
         </div>
     </div>
 </section>
@@ -95,7 +99,7 @@ layout: default
         <h3>Companies &amp; Universities developing PyTorch</h3>
         <div class="row">
             <div class="col-sm-3 col-xs-6">
-                <img src="/static/img/logos/facebook.png" class="larger">
+                <img src="/static/img/logos/fbopensource.png" class="larger">
             </div>
             <div class="col-sm-3 col-xs-6">
                 <img src="/static/img/logos/twitter.svg" class="smaller">
@@ -116,7 +120,7 @@ layout: default
                 <img src="/static/img/logos/upmc.jpg">
             </div>
             <div class="col-sm-3 col-xs-6">
-                <img src="/static/img/logos/digital_reasoning.svg">
+                <img src="/static/img/logos/uber.jpg" class="smallerer">
             </div>
             <div class="col-sm-3 col-xs-6">
                 <img src="/static/img/logos/stanford.png">
@@ -136,6 +140,13 @@ layout: default
             <div class="col-sm-3 col-xs-6">
                 <img src="/static/img/logos/ens.jpg" class="smallerer">
             </div>
+            <div class="col-sm-3 col-xs-6">
+              <img src="/static/img/logos/visionlabs.png">
+            </div>
+            <div class="col-sm-3 col-xs-6">
+              <img src="/static/img/logos/digital_reasoning.svg">
+            </div>
+
         </div>
     </div>
 </section>
@@ -150,7 +161,7 @@ layout: default
     (function($, cmdMap) {
         var cmdTxt = $('.command .text');
         var opts = {
-            cuda: '8.0',
+            cuda: '8',
             os: 'linux',
             pm: 'conda',
             python: '3.5'

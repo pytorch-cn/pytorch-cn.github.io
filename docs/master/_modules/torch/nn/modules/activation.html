@@ -5,18 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-90545585-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>torch.nn.modules.activation &mdash; PyTorch master documentation</title>
@@ -36,29 +25,19 @@
   
 
   
-  
     <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
-  
-    <link rel="stylesheet" href="../../../../_static/css/pytorch_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../../search.html"/>
-    <link rel="top" title="PyTorch master documentation" href="../../../../index.html"/>
-        <link rel="up" title="torch" href="../../../torch.html"/> 
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/pytorch_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
 
   
   <script src="../../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -75,7 +54,7 @@
 
           
             
-            <img src="../../../../_static/pytorch-logo-dark.svg" class="logo" />
+            <img src="../../../../_static/pytorch-logo-dark.svg" class="logo" alt="Logo"/>
           
           </a>
 
@@ -83,7 +62,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.2.0+e4701e6 ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.4.0a0+409b1c8 ) &#x25BC</a>
               </div>
             
           
@@ -127,7 +106,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notes/cuda.html">CUDA semantics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../notes/cuda.html#asynchronous-execution">Asynchronous execution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notes/cuda.html#cuda-streams">CUDA streams</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../notes/cuda.html#memory-management">Memory management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../notes/cuda.html#best-practices">Best practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notes/cuda.html#device-agnostic-code">Device-agnostic code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../notes/cuda.html#use-pinned-memory-buffers">Use pinned memory buffers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../notes/cuda.html#use-nn-dataparallel-instead-of-multiprocessing">Use nn.DataParallel instead of multiprocessing</a></li>
 </ul>
@@ -182,6 +167,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../torch.html#pointwise-ops">Pointwise Ops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../torch.html#reduction-ops">Reduction Ops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../torch.html#comparison-ops">Comparison Ops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torch.html#spectral-ops">Spectral Ops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../torch.html#other-operations">Other Operations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../torch.html#blas-and-lapack-operations">BLAS and LAPACK Operations</a></li>
 </ul>
@@ -266,6 +252,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#instancenorm1d"><span class="hidden-section">InstanceNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#instancenorm2d"><span class="hidden-section">InstanceNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#instancenorm3d"><span class="hidden-section">InstanceNorm3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#localresponsenorm"><span class="hidden-section">LocalResponseNorm</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#recurrent-layers">Recurrent layers</a><ul>
@@ -305,7 +292,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#crossentropyloss"><span class="hidden-section">CrossEntropyLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#nllloss"><span class="hidden-section">NLLLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#poissonnllloss"><span class="hidden-section">PoissonNLLLoss</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#nllloss2d"><span class="hidden-section">NLLLoss2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#kldivloss"><span class="hidden-section">KLDivLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#bceloss"><span class="hidden-section">BCELoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#bcewithlogitsloss"><span class="hidden-section">BCEWithLogitsLoss</span></a></li>
@@ -339,15 +325,17 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#packedsequence"><span class="hidden-section">PackedSequence</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pack-padded-sequence"><span class="hidden-section">pack_padded_sequence</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pad-packed-sequence"><span class="hidden-section">pad_packed_sequence</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pad-sequence"><span class="hidden-section">pad_sequence</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pack-sequence"><span class="hidden-section">pack_sequence</span></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../nn.html#torch-nn-functional">torch.nn.functional</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#convolution-functions">Convolution functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id14"><span class="hidden-section">conv1d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id15"><span class="hidden-section">conv2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id16"><span class="hidden-section">conv3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id18"><span class="hidden-section">conv1d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id19"><span class="hidden-section">conv2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id20"><span class="hidden-section">conv3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#conv-transpose1d"><span class="hidden-section">conv_transpose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#conv-transpose2d"><span class="hidden-section">conv_transpose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#conv-transpose3d"><span class="hidden-section">conv_transpose3d</span></a></li>
@@ -373,50 +361,52 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#non-linear-activation-functions">Non-linear activation functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id17"><span class="hidden-section">threshold</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id18"><span class="hidden-section">relu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id19"><span class="hidden-section">hardtanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id20"><span class="hidden-section">relu6</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id21"><span class="hidden-section">elu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id22"><span class="hidden-section">selu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id21"><span class="hidden-section">threshold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id22"><span class="hidden-section">relu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id23"><span class="hidden-section">hardtanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id24"><span class="hidden-section">relu6</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id25"><span class="hidden-section">elu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id26"><span class="hidden-section">selu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#leaky-relu"><span class="hidden-section">leaky_relu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id23"><span class="hidden-section">prelu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id27"><span class="hidden-section">prelu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#rrelu"><span class="hidden-section">rrelu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id24"><span class="hidden-section">logsigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#glu"><span class="hidden-section">glu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id28"><span class="hidden-section">logsigmoid</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#hardshrink"><span class="hidden-section">hardshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id25"><span class="hidden-section">tanhshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id26"><span class="hidden-section">softsign</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id27"><span class="hidden-section">softplus</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id28"><span class="hidden-section">softmin</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id29"><span class="hidden-section">softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id30"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id29"><span class="hidden-section">tanhshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id30"><span class="hidden-section">softsign</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id31"><span class="hidden-section">softplus</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id32"><span class="hidden-section">softmin</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id33"><span class="hidden-section">softmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id34"><span class="hidden-section">softshrink</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id31"><span class="hidden-section">tanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id32"><span class="hidden-section">sigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id35"><span class="hidden-section">tanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id36"><span class="hidden-section">sigmoid</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#normalization-functions">Normalization functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#batch-norm"><span class="hidden-section">batch_norm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#local-response-norm"><span class="hidden-section">local_response_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#normalize"><span class="hidden-section">normalize</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#linear-functions">Linear functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id33"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id37"><span class="hidden-section">linear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id34"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id38"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id35"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id36"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id39"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id40"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#id37">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#id41">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#id38">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#id42">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
@@ -439,7 +429,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#vision-functions">Vision functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pad"><span class="hidden-section">pad</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id40"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id44"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
@@ -475,6 +465,29 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../autograd.html#profiler">Profiler</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../distributions.html">torch.distributions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#distribution"><span class="hidden-section">Distribution</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#bernoulli"><span class="hidden-section">Bernoulli</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#beta"><span class="hidden-section">Beta</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#binomial"><span class="hidden-section">Binomial</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#categorical"><span class="hidden-section">Categorical</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#cauchy"><span class="hidden-section">Cauchy</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#chi2"><span class="hidden-section">Chi2</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#dirichlet"><span class="hidden-section">Dirichlet</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#exponential"><span class="hidden-section">Exponential</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#fishersnedecor"><span class="hidden-section">FisherSnedecor</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#gamma"><span class="hidden-section">Gamma</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#geometric"><span class="hidden-section">Geometric</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#gumbel"><span class="hidden-section">Gumbel</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#laplace"><span class="hidden-section">Laplace</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#normal"><span class="hidden-section">Normal</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#onehotcategorical"><span class="hidden-section">OneHotCategorical</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#pareto"><span class="hidden-section">Pareto</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#studentt"><span class="hidden-section">StudentT</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#uniform"><span class="hidden-section">Uniform</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#module-torch.distributions.kl"><cite>KL Divergence</cite></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../multiprocessing.html">torch.multiprocessing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../multiprocessing.html#strategy-management">Strategy management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../multiprocessing.html#sharing-cuda-tensors">Sharing CUDA tensors</a></li>
@@ -503,6 +516,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../cuda.html#random-number-generator">Random Number Generator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../cuda.html#communication-collectives">Communication collectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../cuda.html#streams-and-events">Streams and events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cuda.html#memory-management">Memory management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../cuda.html#nvidia-tools-extension-nvtx">NVIDIA Tools Extension (NVTX)</a></li>
 </ul>
 </li>
@@ -519,32 +533,44 @@
 </ul>
 <p class="caption"><span class="caption-text">torchvision Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../torchvision/torchvision.html">torchvision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../torchvision/datasets.html">torchvision.datasets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html#mnist">MNIST</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html#coco">COCO</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#captions">Captions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#detection">Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../torchvision/index.html">torchvision</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html">torchvision.datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#mnist">MNIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#fashion-mnist">Fashion-MNIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#emnist">EMNIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#coco">COCO</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../torchvision/datasets.html#captions">Captions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../torchvision/datasets.html#detection">Detection</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html#lsun">LSUN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html#imagefolder">ImageFolder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html#imagenet-12">Imagenet-12</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html#cifar">CIFAR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html#stl10">STL10</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html#svhn">SVHN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html#phototour">PhotoTour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#lsun">LSUN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#imagefolder">ImageFolder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#imagenet-12">Imagenet-12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#cifar">CIFAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#stl10">STL10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#svhn">SVHN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#phototour">PhotoTour</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../torchvision/models.html">torchvision.models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../torchvision/transforms.html">torchvision.transforms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/transforms.html#transforms-on-pil-image">Transforms on PIL.Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/transforms.html#transforms-on-torch-tensor">Transforms on torch.*Tensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/transforms.html#conversion-transforms">Conversion Transforms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/transforms.html#generic-transforms">Generic Transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/models.html">torchvision.models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/models.html#id1">Alexnet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/models.html#id2">VGG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/models.html#id3">ResNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/models.html#id4">SqueezeNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/models.html#id5">DenseNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/models.html#inception-v3">Inception v3</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../torchvision/utils.html">torchvision.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/transforms.html">torchvision.transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/transforms.html#transforms-on-pil-image">Transforms on PIL Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/transforms.html#transforms-on-torch-tensor">Transforms on torch.*Tensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/transforms.html#conversion-transforms">Conversion Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/transforms.html#generic-transforms">Generic Transforms</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/utils.html">torchvision.utils</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -556,7 +582,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../../index.html">PyTorch</a>
@@ -566,7 +592,9 @@
 
       
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -618,7 +646,7 @@
 
 
 <div class="viewcode-block" id="Threshold"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Threshold">[docs]</a><span class="k">class</span> <span class="nc">Threshold</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Thresholds each element of the input Tensor</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Thresholds each element of the input Tensor</span>
 
 <span class="sd">    Threshold is defined as::</span>
 
@@ -628,7 +656,7 @@
 <span class="sd">    Args:</span>
 <span class="sd">        threshold: The value to threshold at</span>
 <span class="sd">        value: The value to replace with</span>
-<span class="sd">        inplace: can optionally do the operation in-place. Default: False</span>
+<span class="sd">        inplace: can optionally do the operation in-place. Default: ``False``</span>
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: :math:`(N, *)` where `*` means, any number of additional</span>
@@ -662,11 +690,11 @@
 
 
 <div class="viewcode-block" id="ReLU"><a class="viewcode-back" href="../../../../nn.html#torch.nn.ReLU">[docs]</a><span class="k">class</span> <span class="nc">ReLU</span><span class="p">(</span><span class="n">Threshold</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies the rectified linear unit function element-wise</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the rectified linear unit function element-wise</span>
 <span class="sd">    :math:`{ReLU}(x)= max(0, x)`</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        inplace: can optionally do the operation in-place. Default: False</span>
+<span class="sd">        inplace: can optionally do the operation in-place. Default: ``False``</span>
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: :math:`(N, *)` where `*` means, any number of additional</span>
@@ -686,7 +714,7 @@
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">inplace_str</span> <span class="o">=</span> <span class="s1">&#39;inplace&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inplace</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; (&#39;</span> \
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;(&#39;</span> \
             <span class="o">+</span> <span class="n">inplace_str</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span></div>
 
 
@@ -703,14 +731,14 @@
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">inplace_str</span> <span class="o">=</span> <span class="s1">&#39;, inplace&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inplace</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; (&#39;</span> \
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;(&#39;</span> \
             <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lower</span><span class="p">)</span> \
             <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">upper</span><span class="p">)</span> \
             <span class="o">+</span> <span class="n">inplace_str</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
 
 
 <div class="viewcode-block" id="Hardtanh"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Hardtanh">[docs]</a><span class="k">class</span> <span class="nc">Hardtanh</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies the HardTanh function element-wise</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the HardTanh function element-wise</span>
 
 <span class="sd">    HardTanh is defined as::</span>
 
@@ -723,7 +751,7 @@
 <span class="sd">    Args:</span>
 <span class="sd">        min_val: minimum value of the linear region range. Default: -1</span>
 <span class="sd">        max_val: maximum value of the linear region range. Default: 1</span>
-<span class="sd">        inplace: can optionally do the operation in-place. Default: False</span>
+<span class="sd">        inplace: can optionally do the operation in-place. Default: ``False``</span>
 
 <span class="sd">    Keyword arguments :attr:`min_value` and :attr:`max_value`</span>
 <span class="sd">    have been deprecated in favor of :attr:`min_val` and :attr:`max_val`</span>
@@ -735,7 +763,7 @@
 
 <span class="sd">    Examples::</span>
 
-<span class="sd">        &gt;&gt;&gt; m = nn.HardTanh(-2, 2)</span>
+<span class="sd">        &gt;&gt;&gt; m = nn.Hardtanh(-2, 2)</span>
 <span class="sd">        &gt;&gt;&gt; input = autograd.Variable(torch.randn(2))</span>
 <span class="sd">        &gt;&gt;&gt; print(input)</span>
 <span class="sd">        &gt;&gt;&gt; print(m(input))</span>
@@ -760,17 +788,17 @@
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">inplace_str</span> <span class="o">=</span> <span class="s1">&#39;, inplace&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inplace</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; (&#39;</span> \
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;(&#39;</span> \
             <span class="o">+</span> <span class="s1">&#39;min_val=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">min_val</span><span class="p">)</span> \
             <span class="o">+</span> <span class="s1">&#39;, max_val=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_val</span><span class="p">)</span> \
             <span class="o">+</span> <span class="n">inplace_str</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span></div>
 
 
 <div class="viewcode-block" id="ReLU6"><a class="viewcode-back" href="../../../../nn.html#torch.nn.ReLU6">[docs]</a><span class="k">class</span> <span class="nc">ReLU6</span><span class="p">(</span><span class="n">Hardtanh</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies the element-wise function :math:`{ReLU6}(x) = min(max(0,x), 6)`</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the element-wise function :math:`{ReLU6}(x) = min(max(0,x), 6)`</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        inplace: can optionally do the operation in-place. Default: False</span>
+<span class="sd">        inplace: can optionally do the operation in-place. Default: ``False``</span>
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: :math:`(N, *)` where `*` means, any number of additional</span>
@@ -790,12 +818,12 @@
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">inplace_str</span> <span class="o">=</span> <span class="s1">&#39;inplace&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inplace</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; (&#39;</span> \
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;(&#39;</span> \
             <span class="o">+</span> <span class="n">inplace_str</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span></div>
 
 
 <div class="viewcode-block" id="Sigmoid"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Sigmoid">[docs]</a><span class="k">class</span> <span class="nc">Sigmoid</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies the element-wise function :math:`f(x) = 1 / ( 1 + exp(-x))`</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the element-wise function :math:`f(x) = \frac{1}{1 + \exp(-x)}`</span>
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: :math:`(N, *)` where `*` means, any number of additional</span>
@@ -814,12 +842,12 @@
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; ()&#39;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;()&#39;</span></div>
 
 
 <div class="viewcode-block" id="Tanh"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Tanh">[docs]</a><span class="k">class</span> <span class="nc">Tanh</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies element-wise,</span>
-<span class="sd">    :math:`f(x) = (exp(x) - exp(-x)) / (exp(x) + exp(-x))`</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies element-wise,</span>
+<span class="sd">    :math:`f(x) = \frac{\exp(x) - \exp(-x)} {\exp(x) + \exp(-x)}`</span>
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: :math:`(N, *)` where `*` means, any number of additional</span>
@@ -838,16 +866,16 @@
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; ()&#39;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;()&#39;</span></div>
 
 
 <div class="viewcode-block" id="ELU"><a class="viewcode-back" href="../../../../nn.html#torch.nn.ELU">[docs]</a><span class="k">class</span> <span class="nc">ELU</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies element-wise,</span>
-<span class="sd">    :math:`f(x) = max(0,x) + min(0, alpha * (exp(x) - 1))`</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies element-wise,</span>
+<span class="sd">    :math:`f(x) = max(0,x) + min(0, alpha * (\exp(x) - 1))`</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        alpha: the alpha value for the ELU formulation. Default: 1.0</span>
-<span class="sd">        inplace: can optionally do the operation in-place. Default: False</span>
+<span class="sd">        inplace: can optionally do the operation in-place. Default: ``False``</span>
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: :math:`(N, *)` where `*` means, any number of additional</span>
@@ -872,13 +900,13 @@
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">inplace_str</span> <span class="o">=</span> <span class="s1">&#39;, inplace&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inplace</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; (&#39;</span> \
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;(&#39;</span> \
             <span class="o">+</span> <span class="s1">&#39;alpha=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">)</span> \
             <span class="o">+</span> <span class="n">inplace_str</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span></div>
 
 
 <div class="viewcode-block" id="SELU"><a class="viewcode-back" href="../../../../nn.html#torch.nn.SELU">[docs]</a><span class="k">class</span> <span class="nc">SELU</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies element-wise,</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies element-wise,</span>
 <span class="sd">    :math:`f(x) = scale * (\max(0,x) + \min(0, alpha * (\exp(x) - 1)))`,</span>
 <span class="sd">    with ``alpha=1.6732632423543772848170429916717`` and</span>
 <span class="sd">    ``scale=1.0507009873554804934193349852946``.</span>
@@ -886,7 +914,7 @@
 <span class="sd">    More details can be found in the paper `Self-Normalizing Neural Networks`_ .</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        inplace (bool, optional): can optionally do the operation in-place. Default: False</span>
+<span class="sd">        inplace (bool, optional): can optionally do the operation in-place. Default: ``False``</span>
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: :math:`(N, *)` where `*` means, any number of additional</span>
@@ -911,12 +939,12 @@
         <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">selu</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inplace</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">inplace_str</span> <span class="o">=</span> <span class="s1">&#39; (inplace)&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inplace</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">inplace_str</span> <span class="o">=</span> <span class="s1">&#39;(inplace)&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inplace</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="n">inplace_str</span></div>
 
 
 <span class="k">class</span> <span class="nc">GLU</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies the gated linear unit function</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the gated linear unit function</span>
 <span class="sd">    :math:`{GLU}(a, b)= a \otimes \sigma(b)` where `a` is the first half of</span>
 <span class="sd">    the input vector and `b` is the second half.</span>
 
@@ -944,11 +972,11 @@
         <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">glu</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> (dim=</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">(dim=</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">Hardshrink</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies the hard shrinkage function element-wise</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the hard shrinkage function element-wise</span>
 <span class="sd">    Hardshrink is defined as::</span>
 <span class="sd">        f(x) = x, if x &gt;  lambda</span>
 <span class="sd">        f(x) = x, if x &lt; -lambda</span>
@@ -978,17 +1006,17 @@
         <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">hardshrink</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lambd</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; (&#39;</span> \
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;(&#39;</span> \
             <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lambd</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
 
 
 <div class="viewcode-block" id="LeakyReLU"><a class="viewcode-back" href="../../../../nn.html#torch.nn.LeakyReLU">[docs]</a><span class="k">class</span> <span class="nc">LeakyReLU</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies element-wise,</span>
-<span class="sd">    :math:`f(x) = max(0, x) + {negative\_slope} * min(0, x)`</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies element-wise,</span>
+<span class="sd">    :math:`f(x) = \max(0, x) + \text{negative\_slope} * \min(0, x)`</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        negative_slope: Controls the angle of the negative slope. Default: 1e-2</span>
-<span class="sd">        inplace: can optionally do the operation in-place. Default: False</span>
+<span class="sd">        inplace: can optionally do the operation in-place. Default: ``False``</span>
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: :math:`(N, *)` where `*` means, any number of additional</span>
@@ -1013,13 +1041,13 @@
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">inplace_str</span> <span class="o">=</span> <span class="s1">&#39;, inplace&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inplace</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; (&#39;</span> \
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;(&#39;</span> \
             <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">negative_slope</span><span class="p">)</span> \
             <span class="o">+</span> <span class="n">inplace_str</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span></div>
 
 
 <div class="viewcode-block" id="LogSigmoid"><a class="viewcode-back" href="../../../../nn.html#torch.nn.LogSigmoid">[docs]</a><span class="k">class</span> <span class="nc">LogSigmoid</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies element-wise :math:`LogSigmoid(x) = log( 1 / (1 + exp(-x_i)))`</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies element-wise :math:`LogSigmoid(x) = \log\left(\frac{ 1 }{ 1 + \exp(-x_i)}\right)`</span>
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: :math:`(N, *)` where `*` means, any number of additional</span>
@@ -1038,11 +1066,11 @@
         <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">logsigmoid</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; ()&#39;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;()&#39;</span></div>
 
 
 <div class="viewcode-block" id="Softplus"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Softplus">[docs]</a><span class="k">class</span> <span class="nc">Softplus</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies element-wise :math:`f(x) = 1/beta * log(1 + exp(beta * x_i))`</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies element-wise :math:`f(x) = \frac{1}{\text{beta}} * \log(1 + \exp(\text{beta} * x_i))`</span>
 
 <span class="sd">    SoftPlus is a smooth approximation to the ReLU function and can be used</span>
 <span class="sd">    to constrain the output of a machine to always be positive.</span>
@@ -1076,13 +1104,13 @@
         <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">softplus</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; (&#39;</span> \
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;(&#39;</span> \
             <span class="o">+</span> <span class="s1">&#39;beta=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">)</span> \
             <span class="o">+</span> <span class="s1">&#39;, threshold=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">threshold</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span></div>
 
 
 <div class="viewcode-block" id="Softshrink"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Softshrink">[docs]</a><span class="k">class</span> <span class="nc">Softshrink</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies the soft shrinkage function elementwise</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the soft shrinkage function elementwise</span>
 
 <span class="sd">    SoftShrinkage operator is defined as::</span>
 
@@ -1113,12 +1141,12 @@
         <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">softshrink</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lambd</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; (&#39;</span> \
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;(&#39;</span> \
             <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lambd</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span></div>
 
 
 <div class="viewcode-block" id="PReLU"><a class="viewcode-back" href="../../../../nn.html#torch.nn.PReLU">[docs]</a><span class="k">class</span> <span class="nc">PReLU</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies element-wise the function</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies element-wise the function</span>
 <span class="sd">    :math:`PReLU(x) = max(0,x) + a * min(0,x)` Here &quot;a&quot; is a learnable</span>
 <span class="sd">    parameter. When called without arguments, nn.PReLU() uses a single</span>
 <span class="sd">    parameter &quot;a&quot; across all input channels. If called with nn.PReLU(nChannels),</span>
@@ -1154,12 +1182,12 @@
         <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">prelu</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; (&#39;</span> \
-            <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_parameters</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;(&#39;</span> \
+            <span class="o">+</span> <span class="s1">&#39;num_parameters=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_parameters</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span></div>
 
 
 <div class="viewcode-block" id="Softsign"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Softsign">[docs]</a><span class="k">class</span> <span class="nc">Softsign</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies element-wise, the function :math:`f(x) = x / (1 + |x|)`</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies element-wise, the function :math:`f(x) = \frac{x}{ 1 + |x|}`</span>
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: :math:`(N, *)` where `*` means, any number of additional</span>
@@ -1178,11 +1206,11 @@
         <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">softsign</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; ()&#39;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;()&#39;</span></div>
 
 
 <div class="viewcode-block" id="Tanhshrink"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Tanhshrink">[docs]</a><span class="k">class</span> <span class="nc">Tanhshrink</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies element-wise, :math:`Tanhshrink(x) = x - Tanh(x)`</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies element-wise, :math:`Tanhshrink(x) = x - Tanh(x)`</span>
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: :math:`(N, *)` where `*` means, any number of additional</span>
@@ -1201,19 +1229,23 @@
         <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">tanhshrink</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; ()&#39;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;()&#39;</span></div>
 
 
 <div class="viewcode-block" id="Softmin"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Softmin">[docs]</a><span class="k">class</span> <span class="nc">Softmin</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies the Softmin function to an n-dimensional input Tensor</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the Softmin function to an n-dimensional input Tensor</span>
 <span class="sd">    rescaling them so that the elements of the n-dimensional output Tensor</span>
 <span class="sd">    lie in the range `(0, 1)` and sum to 1</span>
 
-<span class="sd">    :math:`f(x) = exp(-x_i) / sum_j exp(-x_j)`</span>
+<span class="sd">    :math:`f(x) = \frac{\exp(-x_i)}{\sum_j \exp(-x_j)}`</span>
 
 <span class="sd">    Shape:</span>
-<span class="sd">        - Input: :math:`(N, L)`</span>
-<span class="sd">        - Output: :math:`(N, L)`</span>
+<span class="sd">        - Input: any shape</span>
+<span class="sd">        - Output: same as input</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        dim (int): A dimension along which Softmax will be computed (so every slice</span>
+<span class="sd">            along dim will sum to 1).</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        a Tensor of the same dimension and shape as the input, with</span>
@@ -1226,34 +1258,41 @@
 <span class="sd">        &gt;&gt;&gt; print(input)</span>
 <span class="sd">        &gt;&gt;&gt; print(m(input))</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Softmin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="n">dim</span>
 
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">softmin</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">softmin</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">,</span> <span class="n">_stacklevel</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; ()&#39;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;()&#39;</span></div>
 
 
 <div class="viewcode-block" id="Softmax"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Softmax">[docs]</a><span class="k">class</span> <span class="nc">Softmax</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies the Softmax function to an n-dimensional input Tensor</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the Softmax function to an n-dimensional input Tensor</span>
 <span class="sd">    rescaling them so that the elements of the n-dimensional output Tensor</span>
 <span class="sd">    lie in the range (0,1) and sum to 1</span>
 
 <span class="sd">    Softmax is defined as</span>
-<span class="sd">    :math:`f_i(x) = exp(x_i) / sum_j exp(x_j)`</span>
+<span class="sd">    :math:`f_i(x) = \frac{\exp(x_i)}{\sum_j \exp(x_j)}`</span>
 
 <span class="sd">    Shape:</span>
-<span class="sd">        - Input: :math:`(N, L)`</span>
-<span class="sd">        - Output: :math:`(N, L)`</span>
+<span class="sd">        - Input: any shape</span>
+<span class="sd">        - Output: same as input</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        a Tensor of the same dimension and shape as the input with</span>
 <span class="sd">        values in the range [0, 1]</span>
 
+<span class="sd">    Arguments:</span>
+<span class="sd">        dim (int): A dimension along which Softmax will be computed (so every slice</span>
+<span class="sd">            along dim will sum to 1).</span>
+
 <span class="sd">    .. note::</span>
 <span class="sd">        This module doesn&#39;t work directly with NLLLoss,</span>
 <span class="sd">        which expects the Log to be computed between the Softmax and itself.</span>
-<span class="sd">        Use Logsoftmax instead (it&#39;s faster).</span>
+<span class="sd">        Use Logsoftmax instead (it&#39;s faster and has better numerical properties).</span>
 
 <span class="sd">    Examples::</span>
 
@@ -1263,16 +1302,24 @@
 <span class="sd">        &gt;&gt;&gt; print(m(input))</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Softmax</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="n">dim</span>
+
+    <span class="k">def</span> <span class="nf">__setstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;dim&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="kc">None</span>
+
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="nb">input</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Softmax requires a 2D tensor as input&#39;</span>
-        <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">,</span> <span class="n">_stacklevel</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; ()&#39;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;()&#39;</span></div>
 
 
 <div class="viewcode-block" id="Softmax2d"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Softmax2d">[docs]</a><span class="k">class</span> <span class="nc">Softmax2d</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies SoftMax over features to each spatial location</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies SoftMax over features to each spatial location</span>
 
 <span class="sd">    When given an image of Channels x Height x Width, it will</span>
 
@@ -1297,21 +1344,25 @@
 
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
         <span class="k">assert</span> <span class="nb">input</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Softmax2d requires a 4D tensor as input&#39;</span>
-        <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">_stacklevel</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; ()&#39;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;()&#39;</span></div>
 
 
 <div class="viewcode-block" id="LogSoftmax"><a class="viewcode-back" href="../../../../nn.html#torch.nn.LogSoftmax">[docs]</a><span class="k">class</span> <span class="nc">LogSoftmax</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Applies the Log(Softmax(x)) function to an n-dimensional input Tensor.</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the Log(Softmax(x)) function to an n-dimensional input Tensor.</span>
 <span class="sd">    The LogSoftmax formulation can be simplified as</span>
 
-<span class="sd">    :math:`f_i(x) = log(exp(x_i) / sum_j exp(x_j) )`</span>
+<span class="sd">    :math:`f_i(x) = \log\left(\frac{\exp(x_i) }{ \sum_j \exp(x_j)} \right)`</span>
 
 <span class="sd">    Shape:</span>
-<span class="sd">        - Input: :math:`(N, L)`</span>
-<span class="sd">        - Output: :math:`(N, L)`</span>
+<span class="sd">        - Input: any shape</span>
+<span class="sd">        - Output: same as input</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        dim (int): A dimension along which Softmax will be computed (so every slice</span>
+<span class="sd">            along dim will sum to 1).</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        a Tensor of the same dimension and shape as the input with</span>
@@ -1325,11 +1376,20 @@
 <span class="sd">        &gt;&gt;&gt; print(m(input))</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">LogSoftmax</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="n">dim</span>
+
+    <span class="k">def</span> <span class="nf">__setstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;dim&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="kc">None</span>
+
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">log_softmax</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">log_softmax</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">,</span> <span class="n">_stacklevel</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; ()&#39;</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;()&#39;</span></div>
 </pre></div>
 
            </div>
@@ -1386,14 +1446,25 @@
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
   
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
   </script>
-   
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-90545585-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
 
 </body>
 </html>

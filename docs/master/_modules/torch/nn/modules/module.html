@@ -5,18 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-90545585-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>torch.nn.modules.module &mdash; PyTorch master documentation</title>
@@ -36,29 +25,19 @@
   
 
   
-  
     <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
-  
-    <link rel="stylesheet" href="../../../../_static/css/pytorch_theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../../search.html"/>
-    <link rel="top" title="PyTorch master documentation" href="../../../../index.html"/>
-        <link rel="up" title="torch" href="../../../torch.html"/> 
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/pytorch_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
 
   
   <script src="../../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -75,7 +54,7 @@
 
           
             
-            <img src="../../../../_static/pytorch-logo-dark.svg" class="logo" />
+            <img src="../../../../_static/pytorch-logo-dark.svg" class="logo" alt="Logo"/>
           
           </a>
 
@@ -83,7 +62,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.2.0+e4701e6 ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.4.0a0+409b1c8 ) &#x25BC</a>
               </div>
             
           
@@ -127,7 +106,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notes/cuda.html">CUDA semantics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../notes/cuda.html#asynchronous-execution">Asynchronous execution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notes/cuda.html#cuda-streams">CUDA streams</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../notes/cuda.html#memory-management">Memory management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../notes/cuda.html#best-practices">Best practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notes/cuda.html#device-agnostic-code">Device-agnostic code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../notes/cuda.html#use-pinned-memory-buffers">Use pinned memory buffers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../notes/cuda.html#use-nn-dataparallel-instead-of-multiprocessing">Use nn.DataParallel instead of multiprocessing</a></li>
 </ul>
@@ -182,6 +167,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../torch.html#pointwise-ops">Pointwise Ops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../torch.html#reduction-ops">Reduction Ops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../torch.html#comparison-ops">Comparison Ops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torch.html#spectral-ops">Spectral Ops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../torch.html#other-operations">Other Operations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../torch.html#blas-and-lapack-operations">BLAS and LAPACK Operations</a></li>
 </ul>
@@ -266,6 +252,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#instancenorm1d"><span class="hidden-section">InstanceNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#instancenorm2d"><span class="hidden-section">InstanceNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#instancenorm3d"><span class="hidden-section">InstanceNorm3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#localresponsenorm"><span class="hidden-section">LocalResponseNorm</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#recurrent-layers">Recurrent layers</a><ul>
@@ -305,7 +292,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#crossentropyloss"><span class="hidden-section">CrossEntropyLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#nllloss"><span class="hidden-section">NLLLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#poissonnllloss"><span class="hidden-section">PoissonNLLLoss</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#nllloss2d"><span class="hidden-section">NLLLoss2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#kldivloss"><span class="hidden-section">KLDivLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#bceloss"><span class="hidden-section">BCELoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#bcewithlogitsloss"><span class="hidden-section">BCEWithLogitsLoss</span></a></li>
@@ -339,15 +325,17 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#packedsequence"><span class="hidden-section">PackedSequence</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pack-padded-sequence"><span class="hidden-section">pack_padded_sequence</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pad-packed-sequence"><span class="hidden-section">pad_packed_sequence</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pad-sequence"><span class="hidden-section">pad_sequence</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pack-sequence"><span class="hidden-section">pack_sequence</span></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../nn.html#torch-nn-functional">torch.nn.functional</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#convolution-functions">Convolution functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id14"><span class="hidden-section">conv1d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id15"><span class="hidden-section">conv2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id16"><span class="hidden-section">conv3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id18"><span class="hidden-section">conv1d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id19"><span class="hidden-section">conv2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id20"><span class="hidden-section">conv3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#conv-transpose1d"><span class="hidden-section">conv_transpose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#conv-transpose2d"><span class="hidden-section">conv_transpose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#conv-transpose3d"><span class="hidden-section">conv_transpose3d</span></a></li>
@@ -373,50 +361,52 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#non-linear-activation-functions">Non-linear activation functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id17"><span class="hidden-section">threshold</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id18"><span class="hidden-section">relu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id19"><span class="hidden-section">hardtanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id20"><span class="hidden-section">relu6</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id21"><span class="hidden-section">elu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id22"><span class="hidden-section">selu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id21"><span class="hidden-section">threshold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id22"><span class="hidden-section">relu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id23"><span class="hidden-section">hardtanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id24"><span class="hidden-section">relu6</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id25"><span class="hidden-section">elu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id26"><span class="hidden-section">selu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#leaky-relu"><span class="hidden-section">leaky_relu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id23"><span class="hidden-section">prelu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id27"><span class="hidden-section">prelu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#rrelu"><span class="hidden-section">rrelu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id24"><span class="hidden-section">logsigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#glu"><span class="hidden-section">glu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id28"><span class="hidden-section">logsigmoid</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#hardshrink"><span class="hidden-section">hardshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id25"><span class="hidden-section">tanhshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id26"><span class="hidden-section">softsign</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id27"><span class="hidden-section">softplus</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id28"><span class="hidden-section">softmin</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id29"><span class="hidden-section">softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id30"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id29"><span class="hidden-section">tanhshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id30"><span class="hidden-section">softsign</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id31"><span class="hidden-section">softplus</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id32"><span class="hidden-section">softmin</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id33"><span class="hidden-section">softmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id34"><span class="hidden-section">softshrink</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id31"><span class="hidden-section">tanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id32"><span class="hidden-section">sigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id35"><span class="hidden-section">tanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id36"><span class="hidden-section">sigmoid</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#normalization-functions">Normalization functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#batch-norm"><span class="hidden-section">batch_norm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#local-response-norm"><span class="hidden-section">local_response_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#normalize"><span class="hidden-section">normalize</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#linear-functions">Linear functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id33"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id37"><span class="hidden-section">linear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id34"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id38"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id35"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id36"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id39"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id40"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#id37">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#id41">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#id38">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#id42">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
@@ -439,7 +429,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#vision-functions">Vision functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pad"><span class="hidden-section">pad</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id40"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id44"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
@@ -475,6 +465,29 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../autograd.html#profiler">Profiler</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../distributions.html">torch.distributions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#distribution"><span class="hidden-section">Distribution</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#bernoulli"><span class="hidden-section">Bernoulli</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#beta"><span class="hidden-section">Beta</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#binomial"><span class="hidden-section">Binomial</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#categorical"><span class="hidden-section">Categorical</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#cauchy"><span class="hidden-section">Cauchy</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#chi2"><span class="hidden-section">Chi2</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#dirichlet"><span class="hidden-section">Dirichlet</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#exponential"><span class="hidden-section">Exponential</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#fishersnedecor"><span class="hidden-section">FisherSnedecor</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#gamma"><span class="hidden-section">Gamma</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#geometric"><span class="hidden-section">Geometric</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#gumbel"><span class="hidden-section">Gumbel</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#laplace"><span class="hidden-section">Laplace</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#normal"><span class="hidden-section">Normal</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#onehotcategorical"><span class="hidden-section">OneHotCategorical</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#pareto"><span class="hidden-section">Pareto</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#studentt"><span class="hidden-section">StudentT</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#uniform"><span class="hidden-section">Uniform</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#module-torch.distributions.kl"><cite>KL Divergence</cite></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../multiprocessing.html">torch.multiprocessing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../multiprocessing.html#strategy-management">Strategy management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../multiprocessing.html#sharing-cuda-tensors">Sharing CUDA tensors</a></li>
@@ -503,6 +516,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../cuda.html#random-number-generator">Random Number Generator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../cuda.html#communication-collectives">Communication collectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../cuda.html#streams-and-events">Streams and events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cuda.html#memory-management">Memory management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../cuda.html#nvidia-tools-extension-nvtx">NVIDIA Tools Extension (NVTX)</a></li>
 </ul>
 </li>
@@ -519,32 +533,44 @@
 </ul>
 <p class="caption"><span class="caption-text">torchvision Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../torchvision/torchvision.html">torchvision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../torchvision/datasets.html">torchvision.datasets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html#mnist">MNIST</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html#coco">COCO</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#captions">Captions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#detection">Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../torchvision/index.html">torchvision</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html">torchvision.datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#mnist">MNIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#fashion-mnist">Fashion-MNIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#emnist">EMNIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#coco">COCO</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../torchvision/datasets.html#captions">Captions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../torchvision/datasets.html#detection">Detection</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html#lsun">LSUN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html#imagefolder">ImageFolder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html#imagenet-12">Imagenet-12</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html#cifar">CIFAR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html#stl10">STL10</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html#svhn">SVHN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/datasets.html#phototour">PhotoTour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#lsun">LSUN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#imagefolder">ImageFolder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#imagenet-12">Imagenet-12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#cifar">CIFAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#stl10">STL10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#svhn">SVHN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/datasets.html#phototour">PhotoTour</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../torchvision/models.html">torchvision.models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../torchvision/transforms.html">torchvision.transforms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/transforms.html#transforms-on-pil-image">Transforms on PIL.Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/transforms.html#transforms-on-torch-tensor">Transforms on torch.*Tensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/transforms.html#conversion-transforms">Conversion Transforms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/transforms.html#generic-transforms">Generic Transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/models.html">torchvision.models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/models.html#id1">Alexnet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/models.html#id2">VGG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/models.html#id3">ResNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/models.html#id4">SqueezeNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/models.html#id5">DenseNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/models.html#inception-v3">Inception v3</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../torchvision/utils.html">torchvision.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/transforms.html">torchvision.transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/transforms.html#transforms-on-pil-image">Transforms on PIL Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/transforms.html#transforms-on-torch-tensor">Transforms on torch.*Tensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/transforms.html#conversion-transforms">Conversion Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/transforms.html#generic-transforms">Generic Transforms</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/utils.html">torchvision.utils</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -556,7 +582,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../../index.html">PyTorch</a>
@@ -566,7 +592,9 @@
 
       
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -609,7 +637,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for torch.nn.modules.module</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
+<span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span><span class="p">,</span> <span class="n">Iterable</span>
 <span class="kn">import</span> <span class="nn">functools</span>
 
 <span class="kn">import</span> <span class="nn">torch</span>
@@ -632,7 +660,7 @@
 
 
 <div class="viewcode-block" id="Module"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module">[docs]</a><span class="k">class</span> <span class="nc">Module</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Base class for all neural network modules.</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Base class for all neural network modules.</span>
 
 <span class="sd">    Your models should also subclass this class.</span>
 
@@ -672,6 +700,12 @@
         <span class="sd">&quot;&quot;&quot;Defines the computation performed at every call.</span>
 
 <span class="sd">        Should be overriden by all subclasses.</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">            Although the recipe for forward pass needs to be defined within</span>
+<span class="sd">            this function, one should call the :class:`Module` instance afterwards</span>
+<span class="sd">            instead of this since the former takes care of running the</span>
+<span class="sd">            registered hooks while the latter silently ignores them.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
@@ -683,6 +717,11 @@
 <span class="sd">        is not a parameter, but is part of the persistent state.</span>
 
 <span class="sd">        Buffers can be accessed as attributes using given names.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name (string): name of the buffer. The buffer can be accessed</span>
+<span class="sd">                from this module using the given name</span>
+<span class="sd">            tensor (Tensor): buffer to be registered.</span>
 
 <span class="sd">        Example:</span>
 <span class="sd">            &gt;&gt;&gt; self.register_buffer(&#39;running_mean&#39;, torch.zeros(num_features))</span>
@@ -696,6 +735,11 @@
         <span class="sd">&quot;&quot;&quot;Adds a parameter to the module.</span>
 
 <span class="sd">        The parameter can be accessed as an attribute using given name.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name (string): name of the parameter. The parameter can be accessed</span>
+<span class="sd">                from this module using the given name</span>
+<span class="sd">            parameter (Parameter): parameter to be added to the module.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="s1">&#39;_parameters&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
@@ -723,6 +767,11 @@
         <span class="sd">&quot;&quot;&quot;Adds a child module to the current module.</span>
 
 <span class="sd">        The module can be accessed as an attribute using the given name.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name (string): name of the child module. The child module can be</span>
+<span class="sd">                accessed from this module using the given name</span>
+<span class="sd">            parameter (Module): child module to be added to the module.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">Module</span><span class="p">)</span> <span class="ow">and</span> <span class="n">module</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> is not a Module subclass&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
@@ -754,6 +803,12 @@
 <span class="sd">        as well as self. Typical use includes initializing the parameters of a model</span>
 <span class="sd">        (see also :ref:`torch-nn-init`).</span>
 
+<span class="sd">        Args:</span>
+<span class="sd">            fn (:class:`Module` -&gt; None): function to be applied to each submodule</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Module: self</span>
+
 <span class="sd">        Example:</span>
 <span class="sd">            &gt;&gt;&gt; def init_weights(m):</span>
 <span class="sd">            &gt;&gt;&gt;     print(m)</span>
@@ -783,33 +838,64 @@
         <span class="n">fn</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="Module.cuda"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module.cuda">[docs]</a>    <span class="k">def</span> <span class="nf">cuda</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Module.cuda"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module.cuda">[docs]</a>    <span class="k">def</span> <span class="nf">cuda</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Moves all model parameters and buffers to the GPU.</span>
 
+<span class="sd">        This also makes associated parameters and buffers different objects. So</span>
+<span class="sd">        it should be called before constructing optimizer if the module will</span>
+<span class="sd">        live on GPU while being optimized.</span>
+
 <span class="sd">        Arguments:</span>
-<span class="sd">            device_id (int, optional): if specified, all parameters will be</span>
+<span class="sd">            device (int, optional): if specified, all parameters will be</span>
 <span class="sd">                copied to that device</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Module: self</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">cuda</span><span class="p">(</span><span class="n">device_id</span><span class="p">))</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">cuda</span><span class="p">(</span><span class="n">device</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="Module.cpu"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module.cpu">[docs]</a>    <span class="k">def</span> <span class="nf">cpu</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Moves all model parameters and buffers to the CPU.&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Moves all model parameters and buffers to the CPU.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Module: self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">cpu</span><span class="p">())</span></div>
 
-    <span class="k">def</span> <span class="nf">type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dst_type</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">dst_type</span><span class="p">))</span>
+<div class="viewcode-block" id="Module.type"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module.type">[docs]</a>    <span class="k">def</span> <span class="nf">type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dst_type</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Casts all parameters and buffers to dst_type.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            dst_type (type or string): the desired type</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Module: self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">dst_type</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="Module.float"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module.float">[docs]</a>    <span class="k">def</span> <span class="nf">float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Casts all parameters and buffers to float datatype.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">float</span><span class="p">())</span></div>
+        <span class="sd">&quot;&quot;&quot;Casts all floating point parameters and buffers to float datatype.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Module: self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">float</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="n">torch</span><span class="o">.</span><span class="n">_integer_tensor_classes</span> <span class="k">else</span> <span class="n">t</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Module.double"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module.double">[docs]</a>    <span class="k">def</span> <span class="nf">double</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Casts all parameters and buffers to double datatype.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">double</span><span class="p">())</span></div>
+        <span class="sd">&quot;&quot;&quot;Casts all floating point parameters and buffers to double datatype.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Module: self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">double</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="n">torch</span><span class="o">.</span><span class="n">_integer_tensor_classes</span> <span class="k">else</span> <span class="n">t</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Module.half"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module.half">[docs]</a>    <span class="k">def</span> <span class="nf">half</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Casts all parameters and buffers to half datatype.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">half</span><span class="p">())</span></div>
+        <span class="sd">&quot;&quot;&quot;Casts all floating point parameters and buffers to half datatype.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Module: self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="n">torch</span><span class="o">.</span><span class="n">_integer_tensor_classes</span> <span class="k">else</span> <span class="n">t</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Module.register_backward_hook"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module.register_backward_hook">[docs]</a>    <span class="k">def</span> <span class="nf">register_backward_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hook</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Registers a backward hook on the module.</span>
@@ -825,8 +911,10 @@
 <span class="sd">        input that will be used in place of :attr:`grad_input` in subsequent</span>
 <span class="sd">        computations.</span>
 
-<span class="sd">        This function returns a handle with a method ``handle.remove()``</span>
-<span class="sd">        that removes the hook from the module.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :class:`torch.utils.hooks.RemovableHandle`:</span>
+<span class="sd">                a handle that can be used to remove the added hook by calling</span>
+<span class="sd">                ``handle.remove()``</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">handle</span> <span class="o">=</span> <span class="n">hooks</span><span class="o">.</span><span class="n">RemovableHandle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backward_hooks</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_backward_hooks</span><span class="p">[</span><span class="n">handle</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">hook</span>
@@ -835,39 +923,77 @@
 <div class="viewcode-block" id="Module.register_forward_pre_hook"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module.register_forward_pre_hook">[docs]</a>    <span class="k">def</span> <span class="nf">register_forward_pre_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hook</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Registers a forward pre-hook on the module.</span>
 
-<span class="sd">        The hook will be called before :func:`forward` is invoked.</span>
+<span class="sd">        The hook will be called every time before :func:`forward` is invoked.</span>
 <span class="sd">        It should have the following signature::</span>
 
 <span class="sd">            hook(module, input) -&gt; None</span>
 
 <span class="sd">        The hook should not modify the input.</span>
-<span class="sd">        This function returns a handle with a method ``handle.remove()``</span>
-<span class="sd">        that removes the hook from the module.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :class:`torch.utils.hooks.RemovableHandle`:</span>
+<span class="sd">                a handle that can be used to remove the added hook by calling</span>
+<span class="sd">                ``handle.remove()``</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">handle</span> <span class="o">=</span> <span class="n">hooks</span><span class="o">.</span><span class="n">RemovableHandle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span><span class="p">[</span><span class="n">handle</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">hook</span>
         <span class="k">return</span> <span class="n">handle</span></div>
 
 <div class="viewcode-block" id="Module.register_forward_hook"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module.register_forward_hook">[docs]</a>    <span class="k">def</span> <span class="nf">register_forward_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hook</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Registers a forward hook on the module.</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Registers a forward hook on the module.</span>
 
-<span class="sd">        The hook will be called every time :func:`forward` computes an output.</span>
+<span class="sd">        The hook will be called every time after :func:`forward` has computed an output.</span>
 <span class="sd">        It should have the following signature::</span>
 
 <span class="sd">            hook(module, input, output) -&gt; None</span>
 
 <span class="sd">        The hook should not modify the input or output.</span>
-<span class="sd">        This function returns a handle with a method ``handle.remove()``</span>
-<span class="sd">        that removes the hook from the module.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :class:`torch.utils.hooks.RemovableHandle`:</span>
+<span class="sd">                a handle that can be used to remove the added hook by calling</span>
+<span class="sd">                ``handle.remove()``</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">handle</span> <span class="o">=</span> <span class="n">hooks</span><span class="o">.</span><span class="n">RemovableHandle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span><span class="p">[</span><span class="n">handle</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">hook</span>
         <span class="k">return</span> <span class="n">handle</span></div>
 
+    <span class="k">def</span> <span class="nf">_tracing_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tracing_state</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tracing_state</span><span class="o">.</span><span class="n">_traced_module_stack</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">module</span> <span class="o">=</span> <span class="n">tracing_state</span><span class="o">.</span><span class="n">_traced_module_stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">module</span><span class="o">.</span><span class="n">named_children</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">child</span> <span class="ow">is</span> <span class="bp">self</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">name</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">_slow_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="nb">input</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">input_vars</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">function</span><span class="o">.</span><span class="n">_iter_variables</span><span class="p">(</span><span class="nb">input</span><span class="p">))</span>
+        <span class="n">tracing_state</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">get_tracing_state</span><span class="p">(</span><span class="n">input_vars</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tracing_state</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="o">*</span><span class="nb">input</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">tracing_state</span><span class="p">,</span> <span class="s1">&#39;_traced_module_stack&#39;</span><span class="p">):</span>
+            <span class="n">tracing_state</span><span class="o">.</span><span class="n">_traced_module_stack</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tracing_name</span><span class="p">(</span><span class="n">tracing_state</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+            <span class="n">tracing_state</span><span class="o">.</span><span class="n">push_scope</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">[</span><span class="si">%s</span><span class="s1">]&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tracing_state</span><span class="o">.</span><span class="n">push_scope</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="n">tracing_state</span><span class="o">.</span><span class="n">_traced_module_stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="o">*</span><span class="nb">input</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">tracing_state</span><span class="o">.</span><span class="n">pop_scope</span><span class="p">()</span>
+            <span class="n">tracing_state</span><span class="o">.</span><span class="n">_traced_module_stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">result</span>
+
     <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="nb">input</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">hook</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
             <span class="n">hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">)</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="o">*</span><span class="nb">input</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">_tracing</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_slow_forward</span><span class="p">(</span><span class="o">*</span><span class="nb">input</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="o">*</span><span class="nb">input</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">hook</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
             <span class="n">hook_result</span> <span class="o">=</span> <span class="n">hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">hook_result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -970,8 +1096,22 @@
 <span class="sd">        Both parameters and persistent buffers (e.g. running averages) are</span>
 <span class="sd">        included. Keys are corresponding parameter and buffer names.</span>
 
-<span class="sd">        When keep_vars is true, it returns a Variable for each parameter</span>
+<span class="sd">        When keep_vars is ``True``, it returns a Variable for each parameter</span>
 <span class="sd">        (rather than a Tensor).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            destination (dict, optional):</span>
+<span class="sd">                if not None, the return dictionary is stored into destination.</span>
+<span class="sd">                Default: None</span>
+<span class="sd">            prefix (string, optional): Adds a prefix to the key (name) of every</span>
+<span class="sd">                parameter and buffer in the result dictionary. Default: &#39;&#39;</span>
+<span class="sd">            keep_vars (bool, optional): if ``True``, returns a Variable for each</span>
+<span class="sd">                parameter. If ``False``, returns a Tensor for each parameter.</span>
+<span class="sd">                Default: ``False``</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict:</span>
+<span class="sd">                a dictionary containing a whole state of the module</span>
 
 <span class="sd">        Example:</span>
 <span class="sd">            &gt;&gt;&gt; module.state_dict().keys()</span>
@@ -990,40 +1130,47 @@
                 <span class="n">module</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="n">prefix</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">keep_vars</span><span class="o">=</span><span class="n">keep_vars</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">destination</span></div>
 
-<div class="viewcode-block" id="Module.load_state_dict"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module.load_state_dict">[docs]</a>    <span class="k">def</span> <span class="nf">load_state_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state_dict</span><span class="p">):</span>
+<div class="viewcode-block" id="Module.load_state_dict"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module.load_state_dict">[docs]</a>    <span class="k">def</span> <span class="nf">load_state_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state_dict</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Copies parameters and buffers from :attr:`state_dict` into</span>
-<span class="sd">        this module and its descendants. The keys of :attr:`state_dict` must</span>
-<span class="sd">        exactly match the keys returned by this module&#39;s :func:`state_dict()`</span>
-<span class="sd">        function.</span>
+<span class="sd">        this module and its descendants. If :attr:`strict` is ``True`` then</span>
+<span class="sd">        the keys of :attr:`state_dict` must exactly match the keys returned</span>
+<span class="sd">        by this module&#39;s :func:`state_dict()` function.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            state_dict (dict): A dict containing parameters and</span>
 <span class="sd">                persistent buffers.</span>
+<span class="sd">            strict (bool): Strictly enforce that the keys in :attr:`state_dict`</span>
+<span class="sd">                match the keys returned by this module&#39;s `:func:`state_dict()`</span>
+<span class="sd">                function.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">own_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_dict</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">state_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">own_state</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">own_state</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">Parameter</span><span class="p">):</span>
+                    <span class="c1"># backwards compatibility for serialized parameters</span>
+                    <span class="n">param</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">data</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">own_state</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">copy_</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;While copying the parameter named </span><span class="si">{}</span><span class="s1">, &#39;</span>
+                                       <span class="s1">&#39;whose dimensions in the model are </span><span class="si">{}</span><span class="s1"> and &#39;</span>
+                                       <span class="s1">&#39;whose dimensions in the checkpoint are </span><span class="si">{}</span><span class="s1">.&#39;</span>
+                                       <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">own_state</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">param</span><span class="o">.</span><span class="n">size</span><span class="p">()))</span>
+            <span class="k">elif</span> <span class="n">strict</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;unexpected key &quot;</span><span class="si">{}</span><span class="s1">&quot; in state_dict&#39;</span>
                                <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
-            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">Parameter</span><span class="p">):</span>
-                <span class="c1"># backwards compatibility for serialized parameters</span>
-                <span class="n">param</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">data</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">own_state</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">copy_</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
-            <span class="k">except</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;While copying the parameter named </span><span class="si">{}</span><span class="s1">, whose dimensions in the model are&#39;</span>
-                      <span class="s1">&#39; </span><span class="si">{}</span><span class="s1"> and whose dimensions in the checkpoint are </span><span class="si">{}</span><span class="s1">, ...&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                          <span class="n">name</span><span class="p">,</span> <span class="n">own_state</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">param</span><span class="o">.</span><span class="n">size</span><span class="p">()))</span>
-                <span class="k">raise</span>
-
-        <span class="n">missing</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">own_state</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">state_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">missing</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;missing keys in state_dict: &quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">missing</span><span class="p">))</span></div>
+        <span class="k">if</span> <span class="n">strict</span><span class="p">:</span>
+            <span class="n">missing</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">own_state</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">state_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">missing</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;missing keys in state_dict: &quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">missing</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="Module.parameters"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module.parameters">[docs]</a>    <span class="k">def</span> <span class="nf">parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns an iterator over module parameters.</span>
 
 <span class="sd">        This is typically passed to an optimizer.</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            Parameter: module parameter</span>
 
 <span class="sd">        Example:</span>
 <span class="sd">            &gt;&gt;&gt; for param in model.parameters():</span>
@@ -1037,6 +1184,9 @@
 <div class="viewcode-block" id="Module.named_parameters"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module.named_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">named_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">memo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns an iterator over module parameters, yielding both the</span>
 <span class="sd">        name of the parameter as well as the parameter itself</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            (string, Parameter): Tuple containing the name and parameter</span>
 
 <span class="sd">        Example:</span>
 <span class="sd">            &gt;&gt;&gt; for name, param in self.named_parameters():</span>
@@ -1066,13 +1216,20 @@
                 <span class="k">yield</span> <span class="n">b</span>
 
 <div class="viewcode-block" id="Module.children"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module.children">[docs]</a>    <span class="k">def</span> <span class="nf">children</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Returns an iterator over immediate children modules.&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Returns an iterator over immediate children modules.</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            Module: a child module</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">module</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">named_children</span><span class="p">():</span>
             <span class="k">yield</span> <span class="n">module</span></div>
 
 <div class="viewcode-block" id="Module.named_children"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module.named_children">[docs]</a>    <span class="k">def</span> <span class="nf">named_children</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns an iterator over immediate children modules, yielding both</span>
 <span class="sd">        the name of the module as well as the module itself.</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            (string, Module): Tuple containing a name and child module</span>
 
 <span class="sd">        Example:</span>
 <span class="sd">            &gt;&gt;&gt; for name, module in model.named_children():</span>
@@ -1087,6 +1244,9 @@
 
 <div class="viewcode-block" id="Module.modules"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module.modules">[docs]</a>    <span class="k">def</span> <span class="nf">modules</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns an iterator over all modules in the network.</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            Module: a module in the network</span>
 
 <span class="sd">        Note:</span>
 <span class="sd">            Duplicate modules are returned only once. In the following</span>
@@ -1108,6 +1268,9 @@
 <div class="viewcode-block" id="Module.named_modules"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Module.named_modules">[docs]</a>    <span class="k">def</span> <span class="nf">named_modules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">memo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns an iterator over all modules in the network, yielding</span>
 <span class="sd">        both the name of the module as well as the module itself.</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            (string, Module): Tuple of name and module</span>
 
 <span class="sd">        Note:</span>
 <span class="sd">            Duplicate modules are returned only once. In the following</span>
@@ -1140,6 +1303,9 @@
         <span class="sd">&quot;&quot;&quot;Sets the module in training mode.</span>
 
 <span class="sd">        This has any effect only on modules such as Dropout or BatchNorm.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Module: self</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">training</span> <span class="o">=</span> <span class="n">mode</span>
         <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">():</span>
@@ -1157,17 +1323,14 @@
         <span class="sd">&quot;&quot;&quot;Sets gradients of all model parameters to zero.&quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">grad</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">volatile</span><span class="p">:</span>
-                    <span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">data</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span>
-                    <span class="n">p</span><span class="o">.</span><span class="n">grad</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">new</span><span class="p">()</span><span class="o">.</span><span class="n">resize_as_</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">zero_</span><span class="p">())</span></div>
+                <span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">detach_</span><span class="p">()</span>
+                <span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span></div>
 
     <span class="k">def</span> <span class="nf">share_memory</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">share_memory_</span><span class="p">())</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">tmpstr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39; (</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">tmpstr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;(</span><span class="se">\n</span><span class="s1">&#39;</span>
         <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">module</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modules</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">modstr</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
             <span class="n">modstr</span> <span class="o">=</span> <span class="n">_addindent</span><span class="p">(</span><span class="n">modstr</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -1182,6 +1345,10 @@
         <span class="n">modules</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_modules</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
         <span class="n">buffers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_buffers</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
         <span class="n">keys</span> <span class="o">=</span> <span class="n">module_attrs</span> <span class="o">+</span> <span class="n">attrs</span> <span class="o">+</span> <span class="n">parameters</span> <span class="o">+</span> <span class="n">modules</span> <span class="o">+</span> <span class="n">buffers</span>
+
+        <span class="c1"># Eliminate attrs that are not legal Python variable names</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()]</span>
+
         <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span></div>
 </pre></div>
 
@@ -1239,14 +1406,25 @@
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
   
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
   </script>
-   
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-90545585-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
 
 </body>
 </html>
