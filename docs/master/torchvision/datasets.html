@@ -56,7 +56,7 @@
 
           
             
-            <img src="../_static/pytorch-logo-dark.svg" class="logo" alt="Logo"/>
+            <img src="../_static/pytorch-logo-dark-unstable.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.4.0a0+409b1c8 ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+e6ce1af ) &#x25BC</a>
               </div>
             
           
@@ -83,6 +83,13 @@
 
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
+<div>
+  <a style="color:#F05732" href=http://pytorch.org/docs/stable/>
+    You are viewing unstable developer preview docs.
+    Click here to view docs for latest stable release.
+  </a>
+</div>
+
             
             
               
@@ -92,12 +99,11 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../notes/autograd.html">Autograd mechanics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notes/autograd.html#excluding-subgraphs-from-backward">Excluding subgraphs from backward</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../notes/autograd.html#requires-grad"><code class="docutils literal"><span class="pre">requires_grad</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notes/autograd.html#volatile"><code class="docutils literal"><span class="pre">volatile</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notes/autograd.html#requires-grad"><code class="docutils literal notranslate"><span class="pre">requires_grad</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../notes/autograd.html#how-autograd-encodes-the-history">How autograd encodes the history</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notes/autograd.html#in-place-operations-on-variables">In-place operations on Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notes/autograd.html#in-place-operations-with-autograd">In-place operations with autograd</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notes/autograd.html#in-place-correctness-checks">In-place correctness checks</a></li>
 </ul>
 </li>
@@ -122,12 +128,19 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/extending.html">Extending PyTorch</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notes/extending.html#extending-torch-autograd">Extending <code class="docutils literal"><span class="pre">torch.autograd</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notes/extending.html#extending-torch-nn">Extending <code class="docutils literal"><span class="pre">torch.nn</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../notes/extending.html#adding-a-module">Adding a <code class="docutils literal"><span class="pre">Module</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notes/extending.html#extending-torch-autograd">Extending <code class="docutils literal notranslate"><span class="pre">torch.autograd</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notes/extending.html#extending-torch-nn">Extending <code class="docutils literal notranslate"><span class="pre">torch.nn</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notes/extending.html#adding-a-module">Adding a <code class="docutils literal notranslate"><span class="pre">Module</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../notes/extending.html#writing-custom-c-extensions">Writing custom C extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/faq.html">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notes/faq.html#my-model-reports-cuda-runtime-error-2-out-of-memory">My model reports “cuda runtime error(2): out of memory”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notes/faq.html#my-gpu-memory-isn-t-freed-properly">My GPU memory isn’t freed properly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notes/faq.html#my-data-loader-workers-return-identical-random-numbers">My data loader workers return identical random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notes/faq.html#my-recurrent-network-doesn-t-work-with-data-parallelism">My recurrent network doesn’t work with data parallelism</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/multiprocessing.html">Multiprocessing best practices</a><ul>
@@ -150,6 +163,33 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/windows.html">Windows FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notes/windows.html#building-from-source">Building from source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notes/windows.html#include-optional-components">Include optional components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notes/windows.html#speeding-cuda-build-for-windows">Speeding CUDA build for Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notes/windows.html#one-key-install-script">One key install script</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../notes/windows.html#extension">Extension</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notes/windows.html#cffi-extension">CFFI Extension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notes/windows.html#cpp-extension">Cpp Extension</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../notes/windows.html#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notes/windows.html#package-not-found-in-win-32-channel">Package not found in win-32 channel.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notes/windows.html#why-are-there-no-python-2-packages-for-windows">Why are there no Python 2 packages for Windows?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notes/windows.html#import-error">Import error</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../notes/windows.html#usage-multiprocessing">Usage (multiprocessing)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notes/windows.html#multiprocessing-error-without-if-clause-protection">Multiprocessing error without if-clause protection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notes/windows.html#multiprocessing-error-broken-pipe">Multiprocessing error “Broken pipe”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notes/windows.html#multiprocessing-error-driver-shut-down">Multiprocessing error “driver shut down”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notes/windows.html#cuda-ipc-operations">CUDA IPC operations</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Package Reference</span></p>
 <ul>
@@ -165,6 +205,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../torch.html#serialization">Serialization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../torch.html#parallelism">Parallelism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../torch.html#locally-disabling-gradient-computation">Locally disabling gradient computation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../torch.html#math-operations">Math operations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../torch.html#pointwise-ops">Pointwise Ops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../torch.html#reduction-ops">Reduction Ops</a></li>
@@ -177,7 +218,21 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tensors.html">torch.Tensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor_attributes.html">Tensor Attributes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tensor_attributes.html#torch-dtype">torch.dtype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor_attributes.html#torch-device">torch.device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor_attributes.html#torch-layout">torch.layout</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../sparse.html">torch.sparse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cuda.html">torch.cuda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cuda.html#random-number-generator">Random Number Generator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cuda.html#communication-collectives">Communication collectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cuda.html#streams-and-events">Streams and events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cuda.html#memory-management">Memory management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cuda.html#nvidia-tools-extension-nvtx">NVIDIA Tools Extension (NVTX)</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../storage.html">torch.Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nn.html">torch.nn</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../nn.html#parameters">Parameters</a></li>
@@ -188,7 +243,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#parameterlist"><span class="hidden-section">ParameterList</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../nn.html#convolution-layers">Convolution Layers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nn.html#convolution-layers">Convolution layers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#conv1d"><span class="hidden-section">Conv1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#conv2d"><span class="hidden-section">Conv2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#conv3d"><span class="hidden-section">Conv3d</span></a></li>
@@ -197,7 +252,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#convtranspose3d"><span class="hidden-section">ConvTranspose3d</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../nn.html#pooling-layers">Pooling Layers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nn.html#pooling-layers">Pooling layers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#maxpool1d"><span class="hidden-section">MaxPool1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#maxpool2d"><span class="hidden-section">MaxPool2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#maxpool3d"><span class="hidden-section">MaxPool3d</span></a></li>
@@ -208,6 +263,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#avgpool2d"><span class="hidden-section">AvgPool2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#avgpool3d"><span class="hidden-section">AvgPool3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#fractionalmaxpool2d"><span class="hidden-section">FractionalMaxPool2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#lppool1d"><span class="hidden-section">LPPool1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#lppool2d"><span class="hidden-section">LPPool2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#adaptivemaxpool1d"><span class="hidden-section">AdaptiveMaxPool1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#adaptivemaxpool2d"><span class="hidden-section">AdaptiveMaxPool2d</span></a></li>
@@ -217,30 +273,39 @@
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#adaptiveavgpool3d"><span class="hidden-section">AdaptiveAvgPool3d</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../nn.html#padding-layers">Padding Layers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nn.html#padding-layers">Padding layers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#reflectionpad1d"><span class="hidden-section">ReflectionPad1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#reflectionpad2d"><span class="hidden-section">ReflectionPad2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#replicationpad1d"><span class="hidden-section">ReplicationPad1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#replicationpad2d"><span class="hidden-section">ReplicationPad2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#replicationpad3d"><span class="hidden-section">ReplicationPad3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#zeropad2d"><span class="hidden-section">ZeroPad2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#constantpad1d"><span class="hidden-section">ConstantPad1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#constantpad2d"><span class="hidden-section">ConstantPad2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#constantpad3d"><span class="hidden-section">ConstantPad3d</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../nn.html#non-linear-activations">Non-linear Activations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nn.html#non-linear-activations-weighted-sum-nonlinearity">Non-linear activations (weighted sum, nonlinearity)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#elu"><span class="hidden-section">ELU</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#hardshrink"><span class="hidden-section">Hardshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#hardtanh"><span class="hidden-section">Hardtanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#leakyrelu"><span class="hidden-section">LeakyReLU</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#logsigmoid"><span class="hidden-section">LogSigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#prelu"><span class="hidden-section">PReLU</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#relu"><span class="hidden-section">ReLU</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#relu6"><span class="hidden-section">ReLU6</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#elu"><span class="hidden-section">ELU</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#rrelu"><span class="hidden-section">RReLU</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#selu"><span class="hidden-section">SELU</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#prelu"><span class="hidden-section">PReLU</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#leakyrelu"><span class="hidden-section">LeakyReLU</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#threshold"><span class="hidden-section">Threshold</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#hardtanh"><span class="hidden-section">Hardtanh</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#sigmoid"><span class="hidden-section">Sigmoid</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#tanh"><span class="hidden-section">Tanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#logsigmoid"><span class="hidden-section">LogSigmoid</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#softplus"><span class="hidden-section">Softplus</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#softshrink"><span class="hidden-section">Softshrink</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#softsign"><span class="hidden-section">Softsign</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#tanh"><span class="hidden-section">Tanh</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#tanhshrink"><span class="hidden-section">Tanhshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#threshold"><span class="hidden-section">Threshold</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../nn.html#non-linear-activations-other">Non-linear activations (other)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#softmin"><span class="hidden-section">Softmin</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#softmax"><span class="hidden-section">Softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#softmax2d"><span class="hidden-section">Softmax2d</span></a></li>
@@ -254,6 +319,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#instancenorm1d"><span class="hidden-section">InstanceNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#instancenorm2d"><span class="hidden-section">InstanceNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#instancenorm3d"><span class="hidden-section">InstanceNorm3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#layernorm"><span class="hidden-section">LayerNorm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#localresponsenorm"><span class="hidden-section">LocalResponseNorm</span></a></li>
 </ul>
 </li>
@@ -321,7 +387,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nn.html#utilities">Utilities</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#clip-grad-norm"><span class="hidden-section">clip_grad_norm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#clip-grad-norm"><span class="hidden-section">clip_grad_norm_</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#clip-grad-value"><span class="hidden-section">clip_grad_value_</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#weight-norm"><span class="hidden-section">weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#remove-weight-norm"><span class="hidden-section">remove_weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#packedsequence"><span class="hidden-section">PackedSequence</span></a></li>
@@ -335,9 +402,9 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../nn.html#torch-nn-functional">torch.nn.functional</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../nn.html#convolution-functions">Convolution functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id18"><span class="hidden-section">conv1d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id19"><span class="hidden-section">conv2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id20"><span class="hidden-section">conv3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id20"><span class="hidden-section">conv1d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id21"><span class="hidden-section">conv2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id22"><span class="hidden-section">conv3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#conv-transpose1d"><span class="hidden-section">conv_transpose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#conv-transpose2d"><span class="hidden-section">conv_transpose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#conv-transpose3d"><span class="hidden-section">conv_transpose3d</span></a></li>
@@ -353,6 +420,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#max-unpool1d"><span class="hidden-section">max_unpool1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#max-unpool2d"><span class="hidden-section">max_unpool2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#max-unpool3d"><span class="hidden-section">max_unpool3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#lp-pool1d"><span class="hidden-section">lp_pool1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#lp-pool2d"><span class="hidden-section">lp_pool2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#adaptive-max-pool1d"><span class="hidden-section">adaptive_max_pool1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#adaptive-max-pool2d"><span class="hidden-section">adaptive_max_pool2d</span></a></li>
@@ -363,52 +431,54 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nn.html#non-linear-activation-functions">Non-linear activation functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id21"><span class="hidden-section">threshold</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id22"><span class="hidden-section">relu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id23"><span class="hidden-section">hardtanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id24"><span class="hidden-section">relu6</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id25"><span class="hidden-section">elu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id26"><span class="hidden-section">selu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id23"><span class="hidden-section">threshold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id24"><span class="hidden-section">relu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id25"><span class="hidden-section">hardtanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id26"><span class="hidden-section">relu6</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id27"><span class="hidden-section">elu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id28"><span class="hidden-section">selu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#leaky-relu"><span class="hidden-section">leaky_relu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id27"><span class="hidden-section">prelu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#rrelu"><span class="hidden-section">rrelu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id29"><span class="hidden-section">prelu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id30"><span class="hidden-section">rrelu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#glu"><span class="hidden-section">glu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id28"><span class="hidden-section">logsigmoid</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#hardshrink"><span class="hidden-section">hardshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id29"><span class="hidden-section">tanhshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id30"><span class="hidden-section">softsign</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id31"><span class="hidden-section">softplus</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id32"><span class="hidden-section">softmin</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id33"><span class="hidden-section">softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id34"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id31"><span class="hidden-section">logsigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id32"><span class="hidden-section">hardshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id33"><span class="hidden-section">tanhshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id34"><span class="hidden-section">softsign</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id35"><span class="hidden-section">softplus</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id36"><span class="hidden-section">softmin</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id37"><span class="hidden-section">softmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id38"><span class="hidden-section">softshrink</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id35"><span class="hidden-section">tanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id36"><span class="hidden-section">sigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id39"><span class="hidden-section">tanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id40"><span class="hidden-section">sigmoid</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nn.html#normalization-functions">Normalization functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#batch-norm"><span class="hidden-section">batch_norm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#instance-norm"><span class="hidden-section">instance_norm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#layer-norm"><span class="hidden-section">layer_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#local-response-norm"><span class="hidden-section">local_response_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#normalize"><span class="hidden-section">normalize</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nn.html#linear-functions">Linear functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id37"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id41"><span class="hidden-section">linear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id38"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id42"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id39"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id40"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id43"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id44"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../nn.html#id41">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nn.html#id45">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../nn.html#id42">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nn.html#id46">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
@@ -431,11 +501,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../nn.html#vision-functions">Vision functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#pad"><span class="hidden-section">pad</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nn.html#id44"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#id47"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../nn.html#affine-grid"><span class="hidden-section">affine_grid</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../nn.html#dataparallel-functions-multi-gpu-distributed">DataParallel functions (multi-GPU, distributed)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../nn.html#data-parallel"><span class="hidden-section">data_parallel</span></a></li>
 </ul>
 </li>
 </ul>
@@ -446,8 +520,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../optim.html#constructing-it">Constructing it</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../optim.html#per-parameter-options">Per-parameter options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../optim.html#taking-an-optimization-step">Taking an optimization step</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../optim.html#optimizer-step"><code class="docutils literal"><span class="pre">optimizer.step()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../optim.html#optimizer-step-closure"><code class="docutils literal"><span class="pre">optimizer.step(closure)</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../optim.html#optimizer-step"><code class="docutils literal notranslate"><span class="pre">optimizer.step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../optim.html#optimizer-step-closure"><code class="docutils literal notranslate"><span class="pre">optimizer.step(closure)</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -457,18 +531,22 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../autograd.html">torch.autograd</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../autograd.html#variable">Variable</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../autograd.html#api-compatibility">API compatibility</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../autograd.html#in-place-operations-on-variables">In-place operations on Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../autograd.html#locally-disabling-gradient-computation">Locally disabling gradient computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../autograd.html#in-place-operations-on-tensors">In-place operations on Tensors</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../autograd.html#in-place-correctness-checks">In-place correctness checks</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../autograd.html#variable-deprecated">Variable (deprecated)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../autograd.html#tensor-autograd-functions">Tensor autograd functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../autograd.html#function"><span class="hidden-section">Function</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../autograd.html#profiler">Profiler</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../distributions.html">torch.distributions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../distributions.html#score-function">Score function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributions.html#pathwise-derivative">Pathwise derivative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distributions.html#distribution"><span class="hidden-section">Distribution</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributions.html#exponentialfamily"><span class="hidden-section">ExponentialFamily</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distributions.html#bernoulli"><span class="hidden-section">Bernoulli</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distributions.html#beta"><span class="hidden-section">Beta</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distributions.html#binomial"><span class="hidden-section">Binomial</span></a></li>
@@ -481,21 +559,32 @@
 <li class="toctree-l2"><a class="reference internal" href="../distributions.html#gamma"><span class="hidden-section">Gamma</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distributions.html#geometric"><span class="hidden-section">Geometric</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distributions.html#gumbel"><span class="hidden-section">Gumbel</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributions.html#independent"><span class="hidden-section">Independent</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distributions.html#laplace"><span class="hidden-section">Laplace</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributions.html#lognormal"><span class="hidden-section">LogNormal</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributions.html#multinomial"><span class="hidden-section">Multinomial</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributions.html#multivariatenormal"><span class="hidden-section">MultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distributions.html#normal"><span class="hidden-section">Normal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distributions.html#onehotcategorical"><span class="hidden-section">OneHotCategorical</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distributions.html#pareto"><span class="hidden-section">Pareto</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributions.html#poisson"><span class="hidden-section">Poisson</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributions.html#relaxedbernoulli"><span class="hidden-section">RelaxedBernoulli</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributions.html#relaxedonehotcategorical"><span class="hidden-section">RelaxedOneHotCategorical</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distributions.html#studentt"><span class="hidden-section">StudentT</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributions.html#transformeddistribution"><span class="hidden-section">TransformedDistribution</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distributions.html#uniform"><span class="hidden-section">Uniform</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distributions.html#module-torch.distributions.kl"><cite>KL Divergence</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributions.html#module-torch.distributions.transforms"><cite>Transforms</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributions.html#module-torch.distributions.constraints"><cite>Constraints</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributions.html#module-torch.distributions.constraint_registry"><cite>Constraint Registry</cite></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../multiprocessing.html">torch.multiprocessing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../multiprocessing.html#strategy-management">Strategy management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../multiprocessing.html#sharing-cuda-tensors">Sharing CUDA tensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../multiprocessing.html#sharing-strategies">Sharing strategies</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../multiprocessing.html#file-descriptor-file-descriptor">File descriptor - <code class="docutils literal"><span class="pre">file_descriptor</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../multiprocessing.html#file-system-file-system">File system - <code class="docutils literal"><span class="pre">file_system</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multiprocessing.html#file-descriptor-file-descriptor">File descriptor - <code class="docutils literal notranslate"><span class="pre">file_descriptor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multiprocessing.html#file-system-file-system">File system - <code class="docutils literal notranslate"><span class="pre">file_system</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -511,19 +600,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../distributed.html#groups">Groups</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distributed.html#point-to-point-communication">Point-to-point communication</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distributed.html#collective-functions">Collective functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributed.html#multi-gpu-collective-functions">Multi-GPU collective functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributed.html#launch-utility">Launch utility</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../legacy.html">torch.legacy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cuda.html">torch.cuda</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cuda.html#random-number-generator">Random Number Generator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cuda.html#communication-collectives">Communication collectives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cuda.html#streams-and-events">Streams and events</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cuda.html#memory-management">Memory management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cuda.html#nvidia-tools-extension-nvtx">NVIDIA Tools Extension (NVTX)</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../ffi.html">torch.utils.ffi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bottleneck.html">torch.utils.bottleneck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../checkpoint.html">torch.utils.checkpoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp_extension.html">torch.utils.cpp_extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data.html">torch.utils.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ffi.html">torch.utils.ffi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model_zoo.html">torch.utils.model_zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../onnx.html">torch.onnx</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../onnx.html#example-end-to-end-alexnet-from-pytorch-to-caffe2">Example: End-to-end AlexNet from PyTorch to Caffe2</a></li>
@@ -532,6 +617,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../onnx.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../legacy.html">torch.legacy</a></li>
 </ul>
 <p class="caption"><span class="caption-text">torchvision Reference</span></p>
 <ul class="current">
@@ -547,6 +633,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#lsun">LSUN</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#imagefolder">ImageFolder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datasetfolder">DatasetFolder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#imagenet-12">Imagenet-12</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cifar">CIFAR</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#stl10">STL10</a></li>
@@ -577,6 +664,7 @@
 
             
           
+
         </div>
       </div>
     </nav>
@@ -592,7 +680,6 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
         
         <div class="rst-content">
@@ -642,12 +729,12 @@
             
   <div class="section" id="torchvision-datasets">
 <h1>torchvision.datasets<a class="headerlink" href="#torchvision-datasets" title="Permalink to this headline">¶</a></h1>
-<p>All datasets are subclasses of <a class="reference internal" href="../data.html#torch.utils.data.Dataset" title="torch.utils.data.Dataset"><code class="xref py py-class docutils literal"><span class="pre">torch.utils.data.Dataset</span></code></a>
-i.e, they have <code class="docutils literal"><span class="pre">__getitem__</span></code> and <code class="docutils literal"><span class="pre">__len__</span></code> methods implemented.
-Hence, they can all be passed to a <a class="reference internal" href="../data.html#torch.utils.data.DataLoader" title="torch.utils.data.DataLoader"><code class="xref py py-class docutils literal"><span class="pre">torch.utils.data.DataLoader</span></code></a>
-which can load multiple samples parallelly using <code class="docutils literal"><span class="pre">torch.multiprocessing</span></code> workers.
+<p>All datasets are subclasses of <a class="reference internal" href="../data.html#torch.utils.data.Dataset" title="torch.utils.data.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.utils.data.Dataset</span></code></a>
+i.e, they have <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> and <code class="docutils literal notranslate"><span class="pre">__len__</span></code> methods implemented.
+Hence, they can all be passed to a <a class="reference internal" href="../data.html#torch.utils.data.DataLoader" title="torch.utils.data.DataLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.utils.data.DataLoader</span></code></a>
+which can load multiple samples parallelly using <code class="docutils literal notranslate"><span class="pre">torch.multiprocessing</span></code> workers.
 For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">imagenet_data</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="s1">&#39;path/to/imagenet_root/&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">imagenet_data</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="s1">&#39;path/to/imagenet_root/&#39;</span><span class="p">)</span>
 <span class="n">data_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">imagenet_data</span><span class="p">,</span>
                                           <span class="n">batch_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
                                           <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -668,15 +755,16 @@ For example:</p>
 </li>
 <li><a class="reference internal" href="#lsun" id="id13">LSUN</a></li>
 <li><a class="reference internal" href="#imagefolder" id="id14">ImageFolder</a></li>
-<li><a class="reference internal" href="#imagenet-12" id="id15">Imagenet-12</a></li>
-<li><a class="reference internal" href="#cifar" id="id16">CIFAR</a></li>
-<li><a class="reference internal" href="#stl10" id="id17">STL10</a></li>
-<li><a class="reference internal" href="#svhn" id="id18">SVHN</a></li>
-<li><a class="reference internal" href="#phototour" id="id19">PhotoTour</a></li>
+<li><a class="reference internal" href="#datasetfolder" id="id15">DatasetFolder</a></li>
+<li><a class="reference internal" href="#imagenet-12" id="id16">Imagenet-12</a></li>
+<li><a class="reference internal" href="#cifar" id="id17">CIFAR</a></li>
+<li><a class="reference internal" href="#stl10" id="id18">STL10</a></li>
+<li><a class="reference internal" href="#svhn" id="id19">SVHN</a></li>
+<li><a class="reference internal" href="#phototour" id="id20">PhotoTour</a></li>
 </ul>
 </div>
 <p>All the datasets have almost similar API. They all have two common arguments:
-<code class="docutils literal"><span class="pre">transform</span></code> and  <code class="docutils literal"><span class="pre">target_transform</span></code> to transform the input and target respectively.</p>
+<code class="docutils literal notranslate"><span class="pre">transform</span></code> and  <code class="docutils literal notranslate"><span class="pre">target_transform</span></code> to transform the input and target respectively.</p>
 <div class="section" id="mnist">
 <h2><a class="toc-backref" href="#id7">MNIST</a><a class="headerlink" href="#mnist" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -688,16 +776,16 @@ For example:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>root</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) – Root directory of dataset where <code class="docutils literal"><span class="pre">processed/training.pt</span></code>
-and  <code class="docutils literal"><span class="pre">processed/test.pt</span></code> exist.</li>
-<li><strong>train</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – If True, creates dataset from <code class="docutils literal"><span class="pre">training.pt</span></code>,
-otherwise from <code class="docutils literal"><span class="pre">test.pt</span></code>.</li>
-<li><strong>download</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, downloads the dataset from the internet and
+<li><strong>root</strong> (<em>string</em>) – Root directory of dataset where <code class="docutils literal notranslate"><span class="pre">processed/training.pt</span></code>
+and  <code class="docutils literal notranslate"><span class="pre">processed/test.pt</span></code> exist.</li>
+<li><strong>train</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – If True, creates dataset from <code class="docutils literal notranslate"><span class="pre">training.pt</span></code>,
+otherwise from <code class="docutils literal notranslate"><span class="pre">test.pt</span></code>.</li>
+<li><strong>download</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, downloads the dataset from the internet and
 puts it in root directory. If dataset is already downloaded, it is not
 downloaded again.</li>
-<li><strong>transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
-and returns a transformed version. E.g, <code class="docutils literal"><span class="pre">transforms.RandomCrop</span></code></li>
-<li><strong>target_transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that takes in the
+<li><strong>transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
+and returns a transformed version. E.g, <code class="docutils literal notranslate"><span class="pre">transforms.RandomCrop</span></code></li>
+<li><strong>target_transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that takes in the
 target and transforms it.</li>
 </ul>
 </td>
@@ -718,16 +806,16 @@ target and transforms it.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>root</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) – Root directory of dataset where <code class="docutils literal"><span class="pre">processed/training.pt</span></code>
-and  <code class="docutils literal"><span class="pre">processed/test.pt</span></code> exist.</li>
-<li><strong>train</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – If True, creates dataset from <code class="docutils literal"><span class="pre">training.pt</span></code>,
-otherwise from <code class="docutils literal"><span class="pre">test.pt</span></code>.</li>
-<li><strong>download</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, downloads the dataset from the internet and
+<li><strong>root</strong> (<em>string</em>) – Root directory of dataset where <code class="docutils literal notranslate"><span class="pre">processed/training.pt</span></code>
+and  <code class="docutils literal notranslate"><span class="pre">processed/test.pt</span></code> exist.</li>
+<li><strong>train</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – If True, creates dataset from <code class="docutils literal notranslate"><span class="pre">training.pt</span></code>,
+otherwise from <code class="docutils literal notranslate"><span class="pre">test.pt</span></code>.</li>
+<li><strong>download</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, downloads the dataset from the internet and
 puts it in root directory. If dataset is already downloaded, it is not
 downloaded again.</li>
-<li><strong>transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
-and returns a transformed version. E.g, <code class="docutils literal"><span class="pre">transforms.RandomCrop</span></code></li>
-<li><strong>target_transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that takes in the
+<li><strong>transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
+and returns a transformed version. E.g, <code class="docutils literal notranslate"><span class="pre">transforms.RandomCrop</span></code></li>
+<li><strong>target_transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that takes in the
 target and transforms it.</li>
 </ul>
 </td>
@@ -748,19 +836,19 @@ target and transforms it.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>root</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) – Root directory of dataset where <code class="docutils literal"><span class="pre">processed/training.pt</span></code>
-and  <code class="docutils literal"><span class="pre">processed/test.pt</span></code> exist.</li>
-<li><strong>split</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) – The dataset has 6 different splits: <code class="docutils literal"><span class="pre">byclass</span></code>, <code class="docutils literal"><span class="pre">bymerge</span></code>,
-<code class="docutils literal"><span class="pre">balanced</span></code>, <code class="docutils literal"><span class="pre">letters</span></code>, <code class="docutils literal"><span class="pre">digits</span></code> and <code class="docutils literal"><span class="pre">mnist</span></code>. This argument specifies
+<li><strong>root</strong> (<em>string</em>) – Root directory of dataset where <code class="docutils literal notranslate"><span class="pre">processed/training.pt</span></code>
+and  <code class="docutils literal notranslate"><span class="pre">processed/test.pt</span></code> exist.</li>
+<li><strong>split</strong> (<em>string</em>) – The dataset has 6 different splits: <code class="docutils literal notranslate"><span class="pre">byclass</span></code>, <code class="docutils literal notranslate"><span class="pre">bymerge</span></code>,
+<code class="docutils literal notranslate"><span class="pre">balanced</span></code>, <code class="docutils literal notranslate"><span class="pre">letters</span></code>, <code class="docutils literal notranslate"><span class="pre">digits</span></code> and <code class="docutils literal notranslate"><span class="pre">mnist</span></code>. This argument specifies
 which one to use.</li>
-<li><strong>train</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – If True, creates dataset from <code class="docutils literal"><span class="pre">training.pt</span></code>,
-otherwise from <code class="docutils literal"><span class="pre">test.pt</span></code>.</li>
-<li><strong>download</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, downloads the dataset from the internet and
+<li><strong>train</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – If True, creates dataset from <code class="docutils literal notranslate"><span class="pre">training.pt</span></code>,
+otherwise from <code class="docutils literal notranslate"><span class="pre">test.pt</span></code>.</li>
+<li><strong>download</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, downloads the dataset from the internet and
 puts it in root directory. If dataset is already downloaded, it is not
 downloaded again.</li>
-<li><strong>transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
-and returns a transformed version. E.g, <code class="docutils literal"><span class="pre">transforms.RandomCrop</span></code></li>
-<li><strong>target_transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that takes in the
+<li><strong>transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
+and returns a transformed version. E.g, <code class="docutils literal notranslate"><span class="pre">transforms.RandomCrop</span></code></li>
+<li><strong>target_transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that takes in the
 target and transforms it.</li>
 </ul>
 </td>
@@ -787,11 +875,11 @@ target and transforms it.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>root</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) – Root directory where images are downloaded to.</li>
-<li><strong>annFile</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) – Path to json annotation file.</li>
-<li><strong>transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
-and returns a transformed version. E.g, <code class="docutils literal"><span class="pre">transforms.ToTensor</span></code></li>
-<li><strong>target_transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that takes in the
+<li><strong>root</strong> (<em>string</em>) – Root directory where images are downloaded to.</li>
+<li><strong>annFile</strong> (<em>string</em>) – Path to json annotation file.</li>
+<li><strong>transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
+and returns a transformed version. E.g, <code class="docutils literal notranslate"><span class="pre">transforms.ToTensor</span></code></li>
+<li><strong>target_transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that takes in the
 target and transforms it.</li>
 </ul>
 </td>
@@ -799,7 +887,7 @@ target and transforms it.</li>
 </tbody>
 </table>
 <p class="rubric">Example</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torchvision.datasets</span> <span class="k">as</span> <span class="nn">dset</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torchvision.datasets</span> <span class="k">as</span> <span class="nn">dset</span>
 <span class="kn">import</span> <span class="nn">torchvision.transforms</span> <span class="k">as</span> <span class="nn">transforms</span>
 <span class="n">cap</span> <span class="o">=</span> <span class="n">dset</span><span class="o">.</span><span class="n">CocoCaptions</span><span class="p">(</span><span class="n">root</span> <span class="o">=</span> <span class="s1">&#39;dir where images are&#39;</span><span class="p">,</span>
                         <span class="n">annFile</span> <span class="o">=</span> <span class="s1">&#39;json annotation file&#39;</span><span class="p">,</span>
@@ -813,7 +901,7 @@ target and transforms it.</li>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Number</span> <span class="n">of</span> <span class="n">samples</span><span class="p">:</span> <span class="mi">82783</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Number</span> <span class="n">of</span> <span class="n">samples</span><span class="p">:</span> <span class="mi">82783</span>
 <span class="n">Image</span> <span class="n">Size</span><span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="n">L</span><span class="p">,</span> <span class="mi">427</span><span class="n">L</span><span class="p">,</span> <span class="mi">640</span><span class="n">L</span><span class="p">)</span>
 <span class="p">[</span><span class="sa">u</span><span class="s1">&#39;A plane emitting smoke stream flying over a mountain.&#39;</span><span class="p">,</span>
 <span class="sa">u</span><span class="s1">&#39;A plane darts across a bright blue sky behind a mountain covered in snow&#39;</span><span class="p">,</span>
@@ -829,11 +917,11 @@ target and transforms it.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – Index</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Index</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Tuple (image, target). target is a list of captions for the image.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.6)">tuple</a></td>
 </tr>
 </tbody>
 </table>
@@ -853,11 +941,11 @@ target and transforms it.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>root</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) – Root directory where images are downloaded to.</li>
-<li><strong>annFile</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) – Path to json annotation file.</li>
-<li><strong>transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
-and returns a transformed version. E.g, <code class="docutils literal"><span class="pre">transforms.ToTensor</span></code></li>
-<li><strong>target_transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that takes in the
+<li><strong>root</strong> (<em>string</em>) – Root directory where images are downloaded to.</li>
+<li><strong>annFile</strong> (<em>string</em>) – Path to json annotation file.</li>
+<li><strong>transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
+and returns a transformed version. E.g, <code class="docutils literal notranslate"><span class="pre">transforms.ToTensor</span></code></li>
+<li><strong>target_transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that takes in the
 target and transforms it.</li>
 </ul>
 </td>
@@ -871,11 +959,11 @@ target and transforms it.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – Index</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Index</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Tuple (image, target). target is the object returned by <code class="docutils literal"><span class="pre">coco.loadAnns</span></code>.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Tuple (image, target). target is the object returned by <code class="docutils literal notranslate"><span class="pre">coco.loadAnns</span></code>.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.6)">tuple</a></td>
 </tr>
 </tbody>
 </table>
@@ -889,19 +977,19 @@ target and transforms it.</li>
 <h2><a class="toc-backref" href="#id13">LSUN</a><a class="headerlink" href="#lsun" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="torchvision.datasets.LSUN">
-<em class="property">class </em><code class="descclassname">torchvision.datasets.</code><code class="descname">LSUN</code><span class="sig-paren">(</span><em>db_path</em>, <em>classes='train'</em>, <em>transform=None</em>, <em>target_transform=None</em><span class="sig-paren">)</span><a class="headerlink" href="#torchvision.datasets.LSUN" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">torchvision.datasets.</code><code class="descname">LSUN</code><span class="sig-paren">(</span><em>root</em>, <em>classes='train'</em>, <em>transform=None</em>, <em>target_transform=None</em><span class="sig-paren">)</span><a class="headerlink" href="#torchvision.datasets.LSUN" title="Permalink to this definition">¶</a></dt>
 <dd><p><a class="reference external" href="http://lsun.cs.princeton.edu">LSUN</a> dataset.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>db_path</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) – Root directory for the database files.</li>
-<li><strong>classes</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a><em> or </em><em>list</em>) – One of {‘train’, ‘val’, ‘test’} or a list of
+<li><strong>root</strong> (<em>string</em>) – Root directory for the database files.</li>
+<li><strong>classes</strong> (<em>string</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a>) – One of {‘train’, ‘val’, ‘test’} or a list of
 categories to load. e,g. [‘bedroom_train’, ‘church_train’].</li>
-<li><strong>transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
-and returns a transformed version. E.g, <code class="docutils literal"><span class="pre">transforms.RandomCrop</span></code></li>
-<li><strong>target_transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that takes in the
+<li><strong>transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
+and returns a transformed version. E.g, <code class="docutils literal notranslate"><span class="pre">transforms.RandomCrop</span></code></li>
+<li><strong>target_transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that takes in the
 target and transforms it.</li>
 </ul>
 </td>
@@ -915,11 +1003,11 @@ target and transforms it.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – Index</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Index</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Tuple (image, target) where target is the index of the target category.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.6)">tuple</a></td>
 </tr>
 </tbody>
 </table>
@@ -934,7 +1022,7 @@ target and transforms it.</li>
 <dt id="torchvision.datasets.ImageFolder">
 <em class="property">class </em><code class="descclassname">torchvision.datasets.</code><code class="descname">ImageFolder</code><span class="sig-paren">(</span><em>root</em>, <em>transform=None</em>, <em>target_transform=None</em>, <em>loader=&lt;function default_loader&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#torchvision.datasets.ImageFolder" title="Permalink to this definition">¶</a></dt>
 <dd><p>A generic data loader where the images are arranged in this way:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">root</span><span class="o">/</span><span class="n">dog</span><span class="o">/</span><span class="n">xxx</span><span class="o">.</span><span class="n">png</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="o">/</span><span class="n">dog</span><span class="o">/</span><span class="n">xxx</span><span class="o">.</span><span class="n">png</span>
 <span class="n">root</span><span class="o">/</span><span class="n">dog</span><span class="o">/</span><span class="n">xxy</span><span class="o">.</span><span class="n">png</span>
 <span class="n">root</span><span class="o">/</span><span class="n">dog</span><span class="o">/</span><span class="n">xxz</span><span class="o">.</span><span class="n">png</span>
 
@@ -948,10 +1036,10 @@ target and transforms it.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>root</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) – Root directory path.</li>
-<li><strong>transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
-and returns a transformed version. E.g, <code class="docutils literal"><span class="pre">transforms.RandomCrop</span></code></li>
-<li><strong>target_transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that takes in the
+<li><strong>root</strong> (<em>string</em>) – Root directory path.</li>
+<li><strong>transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
+and returns a transformed version. E.g, <code class="docutils literal notranslate"><span class="pre">transforms.RandomCrop</span></code></li>
+<li><strong>target_transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that takes in the
 target and transforms it.</li>
 <li><strong>loader</strong> – A function to load an image given its path.</li>
 </ul>
@@ -966,11 +1054,64 @@ target and transforms it.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – Index</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Index</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">(image, target) where target is class_index of the target class.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">(sample, target) where target is class_index of the target class.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.6)">tuple</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="datasetfolder">
+<h2><a class="toc-backref" href="#id15">DatasetFolder</a><a class="headerlink" href="#datasetfolder" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="torchvision.datasets.DatasetFolder">
+<em class="property">class </em><code class="descclassname">torchvision.datasets.</code><code class="descname">DatasetFolder</code><span class="sig-paren">(</span><em>root</em>, <em>loader</em>, <em>extensions</em>, <em>transform=None</em>, <em>target_transform=None</em><span class="sig-paren">)</span><a class="headerlink" href="#torchvision.datasets.DatasetFolder" title="Permalink to this definition">¶</a></dt>
+<dd><p>A generic data loader where the samples are arranged in this way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="o">/</span><span class="n">class_x</span><span class="o">/</span><span class="n">xxx</span><span class="o">.</span><span class="n">ext</span>
+<span class="n">root</span><span class="o">/</span><span class="n">class_x</span><span class="o">/</span><span class="n">xxy</span><span class="o">.</span><span class="n">ext</span>
+<span class="n">root</span><span class="o">/</span><span class="n">class_x</span><span class="o">/</span><span class="n">xxz</span><span class="o">.</span><span class="n">ext</span>
+
+<span class="n">root</span><span class="o">/</span><span class="n">class_y</span><span class="o">/</span><span class="mf">123.</span><span class="n">ext</span>
+<span class="n">root</span><span class="o">/</span><span class="n">class_y</span><span class="o">/</span><span class="n">nsdf3</span><span class="o">.</span><span class="n">ext</span>
+<span class="n">root</span><span class="o">/</span><span class="n">class_y</span><span class="o">/</span><span class="n">asd932_</span><span class="o">.</span><span class="n">ext</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>root</strong> (<em>string</em>) – Root directory path.</li>
+<li><strong>loader</strong> (<em>callable</em>) – A function to load a sample given its path.</li>
+<li><strong>extensions</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a><em>[</em><em>string</em><em>]</em>) – A list of allowed extensions.</li>
+<li><strong>transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that takes in
+a sample and returns a transformed version.
+E.g, <code class="docutils literal notranslate"><span class="pre">transforms.RandomCrop</span></code> for images.</li>
+<li><strong>target_transform</strong> – A function/transform that takes
+in the target and transforms it.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="torchvision.datasets.DatasetFolder.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#torchvision.datasets.DatasetFolder.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Index</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">(sample, target) where target is class_index of the target class.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.6)">tuple</a></td>
 </tr>
 </tbody>
 </table>
@@ -980,15 +1121,15 @@ target and transforms it.</li>
 
 </div>
 <div class="section" id="imagenet-12">
-<h2><a class="toc-backref" href="#id15">Imagenet-12</a><a class="headerlink" href="#imagenet-12" title="Permalink to this headline">¶</a></h2>
-<p>This should simply be implemented with an <code class="docutils literal"><span class="pre">ImageFolder</span></code> dataset.
+<h2><a class="toc-backref" href="#id16">Imagenet-12</a><a class="headerlink" href="#imagenet-12" title="Permalink to this headline">¶</a></h2>
+<p>This should simply be implemented with an <code class="docutils literal notranslate"><span class="pre">ImageFolder</span></code> dataset.
 The data is preprocessed <a class="reference external" href="https://github.com/facebook/fb.resnet.torch/blob/master/INSTALL.md#download-the-imagenet-dataset">as described
 here</a></p>
-<p><a class="reference external" href="https://github.com/pytorch/examples/blob/27e2a46c1d1505324032b1d94fc6ce24d5b67e97/imagenet/main.py#L48-L62">Here is an
+<p><a class="reference external" href="https://github.com/pytorch/examples/blob/e0d33a69bec3eb4096c265451dbb85975eb961ea/imagenet/main.py#L113-L126">Here is an
 example</a>.</p>
 </div>
 <div class="section" id="cifar">
-<h2><a class="toc-backref" href="#id16">CIFAR</a><a class="headerlink" href="#cifar" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id17">CIFAR</a><a class="headerlink" href="#cifar" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="torchvision.datasets.CIFAR10">
 <em class="property">class </em><code class="descclassname">torchvision.datasets.</code><code class="descname">CIFAR10</code><span class="sig-paren">(</span><em>root</em>, <em>train=True</em>, <em>transform=None</em>, <em>target_transform=None</em>, <em>download=False</em><span class="sig-paren">)</span><a class="headerlink" href="#torchvision.datasets.CIFAR10" title="Permalink to this definition">¶</a></dt>
@@ -998,15 +1139,15 @@ example</a>.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>root</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) – Root directory of dataset where directory
-<code class="docutils literal"><span class="pre">cifar-10-batches-py</span></code> exists.</li>
-<li><strong>train</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – If True, creates dataset from training set, otherwise
+<li><strong>root</strong> (<em>string</em>) – Root directory of dataset where directory
+<code class="docutils literal notranslate"><span class="pre">cifar-10-batches-py</span></code> exists or will be saved to if download is set to True.</li>
+<li><strong>train</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – If True, creates dataset from training set, otherwise
 creates from test set.</li>
-<li><strong>transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
-and returns a transformed version. E.g, <code class="docutils literal"><span class="pre">transforms.RandomCrop</span></code></li>
-<li><strong>target_transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that takes in the
+<li><strong>transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
+and returns a transformed version. E.g, <code class="docutils literal notranslate"><span class="pre">transforms.RandomCrop</span></code></li>
+<li><strong>target_transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that takes in the
 target and transforms it.</li>
-<li><strong>download</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, downloads the dataset from the internet and
+<li><strong>download</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, downloads the dataset from the internet and
 puts it in root directory. If dataset is already downloaded, it is not
 downloaded again.</li>
 </ul>
@@ -1021,11 +1162,11 @@ downloaded again.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – Index</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Index</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">(image, target) where target is index of the target class.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.6)">tuple</a></td>
 </tr>
 </tbody>
 </table>
@@ -1042,7 +1183,7 @@ downloaded again.</li>
 
 </div>
 <div class="section" id="stl10">
-<h2><a class="toc-backref" href="#id17">STL10</a><a class="headerlink" href="#stl10" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id18">STL10</a><a class="headerlink" href="#stl10" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="torchvision.datasets.STL10">
 <em class="property">class </em><code class="descclassname">torchvision.datasets.</code><code class="descname">STL10</code><span class="sig-paren">(</span><em>root</em>, <em>split='train'</em>, <em>transform=None</em>, <em>target_transform=None</em>, <em>download=False</em><span class="sig-paren">)</span><a class="headerlink" href="#torchvision.datasets.STL10" title="Permalink to this definition">¶</a></dt>
@@ -1052,15 +1193,15 @@ downloaded again.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>root</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) – Root directory of dataset where directory
-<code class="docutils literal"><span class="pre">stl10_binary</span></code> exists.</li>
-<li><strong>split</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) – One of {‘train’, ‘test’, ‘unlabeled’, ‘train+unlabeled’}.
+<li><strong>root</strong> (<em>string</em>) – Root directory of dataset where directory
+<code class="docutils literal notranslate"><span class="pre">stl10_binary</span></code> exists.</li>
+<li><strong>split</strong> (<em>string</em>) – One of {‘train’, ‘test’, ‘unlabeled’, ‘train+unlabeled’}.
 Accordingly dataset is selected.</li>
-<li><strong>transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
-and returns a transformed version. E.g, <code class="docutils literal"><span class="pre">transforms.RandomCrop</span></code></li>
-<li><strong>target_transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that takes in the
+<li><strong>transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
+and returns a transformed version. E.g, <code class="docutils literal notranslate"><span class="pre">transforms.RandomCrop</span></code></li>
+<li><strong>target_transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that takes in the
 target and transforms it.</li>
-<li><strong>download</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, downloads the dataset from the internet and
+<li><strong>download</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, downloads the dataset from the internet and
 puts it in root directory. If dataset is already downloaded, it is not
 downloaded again.</li>
 </ul>
@@ -1075,11 +1216,11 @@ downloaded again.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – Index</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Index</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">(image, target) where target is index of the target class.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.6)">tuple</a></td>
 </tr>
 </tbody>
 </table>
@@ -1089,7 +1230,7 @@ downloaded again.</li>
 
 </div>
 <div class="section" id="svhn">
-<h2><a class="toc-backref" href="#id18">SVHN</a><a class="headerlink" href="#svhn" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">SVHN</a><a class="headerlink" href="#svhn" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="torchvision.datasets.SVHN">
 <em class="property">class </em><code class="descclassname">torchvision.datasets.</code><code class="descname">SVHN</code><span class="sig-paren">(</span><em>root</em>, <em>split='train'</em>, <em>transform=None</em>, <em>target_transform=None</em>, <em>download=False</em><span class="sig-paren">)</span><a class="headerlink" href="#torchvision.datasets.SVHN" title="Permalink to this definition">¶</a></dt>
@@ -1102,15 +1243,15 @@ expect the class labels to be in the range <cite>[0, C-1]</cite></p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>root</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) – Root directory of dataset where directory
-<code class="docutils literal"><span class="pre">SVHN</span></code> exists.</li>
-<li><strong>split</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) – One of {‘train’, ‘test’, ‘extra’}.
+<li><strong>root</strong> (<em>string</em>) – Root directory of dataset where directory
+<code class="docutils literal notranslate"><span class="pre">SVHN</span></code> exists.</li>
+<li><strong>split</strong> (<em>string</em>) – One of {‘train’, ‘test’, ‘extra’}.
 Accordingly dataset is selected. ‘extra’ is Extra training set.</li>
-<li><strong>transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
-and returns a transformed version. E.g, <code class="docutils literal"><span class="pre">transforms.RandomCrop</span></code></li>
-<li><strong>target_transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that takes in the
+<li><strong>transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
+and returns a transformed version. E.g, <code class="docutils literal notranslate"><span class="pre">transforms.RandomCrop</span></code></li>
+<li><strong>target_transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that takes in the
 target and transforms it.</li>
-<li><strong>download</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, downloads the dataset from the internet and
+<li><strong>download</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, downloads the dataset from the internet and
 puts it in root directory. If dataset is already downloaded, it is not
 downloaded again.</li>
 </ul>
@@ -1125,11 +1266,11 @@ downloaded again.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – Index</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Index</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">(image, target) where target is index of the target class.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.6)">tuple</a></td>
 </tr>
 </tbody>
 </table>
@@ -1139,7 +1280,7 @@ downloaded again.</li>
 
 </div>
 <div class="section" id="phototour">
-<h2><a class="toc-backref" href="#id19">PhotoTour</a><a class="headerlink" href="#phototour" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id20">PhotoTour</a><a class="headerlink" href="#phototour" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="torchvision.datasets.PhotoTour">
 <em class="property">class </em><code class="descclassname">torchvision.datasets.</code><code class="descname">PhotoTour</code><span class="sig-paren">(</span><em>root</em>, <em>name</em>, <em>train=True</em>, <em>transform=None</em>, <em>download=False</em><span class="sig-paren">)</span><a class="headerlink" href="#torchvision.datasets.PhotoTour" title="Permalink to this definition">¶</a></dt>
@@ -1149,11 +1290,11 @@ downloaded again.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>root</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) – Root directory where images are.</li>
-<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) – Name of the dataset to load.</li>
-<li><strong>transform</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#callable" title="(in Python v2.7)"><em>callable</em></a><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
+<li><strong>root</strong> (<em>string</em>) – Root directory where images are.</li>
+<li><strong>name</strong> (<em>string</em>) – Name of the dataset to load.</li>
+<li><strong>transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – A function/transform that  takes in an PIL image
 and returns a transformed version.</li>
-<li><strong>download</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, downloads the dataset from the internet and
+<li><strong>download</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, downloads the dataset from the internet and
 puts it in root directory. If dataset is already downloaded, it is not
 downloaded again.</li>
 </ul>
@@ -1168,11 +1309,11 @@ downloaded again.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – Index</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Index</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">(data1, data2, matches)</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.6)">tuple</a></td>
 </tr>
 </tbody>
 </table>
@@ -1185,9 +1326,7 @@ downloaded again.</li>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -1205,11 +1344,11 @@ downloaded again.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Torch Contributors.
+        &copy; Copyright 2018, Torch Contributors.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 

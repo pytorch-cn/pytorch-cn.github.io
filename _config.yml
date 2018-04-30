@@ -9,11 +9,10 @@ sass:
     sass_dir: _sass # default
     style: compressed
 safe: true
-highlighter: rouge
-markdown: kramdown
 future: true
 include:
     - _static
+    - _images
     - _modules
     - _sources
     - _tensor_str.html
@@ -30,3 +29,14 @@ exclude:
 
 plugins:
   - jekyll-feed
+
+highlighter: rouge
+markdown: kramdown
+kramdown:
+    # Use GitHub flavored markdown, including triple backtick fenced code blocks
+    input: GFM
+    # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
+    syntax_highlighter: rouge
+    syntax_highlighter_opts:
+        # Use existing pygments syntax highlighting css
+        css_class: 'highlight'
