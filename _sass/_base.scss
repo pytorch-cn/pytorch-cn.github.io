@@ -10,6 +10,9 @@ $text-color: #000000;
 $orange: #f4921f;
 $header-height: 75px;
 
+.post {
+    max-width: 800px;
+}
 
 html, body, ul, li {
     margin: 0;
@@ -48,7 +51,7 @@ a:hover {
 
 .content {
     background-color: #fff;
-    padding: 98px 0 123px;
+    padding: 25px 0 123px;
 
     h1 {
         font-size: 45px;
@@ -61,10 +64,10 @@ a:hover {
     }
 
     p {
-        font-size: 18px;
+        font-size: 16px;
         color: $text-color;
         font-weight: 200;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     img {
@@ -73,21 +76,35 @@ a:hover {
 
     code {
         font-family: monospace !important;
+        font-size: 15px;
         font-weight: 400;
-        font-size: 0.9em;
-        background-color: #eee;
-        padding: 3px 7px;
         border-radius: 3px;
-        color: #666;
+        color: #000;
         word-break: break-all;
         -webkit-hyphens: auto;
         -moz-hyphens: auto;
         -ms-hyphens: auto;
         hyphens: auto;
         text-shadow: 0px 1px 0px #fff;
+        white-space: nowrap;
     }
 
-    ul {
+    .highlight code {
+        white-space: inherit;
+    }
+
+    h1, h2, h3, h4 {
+      code {  // make code in headers look much better
+        font-size: 85%;
+        font-weight: 600;
+      }
+    }
+
+    a code {
+      color: inherit;  // allow code in <a> to show as blue
+    }
+
+    ul, ol {
         margin-left: 25px;
         margin-bottom: 35px;
         font-weight: 200;
@@ -97,6 +114,12 @@ a:hover {
             color: $text-color;
             margin-bottom: 15px;
         }
+    }
+}
+
+.highlighter-rouge {
+    pre {
+        background-color: #fff;
     }
 }
 
@@ -115,7 +138,7 @@ table {
     th {
       background-color: $grey;
       color: #fff;
-      border-bottom: none;      
+      border-bottom: none;
       font-weight: 600;
 
       &:first-child {

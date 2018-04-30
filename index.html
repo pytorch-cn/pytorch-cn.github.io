@@ -38,6 +38,7 @@ layout: default
                     <div class="option-set">
                         <div class="btn selected">Linux</div>
                         <div class="btn">OSX</div>
+                        <div class="btn">Windows</div>
                     </div>
                 </div>
                 <div class="option-row pm" data-key="pm">
@@ -59,9 +60,9 @@ layout: default
                 <div class="option-row cuda" data-key="cuda">
                     <div class="option-label">CUDA版本</div>
                     <div class="option-set">
-                        <div class="btn">7.5</div>
                         <div class="btn selected">8</div>
-                        <div class="btn">9</div>
+                        <div class="btn">9.0</div>
+                        <div class="btn">9.1</div>
                         <div class="btn">None</div>
                     </div>
                 </div>
@@ -70,7 +71,7 @@ layout: default
         </div>
         <div class="command">
             <div class="label">Run this command:</div>
-            <div class="text"></div>
+            <div><!-- prevents highlighting text from div above--><div class="text"></div></div>
         </div>
         <div class="title" align="right">
           <h4><a href="/previous-versions/">点击此处获取早期版本PyTorch</a></h4>
@@ -91,6 +92,13 @@ layout: default
               <blockquote class="twitter-tweet" data-lang="en" data-dnt="true"><p lang="en" dir="ltr">Facebook and Microsoft introduce ONNX, a new, open ecosystem for interchangeable AI frameworks... <a href="https://t.co/k9HuWucfPL">https://t.co/k9HuWucfPL</a></p>&mdash; Facebook Open Source (@fbOpenSource) <a href="https://twitter.com/fbOpenSource/status/905826383519207426">September 7, 2017</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script-->
               <!-- <a class="twitter-timeline" data-chrome="transparent nofooter" data-tweet-limit="2" data-lang="en" data-dnt="true" href="https://twitter.com/PyTorch">Tweets by PyTorch</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div-->
+                <h3>Example Projects</h3>
+                <h4>Browse projects built using PyTorch.</h4>
+                <a class="btn" href="https://github.com/pytorch/examples">Explore Examples</a>
+            </div>
+            <div class="col-md-4 box twitter">
+	      <a class="twitter-timeline" data-chrome="transparent nofooter" data-tweet-limit="2" data-lang="en" data-dnt="true" href="https://twitter.com/PyTorch">Tweets by PyTorch</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
             <div class="col-md-4 box tutorials">
                 <img src="/static/img/tutorials.svg">
                 <h3>入门手册</h3>
