@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+e6ce1af ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+94b74d2 ) &#x25BC</a>
               </div>
             
           
@@ -314,7 +314,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#batchnorm1d"><span class="hidden-section">BatchNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#batchnorm2d"><span class="hidden-section">BatchNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#batchnorm3d"><span class="hidden-section">BatchNorm3d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#instancenorm1d"><span class="hidden-section">InstanceNorm1d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#hidden-groupnorm">:hidden:`GroupNorm</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#instancenorm2d"><span class="hidden-section">InstanceNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#instancenorm3d"><span class="hidden-section">InstanceNorm3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#layernorm"><span class="hidden-section">LayerNorm</span></a></li>
@@ -389,6 +389,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#clip-grad-value"><span class="hidden-section">clip_grad_value_</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#weight-norm"><span class="hidden-section">weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#remove-weight-norm"><span class="hidden-section">remove_weight_norm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#spectral-norm"><span class="hidden-section">spectral_norm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#remove-spectral-norm"><span class="hidden-section">remove_spectral_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#packedsequence"><span class="hidden-section">PackedSequence</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#pack-padded-sequence"><span class="hidden-section">pack_padded_sequence</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#pad-packed-sequence"><span class="hidden-section">pad_packed_sequence</span></a></li>
@@ -400,9 +402,9 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../nn.html#torch-nn-functional">torch.nn.functional</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#convolution-functions">Convolution functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id20"><span class="hidden-section">conv1d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id21"><span class="hidden-section">conv2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id22"><span class="hidden-section">conv3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id22"><span class="hidden-section">conv1d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id23"><span class="hidden-section">conv2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id24"><span class="hidden-section">conv3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#conv-transpose1d"><span class="hidden-section">conv_transpose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#conv-transpose2d"><span class="hidden-section">conv_transpose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#conv-transpose3d"><span class="hidden-section">conv_transpose3d</span></a></li>
@@ -429,27 +431,27 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#non-linear-activation-functions">Non-linear activation functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id23"><span class="hidden-section">threshold</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id24"><span class="hidden-section">relu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id25"><span class="hidden-section">hardtanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id26"><span class="hidden-section">relu6</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id27"><span class="hidden-section">elu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id28"><span class="hidden-section">selu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id25"><span class="hidden-section">threshold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id26"><span class="hidden-section">relu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id27"><span class="hidden-section">hardtanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id28"><span class="hidden-section">relu6</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id29"><span class="hidden-section">elu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id30"><span class="hidden-section">selu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#leaky-relu"><span class="hidden-section">leaky_relu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id29"><span class="hidden-section">prelu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id30"><span class="hidden-section">rrelu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id31"><span class="hidden-section">prelu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id32"><span class="hidden-section">rrelu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#glu"><span class="hidden-section">glu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id31"><span class="hidden-section">logsigmoid</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id32"><span class="hidden-section">hardshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id33"><span class="hidden-section">tanhshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id34"><span class="hidden-section">softsign</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id35"><span class="hidden-section">softplus</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id36"><span class="hidden-section">softmin</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id37"><span class="hidden-section">softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id38"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id33"><span class="hidden-section">logsigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id34"><span class="hidden-section">hardshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id35"><span class="hidden-section">tanhshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id36"><span class="hidden-section">softsign</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id37"><span class="hidden-section">softplus</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id38"><span class="hidden-section">softmin</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id39"><span class="hidden-section">softmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id40"><span class="hidden-section">softshrink</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id39"><span class="hidden-section">tanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id40"><span class="hidden-section">sigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id41"><span class="hidden-section">tanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id42"><span class="hidden-section">sigmoid</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#normalization-functions">Normalization functions</a><ul>
@@ -461,22 +463,22 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#linear-functions">Linear functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id41"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id43"><span class="hidden-section">linear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id42"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id44"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id43"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id44"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id45"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id46"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../nn.html#id45">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../nn.html#id47">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../nn.html#id46">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../nn.html#id48">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
@@ -499,7 +501,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#vision-functions">Vision functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#pad"><span class="hidden-section">pad</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id47"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id49"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
@@ -971,7 +973,13 @@
         <span class="n">check_compiler_abi_compatibility</span><span class="p">(</span><span class="n">compiler</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_define_torch_extension_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">extension</span><span class="p">):</span>
-        <span class="n">define</span> <span class="o">=</span> <span class="s1">&#39;-DTORCH_EXTENSION_NAME=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">extension</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="c1"># pybind11 doesn&#39;t support dots in the names</span>
+        <span class="c1"># so in order to support extensions in the packages</span>
+        <span class="c1"># like torch._C, we take the last part of the string</span>
+        <span class="c1"># as the library name</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="n">extension</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">names</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">define</span> <span class="o">=</span> <span class="s1">&#39;-DTORCH_EXTENSION_NAME=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">extension</span><span class="o">.</span><span class="n">extra_compile_args</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">args</span> <span class="ow">in</span> <span class="n">extension</span><span class="o">.</span><span class="n">extra_compile_args</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
                 <span class="n">args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">define</span><span class="p">)</span>
@@ -1187,20 +1195,151 @@
 <span class="sd">                extra_cflags=[&#39;-O2&#39;],</span>
 <span class="sd">                verbose=True)</span>
 <span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">_jit_compile</span><span class="p">(</span>
+        <span class="n">name</span><span class="p">,</span>
+        <span class="p">[</span><span class="n">sources</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sources</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">sources</span><span class="p">,</span>
+        <span class="n">extra_cflags</span><span class="p">,</span>
+        <span class="n">extra_cuda_cflags</span><span class="p">,</span>
+        <span class="n">extra_ldflags</span><span class="p">,</span>
+        <span class="n">extra_include_paths</span><span class="p">,</span>
+        <span class="n">build_directory</span> <span class="ow">or</span> <span class="n">_get_build_directory</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">verbose</span><span class="p">),</span>
+        <span class="n">verbose</span><span class="p">)</span></div>
 
-    <span class="n">verify_ninja_availability</span><span class="p">()</span>
 
-    <span class="c1"># Allows sources to be a single path or a list of paths.</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sources</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="n">sources</span> <span class="o">=</span> <span class="p">[</span><span class="n">sources</span><span class="p">]</span>
+<div class="viewcode-block" id="load_inline"><a class="viewcode-back" href="../../../cpp_extension.html#torch.utils.cpp_extension.load_inline">[docs]</a><span class="k">def</span> <span class="nf">load_inline</span><span class="p">(</span><span class="n">name</span><span class="p">,</span>
+                <span class="n">cpp_sources</span><span class="p">,</span>
+                <span class="n">cuda_sources</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">functions</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">extra_cflags</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">extra_cuda_cflags</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">extra_ldflags</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">extra_include_paths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">build_directory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Loads a PyTorch C++ extension just-in-time (JIT) from string sources.</span>
 
-    <span class="k">if</span> <span class="n">build_directory</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">build_directory</span> <span class="o">=</span> <span class="n">_get_build_directory</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+<span class="sd">    This function behaves exactly like :func:`load`, but takes its sources as</span>
+<span class="sd">    strings rather than filenames. These strings are stored to files in the</span>
+<span class="sd">    build directory, after which the behavior of :func:`load_inline` is</span>
+<span class="sd">    identical to :func:`load`.</span>
 
+<span class="sd">    See `the</span>
+<span class="sd">    tests &lt;https://github.com/pytorch/pytorch/blob/master/test/test_cpp_extensions.py&gt;`_</span>
+<span class="sd">    for good examples of using this function.</span>
+
+<span class="sd">    Sources may omit two required parts of a typical non-inline C++ extension:</span>
+<span class="sd">    the necessary header includes, as well as the (pybind11) binding code. More</span>
+<span class="sd">    precisely, strings passed to ``cpp_sources`` are first concatenated into a</span>
+<span class="sd">    single ``.cpp`` file. This file is then prepended with ``#include</span>
+<span class="sd">    &lt;torch/python.h&gt;``.</span>
+
+<span class="sd">    Furthermore, if the ``functions`` argument is supplied, bindings will be</span>
+<span class="sd">    automatically generated for each function specified. ``functions`` can</span>
+<span class="sd">    either be a list of function names, or a dictionary mapping from function</span>
+<span class="sd">    names to docstrings. If a list is given, the name of each function is used</span>
+<span class="sd">    as its docstring.</span>
+
+<span class="sd">    The sources in ``cuda_sources`` are concatenated into a separate ``.cu``</span>
+<span class="sd">    file and  prepended with ``ATen/ATen.h``, ``cuda.h`` and ``cuda_runtime.h``</span>
+<span class="sd">    includes. The ``.cpp`` and ``.cu`` files are compiled separately, but</span>
+<span class="sd">    ultimately linked into a single library. Note that no bindings are</span>
+<span class="sd">    generated for functions in ``cuda_sources`` per  se. To bind to a CUDA</span>
+<span class="sd">    kernel, you must create a C++ function that calls it, and either declare or</span>
+<span class="sd">    define this C++ function in one of the ``cpp_sources`` (and include its</span>
+<span class="sd">    name in ``functions``).</span>
+
+<span class="sd">    See :func:`load` for a description of arguments omitted below.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        cpp_sources: A string, or list of strings, containing C++ source code.</span>
+<span class="sd">        cuda_sources: A string, or list of strings, containing CUDA source code.</span>
+<span class="sd">        functions: A list of function names for which to generate function</span>
+<span class="sd">            bindings. If a dictionary is given, it should map function names to</span>
+<span class="sd">            docstrings (which are otherwise just the function names).</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; from torch.utils.cpp_extension import load_inline</span>
+<span class="sd">        &gt;&gt;&gt; source = \&#39;\&#39;\&#39;</span>
+<span class="sd">        at::Tensor sin_add(at::Tensor x, at::Tensor y) {</span>
+<span class="sd">          return x.sin() + y.sin();</span>
+<span class="sd">        }</span>
+<span class="sd">        \&#39;\&#39;\&#39;</span>
+<span class="sd">        &gt;&gt;&gt; module = load_inline(name=&#39;inline_extension&#39;,</span>
+<span class="sd">                                 cpp_sources=[source],</span>
+<span class="sd">                                 functions=[&#39;sin_add&#39;])</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">build_directory</span> <span class="o">=</span> <span class="n">build_directory</span> <span class="ow">or</span> <span class="n">_get_build_directory</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+
+    <span class="n">source_files</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cpp_sources</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">cpp_sources</span> <span class="o">=</span> <span class="p">[</span><span class="n">cpp_sources</span><span class="p">]</span>
+    <span class="n">cuda_sources</span> <span class="o">=</span> <span class="n">cuda_sources</span> <span class="ow">or</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cuda_sources</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">cuda_sources</span> <span class="o">=</span> <span class="p">[</span><span class="n">cuda_sources</span><span class="p">]</span>
+
+    <span class="n">cpp_sources</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;#include &lt;torch/python.h&gt;&#39;</span><span class="p">)</span>
+
+    <span class="c1"># If `functions` is supplied, we create the pybind11 bindings for the user.</span>
+    <span class="c1"># Here, `functions` is (or becomes, after some processing) a map from</span>
+    <span class="c1"># function names to function docstrings.</span>
+    <span class="k">if</span> <span class="n">functions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cpp_sources</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) {&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">functions</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">functions</span> <span class="o">=</span> <span class="p">[</span><span class="n">functions</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">functions</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="c1"># Make the function docstring the same as the function name.</span>
+            <span class="n">functions</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">f</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">functions</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">functions</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Expected &#39;functions&#39; to be a list or dict, but was </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="nb">type</span><span class="p">(</span><span class="n">functions</span><span class="p">)))</span>
+        <span class="k">for</span> <span class="n">function_name</span><span class="p">,</span> <span class="n">docstring</span> <span class="ow">in</span> <span class="n">functions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">cpp_sources</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;m.def(&quot;</span><span class="si">{0}</span><span class="s1">&quot;, &amp;</span><span class="si">{0}</span><span class="s1">, &quot;</span><span class="si">{1}</span><span class="s1">&quot;);&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">function_name</span><span class="p">,</span> <span class="n">docstring</span><span class="p">))</span>
+        <span class="n">cpp_sources</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;}&#39;</span><span class="p">)</span>
+
+    <span class="n">cpp_source_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">build_directory</span><span class="p">,</span> <span class="s1">&#39;main.cpp&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">cpp_source_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cpp_source_file</span><span class="p">:</span>
+        <span class="n">cpp_source_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cpp_sources</span><span class="p">))</span>
+
+    <span class="n">sources</span> <span class="o">=</span> <span class="p">[</span><span class="n">cpp_source_path</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">cuda_sources</span><span class="p">:</span>
+        <span class="n">cuda_sources</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;#include &lt;ATen/ATen.h&gt;&#39;</span><span class="p">)</span>
+        <span class="n">cuda_sources</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;#include &lt;cuda.h&gt;&#39;</span><span class="p">)</span>
+        <span class="n">cuda_sources</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;#include &lt;cuda_runtime.h&gt;&#39;</span><span class="p">)</span>
+
+        <span class="n">cuda_source_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">build_directory</span><span class="p">,</span> <span class="s1">&#39;cuda.cu&#39;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">cuda_source_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cuda_source_file</span><span class="p">:</span>
+            <span class="n">cuda_source_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cuda_sources</span><span class="p">))</span>
+
+        <span class="n">sources</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cuda_source_path</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_jit_compile</span><span class="p">(</span>
+        <span class="n">name</span><span class="p">,</span>
+        <span class="n">sources</span><span class="p">,</span>
+        <span class="n">extra_cflags</span><span class="p">,</span>
+        <span class="n">extra_cuda_cflags</span><span class="p">,</span>
+        <span class="n">extra_ldflags</span><span class="p">,</span>
+        <span class="n">extra_include_paths</span><span class="p">,</span>
+        <span class="n">build_directory</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_jit_compile</span><span class="p">(</span><span class="n">name</span><span class="p">,</span>
+                 <span class="n">sources</span><span class="p">,</span>
+                 <span class="n">extra_cflags</span><span class="p">,</span>
+                 <span class="n">extra_cuda_cflags</span><span class="p">,</span>
+                 <span class="n">extra_ldflags</span><span class="p">,</span>
+                 <span class="n">extra_include_paths</span><span class="p">,</span>
+                 <span class="n">build_directory</span><span class="p">,</span>
+                 <span class="n">verbose</span><span class="p">):</span>
     <span class="n">baton</span> <span class="o">=</span> <span class="n">FileBaton</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">build_directory</span><span class="p">,</span> <span class="s1">&#39;lock&#39;</span><span class="p">))</span>
-
     <span class="k">if</span> <span class="n">baton</span><span class="o">.</span><span class="n">try_acquire</span><span class="p">():</span>
         <span class="k">try</span><span class="p">:</span>
+            <span class="n">verify_ninja_availability</span><span class="p">()</span>
             <span class="n">check_compiler_abi_compatibility</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CXX&#39;</span><span class="p">,</span> <span class="s1">&#39;c++&#39;</span><span class="p">))</span>
             <span class="n">with_cuda</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">_is_cuda_file</span><span class="p">,</span> <span class="n">sources</span><span class="p">))</span>
             <span class="n">extra_ldflags</span> <span class="o">=</span> <span class="n">_prepare_ldflags</span><span class="p">(</span>
@@ -1233,7 +1372,7 @@
 
     <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Loading extension module </span><span class="si">{}</span><span class="s1">...&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">_import_module_from_library</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">build_directory</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">_import_module_from_library</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">build_directory</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="verify_ninja_availability"><a class="viewcode-back" href="../../../cpp_extension.html#torch.utils.cpp_extension.verify_ninja_availability">[docs]</a><span class="k">def</span> <span class="nf">verify_ninja_availability</span><span class="p">():</span>
@@ -1336,7 +1475,7 @@
     <span class="n">sources</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">sources</span><span class="p">]</span>
     <span class="n">includes</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">extra_include_paths</span><span class="p">]</span>
 
-    <span class="c1"># include_paths() gives us the location of torch/torch.h</span>
+    <span class="c1"># include_paths() gives us the location of torch/python.h</span>
     <span class="n">includes</span> <span class="o">+=</span> <span class="n">include_paths</span><span class="p">(</span><span class="n">with_cuda</span><span class="p">)</span>
     <span class="c1"># sysconfig.get_paths()[&#39;include&#39;] gives us the location of Python.h</span>
     <span class="n">includes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_paths</span><span class="p">()[</span><span class="s1">&#39;include&#39;</span><span class="p">])</span>
@@ -1511,9 +1650,7 @@
 
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
  

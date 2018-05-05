@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+e6ce1af ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+94b74d2 ) &#x25BC</a>
               </div>
             
           
@@ -316,7 +316,7 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#batchnorm1d"><span class="hidden-section">BatchNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#batchnorm2d"><span class="hidden-section">BatchNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#batchnorm3d"><span class="hidden-section">BatchNorm3d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#instancenorm1d"><span class="hidden-section">InstanceNorm1d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#hidden-groupnorm">:hidden:`GroupNorm</a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#instancenorm2d"><span class="hidden-section">InstanceNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#instancenorm3d"><span class="hidden-section">InstanceNorm3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#layernorm"><span class="hidden-section">LayerNorm</span></a></li>
@@ -391,6 +391,8 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#clip-grad-value"><span class="hidden-section">clip_grad_value_</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#weight-norm"><span class="hidden-section">weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#remove-weight-norm"><span class="hidden-section">remove_weight_norm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#spectral-norm"><span class="hidden-section">spectral_norm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#remove-spectral-norm"><span class="hidden-section">remove_spectral_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#packedsequence"><span class="hidden-section">PackedSequence</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pack-padded-sequence"><span class="hidden-section">pack_padded_sequence</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pad-packed-sequence"><span class="hidden-section">pad_packed_sequence</span></a></li>
@@ -402,9 +404,9 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nn.html#torch-nn-functional">torch.nn.functional</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#convolution-functions">Convolution functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id20"><span class="hidden-section">conv1d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id21"><span class="hidden-section">conv2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id22"><span class="hidden-section">conv3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id22"><span class="hidden-section">conv1d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id23"><span class="hidden-section">conv2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id24"><span class="hidden-section">conv3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#conv-transpose1d"><span class="hidden-section">conv_transpose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#conv-transpose2d"><span class="hidden-section">conv_transpose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#conv-transpose3d"><span class="hidden-section">conv_transpose3d</span></a></li>
@@ -431,27 +433,27 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#non-linear-activation-functions">Non-linear activation functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id23"><span class="hidden-section">threshold</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id24"><span class="hidden-section">relu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id25"><span class="hidden-section">hardtanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id26"><span class="hidden-section">relu6</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id27"><span class="hidden-section">elu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id28"><span class="hidden-section">selu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id25"><span class="hidden-section">threshold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id26"><span class="hidden-section">relu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id27"><span class="hidden-section">hardtanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id28"><span class="hidden-section">relu6</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id29"><span class="hidden-section">elu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id30"><span class="hidden-section">selu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#leaky-relu"><span class="hidden-section">leaky_relu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id29"><span class="hidden-section">prelu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id30"><span class="hidden-section">rrelu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id31"><span class="hidden-section">prelu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id32"><span class="hidden-section">rrelu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#glu"><span class="hidden-section">glu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id31"><span class="hidden-section">logsigmoid</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id32"><span class="hidden-section">hardshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id33"><span class="hidden-section">tanhshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id34"><span class="hidden-section">softsign</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id35"><span class="hidden-section">softplus</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id36"><span class="hidden-section">softmin</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id37"><span class="hidden-section">softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id38"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id33"><span class="hidden-section">logsigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id34"><span class="hidden-section">hardshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id35"><span class="hidden-section">tanhshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id36"><span class="hidden-section">softsign</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id37"><span class="hidden-section">softplus</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id38"><span class="hidden-section">softmin</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id39"><span class="hidden-section">softmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id40"><span class="hidden-section">softshrink</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id39"><span class="hidden-section">tanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id40"><span class="hidden-section">sigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id41"><span class="hidden-section">tanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id42"><span class="hidden-section">sigmoid</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#normalization-functions">Normalization functions</a><ul>
@@ -463,22 +465,22 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#linear-functions">Linear functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id41"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id43"><span class="hidden-section">linear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id42"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id44"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id43"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id44"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id45"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id46"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="nn.html#id45">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nn.html#id47">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="nn.html#id46">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nn.html#id48">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
@@ -501,7 +503,7 @@
 <li class="toctree-l2"><a class="reference internal" href="nn.html#vision-functions">Vision functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pad"><span class="hidden-section">pad</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id47"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id49"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
@@ -864,6 +866,65 @@ to the build.</li>
 </dd></dl>
 
 <dl class="function">
+<dt id="torch.utils.cpp_extension.load_inline">
+<code class="descclassname">torch.utils.cpp_extension.</code><code class="descname">load_inline</code><span class="sig-paren">(</span><em>name</em>, <em>cpp_sources</em>, <em>cuda_sources=None</em>, <em>functions=None</em>, <em>extra_cflags=None</em>, <em>extra_cuda_cflags=None</em>, <em>extra_ldflags=None</em>, <em>extra_include_paths=None</em>, <em>build_directory=None</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/utils/cpp_extension.html#load_inline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.utils.cpp_extension.load_inline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a PyTorch C++ extension just-in-time (JIT) from string sources.</p>
+<p>This function behaves exactly like <a class="reference internal" href="#torch.utils.cpp_extension.load" title="torch.utils.cpp_extension.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">load()</span></code></a>, but takes its sources as
+strings rather than filenames. These strings are stored to files in the
+build directory, after which the behavior of <a class="reference internal" href="#torch.utils.cpp_extension.load_inline" title="torch.utils.cpp_extension.load_inline"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_inline()</span></code></a> is
+identical to <a class="reference internal" href="#torch.utils.cpp_extension.load" title="torch.utils.cpp_extension.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">load()</span></code></a>.</p>
+<p>See <a class="reference external" href="https://github.com/pytorch/pytorch/blob/master/test/test_cpp_extensions.py">the
+tests</a>
+for good examples of using this function.</p>
+<p>Sources may omit two required parts of a typical non-inline C++ extension:
+the necessary header includes, as well as the (pybind11) binding code. More
+precisely, strings passed to <code class="docutils literal notranslate"><span class="pre">cpp_sources</span></code> are first concatenated into a
+single <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> file. This file is then prepended with <code class="docutils literal notranslate"><span class="pre">#include</span>
+<span class="pre">&lt;torch/python.h&gt;</span></code>.</p>
+<p>Furthermore, if the <code class="docutils literal notranslate"><span class="pre">functions</span></code> argument is supplied, bindings will be
+automatically generated for each function specified. <code class="docutils literal notranslate"><span class="pre">functions</span></code> can
+either be a list of function names, or a dictionary mapping from function
+names to docstrings. If a list is given, the name of each function is used
+as its docstring.</p>
+<p>The sources in <code class="docutils literal notranslate"><span class="pre">cuda_sources</span></code> are concatenated into a separate <code class="docutils literal notranslate"><span class="pre">.cu</span></code>
+file and  prepended with <code class="docutils literal notranslate"><span class="pre">ATen/ATen.h</span></code>, <code class="docutils literal notranslate"><span class="pre">cuda.h</span></code> and <code class="docutils literal notranslate"><span class="pre">cuda_runtime.h</span></code>
+includes. The <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> and <code class="docutils literal notranslate"><span class="pre">.cu</span></code> files are compiled separately, but
+ultimately linked into a single library. Note that no bindings are
+generated for functions in <code class="docutils literal notranslate"><span class="pre">cuda_sources</span></code> per  se. To bind to a CUDA
+kernel, you must create a C++ function that calls it, and either declare or
+define this C++ function in one of the <code class="docutils literal notranslate"><span class="pre">cpp_sources</span></code> (and include its
+name in <code class="docutils literal notranslate"><span class="pre">functions</span></code>).</p>
+<p>See <a class="reference internal" href="#torch.utils.cpp_extension.load" title="torch.utils.cpp_extension.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">load()</span></code></a> for a description of arguments omitted below.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>cpp_sources</strong> – A string, or list of strings, containing C++ source code.</li>
+<li><strong>cuda_sources</strong> – A string, or list of strings, containing CUDA source code.</li>
+<li><strong>functions</strong> – A list of function names for which to generate function
+bindings. If a dictionary is given, it should map function names to
+docstrings (which are otherwise just the function names).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">torch.utils.cpp_extension</span> <span class="k">import</span> <span class="n">load_inline</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">source</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="go">at::Tensor sin_add(at::Tensor x, at::Tensor y) {</span>
+<span class="go">  return x.sin() + y.sin();</span>
+<span class="go">}</span>
+<span class="go">&#39;&#39;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">module</span> <span class="o">=</span> <span class="n">load_inline</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;inline_extension&#39;</span><span class="p">,</span>
+<span class="go">                         cpp_sources=[source],</span>
+<span class="go">                         functions=[&#39;sin_add&#39;])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="torch.utils.cpp_extension.include_paths">
 <code class="descclassname">torch.utils.cpp_extension.</code><code class="descname">include_paths</code><span class="sig-paren">(</span><em>cuda=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/utils/cpp_extension.html#include_paths"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.utils.cpp_extension.include_paths" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the include paths required to build a C++ or CUDA extension.</p>
@@ -970,9 +1031,7 @@ available on the system.</p>
 
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
  
