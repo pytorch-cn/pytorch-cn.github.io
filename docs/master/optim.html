@@ -15,6 +15,8 @@
   
   
   
+    <link rel="canonical" href="https://pytorch.org/docs/stable/optim.html"/>
+  
 
   
 
@@ -24,8 +26,7 @@
 
   
 
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
   <link rel="stylesheet" href="_static/css/pytorch_theme.css" type="text/css" />
@@ -64,7 +65,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+6087a5f ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+5e4de08 ) &#x25BC</a>
               </div>
             
           
@@ -84,7 +85,7 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
 <div>
-  <a style="color:#F05732" href=http://pytorch.org/docs/stable/>
+  <a style="color:#F05732" href="https://pytorch.org/docs/stable/optim.html">
     You are viewing unstable developer preview docs.
     Click here to view docs for latest stable release.
   </a>
@@ -133,7 +134,8 @@
 <li class="toctree-l3"><a class="reference internal" href="notes/extending.html#adding-a-module">Adding a <code class="docutils literal notranslate"><span class="pre">Module</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="notes/extending.html#writing-custom-c-extensions">Writing custom C extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/extending.html#writing-custom-c-extensions">Writing custom C++ extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/extending.html#id1">Writing custom C extensions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="notes/faq.html">Frequently Asked Questions</a><ul>
@@ -240,7 +242,9 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#module"><span class="hidden-section">Module</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#sequential"><span class="hidden-section">Sequential</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#modulelist"><span class="hidden-section">ModuleList</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#moduledict"><span class="hidden-section">ModuleDict</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#parameterlist"><span class="hidden-section">ParameterList</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#parameterdict"><span class="hidden-section">ParameterDict</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#convolution-layers">Convolution layers</a><ul>
@@ -250,6 +254,8 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#convtranspose1d"><span class="hidden-section">ConvTranspose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#convtranspose2d"><span class="hidden-section">ConvTranspose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#convtranspose3d"><span class="hidden-section">ConvTranspose3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#unfold"><span class="hidden-section">Unfold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#fold"><span class="hidden-section">Fold</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#pooling-layers">Pooling layers</a><ul>
@@ -310,13 +316,15 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#softmax"><span class="hidden-section">Softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#softmax2d"><span class="hidden-section">Softmax2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#logsoftmax"><span class="hidden-section">LogSoftmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#adaptivelogsoftmaxwithloss"><span class="hidden-section">AdaptiveLogSoftmaxWithLoss</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#normalization-layers">Normalization layers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#batchnorm1d"><span class="hidden-section">BatchNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#batchnorm2d"><span class="hidden-section">BatchNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#batchnorm3d"><span class="hidden-section">BatchNorm3d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#hidden-groupnorm">:hidden:`GroupNorm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#groupnorm"><span class="hidden-section">GroupNorm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#instancenorm1d"><span class="hidden-section">InstanceNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#instancenorm2d"><span class="hidden-section">InstanceNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#instancenorm3d"><span class="hidden-section">InstanceNorm3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#layernorm"><span class="hidden-section">LayerNorm</span></a></li>
@@ -389,6 +397,8 @@
 <li class="toctree-l2"><a class="reference internal" href="nn.html#utilities">Utilities</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#clip-grad-norm"><span class="hidden-section">clip_grad_norm_</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#clip-grad-value"><span class="hidden-section">clip_grad_value_</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#parameters-to-vector"><span class="hidden-section">parameters_to_vector</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#vector-to-parameters"><span class="hidden-section">vector_to_parameters</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#weight-norm"><span class="hidden-section">weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#remove-weight-norm"><span class="hidden-section">remove_weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#spectral-norm"><span class="hidden-section">spectral_norm</span></a></li>
@@ -404,12 +414,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nn.html#torch-nn-functional">torch.nn.functional</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#convolution-functions">Convolution functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id22"><span class="hidden-section">conv1d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id23"><span class="hidden-section">conv2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id24"><span class="hidden-section">conv3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id20"><span class="hidden-section">conv1d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id21"><span class="hidden-section">conv2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id22"><span class="hidden-section">conv3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#conv-transpose1d"><span class="hidden-section">conv_transpose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#conv-transpose2d"><span class="hidden-section">conv_transpose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#conv-transpose3d"><span class="hidden-section">conv_transpose3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id23"><span class="hidden-section">unfold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id24"><span class="hidden-section">fold</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#pooling-functions">Pooling functions</a><ul>
@@ -451,6 +463,7 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id38"><span class="hidden-section">softmin</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id39"><span class="hidden-section">softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id40"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#gumbel-softmax"><span class="hidden-section">gumbel_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id41"><span class="hidden-section">tanh</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id42"><span class="hidden-section">sigmoid</span></a></li>
@@ -466,21 +479,27 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#linear-functions">Linear functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id43"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id44"><span class="hidden-section">bilinear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id44"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id45"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id45"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id46"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id46"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id47"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="nn.html#id47">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nn.html#sparse-functions">Sparse functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id48"><span class="hidden-section">embedding</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#embedding-bag"><span class="hidden-section">embedding_bag</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nn.html#id49">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="nn.html#id48">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nn.html#id50">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
@@ -503,7 +522,8 @@
 <li class="toctree-l2"><a class="reference internal" href="nn.html#vision-functions">Vision functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pad"><span class="hidden-section">pad</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id49"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#interpolate"><span class="hidden-section">interpolate</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id51"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
@@ -541,7 +561,9 @@
 <li class="toctree-l2"><a class="reference internal" href="autograd.html#variable-deprecated">Variable (deprecated)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autograd.html#tensor-autograd-functions">Tensor autograd functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autograd.html#function"><span class="hidden-section">Function</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="autograd.html#numerical-gradient-checking">Numerical gradient checking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autograd.html#profiler">Profiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autograd.html#anomaly-detection">Anomaly detection</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="distributions.html">torch.distributions</a><ul>
@@ -561,9 +583,12 @@
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#gamma"><span class="hidden-section">Gamma</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#geometric"><span class="hidden-section">Geometric</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#gumbel"><span class="hidden-section">Gumbel</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#halfcauchy"><span class="hidden-section">HalfCauchy</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#halfnormal"><span class="hidden-section">HalfNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#independent"><span class="hidden-section">Independent</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#laplace"><span class="hidden-section">Laplace</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#lognormal"><span class="hidden-section">LogNormal</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#lowrankmultivariatenormal"><span class="hidden-section">LowRankMultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#multinomial"><span class="hidden-section">Multinomial</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#multivariatenormal"><span class="hidden-section">MultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#normal"><span class="hidden-section">Normal</span></a></li>
@@ -575,6 +600,7 @@
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#studentt"><span class="hidden-section">StudentT</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#transformeddistribution"><span class="hidden-section">TransformedDistribution</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#uniform"><span class="hidden-section">Uniform</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#weibull"><span class="hidden-section">Weibull</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#module-torch.distributions.kl"><cite>KL Divergence</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#module-torch.distributions.transforms"><cite>Transforms</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#module-torch.distributions.constraints"><cite>Constraints</cite></a></li>
@@ -610,6 +636,7 @@
 <li class="toctree-l1"><a class="reference internal" href="checkpoint.html">torch.utils.checkpoint</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp_extension.html">torch.utils.cpp_extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data.html">torch.utils.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dlpack.html">torch.utils.dlpack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ffi.html">torch.utils.ffi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="model_zoo.html">torch.utils.model_zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="onnx.html">torch.onnx</a><ul>
@@ -657,6 +684,7 @@
 <li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#transforms-on-torch-tensor">Transforms on torch.*Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#conversion-transforms">Conversion Transforms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#generic-transforms">Generic Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#module-torchvision.transforms.functional">Functional Transforms</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="torchvision/utils.html">torchvision.utils</a></li>
@@ -760,7 +788,7 @@ consistent locations when optimizers are constructed and used.</p>
 <h3>Per-parameter options<a class="headerlink" href="#per-parameter-options" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="#torch.optim.Optimizer" title="torch.optim.Optimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Optimizer</span></code></a> s also support specifying per-parameter options. To do this, instead
 of passing an iterable of <code class="xref py py-class docutils literal notranslate"><span class="pre">Variable</span></code> s, pass in an iterable of
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> s. Each of them will define a separate parameter group, and should contain
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> s. Each of them will define a separate parameter group, and should contain
 a <code class="docutils literal notranslate"><span class="pre">params</span></code> key, containing a list of parameters belonging to it. Other keys
 should match the keyword arguments accepted by the optimizers, and will be used
 as optimization options for this group.</p>
@@ -839,7 +867,7 @@ satisfy those properties are sets and iterators over values of dictionaries.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>params</strong> (<em>iterable</em>) – an iterable of <a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.Tensor</span></code></a> s or
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> s. Specifies what Tensors should be optimized.</li>
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> s. Specifies what Tensors should be optimized.</li>
 <li><strong>defaults</strong> – (dict): a dict containing default values of optimization
 options (used when a parameter group doesn’t specify them).</li>
 </ul>
@@ -858,7 +886,7 @@ trainable and added to the <a class="reference internal" href="#torch.optim.Opti
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>param_group</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.6)"><em>dict</em></a>) – Specifies what Tensors should be optimized along with group</li>
+<li><strong>param_group</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – Specifies what Tensors should be optimized along with group</li>
 <li><strong>optimization options.</strong> (<em>specific</em>) – </li>
 </ul>
 </td>
@@ -875,7 +903,7 @@ trainable and added to the <a class="reference internal" href="#torch.optim.Opti
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>state_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.6)"><em>dict</em></a>) – optimizer state. Should be an object returned
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>state_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – optimizer state. Should be an object returned
 from a call to <a class="reference internal" href="#torch.optim.Optimizer.state_dict" title="torch.optim.Optimizer.state_dict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">state_dict()</span></code></a>.</td>
 </tr>
 </tbody>
@@ -885,7 +913,7 @@ from a call to <a class="reference internal" href="#torch.optim.Optimizer.state_
 <dl class="method">
 <dt id="torch.optim.Optimizer.state_dict">
 <code class="descname">state_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/optim/optimizer.html#Optimizer.state_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.optim.Optimizer.state_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the state of the optimizer as a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>.</p>
+<dd><p>Returns the state of the optimizer as a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>.</p>
 <p>It contains two entries:</p>
 <ul class="simple">
 <li><dl class="first docutils">
@@ -932,13 +960,13 @@ returns the loss. Optional for most optimizers.</td>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>params</strong> (<em>iterable</em>) – iterable of parameters to optimize or dicts defining
 parameter groups</li>
-<li><strong>rho</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – coefficient used for computing a running average
+<li><strong>rho</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – coefficient used for computing a running average
 of squared gradients (default: 0.9)</li>
-<li><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – term added to the denominator to improve
+<li><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – term added to the denominator to improve
 numerical stability (default: 1e-6)</li>
-<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – coefficient that scale delta before it is applied
+<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – coefficient that scale delta before it is applied
 to the parameters (default: 1.0)</li>
-<li><strong>weight_decay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – weight decay (L2 penalty) (default: 0)</li>
+<li><strong>weight_decay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – weight decay (L2 penalty) (default: 0)</li>
 </ul>
 </td>
 </tr>
@@ -974,9 +1002,9 @@ and Stochastic Optimization</a>.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>params</strong> (<em>iterable</em>) – iterable of parameters to optimize or dicts defining
 parameter groups</li>
-<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – learning rate (default: 1e-2)</li>
-<li><strong>lr_decay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – learning rate decay (default: 0)</li>
-<li><strong>weight_decay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – weight decay (L2 penalty) (default: 0)</li>
+<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – learning rate (default: 1e-2)</li>
+<li><strong>lr_decay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – learning rate decay (default: 0)</li>
+<li><strong>weight_decay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – weight decay (L2 penalty) (default: 0)</li>
 </ul>
 </td>
 </tr>
@@ -1011,12 +1039,12 @@ and returns the loss.</td>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>params</strong> (<em>iterable</em>) – iterable of parameters to optimize or dicts defining
 parameter groups</li>
-<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – learning rate (default: 1e-3)</li>
-<li><strong>betas</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>]</em><em>, </em><em>optional</em>) – coefficients used for computing
+<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – learning rate (default: 1e-3)</li>
+<li><strong>betas</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>]</em><em>, </em><em>optional</em>) – coefficients used for computing
 running averages of gradient and its square (default: (0.9, 0.999))</li>
-<li><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – term added to the denominator to improve
+<li><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – term added to the denominator to improve
 numerical stability (default: 1e-8)</li>
-<li><strong>weight_decay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – weight decay (L2 penalty) (default: 0)</li>
+<li><strong>weight_decay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – weight decay (L2 penalty) (default: 0)</li>
 <li><strong>amsgrad</strong> (<em>boolean</em><em>, </em><em>optional</em>) – whether to use the AMSGrad variant of this
 algorithm from the paper <a class="reference external" href="https://openreview.net/forum?id=ryQu7f-RZ">On the Convergence of Adam and Beyond</a></li>
 </ul>
@@ -1054,10 +1082,10 @@ only those portions of the gradient get applied to the parameters.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>params</strong> (<em>iterable</em>) – iterable of parameters to optimize or dicts defining
 parameter groups</li>
-<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – learning rate (default: 1e-3)</li>
-<li><strong>betas</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>]</em><em>, </em><em>optional</em>) – coefficients used for computing
+<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – learning rate (default: 1e-3)</li>
+<li><strong>betas</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>]</em><em>, </em><em>optional</em>) – coefficients used for computing
 running averages of gradient and its square (default: (0.9, 0.999))</li>
-<li><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – term added to the denominator to improve
+<li><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – term added to the denominator to improve
 numerical stability (default: 1e-8)</li>
 </ul>
 </td>
@@ -1093,12 +1121,12 @@ and returns the loss.</td>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>params</strong> (<em>iterable</em>) – iterable of parameters to optimize or dicts defining
 parameter groups</li>
-<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – learning rate (default: 2e-3)</li>
-<li><strong>betas</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>]</em><em>, </em><em>optional</em>) – coefficients used for computing
+<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – learning rate (default: 2e-3)</li>
+<li><strong>betas</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>]</em><em>, </em><em>optional</em>) – coefficients used for computing
 running averages of gradient and its square</li>
-<li><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – term added to the denominator to improve
+<li><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – term added to the denominator to improve
 numerical stability (default: 1e-8)</li>
-<li><strong>weight_decay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – weight decay (L2 penalty) (default: 0)</li>
+<li><strong>weight_decay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – weight decay (L2 penalty) (default: 0)</li>
 </ul>
 </td>
 </tr>
@@ -1134,11 +1162,11 @@ averaging</a>.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>params</strong> (<em>iterable</em>) – iterable of parameters to optimize or dicts defining
 parameter groups</li>
-<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – learning rate (default: 1e-2)</li>
-<li><strong>lambd</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – decay term (default: 1e-4)</li>
-<li><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – power for eta update (default: 0.75)</li>
-<li><strong>t0</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – point at which to start averaging (default: 1e6)</li>
-<li><strong>weight_decay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – weight decay (L2 penalty) (default: 0)</li>
+<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – learning rate (default: 1e-2)</li>
+<li><strong>lambd</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – decay term (default: 1e-4)</li>
+<li><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – power for eta update (default: 0.75)</li>
+<li><strong>t0</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – point at which to start averaging (default: 1e6)</li>
+<li><strong>weight_decay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – weight decay (L2 penalty) (default: 0)</li>
 </ul>
 </td>
 </tr>
@@ -1186,16 +1214,16 @@ try reducing the history size, or use a different algorithm.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – learning rate (default: 1)</li>
-<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – maximal number of iterations per optimization step
+<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – learning rate (default: 1)</li>
+<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – maximal number of iterations per optimization step
 (default: 20)</li>
-<li><strong>max_eval</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – maximal number of function evaluations per optimization
+<li><strong>max_eval</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – maximal number of function evaluations per optimization
 step (default: max_iter * 1.25).</li>
-<li><strong>tolerance_grad</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – termination tolerance on first order optimality
+<li><strong>tolerance_grad</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – termination tolerance on first order optimality
 (default: 1e-5).</li>
-<li><strong>tolerance_change</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – termination tolerance on function
+<li><strong>tolerance_change</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – termination tolerance on function
 value/parameter changes (default: 1e-9).</li>
-<li><strong>history_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – update history size (default: 100).</li>
+<li><strong>history_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – update history size (default: 100).</li>
 </ul>
 </td>
 </tr>
@@ -1233,14 +1261,14 @@ With Recurrent Neural Networks</a>.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>params</strong> (<em>iterable</em>) – iterable of parameters to optimize or dicts defining
 parameter groups</li>
-<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – learning rate (default: 1e-2)</li>
-<li><strong>momentum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – momentum factor (default: 0)</li>
-<li><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – smoothing constant (default: 0.99)</li>
-<li><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – term added to the denominator to improve
+<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – learning rate (default: 1e-2)</li>
+<li><strong>momentum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – momentum factor (default: 0)</li>
+<li><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – smoothing constant (default: 0.99)</li>
+<li><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – term added to the denominator to improve
 numerical stability (default: 1e-8)</li>
-<li><strong>centered</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – if <code class="docutils literal notranslate"><span class="pre">True</span></code>, compute the centered RMSProp,
+<li><strong>centered</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – if <code class="docutils literal notranslate"><span class="pre">True</span></code>, compute the centered RMSProp,
 the gradient is normalized by an estimation of its variance</li>
-<li><strong>weight_decay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – weight decay (L2 penalty) (default: 0)</li>
+<li><strong>weight_decay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – weight decay (L2 penalty) (default: 0)</li>
 </ul>
 </td>
 </tr>
@@ -1274,11 +1302,11 @@ and returns the loss.</td>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>params</strong> (<em>iterable</em>) – iterable of parameters to optimize or dicts defining
 parameter groups</li>
-<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – learning rate (default: 1e-2)</li>
-<li><strong>etas</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>]</em><em>, </em><em>optional</em>) – pair of (etaminus, etaplis), that
+<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – learning rate (default: 1e-2)</li>
+<li><strong>etas</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>]</em><em>, </em><em>optional</em>) – pair of (etaminus, etaplis), that
 are multiplicative increase and decrease factors
 (default: (0.5, 1.2))</li>
-<li><strong>step_sizes</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>]</em><em>, </em><em>optional</em>) – a pair of minimal and
+<li><strong>step_sizes</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>]</em><em>, </em><em>optional</em>) – a pair of minimal and
 maximal allowed step sizes (default: (1e-6, 50))</li>
 </ul>
 </td>
@@ -1315,11 +1343,11 @@ and returns the loss.</td>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>params</strong> (<em>iterable</em>) – iterable of parameters to optimize or dicts defining
 parameter groups</li>
-<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – learning rate</li>
-<li><strong>momentum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – momentum factor (default: 0)</li>
-<li><strong>weight_decay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – weight decay (L2 penalty) (default: 0)</li>
-<li><strong>dampening</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) – dampening for momentum (default: 0)</li>
-<li><strong>nesterov</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – enables Nesterov momentum (default: False)</li>
+<li><strong>lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – learning rate</li>
+<li><strong>momentum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – momentum factor (default: 0)</li>
+<li><strong>weight_decay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – weight decay (L2 penalty) (default: 0)</li>
+<li><strong>dampening</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – dampening for momentum (default: 0)</li>
+<li><strong>nesterov</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – enables Nesterov momentum (default: False)</li>
 </ul>
 </td>
 </tr>
@@ -1383,10 +1411,10 @@ times a given function. When last_epoch=-1, sets initial lr as lr.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>optimizer</strong> (<a class="reference internal" href="#torch.optim.Optimizer" title="torch.optim.Optimizer"><em>Optimizer</em></a>) – Wrapped optimizer.</li>
-<li><strong>lr_lambda</strong> (<em>function</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a>) – A function which computes a multiplicative
+<li><strong>lr_lambda</strong> (<em>function</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a>) – A function which computes a multiplicative
 factor given an integer parameter epoch, or a list of such
 functions, one for each group in optimizer.param_groups.</li>
-<li><strong>last_epoch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – The index of last epoch. Default: -1.</li>
+<li><strong>last_epoch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The index of last epoch. Default: -1.</li>
 </ul>
 </td>
 </tr>
@@ -1417,10 +1445,10 @@ initial lr as lr.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>optimizer</strong> (<a class="reference internal" href="#torch.optim.Optimizer" title="torch.optim.Optimizer"><em>Optimizer</em></a>) – Wrapped optimizer.</li>
-<li><strong>step_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Period of learning rate decay.</li>
-<li><strong>gamma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – Multiplicative factor of learning rate decay.
+<li><strong>step_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Period of learning rate decay.</li>
+<li><strong>gamma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Multiplicative factor of learning rate decay.
 Default: 0.1.</li>
-<li><strong>last_epoch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – The index of last epoch. Default: -1.</li>
+<li><strong>last_epoch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The index of last epoch. Default: -1.</li>
 </ul>
 </td>
 </tr>
@@ -1453,10 +1481,10 @@ last_epoch=-1, sets initial lr as lr.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>optimizer</strong> (<a class="reference internal" href="#torch.optim.Optimizer" title="torch.optim.Optimizer"><em>Optimizer</em></a>) – Wrapped optimizer.</li>
-<li><strong>milestones</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a>) – List of epoch indices. Must be increasing.</li>
-<li><strong>gamma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – Multiplicative factor of learning rate decay.
+<li><strong>milestones</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a>) – List of epoch indices. Must be increasing.</li>
+<li><strong>gamma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Multiplicative factor of learning rate decay.
 Default: 0.1.</li>
-<li><strong>last_epoch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – The index of last epoch. Default: -1.</li>
+<li><strong>last_epoch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The index of last epoch. Default: -1.</li>
 </ul>
 </td>
 </tr>
@@ -1487,8 +1515,8 @@ by gamma every epoch. When last_epoch=-1, sets initial lr as lr.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>optimizer</strong> (<a class="reference internal" href="#torch.optim.Optimizer" title="torch.optim.Optimizer"><em>Optimizer</em></a>) – Wrapped optimizer.</li>
-<li><strong>gamma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – Multiplicative factor of learning rate decay.</li>
-<li><strong>last_epoch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – The index of last epoch. Default: -1.</li>
+<li><strong>gamma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Multiplicative factor of learning rate decay.</li>
+<li><strong>last_epoch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The index of last epoch. Default: -1.</li>
 </ul>
 </td>
 </tr>
@@ -1515,9 +1543,9 @@ implements the cosine annealing part of SGDR, and not the restarts.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>optimizer</strong> (<a class="reference internal" href="#torch.optim.Optimizer" title="torch.optim.Optimizer"><em>Optimizer</em></a>) – Wrapped optimizer.</li>
-<li><strong>T_max</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Maximum number of iterations.</li>
-<li><strong>eta_min</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – Minimum learning rate. Default: 0.</li>
-<li><strong>last_epoch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – The index of last epoch. Default: -1.</li>
+<li><strong>T_max</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Maximum number of iterations.</li>
+<li><strong>eta_min</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Minimum learning rate. Default: 0.</li>
+<li><strong>last_epoch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The index of last epoch. Default: -1.</li>
 </ul>
 </td>
 </tr>
@@ -1539,33 +1567,33 @@ of epochs, the learning rate is reduced.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>optimizer</strong> (<a class="reference internal" href="#torch.optim.Optimizer" title="torch.optim.Optimizer"><em>Optimizer</em></a>) – Wrapped optimizer.</li>
-<li><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – One of <cite>min</cite>, <cite>max</cite>. In <cite>min</cite> mode, lr will
+<li><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – One of <cite>min</cite>, <cite>max</cite>. In <cite>min</cite> mode, lr will
 be reduced when the quantity monitored has stopped
 decreasing; in <cite>max</cite> mode it will be reduced when the
 quantity monitored has stopped increasing. Default: ‘min’.</li>
-<li><strong>factor</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – Factor by which the learning rate will be
+<li><strong>factor</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Factor by which the learning rate will be
 reduced. new_lr = lr * factor. Default: 0.1.</li>
-<li><strong>patience</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Number of epochs with no improvement after
+<li><strong>patience</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Number of epochs with no improvement after
 which learning rate will be reduced. For example, if
 <cite>patience = 2</cite>, then we will ignore the first 2 epochs
 with no improvement, and will only decrease the LR after the
 3rd epoch if the loss still hasn’t improved then.
 Default: 10.</li>
-<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, prints a message to stdout for
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, prints a message to stdout for
 each update. Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.</li>
-<li><strong>threshold</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – Threshold for measuring the new optimum,
+<li><strong>threshold</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Threshold for measuring the new optimum,
 to only focus on significant changes. Default: 1e-4.</li>
-<li><strong>threshold_mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – One of <cite>rel</cite>, <cite>abs</cite>. In <cite>rel</cite> mode,
+<li><strong>threshold_mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – One of <cite>rel</cite>, <cite>abs</cite>. In <cite>rel</cite> mode,
 dynamic_threshold = best * ( 1 + threshold ) in ‘max’
 mode or best * ( 1 - threshold ) in <cite>min</cite> mode.
 In <cite>abs</cite> mode, dynamic_threshold = best + threshold in
 <cite>max</cite> mode or best - threshold in <cite>min</cite> mode. Default: ‘rel’.</li>
-<li><strong>cooldown</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Number of epochs to wait before resuming
+<li><strong>cooldown</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Number of epochs to wait before resuming
 normal operation after lr has been reduced. Default: 0.</li>
-<li><strong>min_lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a>) – A scalar or a list of scalars. A
+<li><strong>min_lr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><em>list</em></a>) – A scalar or a list of scalars. A
 lower bound on the learning rate of all param groups
 or each group respectively. Default: 0.</li>
-<li><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – Minimal decay applied to lr. If the difference
+<li><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Minimal decay applied to lr. If the difference
 between new and old lr is smaller than eps, the update is
 ignored. Default: 1e-8.</li>
 </ul>
@@ -1645,10 +1673,7 @@ ignored. Default: 1e-8.</li>
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {

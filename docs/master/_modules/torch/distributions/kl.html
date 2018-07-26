@@ -15,6 +15,8 @@
   
   
   
+    <link rel="canonical" href="https://pytorch.org/docs/stable/_modules/torch/distributions/kl.html"/>
+  
 
   
 
@@ -24,8 +26,7 @@
 
   
 
-  
-    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/pytorch_theme.css" type="text/css" />
@@ -62,7 +63,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+6087a5f ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+5e4de08 ) &#x25BC</a>
               </div>
             
           
@@ -82,7 +83,7 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
 <div>
-  <a style="color:#F05732" href=http://pytorch.org/docs/stable/>
+  <a style="color:#F05732" href="https://pytorch.org/docs/stable/_modules/torch/distributions/kl.html">
     You are viewing unstable developer preview docs.
     Click here to view docs for latest stable release.
   </a>
@@ -131,7 +132,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../notes/extending.html#adding-a-module">Adding a <code class="docutils literal notranslate"><span class="pre">Module</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../notes/extending.html#writing-custom-c-extensions">Writing custom C extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../notes/extending.html#writing-custom-c-extensions">Writing custom C++ extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../notes/extending.html#id1">Writing custom C extensions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notes/faq.html">Frequently Asked Questions</a><ul>
@@ -238,7 +240,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#module"><span class="hidden-section">Module</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#sequential"><span class="hidden-section">Sequential</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#modulelist"><span class="hidden-section">ModuleList</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#moduledict"><span class="hidden-section">ModuleDict</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#parameterlist"><span class="hidden-section">ParameterList</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#parameterdict"><span class="hidden-section">ParameterDict</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#convolution-layers">Convolution layers</a><ul>
@@ -248,6 +252,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#convtranspose1d"><span class="hidden-section">ConvTranspose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#convtranspose2d"><span class="hidden-section">ConvTranspose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#convtranspose3d"><span class="hidden-section">ConvTranspose3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#unfold"><span class="hidden-section">Unfold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#fold"><span class="hidden-section">Fold</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#pooling-layers">Pooling layers</a><ul>
@@ -308,13 +314,15 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#softmax"><span class="hidden-section">Softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#softmax2d"><span class="hidden-section">Softmax2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#logsoftmax"><span class="hidden-section">LogSoftmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#adaptivelogsoftmaxwithloss"><span class="hidden-section">AdaptiveLogSoftmaxWithLoss</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#normalization-layers">Normalization layers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#batchnorm1d"><span class="hidden-section">BatchNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#batchnorm2d"><span class="hidden-section">BatchNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#batchnorm3d"><span class="hidden-section">BatchNorm3d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#hidden-groupnorm">:hidden:`GroupNorm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#groupnorm"><span class="hidden-section">GroupNorm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#instancenorm1d"><span class="hidden-section">InstanceNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#instancenorm2d"><span class="hidden-section">InstanceNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#instancenorm3d"><span class="hidden-section">InstanceNorm3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#layernorm"><span class="hidden-section">LayerNorm</span></a></li>
@@ -387,6 +395,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#utilities">Utilities</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#clip-grad-norm"><span class="hidden-section">clip_grad_norm_</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#clip-grad-value"><span class="hidden-section">clip_grad_value_</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#parameters-to-vector"><span class="hidden-section">parameters_to_vector</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#vector-to-parameters"><span class="hidden-section">vector_to_parameters</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#weight-norm"><span class="hidden-section">weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#remove-weight-norm"><span class="hidden-section">remove_weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#spectral-norm"><span class="hidden-section">spectral_norm</span></a></li>
@@ -402,12 +412,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../nn.html#torch-nn-functional">torch.nn.functional</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#convolution-functions">Convolution functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id22"><span class="hidden-section">conv1d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id23"><span class="hidden-section">conv2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id24"><span class="hidden-section">conv3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id20"><span class="hidden-section">conv1d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id21"><span class="hidden-section">conv2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id22"><span class="hidden-section">conv3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#conv-transpose1d"><span class="hidden-section">conv_transpose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#conv-transpose2d"><span class="hidden-section">conv_transpose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#conv-transpose3d"><span class="hidden-section">conv_transpose3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id23"><span class="hidden-section">unfold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id24"><span class="hidden-section">fold</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#pooling-functions">Pooling functions</a><ul>
@@ -449,6 +461,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id38"><span class="hidden-section">softmin</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id39"><span class="hidden-section">softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id40"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#gumbel-softmax"><span class="hidden-section">gumbel_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id41"><span class="hidden-section">tanh</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id42"><span class="hidden-section">sigmoid</span></a></li>
@@ -464,21 +477,27 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#linear-functions">Linear functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id43"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id44"><span class="hidden-section">bilinear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id44"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id45"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id45"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id46"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id46"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id47"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../nn.html#id47">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../nn.html#sparse-functions">Sparse functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id48"><span class="hidden-section">embedding</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#embedding-bag"><span class="hidden-section">embedding_bag</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nn.html#id49">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../nn.html#id48">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../nn.html#id50">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
@@ -501,7 +520,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#vision-functions">Vision functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#pad"><span class="hidden-section">pad</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id49"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#interpolate"><span class="hidden-section">interpolate</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id51"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
@@ -539,7 +559,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../autograd.html#variable-deprecated">Variable (deprecated)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../autograd.html#tensor-autograd-functions">Tensor autograd functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../autograd.html#function"><span class="hidden-section">Function</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../autograd.html#numerical-gradient-checking">Numerical gradient checking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../autograd.html#profiler">Profiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../autograd.html#anomaly-detection">Anomaly detection</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../distributions.html">torch.distributions</a><ul>
@@ -559,9 +581,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#gamma"><span class="hidden-section">Gamma</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#geometric"><span class="hidden-section">Geometric</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#gumbel"><span class="hidden-section">Gumbel</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#halfcauchy"><span class="hidden-section">HalfCauchy</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#halfnormal"><span class="hidden-section">HalfNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#independent"><span class="hidden-section">Independent</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#laplace"><span class="hidden-section">Laplace</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#lognormal"><span class="hidden-section">LogNormal</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#lowrankmultivariatenormal"><span class="hidden-section">LowRankMultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#multinomial"><span class="hidden-section">Multinomial</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#multivariatenormal"><span class="hidden-section">MultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#normal"><span class="hidden-section">Normal</span></a></li>
@@ -573,6 +598,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#studentt"><span class="hidden-section">StudentT</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#transformeddistribution"><span class="hidden-section">TransformedDistribution</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#uniform"><span class="hidden-section">Uniform</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#weibull"><span class="hidden-section">Weibull</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#module-torch.distributions.kl"><cite>KL Divergence</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#module-torch.distributions.transforms"><cite>Transforms</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#module-torch.distributions.constraints"><cite>Constraints</cite></a></li>
@@ -608,6 +634,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../checkpoint.html">torch.utils.checkpoint</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp_extension.html">torch.utils.cpp_extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../data.html">torch.utils.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dlpack.html">torch.utils.dlpack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../ffi.html">torch.utils.ffi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../model_zoo.html">torch.utils.model_zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../onnx.html">torch.onnx</a><ul>
@@ -655,6 +682,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../torchvision/transforms.html#transforms-on-torch-tensor">Transforms on torch.*Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../torchvision/transforms.html#conversion-transforms">Conversion Transforms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../torchvision/transforms.html#generic-transforms">Generic Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../torchvision/transforms.html#module-torchvision.transforms.functional">Functional Transforms</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../torchvision/utils.html">torchvision.utils</a></li>
@@ -731,6 +759,7 @@
 <span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">total_ordering</span>
 
 <span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">torch._six</span> <span class="k">import</span> <span class="n">inf</span>
 
 <span class="kn">from</span> <span class="nn">.bernoulli</span> <span class="k">import</span> <span class="n">Bernoulli</span>
 <span class="kn">from</span> <span class="nn">.beta</span> <span class="k">import</span> <span class="n">Beta</span>
@@ -743,10 +772,13 @@
 <span class="kn">from</span> <span class="nn">.gamma</span> <span class="k">import</span> <span class="n">Gamma</span>
 <span class="kn">from</span> <span class="nn">.geometric</span> <span class="k">import</span> <span class="n">Geometric</span>
 <span class="kn">from</span> <span class="nn">.gumbel</span> <span class="k">import</span> <span class="n">Gumbel</span>
+<span class="kn">from</span> <span class="nn">.half_normal</span> <span class="k">import</span> <span class="n">HalfNormal</span>
 <span class="kn">from</span> <span class="nn">.laplace</span> <span class="k">import</span> <span class="n">Laplace</span>
-<span class="kn">from</span> <span class="nn">.log_normal</span> <span class="k">import</span> <span class="n">LogNormal</span>
 <span class="kn">from</span> <span class="nn">.logistic_normal</span> <span class="k">import</span> <span class="n">LogisticNormal</span>
-<span class="kn">from</span> <span class="nn">.multivariate_normal</span> <span class="k">import</span> <span class="n">MultivariateNormal</span><span class="p">,</span> <span class="n">_batch_mahalanobis</span><span class="p">,</span> <span class="n">_batch_diag</span><span class="p">,</span> <span class="n">_batch_inverse</span>
+<span class="kn">from</span> <span class="nn">.lowrank_multivariate_normal</span> <span class="k">import</span> <span class="p">(</span><span class="n">LowRankMultivariateNormal</span><span class="p">,</span> <span class="n">_batch_lowrank_logdet</span><span class="p">,</span>
+                                          <span class="n">_batch_lowrank_mahalanobis</span><span class="p">,</span> <span class="n">_batch_vector_diag</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.multivariate_normal</span> <span class="k">import</span> <span class="p">(</span><span class="n">MultivariateNormal</span><span class="p">,</span> <span class="n">_batch_diag</span><span class="p">,</span> <span class="n">_batch_mahalanobis</span><span class="p">,</span>
+                                  <span class="n">_batch_trtrs_lower</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">.normal</span> <span class="k">import</span> <span class="n">Normal</span>
 <span class="kn">from</span> <span class="nn">.one_hot_categorical</span> <span class="k">import</span> <span class="n">OneHotCategorical</span>
 <span class="kn">from</span> <span class="nn">.pareto</span> <span class="k">import</span> <span class="n">Pareto</span>
@@ -754,7 +786,6 @@
 <span class="kn">from</span> <span class="nn">.transformed_distribution</span> <span class="k">import</span> <span class="n">TransformedDistribution</span>
 <span class="kn">from</span> <span class="nn">.uniform</span> <span class="k">import</span> <span class="n">Uniform</span>
 <span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">_sum_rightmost</span>
-<span class="kn">from</span> <span class="nn">torch.autograd</span> <span class="k">import</span> <span class="n">Variable</span>
 
 <span class="n">_KL_REGISTRY</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Source of truth mapping a few general (type, type) pairs to functions.</span>
 <span class="n">_KL_MEMOIZE</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Memoized version mapping many specific (type, type) pairs to functions.</span>
@@ -842,7 +873,7 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Helper function for obtaining infinite KL Divergence throughout</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">tensor</span><span class="o">.</span><span class="n">new_tensor</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">expand_as</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tensor</span><span class="o">.</span><span class="n">new_tensor</span><span class="p">(</span><span class="n">inf</span><span class="p">)</span><span class="o">.</span><span class="n">expand_as</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">_x_log_x</span><span class="p">(</span><span class="n">tensor</span><span class="p">):</span>
@@ -856,9 +887,10 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Utility function for calculating the trace of XX^{T} with X having arbitrary trailing batch dimensions</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">mat_size</span> <span class="o">=</span> <span class="n">bmat</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">flat_trace</span> <span class="o">=</span> <span class="n">bmat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">mat_size</span> <span class="o">*</span> <span class="n">mat_size</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">flat_trace</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">bmat</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">bmat</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">bmat</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">flat_trace</span> <span class="o">=</span> <span class="n">bmat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">flat_trace</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">bmat</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
 
 
 <div class="viewcode-block" id="kl_divergence"><a class="viewcode-back" href="../../../distributions.html#torch.distributions.kl.kl_divergence">[docs]</a><span class="k">def</span> <span class="nf">kl_divergence</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
@@ -902,10 +934,10 @@
 <span class="nd">@register_kl</span><span class="p">(</span><span class="n">Bernoulli</span><span class="p">,</span> <span class="n">Bernoulli</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">_kl_bernoulli_bernoulli</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
     <span class="n">t1</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">probs</span> <span class="o">*</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">probs</span> <span class="o">/</span> <span class="n">q</span><span class="o">.</span><span class="n">probs</span><span class="p">)</span><span class="o">.</span><span class="n">log</span><span class="p">()</span>
-    <span class="n">t1</span><span class="p">[</span><span class="n">q</span><span class="o">.</span><span class="n">probs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="n">t1</span><span class="p">[</span><span class="n">q</span><span class="o">.</span><span class="n">probs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">inf</span>
     <span class="n">t1</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">probs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">t2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">probs</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">probs</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">q</span><span class="o">.</span><span class="n">probs</span><span class="p">))</span><span class="o">.</span><span class="n">log</span><span class="p">()</span>
-    <span class="n">t2</span><span class="p">[</span><span class="n">q</span><span class="o">.</span><span class="n">probs</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="n">t2</span><span class="p">[</span><span class="n">q</span><span class="o">.</span><span class="n">probs</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">inf</span>
     <span class="n">t2</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">probs</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">return</span> <span class="n">t1</span> <span class="o">+</span> <span class="n">t2</span>
 
@@ -937,7 +969,7 @@
 <span class="nd">@register_kl</span><span class="p">(</span><span class="n">Categorical</span><span class="p">,</span> <span class="n">Categorical</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">_kl_categorical_categorical</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">probs</span> <span class="o">*</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">logits</span> <span class="o">-</span> <span class="n">q</span><span class="o">.</span><span class="n">logits</span><span class="p">)</span>
-    <span class="n">t</span><span class="p">[</span><span class="n">q</span><span class="o">.</span><span class="n">probs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="n">t</span><span class="p">[</span><span class="n">q</span><span class="o">.</span><span class="n">probs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">inf</span>
     <span class="n">t</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">probs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">return</span> <span class="n">t</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
@@ -966,7 +998,7 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;The cross KL-divergence between different exponential families cannot </span><span class="se">\</span>
 <span class="s2">                            be computed using Bregman divergences&quot;</span><span class="p">)</span>
-    <span class="n">p_nparams</span> <span class="o">=</span> <span class="p">[</span><span class="n">Variable</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">np</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">_natural_params</span><span class="p">]</span>
+    <span class="n">p_nparams</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">()</span> <span class="k">for</span> <span class="n">np</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">_natural_params</span><span class="p">]</span>
     <span class="n">q_nparams</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">_natural_params</span>
     <span class="n">lg_normal</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">_log_normalizer</span><span class="p">(</span><span class="o">*</span><span class="n">p_nparams</span><span class="p">)</span>
     <span class="n">gradients</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">lg_normal</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">p_nparams</span><span class="p">,</span> <span class="n">create_graph</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1002,6 +1034,11 @@
     <span class="k">return</span> <span class="o">-</span><span class="n">p</span><span class="o">.</span><span class="n">entropy</span><span class="p">()</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="o">-</span><span class="n">q</span><span class="o">.</span><span class="n">probs</span><span class="p">)</span> <span class="o">/</span> <span class="n">p</span><span class="o">.</span><span class="n">probs</span> <span class="o">-</span> <span class="n">q</span><span class="o">.</span><span class="n">logits</span>
 
 
+<span class="nd">@register_kl</span><span class="p">(</span><span class="n">HalfNormal</span><span class="p">,</span> <span class="n">HalfNormal</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_kl_halfnormal_halfnormal</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_kl_normal_normal</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">base_dist</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">base_dist</span><span class="p">)</span>
+
+
 <span class="nd">@register_kl</span><span class="p">(</span><span class="n">Laplace</span><span class="p">,</span> <span class="n">Laplace</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">_kl_laplace_laplace</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
     <span class="c1"># From http://www.mast.queensu.ca/~communications/Papers/gil-msc11.pdf</span>
@@ -1013,6 +1050,73 @@
     <span class="k">return</span> <span class="n">t1</span> <span class="o">+</span> <span class="n">t2</span> <span class="o">+</span> <span class="n">t3</span> <span class="o">-</span> <span class="mi">1</span>
 
 
+<span class="nd">@register_kl</span><span class="p">(</span><span class="n">LowRankMultivariateNormal</span><span class="p">,</span> <span class="n">LowRankMultivariateNormal</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_kl_lowrankmultivariatenormal_lowrankmultivariatenormal</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">event_shape</span> <span class="o">!=</span> <span class="n">q</span><span class="o">.</span><span class="n">event_shape</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;KL-divergence between two Low Rank Multivariate Normals with</span><span class="se">\</span>
+<span class="s2">                          different event shapes cannot be computed&quot;</span><span class="p">)</span>
+
+    <span class="n">term1</span> <span class="o">=</span> <span class="p">(</span><span class="n">_batch_lowrank_logdet</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">cov_factor</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">cov_diag</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">_capacitance_tril</span><span class="p">)</span> <span class="o">-</span>
+             <span class="n">_batch_lowrank_logdet</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">cov_factor</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">cov_diag</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">_capacitance_tril</span><span class="p">))</span>
+    <span class="n">term3</span> <span class="o">=</span> <span class="n">_batch_lowrank_mahalanobis</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">cov_factor</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">cov_diag</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">loc</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">loc</span><span class="p">,</span>
+                                       <span class="n">q</span><span class="o">.</span><span class="n">_capacitance_tril</span><span class="p">)</span>
+    <span class="c1"># Expands term2 according to</span>
+    <span class="c1"># inv(qcov) @ pcov = [inv(qD) - inv(qD) @ qW @ inv(qC) @ qW.T @ inv(qD)] @ (pW @ pW.T + pD)</span>
+    <span class="c1">#                  = [inv(qD) - A.T @ A] @ (pD + pW @ pW.T)</span>
+    <span class="n">qWt_qDinv</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">cov_factor</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">q</span><span class="o">.</span><span class="n">cov_diag</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">_batch_trtrs_lower</span><span class="p">(</span><span class="n">qWt_qDinv</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">_capacitance_tril</span><span class="p">)</span>
+    <span class="n">term21</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">cov_diag</span> <span class="o">/</span> <span class="n">q</span><span class="o">.</span><span class="n">cov_diag</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">term22</span> <span class="o">=</span> <span class="n">_batch_trace_XXT</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">cov_factor</span> <span class="o">*</span> <span class="n">q</span><span class="o">.</span><span class="n">cov_diag</span><span class="o">.</span><span class="n">rsqrt</span><span class="p">()</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">term23</span> <span class="o">=</span> <span class="n">_batch_trace_XXT</span><span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">cov_diag</span><span class="o">.</span><span class="n">sqrt</span><span class="p">()</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">term24</span> <span class="o">=</span> <span class="n">_batch_trace_XXT</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">cov_factor</span><span class="p">))</span>
+    <span class="n">term2</span> <span class="o">=</span> <span class="n">term21</span> <span class="o">+</span> <span class="n">term22</span> <span class="o">-</span> <span class="n">term23</span> <span class="o">-</span> <span class="n">term24</span>
+    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">term1</span> <span class="o">+</span> <span class="n">term2</span> <span class="o">+</span> <span class="n">term3</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">event_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+
+<span class="nd">@register_kl</span><span class="p">(</span><span class="n">MultivariateNormal</span><span class="p">,</span> <span class="n">LowRankMultivariateNormal</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_kl_multivariatenormal_lowrankmultivariatenormal</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">event_shape</span> <span class="o">!=</span> <span class="n">q</span><span class="o">.</span><span class="n">event_shape</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;KL-divergence between two (Low Rank) Multivariate Normals with</span><span class="se">\</span>
+<span class="s2">                          different event shapes cannot be computed&quot;</span><span class="p">)</span>
+
+    <span class="n">term1</span> <span class="o">=</span> <span class="p">(</span><span class="n">_batch_lowrank_logdet</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">cov_factor</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">cov_diag</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">_capacitance_tril</span><span class="p">)</span> <span class="o">-</span>
+             <span class="mi">2</span> <span class="o">*</span> <span class="n">_batch_diag</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="p">)</span><span class="o">.</span><span class="n">log</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">term3</span> <span class="o">=</span> <span class="n">_batch_lowrank_mahalanobis</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">cov_factor</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">cov_diag</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">loc</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">loc</span><span class="p">,</span>
+                                       <span class="n">q</span><span class="o">.</span><span class="n">_capacitance_tril</span><span class="p">)</span>
+    <span class="c1"># Expands term2 according to</span>
+    <span class="c1"># inv(qcov) @ pcov = [inv(qD) - inv(qD) @ qW @ inv(qC) @ qW.T @ inv(qD)] @ p_tril @ p_tril.T</span>
+    <span class="c1">#                  = [inv(qD) - A.T @ A] @ p_tril @ p_tril.T</span>
+    <span class="n">qWt_qDinv</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">cov_factor</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">q</span><span class="o">.</span><span class="n">cov_diag</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">_batch_trtrs_lower</span><span class="p">(</span><span class="n">qWt_qDinv</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">_capacitance_tril</span><span class="p">)</span>
+    <span class="n">term21</span> <span class="o">=</span> <span class="n">_batch_trace_XXT</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span> <span class="o">*</span> <span class="n">q</span><span class="o">.</span><span class="n">cov_diag</span><span class="o">.</span><span class="n">rsqrt</span><span class="p">()</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">term22</span> <span class="o">=</span> <span class="n">_batch_trace_XXT</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="p">))</span>
+    <span class="n">term2</span> <span class="o">=</span> <span class="n">term21</span> <span class="o">-</span> <span class="n">term22</span>
+    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">term1</span> <span class="o">+</span> <span class="n">term2</span> <span class="o">+</span> <span class="n">term3</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">event_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+
+<span class="nd">@register_kl</span><span class="p">(</span><span class="n">LowRankMultivariateNormal</span><span class="p">,</span> <span class="n">MultivariateNormal</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_kl_lowrankmultivariatenormal_multivariatenormal</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">event_shape</span> <span class="o">!=</span> <span class="n">q</span><span class="o">.</span><span class="n">event_shape</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;KL-divergence between two (Low Rank) Multivariate Normals with</span><span class="se">\</span>
+<span class="s2">                          different event shapes cannot be computed&quot;</span><span class="p">)</span>
+
+    <span class="n">term1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">_batch_diag</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="p">)</span><span class="o">.</span><span class="n">log</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span>
+             <span class="n">_batch_lowrank_logdet</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">cov_factor</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">cov_diag</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">_capacitance_tril</span><span class="p">))</span>
+    <span class="n">term3</span> <span class="o">=</span> <span class="n">_batch_mahalanobis</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="p">,</span> <span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">loc</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">loc</span><span class="p">))</span>
+    <span class="c1"># Expands term2 according to</span>
+    <span class="c1"># inv(qcov) @ pcov = inv(q_tril @ q_tril.T) @ (pW @ pW.T + pD)</span>
+    <span class="n">combined_batch_shape</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">_C</span><span class="o">.</span><span class="n">_infer_size</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span>
+                                                <span class="n">p</span><span class="o">.</span><span class="n">cov_factor</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">event_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">q_scale_tril</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">combined_batch_shape</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    <span class="n">p_cov_factor</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">cov_factor</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">combined_batch_shape</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">cov_factor</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
+    <span class="n">p_cov_diag</span> <span class="o">=</span> <span class="n">_batch_vector_diag</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">cov_diag</span><span class="o">.</span><span class="n">sqrt</span><span class="p">())</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">combined_batch_shape</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    <span class="n">term21</span> <span class="o">=</span> <span class="n">_batch_trace_XXT</span><span class="p">(</span><span class="n">_batch_trtrs_lower</span><span class="p">(</span><span class="n">p_cov_factor</span><span class="p">,</span> <span class="n">q_scale_tril</span><span class="p">))</span>
+    <span class="n">term22</span> <span class="o">=</span> <span class="n">_batch_trace_XXT</span><span class="p">(</span><span class="n">_batch_trtrs_lower</span><span class="p">(</span><span class="n">p_cov_diag</span><span class="p">,</span> <span class="n">q_scale_tril</span><span class="p">))</span>
+    <span class="n">term2</span> <span class="o">=</span> <span class="n">term21</span> <span class="o">+</span> <span class="n">term22</span>
+    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">term1</span> <span class="o">+</span> <span class="n">term2</span> <span class="o">+</span> <span class="n">term3</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">event_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+
 <span class="nd">@register_kl</span><span class="p">(</span><span class="n">MultivariateNormal</span><span class="p">,</span> <span class="n">MultivariateNormal</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">_kl_multivariatenormal_multivariatenormal</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
     <span class="c1"># From https://en.wikipedia.org/wiki/Multivariate_normal_distribution#Kullback%E2%80%93Leibler_divergence</span>
@@ -1020,10 +1124,16 @@
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;KL-divergence between two Multivariate Normals with</span><span class="se">\</span>
 <span class="s2">                          different event shapes cannot be computed&quot;</span><span class="p">)</span>
 
-    <span class="n">term1</span> <span class="o">=</span> <span class="n">_batch_diag</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">scale_tril</span><span class="p">)</span><span class="o">.</span><span class="n">log</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">_batch_diag</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">scale_tril</span><span class="p">)</span><span class="o">.</span><span class="n">log</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">term2</span> <span class="o">=</span> <span class="n">_batch_trace_XXT</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">_batch_inverse</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">scale_tril</span><span class="p">),</span> <span class="n">p</span><span class="o">.</span><span class="n">scale_tril</span><span class="p">))</span>
-    <span class="n">term3</span> <span class="o">=</span> <span class="n">_batch_mahalanobis</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">scale_tril</span><span class="p">,</span> <span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">loc</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">loc</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">term1</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">term2</span> <span class="o">+</span> <span class="n">term3</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">event_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">half_term1</span> <span class="o">=</span> <span class="p">(</span><span class="n">_batch_diag</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="p">)</span><span class="o">.</span><span class="n">log</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span>
+                  <span class="n">_batch_diag</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="p">)</span><span class="o">.</span><span class="n">log</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">combined_batch_shape</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">_C</span><span class="o">.</span><span class="n">_infer_size</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span>
+                                                <span class="n">p</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">event_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">q_scale_tril</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">combined_batch_shape</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    <span class="n">p_scale_tril</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">combined_batch_shape</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    <span class="n">term2</span> <span class="o">=</span> <span class="n">_batch_trace_XXT</span><span class="p">(</span><span class="n">_batch_trtrs_lower</span><span class="p">(</span><span class="n">p_scale_tril</span><span class="p">,</span> <span class="n">q_scale_tril</span><span class="p">))</span>
+    <span class="n">term3</span> <span class="o">=</span> <span class="n">_batch_mahalanobis</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="p">,</span> <span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">loc</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">loc</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">half_term1</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">term2</span> <span class="o">+</span> <span class="n">term3</span> <span class="o">-</span> <span class="n">n</span><span class="p">)</span>
 
 
 <span class="nd">@register_kl</span><span class="p">(</span><span class="n">Normal</span><span class="p">,</span> <span class="n">Normal</span><span class="p">)</span>
@@ -1046,7 +1156,7 @@
     <span class="n">t1</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">scale_ratio</span><span class="o">.</span><span class="n">log</span><span class="p">()</span>
     <span class="n">t2</span> <span class="o">=</span> <span class="o">-</span><span class="n">alpha_ratio</span><span class="o">.</span><span class="n">log</span><span class="p">()</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">+</span> <span class="n">t2</span> <span class="o">+</span> <span class="n">alpha_ratio</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="n">result</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">lower_bound</span> <span class="o">&lt;</span> <span class="n">q</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">lower_bound</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="n">result</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">lower_bound</span> <span class="o">&lt;</span> <span class="n">q</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">lower_bound</span><span class="p">]</span> <span class="o">=</span> <span class="n">inf</span>
     <span class="k">return</span> <span class="n">result</span>
 
 
@@ -1070,7 +1180,7 @@
 <span class="nd">@register_kl</span><span class="p">(</span><span class="n">Uniform</span><span class="p">,</span> <span class="n">Uniform</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">_kl_uniform_uniform</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="p">((</span><span class="n">q</span><span class="o">.</span><span class="n">high</span> <span class="o">-</span> <span class="n">q</span><span class="o">.</span><span class="n">low</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">high</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">low</span><span class="p">))</span><span class="o">.</span><span class="n">log</span><span class="p">()</span>
-    <span class="n">result</span><span class="p">[(</span><span class="n">q</span><span class="o">.</span><span class="n">low</span> <span class="o">&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">low</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">high</span> <span class="o">&lt;</span> <span class="n">p</span><span class="o">.</span><span class="n">high</span><span class="p">)]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="n">result</span><span class="p">[(</span><span class="n">q</span><span class="o">.</span><span class="n">low</span> <span class="o">&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">low</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">high</span> <span class="o">&lt;</span> <span class="n">p</span><span class="o">.</span><span class="n">high</span><span class="p">)]</span> <span class="o">=</span> <span class="n">inf</span>
     <span class="k">return</span> <span class="n">result</span>
 
 
@@ -1116,7 +1226,7 @@
 <span class="nd">@register_kl</span><span class="p">(</span><span class="n">Beta</span><span class="p">,</span> <span class="n">Uniform</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">_kl_beta_uniform</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="o">-</span><span class="n">p</span><span class="o">.</span><span class="n">entropy</span><span class="p">()</span> <span class="o">+</span> <span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">high</span> <span class="o">-</span> <span class="n">q</span><span class="o">.</span><span class="n">low</span><span class="p">)</span><span class="o">.</span><span class="n">log</span><span class="p">()</span>
-    <span class="n">result</span><span class="p">[(</span><span class="n">q</span><span class="o">.</span><span class="n">low</span> <span class="o">&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">lower_bound</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">high</span> <span class="o">&lt;</span> <span class="n">p</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">upper_bound</span><span class="p">)]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="n">result</span><span class="p">[(</span><span class="n">q</span><span class="o">.</span><span class="n">low</span> <span class="o">&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">lower_bound</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">high</span> <span class="o">&lt;</span> <span class="n">p</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">upper_bound</span><span class="p">)]</span> <span class="o">=</span> <span class="n">inf</span>
     <span class="k">return</span> <span class="n">result</span>
 
 
@@ -1267,7 +1377,7 @@
     <span class="n">t2</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">alpha</span><span class="o">.</span><span class="n">reciprocal</span><span class="p">()</span>
     <span class="n">t3</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">scale_rate_prod</span> <span class="o">/</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">alpha</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t2</span> <span class="o">+</span> <span class="n">t3</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="n">result</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">alpha</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="n">result</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">alpha</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">inf</span>
     <span class="k">return</span> <span class="n">result</span>
 
 
@@ -1279,7 +1389,7 @@
     <span class="n">t3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">q</span><span class="o">.</span><span class="n">concentration</span><span class="p">)</span> <span class="o">*</span> <span class="n">common_term</span>
     <span class="n">t4</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">rate</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">scale</span> <span class="o">/</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">alpha</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">+</span> <span class="n">t2</span> <span class="o">+</span> <span class="n">t3</span> <span class="o">+</span> <span class="n">t4</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="n">result</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">alpha</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="n">result</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">alpha</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">inf</span>
     <span class="k">return</span> <span class="n">result</span>
 
 <span class="c1"># TODO: Add Pareto-Laplace KL Divergence</span>
@@ -1294,7 +1404,7 @@
     <span class="n">t3</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">common_term</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">alpha</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">t4</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">common_term</span> <span class="o">-</span> <span class="n">q</span><span class="o">.</span><span class="n">loc</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t2</span> <span class="o">+</span> <span class="p">(</span><span class="n">t3</span> <span class="o">+</span> <span class="n">t4</span><span class="p">)</span> <span class="o">/</span> <span class="n">var_normal</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="n">result</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">alpha</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="n">result</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">alpha</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">inf</span>
     <span class="k">return</span> <span class="n">result</span>
 
 
@@ -1312,14 +1422,14 @@
     <span class="n">t3</span> <span class="o">=</span> <span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">concentration0</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">_x_log_x</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">high</span><span class="p">))</span> <span class="o">-</span> <span class="n">_x_log_x</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">low</span><span class="p">))</span> <span class="o">+</span> <span class="n">common_term</span><span class="p">)</span> <span class="o">/</span> <span class="n">common_term</span>
     <span class="n">t4</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">concentration1</span><span class="o">.</span><span class="n">lgamma</span><span class="p">()</span> <span class="o">+</span> <span class="n">q</span><span class="o">.</span><span class="n">concentration0</span><span class="o">.</span><span class="n">lgamma</span><span class="p">()</span> <span class="o">-</span> <span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">concentration1</span> <span class="o">+</span> <span class="n">q</span><span class="o">.</span><span class="n">concentration0</span><span class="p">)</span><span class="o">.</span><span class="n">lgamma</span><span class="p">()</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">t3</span> <span class="o">+</span> <span class="n">t4</span> <span class="o">-</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t2</span>
-    <span class="n">result</span><span class="p">[(</span><span class="n">p</span><span class="o">.</span><span class="n">high</span> <span class="o">&gt;</span> <span class="n">q</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">upper_bound</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">q</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">lower_bound</span><span class="p">)]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="n">result</span><span class="p">[(</span><span class="n">p</span><span class="o">.</span><span class="n">high</span> <span class="o">&gt;</span> <span class="n">q</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">upper_bound</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">q</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">lower_bound</span><span class="p">)]</span> <span class="o">=</span> <span class="n">inf</span>
     <span class="k">return</span> <span class="n">result</span>
 
 
 <span class="nd">@register_kl</span><span class="p">(</span><span class="n">Uniform</span><span class="p">,</span> <span class="n">Exponential</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">_kl_uniform_exponetial</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">rate</span> <span class="o">*</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">high</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">low</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="p">((</span><span class="n">p</span><span class="o">.</span><span class="n">high</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">low</span><span class="p">)</span> <span class="o">*</span> <span class="n">q</span><span class="o">.</span><span class="n">rate</span><span class="p">)</span><span class="o">.</span><span class="n">log</span><span class="p">()</span>
-    <span class="n">result</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">q</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">lower_bound</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="n">result</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">q</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">lower_bound</span><span class="p">]</span> <span class="o">=</span> <span class="n">inf</span>
     <span class="k">return</span> <span class="n">result</span>
 
 
@@ -1331,7 +1441,7 @@
     <span class="n">t3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">q</span><span class="o">.</span><span class="n">concentration</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">_x_log_x</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">high</span><span class="p">)</span> <span class="o">-</span> <span class="n">_x_log_x</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">low</span><span class="p">)</span> <span class="o">-</span> <span class="n">common_term</span><span class="p">)</span> <span class="o">/</span> <span class="n">common_term</span>
     <span class="n">t4</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">rate</span> <span class="o">*</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">high</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">low</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="n">result</span> <span class="o">=</span> <span class="o">-</span><span class="n">t1</span> <span class="o">+</span> <span class="n">t2</span> <span class="o">+</span> <span class="n">t3</span> <span class="o">+</span> <span class="n">t4</span>
-    <span class="n">result</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">q</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">lower_bound</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="n">result</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">q</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">lower_bound</span><span class="p">]</span> <span class="o">=</span> <span class="n">inf</span>
     <span class="k">return</span> <span class="n">result</span>
 
 
@@ -1362,7 +1472,7 @@
     <span class="n">t1</span> <span class="o">=</span> <span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">q</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">support_uniform</span><span class="p">))</span><span class="o">.</span><span class="n">log</span><span class="p">()</span>
     <span class="n">t2</span> <span class="o">=</span> <span class="p">(</span><span class="n">_x_log_x</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">high</span><span class="p">)</span> <span class="o">-</span> <span class="n">_x_log_x</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">low</span><span class="p">)</span> <span class="o">-</span> <span class="n">support_uniform</span><span class="p">)</span> <span class="o">/</span> <span class="n">support_uniform</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">t2</span> <span class="o">*</span> <span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">alpha</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">t1</span>
-    <span class="n">result</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">q</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">lower_bound</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="n">result</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">q</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">lower_bound</span><span class="p">]</span> <span class="o">=</span> <span class="n">inf</span>
     <span class="k">return</span> <span class="n">result</span>
 </pre></div>
 
@@ -1413,10 +1523,7 @@
 
   
 
-  
-  
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {

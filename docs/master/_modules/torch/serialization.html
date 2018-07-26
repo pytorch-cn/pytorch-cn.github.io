@@ -15,6 +15,8 @@
   
   
   
+    <link rel="canonical" href="https://pytorch.org/docs/stable/_modules/torch/serialization.html"/>
+  
 
   
 
@@ -24,8 +26,7 @@
 
   
 
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/pytorch_theme.css" type="text/css" />
@@ -62,7 +63,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+6087a5f ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+5e4de08 ) &#x25BC</a>
               </div>
             
           
@@ -82,7 +83,7 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
 <div>
-  <a style="color:#F05732" href=http://pytorch.org/docs/stable/>
+  <a style="color:#F05732" href="https://pytorch.org/docs/stable/_modules/torch/serialization.html">
     You are viewing unstable developer preview docs.
     Click here to view docs for latest stable release.
   </a>
@@ -131,7 +132,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../notes/extending.html#adding-a-module">Adding a <code class="docutils literal notranslate"><span class="pre">Module</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../notes/extending.html#writing-custom-c-extensions">Writing custom C extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/extending.html#writing-custom-c-extensions">Writing custom C++ extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/extending.html#id1">Writing custom C extensions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/faq.html">Frequently Asked Questions</a><ul>
@@ -238,7 +240,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#module"><span class="hidden-section">Module</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#sequential"><span class="hidden-section">Sequential</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#modulelist"><span class="hidden-section">ModuleList</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#moduledict"><span class="hidden-section">ModuleDict</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#parameterlist"><span class="hidden-section">ParameterList</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#parameterdict"><span class="hidden-section">ParameterDict</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#convolution-layers">Convolution layers</a><ul>
@@ -248,6 +252,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#convtranspose1d"><span class="hidden-section">ConvTranspose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#convtranspose2d"><span class="hidden-section">ConvTranspose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#convtranspose3d"><span class="hidden-section">ConvTranspose3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#unfold"><span class="hidden-section">Unfold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#fold"><span class="hidden-section">Fold</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#pooling-layers">Pooling layers</a><ul>
@@ -308,13 +314,15 @@
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#softmax"><span class="hidden-section">Softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#softmax2d"><span class="hidden-section">Softmax2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#logsoftmax"><span class="hidden-section">LogSoftmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#adaptivelogsoftmaxwithloss"><span class="hidden-section">AdaptiveLogSoftmaxWithLoss</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#normalization-layers">Normalization layers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#batchnorm1d"><span class="hidden-section">BatchNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#batchnorm2d"><span class="hidden-section">BatchNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#batchnorm3d"><span class="hidden-section">BatchNorm3d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#hidden-groupnorm">:hidden:`GroupNorm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#groupnorm"><span class="hidden-section">GroupNorm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#instancenorm1d"><span class="hidden-section">InstanceNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#instancenorm2d"><span class="hidden-section">InstanceNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#instancenorm3d"><span class="hidden-section">InstanceNorm3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#layernorm"><span class="hidden-section">LayerNorm</span></a></li>
@@ -387,6 +395,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#utilities">Utilities</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#clip-grad-norm"><span class="hidden-section">clip_grad_norm_</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#clip-grad-value"><span class="hidden-section">clip_grad_value_</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#parameters-to-vector"><span class="hidden-section">parameters_to_vector</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#vector-to-parameters"><span class="hidden-section">vector_to_parameters</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#weight-norm"><span class="hidden-section">weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#remove-weight-norm"><span class="hidden-section">remove_weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#spectral-norm"><span class="hidden-section">spectral_norm</span></a></li>
@@ -402,12 +412,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../nn.html#torch-nn-functional">torch.nn.functional</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#convolution-functions">Convolution functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id22"><span class="hidden-section">conv1d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id23"><span class="hidden-section">conv2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id24"><span class="hidden-section">conv3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id20"><span class="hidden-section">conv1d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id21"><span class="hidden-section">conv2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id22"><span class="hidden-section">conv3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#conv-transpose1d"><span class="hidden-section">conv_transpose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#conv-transpose2d"><span class="hidden-section">conv_transpose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#conv-transpose3d"><span class="hidden-section">conv_transpose3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id23"><span class="hidden-section">unfold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id24"><span class="hidden-section">fold</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#pooling-functions">Pooling functions</a><ul>
@@ -449,6 +461,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#id38"><span class="hidden-section">softmin</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#id39"><span class="hidden-section">softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#id40"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#gumbel-softmax"><span class="hidden-section">gumbel_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#id41"><span class="hidden-section">tanh</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#id42"><span class="hidden-section">sigmoid</span></a></li>
@@ -464,21 +477,27 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#linear-functions">Linear functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#id43"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id44"><span class="hidden-section">bilinear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id44"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id45"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id45"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id46"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id46"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id47"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../nn.html#id47">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../nn.html#sparse-functions">Sparse functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id48"><span class="hidden-section">embedding</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#embedding-bag"><span class="hidden-section">embedding_bag</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nn.html#id49">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../nn.html#id48">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../nn.html#id50">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
@@ -501,7 +520,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#vision-functions">Vision functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#pad"><span class="hidden-section">pad</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id49"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#interpolate"><span class="hidden-section">interpolate</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id51"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
@@ -539,7 +559,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../autograd.html#variable-deprecated">Variable (deprecated)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../autograd.html#tensor-autograd-functions">Tensor autograd functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../autograd.html#function"><span class="hidden-section">Function</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../autograd.html#numerical-gradient-checking">Numerical gradient checking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../autograd.html#profiler">Profiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../autograd.html#anomaly-detection">Anomaly detection</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../distributions.html">torch.distributions</a><ul>
@@ -559,9 +581,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#gamma"><span class="hidden-section">Gamma</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#geometric"><span class="hidden-section">Geometric</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#gumbel"><span class="hidden-section">Gumbel</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../distributions.html#halfcauchy"><span class="hidden-section">HalfCauchy</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../distributions.html#halfnormal"><span class="hidden-section">HalfNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#independent"><span class="hidden-section">Independent</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#laplace"><span class="hidden-section">Laplace</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#lognormal"><span class="hidden-section">LogNormal</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../distributions.html#lowrankmultivariatenormal"><span class="hidden-section">LowRankMultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#multinomial"><span class="hidden-section">Multinomial</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#multivariatenormal"><span class="hidden-section">MultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#normal"><span class="hidden-section">Normal</span></a></li>
@@ -573,6 +598,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#studentt"><span class="hidden-section">StudentT</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#transformeddistribution"><span class="hidden-section">TransformedDistribution</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#uniform"><span class="hidden-section">Uniform</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../distributions.html#weibull"><span class="hidden-section">Weibull</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#module-torch.distributions.kl"><cite>KL Divergence</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#module-torch.distributions.transforms"><cite>Transforms</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#module-torch.distributions.constraints"><cite>Constraints</cite></a></li>
@@ -608,6 +634,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../checkpoint.html">torch.utils.checkpoint</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp_extension.html">torch.utils.cpp_extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../data.html">torch.utils.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dlpack.html">torch.utils.dlpack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../ffi.html">torch.utils.ffi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../model_zoo.html">torch.utils.model_zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../onnx.html">torch.onnx</a><ul>
@@ -655,6 +682,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../torchvision/transforms.html#transforms-on-torch-tensor">Transforms on torch.*Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../torchvision/transforms.html#conversion-transforms">Conversion Transforms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../torchvision/transforms.html#generic-transforms">Generic Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torchvision/transforms.html#module-torchvision.transforms.functional">Functional Transforms</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../torchvision/utils.html">torchvision.utils</a></li>
@@ -794,7 +822,23 @@
 
 <span class="k">def</span> <span class="nf">_cuda_deserialize</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">location</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">location</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span><span class="p">):</span>
-        <span class="n">device</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">location</span><span class="p">[</span><span class="mi">5</span><span class="p">:]),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">location</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">device</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">device</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">location</span><span class="p">[</span><span class="mi">5</span><span class="p">:]),</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Attempting to deserialize object on a CUDA &#39;</span>
+                               <span class="s1">&#39;device but torch.cuda.is_available() is False. &#39;</span>
+                               <span class="s1">&#39;If you are running on a CPU-only machine, &#39;</span>
+                               <span class="s1">&#39;please use torch.load with map_location=</span><span class="se">\&#39;</span><span class="s1">cpu</span><span class="se">\&#39;</span><span class="s1"> &#39;</span>
+                               <span class="s1">&#39;to map your storages to the CPU.&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">device</span> <span class="o">&gt;=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Attempting to deserialize object on CUDA device &#39;</span>
+                               <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> but torch.cuda.device_count() is </span><span class="si">{}</span><span class="s1">. Please use &#39;</span>
+                               <span class="s1">&#39;torch.load with map_location to map your storages &#39;</span>
+                               <span class="s1">&#39;to an existing device.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                                   <span class="n">device</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">()))</span>
         <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">cuda</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 
 
@@ -849,14 +893,46 @@
             <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">_is_real_file</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Checks if f is backed by a real file (has a fileno)&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">_is_compressed_file</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">compress_modules</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gzip&#39;</span><span class="p">]</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="vm">__module__</span> <span class="ow">in</span> <span class="n">compress_modules</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="k">def</span> <span class="nf">_should_read_directly</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks if f is a file that should be read directly. It should be read</span>
+<span class="sd">    directly if it is backed by a real file (has a fileno) and is not a</span>
+<span class="sd">    a compressed file (e.g. gzip)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">_is_compressed_file</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">fileno</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">0</span>
     <span class="k">except</span> <span class="n">io</span><span class="o">.</span><span class="n">UnsupportedOperation</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">False</span>
     <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="k">def</span> <span class="nf">_check_seekable</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">raise_err_msg</span><span class="p">(</span><span class="n">patterns</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">patterns</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;. You can only torch.load from a file that is seekable.&quot;</span> <span class="o">+</span>
+                                <span class="s2">&quot; Please pre-load the data into a buffer like io.BytesIO and&quot;</span> <span class="o">+</span>
+                                <span class="s2">&quot; try to load from it instead.&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">())</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">except</span> <span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">UnsupportedOperation</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">raise_err_msg</span><span class="p">([</span><span class="s2">&quot;seek&quot;</span><span class="p">,</span> <span class="s2">&quot;tell&quot;</span><span class="p">],</span> <span class="n">e</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="save"><a class="viewcode-back" href="../../torch.html#torch.save">[docs]</a><span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">pickle_module</span><span class="o">=</span><span class="n">pickle</span><span class="p">,</span> <span class="n">pickle_protocol</span><span class="o">=</span><span class="n">DEFAULT_PROTOCOL</span><span class="p">):</span>
@@ -923,11 +999,13 @@
             <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;module&#39;</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">source_file</span><span class="p">,</span> <span class="n">source</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">torch</span><span class="o">.</span><span class="n">is_storage</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
             <span class="n">storage_type</span> <span class="o">=</span> <span class="n">normalize_storage_type</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
-            <span class="n">root</span><span class="p">,</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">_root_storage</span><span class="p">()</span>
-            <span class="n">root_key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">_cdata</span><span class="p">)</span>
+            <span class="c1"># Offset is always 0, but we keep it for backwards compatibility</span>
+            <span class="c1"># with the old serialization format (which supported storage views)</span>
+            <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">obj_key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">_cdata</span><span class="p">)</span>
             <span class="n">location</span> <span class="o">=</span> <span class="n">location_tag</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-            <span class="n">serialized_storages</span><span class="p">[</span><span class="n">root_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">root</span>
-            <span class="n">is_view</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">_cdata</span> <span class="o">!=</span> <span class="n">root</span><span class="o">.</span><span class="n">_cdata</span>
+            <span class="n">serialized_storages</span><span class="p">[</span><span class="n">obj_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span>
+            <span class="n">is_view</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">_cdata</span> <span class="o">!=</span> <span class="n">obj</span><span class="o">.</span><span class="n">_cdata</span>
             <span class="k">if</span> <span class="n">is_view</span><span class="p">:</span>
                 <span class="n">view_metadata</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">_cdata</span><span class="p">),</span> <span class="n">offset</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
             <span class="k">else</span><span class="p">:</span>
@@ -935,9 +1013,9 @@
 
             <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;storage&#39;</span><span class="p">,</span>
                     <span class="n">storage_type</span><span class="p">,</span>
-                    <span class="n">root_key</span><span class="p">,</span>
+                    <span class="n">obj_key</span><span class="p">,</span>
                     <span class="n">location</span><span class="p">,</span>
-                    <span class="n">root</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span>
+                    <span class="n">obj</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span>
                     <span class="n">view_metadata</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="kc">None</span>
@@ -963,7 +1041,7 @@
     <span class="n">pickle_module</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">serialized_storage_keys</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="n">pickle_protocol</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">serialized_storage_keys</span><span class="p">:</span>
-        <span class="n">serialized_storages</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">_write_file</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">_is_real_file</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+        <span class="n">serialized_storages</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">_write_file</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">_should_read_directly</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
 
 
 <div class="viewcode-block" id="load"><a class="viewcode-back" href="../../torch.html#torch.load">[docs]</a><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pickle_module</span><span class="o">=</span><span class="n">pickle</span><span class="p">):</span>
@@ -1001,15 +1079,20 @@
 <span class="sd">    Args:</span>
 <span class="sd">        f: a file-like object (has to implement read, readline, tell, and seek),</span>
 <span class="sd">            or a string containing a file name</span>
-<span class="sd">        map_location: a function, string or a dict specifying how to remap storage</span>
+<span class="sd">        map_location: a function, torch.device, string or a dict specifying how to remap storage</span>
 <span class="sd">            locations</span>
 <span class="sd">        pickle_module: module used for unpickling metadata and objects (has to</span>
 <span class="sd">            match the pickle_module used to serialize file)</span>
 
+<span class="sd">    .. note::</span>
+<span class="sd">        When you call :meth:`torch.load()` on a file which contains GPU tensors, those tensors</span>
+<span class="sd">        will be loaded to GPU by default. You can call `torch.load(.., map_location=&#39;cpu&#39;)`</span>
+<span class="sd">        and then :meth:`load_state_dict` to avoid GPU RAM surge when loading a model checkpoint.</span>
+
 <span class="sd">    Example:</span>
 <span class="sd">        &gt;&gt;&gt; torch.load(&#39;tensors.pt&#39;)</span>
 <span class="sd">        # Load all tensors onto the CPU</span>
-<span class="sd">        &gt;&gt;&gt; torch.load(&#39;tensors.pt&#39;, map_location=&#39;cpu&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; torch.load(&#39;tensors.pt&#39;, map_location=torch.device(&#39;cpu&#39;))</span>
 <span class="sd">        # Load all tensors onto the CPU, using a function</span>
 <span class="sd">        &gt;&gt;&gt; torch.load(&#39;tensors.pt&#39;, map_location=lambda storage, loc: storage)</span>
 <span class="sd">        # Load all tensors onto GPU 1</span>
@@ -1046,6 +1129,9 @@
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">map_location</span><span class="p">,</span> <span class="n">_string_classes</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">restore_location</span><span class="p">(</span><span class="n">storage</span><span class="p">,</span> <span class="n">location</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">default_restore_location</span><span class="p">(</span><span class="n">storage</span><span class="p">,</span> <span class="n">map_location</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">map_location</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">restore_location</span><span class="p">(</span><span class="n">storage</span><span class="p">,</span> <span class="n">location</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">default_restore_location</span><span class="p">(</span><span class="n">storage</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">map_location</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">def</span> <span class="nf">restore_location</span><span class="p">(</span><span class="n">storage</span><span class="p">,</span> <span class="n">location</span><span class="p">):</span>
             <span class="n">result</span> <span class="o">=</span> <span class="n">map_location</span><span class="p">(</span><span class="n">storage</span><span class="p">,</span> <span class="n">location</span><span class="p">)</span>
@@ -1121,7 +1207,20 @@
                 <span class="n">storage_views</span> <span class="o">=</span> <span class="n">pickle_module</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
                 <span class="k">for</span> <span class="n">target_cdata</span><span class="p">,</span> <span class="n">root_cdata</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">storage_views</span><span class="p">:</span>
                     <span class="n">root</span> <span class="o">=</span> <span class="n">deserialized_objects</span><span class="p">[</span><span class="n">root_cdata</span><span class="p">]</span>
-                    <span class="n">deserialized_objects</span><span class="p">[</span><span class="n">target_cdata</span><span class="p">]</span> <span class="o">=</span> <span class="n">root</span><span class="p">[</span><span class="n">offset</span><span class="p">:</span><span class="n">offset</span> <span class="o">+</span> <span class="n">size</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">offset</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">size</span> <span class="o">!=</span> <span class="n">root</span><span class="o">.</span><span class="n">size</span><span class="p">():</span>
+                        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Detected storage view in legacy serialized data: &quot;</span>
+                                      <span class="s2">&quot;storage views are no longer natively supported, so we are making &quot;</span>
+                                      <span class="s2">&quot;a copy of the data instead.  THIS IS A SEMANTIC CHANGE! &quot;</span>
+                                      <span class="s2">&quot;If you need aliasing, reserialize your model using &quot;</span>
+                                      <span class="s2">&quot;tensors that share storage.&quot;</span><span class="p">)</span>
+
+                        <span class="n">tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">_utils</span><span class="o">.</span><span class="n">_rebuild_tensor</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="p">(</span><span class="n">size</span><span class="p">,),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
+                        <span class="n">obj</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">storage</span><span class="p">()</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># NB: This line does not appear to be exercised by the</span>
+                        <span class="c1"># test suite.</span>
+                        <span class="n">obj</span> <span class="o">=</span> <span class="n">root</span>
+                    <span class="n">deserialized_objects</span><span class="p">[</span><span class="n">target_cdata</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span>
 
             <span class="n">tar</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;tensors&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">tmpdir</span><span class="p">)</span>
             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">,</span> <span class="s1">&#39;tensors&#39;</span><span class="p">),</span> <span class="s1">&#39;rb&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -1174,8 +1273,10 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unknown saved id type: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">saved_id</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
-    <span class="n">f_is_real_file</span> <span class="o">=</span> <span class="n">_is_real_file</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">f_is_real_file</span> <span class="ow">and</span> <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">_check_seekable</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">f_should_read_directly</span> <span class="o">=</span> <span class="n">_should_read_directly</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">f_should_read_directly</span> <span class="ow">and</span> <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="c1"># legacy_load requires that f has fileno()</span>
         <span class="c1"># only if offset is zero we can attempt the legacy tar file loader</span>
         <span class="k">try</span><span class="p">:</span>
@@ -1198,10 +1299,10 @@
 
     <span class="n">deserialized_storage_keys</span> <span class="o">=</span> <span class="n">pickle_module</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
-    <span class="n">offset</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span> <span class="k">if</span> <span class="n">f_is_real_file</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span> <span class="k">if</span> <span class="n">f_should_read_directly</span> <span class="k">else</span> <span class="kc">None</span>
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">deserialized_storage_keys</span><span class="p">:</span>
         <span class="k">assert</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">deserialized_objects</span>
-        <span class="n">deserialized_objects</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">_set_from_file</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">f_is_real_file</span><span class="p">)</span>
+        <span class="n">deserialized_objects</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">_set_from_file</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">f_should_read_directly</span><span class="p">)</span>
         <span class="n">offset</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">return</span> <span class="n">result</span>
@@ -1254,10 +1355,7 @@
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {

@@ -15,6 +15,8 @@
   
   
   
+    <link rel="canonical" href="https://pytorch.org/docs/stable/autograd.html"/>
+  
 
   
 
@@ -24,8 +26,7 @@
 
   
 
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
   <link rel="stylesheet" href="_static/css/pytorch_theme.css" type="text/css" />
@@ -64,7 +65,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+6087a5f ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+5e4de08 ) &#x25BC</a>
               </div>
             
           
@@ -84,7 +85,7 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
 <div>
-  <a style="color:#F05732" href=http://pytorch.org/docs/stable/>
+  <a style="color:#F05732" href="https://pytorch.org/docs/stable/autograd.html">
     You are viewing unstable developer preview docs.
     Click here to view docs for latest stable release.
   </a>
@@ -133,7 +134,8 @@
 <li class="toctree-l3"><a class="reference internal" href="notes/extending.html#adding-a-module">Adding a <code class="docutils literal notranslate"><span class="pre">Module</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="notes/extending.html#writing-custom-c-extensions">Writing custom C extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/extending.html#writing-custom-c-extensions">Writing custom C++ extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/extending.html#id1">Writing custom C extensions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="notes/faq.html">Frequently Asked Questions</a><ul>
@@ -240,7 +242,9 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#module"><span class="hidden-section">Module</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#sequential"><span class="hidden-section">Sequential</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#modulelist"><span class="hidden-section">ModuleList</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#moduledict"><span class="hidden-section">ModuleDict</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#parameterlist"><span class="hidden-section">ParameterList</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#parameterdict"><span class="hidden-section">ParameterDict</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#convolution-layers">Convolution layers</a><ul>
@@ -250,6 +254,8 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#convtranspose1d"><span class="hidden-section">ConvTranspose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#convtranspose2d"><span class="hidden-section">ConvTranspose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#convtranspose3d"><span class="hidden-section">ConvTranspose3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#unfold"><span class="hidden-section">Unfold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#fold"><span class="hidden-section">Fold</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#pooling-layers">Pooling layers</a><ul>
@@ -310,13 +316,15 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#softmax"><span class="hidden-section">Softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#softmax2d"><span class="hidden-section">Softmax2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#logsoftmax"><span class="hidden-section">LogSoftmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#adaptivelogsoftmaxwithloss"><span class="hidden-section">AdaptiveLogSoftmaxWithLoss</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#normalization-layers">Normalization layers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#batchnorm1d"><span class="hidden-section">BatchNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#batchnorm2d"><span class="hidden-section">BatchNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#batchnorm3d"><span class="hidden-section">BatchNorm3d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#hidden-groupnorm">:hidden:`GroupNorm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#groupnorm"><span class="hidden-section">GroupNorm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#instancenorm1d"><span class="hidden-section">InstanceNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#instancenorm2d"><span class="hidden-section">InstanceNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#instancenorm3d"><span class="hidden-section">InstanceNorm3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#layernorm"><span class="hidden-section">LayerNorm</span></a></li>
@@ -389,6 +397,8 @@
 <li class="toctree-l2"><a class="reference internal" href="nn.html#utilities">Utilities</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#clip-grad-norm"><span class="hidden-section">clip_grad_norm_</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#clip-grad-value"><span class="hidden-section">clip_grad_value_</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#parameters-to-vector"><span class="hidden-section">parameters_to_vector</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#vector-to-parameters"><span class="hidden-section">vector_to_parameters</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#weight-norm"><span class="hidden-section">weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#remove-weight-norm"><span class="hidden-section">remove_weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#spectral-norm"><span class="hidden-section">spectral_norm</span></a></li>
@@ -404,12 +414,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nn.html#torch-nn-functional">torch.nn.functional</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#convolution-functions">Convolution functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id22"><span class="hidden-section">conv1d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id23"><span class="hidden-section">conv2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id24"><span class="hidden-section">conv3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id20"><span class="hidden-section">conv1d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id21"><span class="hidden-section">conv2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id22"><span class="hidden-section">conv3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#conv-transpose1d"><span class="hidden-section">conv_transpose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#conv-transpose2d"><span class="hidden-section">conv_transpose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#conv-transpose3d"><span class="hidden-section">conv_transpose3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id23"><span class="hidden-section">unfold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id24"><span class="hidden-section">fold</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#pooling-functions">Pooling functions</a><ul>
@@ -451,6 +463,7 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id38"><span class="hidden-section">softmin</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id39"><span class="hidden-section">softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id40"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#gumbel-softmax"><span class="hidden-section">gumbel_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id41"><span class="hidden-section">tanh</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id42"><span class="hidden-section">sigmoid</span></a></li>
@@ -466,21 +479,27 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#linear-functions">Linear functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id43"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id44"><span class="hidden-section">bilinear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id44"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id45"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id45"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id46"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id46"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id47"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="nn.html#id47">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nn.html#sparse-functions">Sparse functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id48"><span class="hidden-section">embedding</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#embedding-bag"><span class="hidden-section">embedding_bag</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nn.html#id49">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="nn.html#id48">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nn.html#id50">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
@@ -503,7 +522,8 @@
 <li class="toctree-l2"><a class="reference internal" href="nn.html#vision-functions">Vision functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pad"><span class="hidden-section">pad</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id49"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#interpolate"><span class="hidden-section">interpolate</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id51"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
@@ -541,7 +561,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#variable-deprecated">Variable (deprecated)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tensor-autograd-functions">Tensor autograd functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#function"><span class="hidden-section">Function</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#numerical-gradient-checking">Numerical gradient checking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#profiler">Profiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anomaly-detection">Anomaly detection</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="distributions.html">torch.distributions</a><ul>
@@ -561,9 +583,12 @@
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#gamma"><span class="hidden-section">Gamma</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#geometric"><span class="hidden-section">Geometric</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#gumbel"><span class="hidden-section">Gumbel</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#halfcauchy"><span class="hidden-section">HalfCauchy</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#halfnormal"><span class="hidden-section">HalfNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#independent"><span class="hidden-section">Independent</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#laplace"><span class="hidden-section">Laplace</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#lognormal"><span class="hidden-section">LogNormal</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#lowrankmultivariatenormal"><span class="hidden-section">LowRankMultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#multinomial"><span class="hidden-section">Multinomial</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#multivariatenormal"><span class="hidden-section">MultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#normal"><span class="hidden-section">Normal</span></a></li>
@@ -575,6 +600,7 @@
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#studentt"><span class="hidden-section">StudentT</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#transformeddistribution"><span class="hidden-section">TransformedDistribution</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#uniform"><span class="hidden-section">Uniform</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#weibull"><span class="hidden-section">Weibull</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#module-torch.distributions.kl"><cite>KL Divergence</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#module-torch.distributions.transforms"><cite>Transforms</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#module-torch.distributions.constraints"><cite>Constraints</cite></a></li>
@@ -610,6 +636,7 @@
 <li class="toctree-l1"><a class="reference internal" href="checkpoint.html">torch.utils.checkpoint</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp_extension.html">torch.utils.cpp_extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data.html">torch.utils.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dlpack.html">torch.utils.dlpack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ffi.html">torch.utils.ffi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="model_zoo.html">torch.utils.model_zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="onnx.html">torch.onnx</a><ul>
@@ -657,6 +684,7 @@
 <li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#transforms-on-torch-tensor">Transforms on torch.*Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#conversion-transforms">Conversion Transforms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#generic-transforms">Generic Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#module-torchvision.transforms.functional">Functional Transforms</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="torchvision/utils.html">torchvision.utils</a></li>
@@ -752,15 +780,15 @@ them before calling it.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>tensors</strong> (<em>sequence of Tensor</em>) – Tensors of which the derivative will be
 computed.</li>
-<li><strong>grad_tensors</strong> (<em>sequence of</em><em> (</em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a><em> or </em><em>None</em><em>)</em>) – Gradients w.r.t.
+<li><strong>grad_tensors</strong> (<em>sequence of</em><em> (</em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a><em>)</em>) – Gradients w.r.t.
 each element of corresponding tensors. None values can be specified for
 scalar Tensors or ones that don’t require grad. If a None value would
 be acceptable for all grad_tensors, then this argument is optional.</li>
-<li><strong>retain_graph</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the graph used to compute the grad
+<li><strong>retain_graph</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the graph used to compute the grad
 will be freed. Note that in nearly all cases setting this option to <code class="docutils literal notranslate"><span class="pre">True</span></code>
 is not needed and often can be worked around in a much more efficient
 way. Defaults to the value of <code class="docutils literal notranslate"><span class="pre">create_graph</span></code>.</li>
-<li><strong>create_graph</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, graph of the derivative will
+<li><strong>create_graph</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, graph of the derivative will
 be constructed, allowing to compute higher order derivative products.
 Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</li>
 </ul>
@@ -793,14 +821,14 @@ returned (and not accumulated into <code class="docutils literal notranslate"><s
 None values can be specified for scalar Tensors or ones that don’t require
 grad. If a None value would be acceptable for all grad_tensors, then this
 argument is optional. Default: None.</li>
-<li><strong>retain_graph</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the graph used to compute the grad
+<li><strong>retain_graph</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the graph used to compute the grad
 will be freed. Note that in nearly all cases setting this option to <code class="docutils literal notranslate"><span class="pre">True</span></code>
 is not needed and often can be worked around in a much more efficient
 way. Defaults to the value of <code class="docutils literal notranslate"><span class="pre">create_graph</span></code>.</li>
-<li><strong>create_graph</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, graph of the derivative will
+<li><strong>create_graph</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, graph of the derivative will
 be constructed, allowing to compute higher order derivative products.
 Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.</li>
-<li><strong>allow_unused</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">False</span></code>, specifying inputs that were not
+<li><strong>allow_unused</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">False</span></code>, specifying inputs that were not
 used when computing outputs (and therefore their grad is always zero)
 is an error. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</li>
 </ul>
@@ -821,11 +849,18 @@ that you will not call <code class="xref py py-meth docutils literal notranslate
 consumption for computations that would otherwise have <cite>requires_grad=True</cite>.
 In this mode, the result of every computation will have
 <cite>requires_grad=False</cite>, even when the inputs have <cite>requires_grad=True</cite>.</p>
+<p>Also functions as a decorator.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
 <span class="gp">... </span>  <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">requires_grad</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">doubler</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">doubler</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span><span class="o">.</span><span class="n">requires_grad</span>
 <span class="go">False</span>
 </pre></div>
 </div>
@@ -837,6 +872,7 @@ In this mode, the result of every computation will have
 <dd><p>Context-manager that enables gradient calculation.</p>
 <p>Enables gradient calculation inside a <a class="reference internal" href="#torch.autograd.no_grad" title="torch.autograd.no_grad"><code class="xref py py-class docutils literal notranslate"><span class="pre">no_grad</span></code></a> context. This has
 no effect outside of <a class="reference internal" href="#torch.autograd.no_grad" title="torch.autograd.no_grad"><code class="xref py py-class docutils literal notranslate"><span class="pre">no_grad</span></code></a>.</p>
+<p>Also functions as a decorator.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
@@ -846,6 +882,13 @@ no effect outside of <a class="reference internal" href="#torch.autograd.no_grad
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">grad</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@torch</span><span class="o">.</span><span class="n">enable_grad</span><span class="p">()</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">doubler</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">z</span> <span class="o">=</span> <span class="n">doubler</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span><span class="o">.</span><span class="n">requires_grad</span>
+<span class="go">True</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -860,7 +903,7 @@ It can be used as a context-manager or as a function.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a>) – Flag whether to enable grad (<code class="docutils literal notranslate"><span class="pre">True</span></code>), or disable
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Flag whether to enable grad (<code class="docutils literal notranslate"><span class="pre">True</span></code>), or disable
 (<code class="docutils literal notranslate"><span class="pre">False</span></code>). This can be used to conditionally enable
 gradients.</td>
 </tr>
@@ -873,11 +916,11 @@ gradients.</td>
 <span class="gp">... </span>  <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">requires_grad</span>
 <span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">set_grad_enabled</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">set_grad_enabled</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">requires_grad</span>
 <span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">set_grad_enabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">set_grad_enabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">requires_grad</span>
 <span class="go">False</span>
@@ -945,18 +988,18 @@ zero them before calling it.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>gradient</strong> (<a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a><em> or </em><em>None</em>) – Gradient w.r.t. the
+<li><strong>gradient</strong> (<a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a>) – Gradient w.r.t. the
 tensor. If it is a tensor, it will be automatically converted
 to a Tensor that does not require grad unless <code class="docutils literal notranslate"><span class="pre">create_graph</span></code> is True.
 None values can be specified for scalar Tensors or ones that
 don’t require grad. If a None value would be acceptable then
 this argument is optional.</li>
-<li><strong>retain_graph</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the graph used to compute
+<li><strong>retain_graph</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the graph used to compute
 the grads will be freed. Note that in nearly all cases setting
 this option to True is not needed and often can be worked around
 in a much more efficient way. Defaults to the value of
 <code class="docutils literal notranslate"><span class="pre">create_graph</span></code>.</li>
-<li><strong>create_graph</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, graph of the derivative will
+<li><strong>create_graph</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, graph of the derivative will
 be constructed, allowing to compute higher order derivative
 products. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</li>
 </ul>
@@ -999,19 +1042,18 @@ Tensor is computed. The hook should have the following signature:</p>
 a new gradient which will be used in place of <code class="xref py py-attr docutils literal notranslate"><span class="pre">grad</span></code>.</p>
 <p>This function returns a handle with a method <code class="docutils literal notranslate"><span class="pre">handle.remove()</span></code>
 that removes the hook from the module.</p>
-<p class="rubric">Example</p>
+<p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">register_hook</span><span class="p">(</span><span class="k">lambda</span> <span class="n">grad</span><span class="p">:</span> <span class="n">grad</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># double the gradient</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">grad</span>
-</pre></div>
-</div>
-<blockquote>
-<div>2
-4
-6</div></blockquote>
-<p>[torch.FloatTensor of size (3,)]</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>  <span class="c1"># removes the hook</span>
+
+<span class="go"> 2</span>
+<span class="go"> 4</span>
+<span class="go"> 6</span>
+<span class="go">[torch.FloatTensor of size (3,)]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>  <span class="c1"># removes the hook</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1042,15 +1084,6 @@ returned gradients on to next <a class="reference internal" href="#torch.autogra
 subclasses and defining new operations. This is a recommended way of
 extending torch.autograd.</p>
 <p>Each function object is meant to be used only once (in the forward pass).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>requires_grad</strong> – Boolean indicating whether the <a class="reference internal" href="#torch.autograd.backward" title="torch.autograd.backward"><code class="xref py py-func docutils literal notranslate"><span class="pre">backward()</span></code></a> will
-ever need to be called.</td>
-</tr>
-</tbody>
-</table>
 <p>Examples:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Exp</span><span class="p">(</span><span class="n">Function</span><span class="p">):</span>
 <span class="go">&gt;&gt;&gt;</span>
@@ -1071,13 +1104,17 @@ ever need to be called.</td>
 <em class="property">static </em><code class="descname">backward</code><span class="sig-paren">(</span><em>ctx</em>, <em>*grad_outputs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/autograd/function.html#Function.backward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.autograd.Function.backward" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines a formula for differentiating the operation.</p>
 <p>This function is to be overridden by all subclasses.</p>
-<p>It must accept a context ctx as the first argument, followed by as many
-outputs did <a class="reference internal" href="#torch.autograd.Function.forward" title="torch.autograd.Function.forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">forward()</span></code></a> return, and it should return as many
+<p>It must accept a context <code class="xref py py-attr docutils literal notranslate"><span class="pre">ctx</span></code> as the first argument, followed by
+as many outputs did <a class="reference internal" href="#torch.autograd.Function.forward" title="torch.autograd.Function.forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">forward()</span></code></a> return, and it should return as many
 tensors, as there were inputs to <a class="reference internal" href="#torch.autograd.Function.forward" title="torch.autograd.Function.forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">forward()</span></code></a>. Each argument is the
 gradient w.r.t the given output, and each returned value should be the
 gradient w.r.t. the corresponding input.</p>
 <p>The context can be used to retrieve tensors saved during the forward
-pass.</p>
+pass. It also has an attribute <code class="xref py py-attr docutils literal notranslate"><span class="pre">ctx.needs_input_grad</span></code> as a tuple
+of booleans representing whether each input needs gradient. E.g.,
+<a class="reference internal" href="#torch.autograd.backward" title="torch.autograd.backward"><code class="xref py py-func docutils literal notranslate"><span class="pre">backward()</span></code></a> will have <code class="docutils literal notranslate"><span class="pre">ctx.needs_input_grad[0]</span> <span class="pre">=</span> <span class="pre">True</span></code> if the
+first input to <a class="reference internal" href="#torch.autograd.Function.forward" title="torch.autograd.Function.forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">forward()</span></code></a> needs gradient computated w.r.t. the
+output.</p>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -1091,6 +1128,120 @@ number of arguments (tensors or other types).</p>
 during the backward pass.</p>
 </dd></dl>
 
+</dd></dl>
+
+</div>
+<div class="section" id="numerical-gradient-checking">
+<span id="grad-check"></span><h2>Numerical gradient checking<a class="headerlink" href="#numerical-gradient-checking" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="torch.autograd.gradcheck">
+<code class="descclassname">torch.autograd.</code><code class="descname">gradcheck</code><span class="sig-paren">(</span><em>func</em>, <em>inputs</em>, <em>eps=1e-06</em>, <em>atol=1e-05</em>, <em>rtol=0.001</em>, <em>raise_exception=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/autograd/gradcheck.html#gradcheck"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.autograd.gradcheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check gradients computed via small finite differences against analytical
+gradients w.r.t. tensors in <code class="xref py py-attr docutils literal notranslate"><span class="pre">inputs</span></code> that are of floating point type
+and with <code class="docutils literal notranslate"><span class="pre">requires_grad=True</span></code>.</p>
+<p>The check between numerical and analytical gradients has the same behaviour as
+<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.allclose.html">numpy.allclose</a>,
+i.e., it checks that</p>
+<div class="math notranslate nohighlight">
+\[\lvert a - n \rvert \leq \texttt{atol} + \texttt{rtol} \times \lvert n \rvert\]</div>
+<p>holds for all elements of analytical gradient <span class="math notranslate nohighlight">\(a\)</span> and numerical
+gradient <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The default values are designed for <code class="xref py py-attr docutils literal notranslate"><span class="pre">input</span></code> of double precision.
+This check will likely fail if <code class="xref py py-attr docutils literal notranslate"><span class="pre">input</span></code> is of less precision, e.g.,
+<code class="docutils literal notranslate"><span class="pre">FloatTensor</span></code>.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If any checked tensor in <code class="xref py py-attr docutils literal notranslate"><span class="pre">input</span></code> has overlapping memory, i.e.,
+different indices pointing to the same memory address (e.g., from
+<code class="xref py py-func docutils literal notranslate"><span class="pre">torch.expand()</span></code>), this check will likely fail because the numerical
+gradients computed by point perturbation at such indices will change
+values at all other indices that share the same memory address.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>func</strong> (<em>function</em>) – a Python function that takes Tensor inputs and returns
+a Tensor or a tuple of Tensors</li>
+<li><strong>inputs</strong> (<em>tuple of Tensor</em>) – inputs to the function</li>
+<li><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – perturbation for finite differences</li>
+<li><strong>atol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – absolute tolerance</li>
+<li><strong>rtol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – relative tolerance</li>
+<li><strong>raise_exception</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – indicating whether to raise an exception if
+the check fails. The exception gives more information about the
+exact nature of the failure. This is helpful when debugging gradchecks.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if all differences satisfy allclose condition</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="torch.autograd.gradgradcheck">
+<code class="descclassname">torch.autograd.</code><code class="descname">gradgradcheck</code><span class="sig-paren">(</span><em>func</em>, <em>inputs</em>, <em>grad_outputs=None</em>, <em>eps=1e-06</em>, <em>atol=1e-05</em>, <em>rtol=0.001</em>, <em>gen_non_contig_grad_outputs=False</em>, <em>raise_exception=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/autograd/gradcheck.html#gradgradcheck"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.autograd.gradgradcheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check gradients of gradients computed via small finite differences
+against analytical gradients w.r.t. tensors in <code class="xref py py-attr docutils literal notranslate"><span class="pre">inputs</span></code> and
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">grad_outputs</span></code> that are of floating point type and with
+<code class="docutils literal notranslate"><span class="pre">requires_grad=True</span></code>.</p>
+<p>This function checks that backpropagating through the gradients computed
+to the given <code class="xref py py-attr docutils literal notranslate"><span class="pre">grad_outputs</span></code> are correct.</p>
+<p>The check between numerical and analytical gradients has the same behaviour as
+<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.allclose.html">numpy.allclose</a>,
+i.e., it checks that</p>
+<div class="math notranslate nohighlight">
+\[\lvert a - n \rvert \leq \texttt{atol} + \texttt{rtol} \times \lvert n \rvert\]</div>
+<p>holds for all elements of analytical gradient <span class="math notranslate nohighlight">\(a\)</span> and numerical
+gradient <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The default values are designed for <code class="xref py py-attr docutils literal notranslate"><span class="pre">input</span></code> and
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">grad_outputs</span></code> of double precision. This check will likely fail if
+they are of less precision, e.g., <code class="docutils literal notranslate"><span class="pre">FloatTensor</span></code>.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If any checked tensor in <code class="xref py py-attr docutils literal notranslate"><span class="pre">input</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">grad_outputs</span></code> has
+overlapping memory, i.e., different indices pointing to the same memory
+address (e.g., from <code class="xref py py-func docutils literal notranslate"><span class="pre">torch.expand()</span></code>), this check will likely fail
+because the numerical gradients computed by point perturbation at such
+indices will change values at all other indices that share the same
+memory address.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>func</strong> (<em>function</em>) – a Python function that takes Tensor inputs and returns
+a Tensor or a tuple of Tensors</li>
+<li><strong>inputs</strong> (<em>tuple of Tensor</em>) – inputs to the function</li>
+<li><strong>grad_outputs</strong> (<em>tuple of Tensor</em><em>, </em><em>optional</em>) – The gradients with respect to
+the function’s outputs.</li>
+<li><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – perturbation for finite differences</li>
+<li><strong>atol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – absolute tolerance</li>
+<li><strong>rtol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – relative tolerance</li>
+<li><strong>gen_non_contig_grad_outputs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – if <code class="xref py py-attr docutils literal notranslate"><span class="pre">grad_outputs</span></code> is
+<code class="docutils literal notranslate"><span class="pre">None</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">gen_non_contig_grad_outputs</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the
+randomly generated gradient outputs are made to be noncontiguous</li>
+<li><strong>raise_exception</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – indicating whether to raise an exception if
+the check fails. The exception gives more information about the
+exact nature of the failure. This is helpful when debugging gradchecks.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if all differences satisfy allclose condition</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -1110,9 +1261,9 @@ and nvprof based (registers both CPU and GPU activity) using
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>enabled</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – Setting this to False makes this context manager a no-op.
+<li><strong>enabled</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Setting this to False makes this context manager a no-op.
 Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>.</li>
-<li><strong>use_cuda</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – Enables timing of CUDA events as well using the cudaEvent API.
+<li><strong>use_cuda</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Enables timing of CUDA events as well using the cudaEvent API.
 Adds approximately 4us of overhead to each tensor operation.
 Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></li>
 </ul>
@@ -1149,7 +1300,7 @@ Default: <code class="docutils literal notranslate"><span class="pre">False</spa
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Path where the trace will be written.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Path where the trace will be written.</td>
 </tr>
 </tbody>
 </table>
@@ -1177,7 +1328,7 @@ Default: <code class="docutils literal notranslate"><span class="pre">False</spa
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sort_by</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em>, </em><em>optional</em>) – Attribute used to sort entries. By default
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sort_by</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><em>optional</em>) – Attribute used to sort entries. By default
 they are printed in the same order as they were registered.
 Valid keys include: <code class="docutils literal notranslate"><span class="pre">cpu_time</span></code>, <code class="docutils literal notranslate"><span class="pre">cuda_time</span></code>, <code class="docutils literal notranslate"><span class="pre">cpu_time_total</span></code>,
 <code class="docutils literal notranslate"><span class="pre">cuda_time_total</span></code>, <code class="docutils literal notranslate"><span class="pre">count</span></code>.</td>
@@ -1222,7 +1373,7 @@ e.g. in Python REPL.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enabled</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) – Setting this to False makes this context manager a no-op.
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enabled</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Setting this to False makes this context manager a no-op.
 Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>.</td>
 </tr>
 </tbody>
@@ -1244,7 +1395,89 @@ Default: <code class="docutils literal notranslate"><span class="pre">True</span
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – path to nvprof trace</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – path to nvprof trace</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="anomaly-detection">
+<h2>Anomaly detection<a class="headerlink" href="#anomaly-detection" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="torch.autograd.detect_anomaly">
+<em class="property">class </em><code class="descclassname">torch.autograd.</code><code class="descname">detect_anomaly</code><a class="reference internal" href="_modules/torch/autograd/anomaly_mode.html#detect_anomaly"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.autograd.detect_anomaly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Context-manager that enable anomaly detection for the autograd engine.</p>
+<p>This does two things:
+- Running the forward pass with detection enabled will allow the backward
+pass to print the traceback of the forward operation that created the failing
+backward function.
+- Any backward computation that generate “nan” value will raise an error.</p>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">torch</span> <span class="k">import</span> <span class="n">autograd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">MyFunc</span><span class="p">(</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nd">@staticmethod</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">inp</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">inp</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="nd">@staticmethod</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">gO</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="c1"># Error during the backward pass</span>
+<span class="gp">... </span>        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Some error in backward&quot;</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">gO</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">run_fn</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">out</span> <span class="o">=</span> <span class="n">MyFunc</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">out</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inp</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">out</span> <span class="o">=</span> <span class="n">run_fn</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">out</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+<span class="go">    Traceback (most recent call last):</span>
+<span class="go">      File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span>
+<span class="go">      File &quot;/your/pytorch/install/torch/tensor.py&quot;, line 93, in backward</span>
+<span class="go">        torch.autograd.backward(self, gradient, retain_graph, create_graph)</span>
+<span class="go">      File &quot;/your/pytorch/install/torch/autograd/__init__.py&quot;, line 90, in backward</span>
+<span class="go">        allow_unreachable=True)  # allow_unreachable flag</span>
+<span class="go">      File &quot;/your/pytorch/install/torch/autograd/function.py&quot;, line 76, in apply</span>
+<span class="go">        return self._forward_cls.backward(self, *args)</span>
+<span class="go">      File &quot;&lt;stdin&gt;&quot;, line 8, in backward</span>
+<span class="go">    RuntimeError: Some error in backward</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">autograd</span><span class="o">.</span><span class="n">detect_anomaly</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">inp</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">out</span> <span class="o">=</span> <span class="n">run_fn</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">out</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+<span class="go">    Traceback of forward call that caused the error:</span>
+<span class="go">      File &quot;tmp.py&quot;, line 53, in &lt;module&gt;</span>
+<span class="go">        out = run_fn(inp)</span>
+<span class="go">      File &quot;tmp.py&quot;, line 44, in run_fn</span>
+<span class="go">        out = MyFunc.apply(a)</span>
+<span class="go">    Traceback (most recent call last):</span>
+<span class="go">      File &quot;&lt;stdin&gt;&quot;, line 4, in &lt;module&gt;</span>
+<span class="go">      File &quot;/your/pytorch/install/torch/tensor.py&quot;, line 93, in backward</span>
+<span class="go">        torch.autograd.backward(self, gradient, retain_graph, create_graph)</span>
+<span class="go">      File &quot;/your/pytorch/install/torch/autograd/__init__.py&quot;, line 90, in backward</span>
+<span class="go">        allow_unreachable=True)  # allow_unreachable flag</span>
+<span class="go">      File &quot;/your/pytorch/install/torch/autograd/function.py&quot;, line 76, in apply</span>
+<span class="go">        return self._forward_cls.backward(self, *args)</span>
+<span class="go">      File &quot;&lt;stdin&gt;&quot;, line 8, in backward</span>
+<span class="go">    RuntimeError: Some error in backward</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="torch.autograd.set_detect_anomaly">
+<em class="property">class </em><code class="descclassname">torch.autograd.</code><code class="descname">set_detect_anomaly</code><span class="sig-paren">(</span><em>mode</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/autograd/anomaly_mode.html#set_detect_anomaly"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.autograd.set_detect_anomaly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Context-manager that sets the anomaly detection for the autograd engine on or off.</p>
+<p><code class="docutils literal notranslate"><span class="pre">set_detect_anomaly</span></code> will enable or disable the autograd anomaly detection
+based on its argument <code class="xref py py-attr docutils literal notranslate"><span class="pre">mode</span></code>.
+It can be used as a context-manager or as a function.</p>
+<p>See <code class="docutils literal notranslate"><span class="pre">detect_anomaly</span></code> above for details of the anomaly detection behaviour.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Flag whether to enable anomaly detection (<code class="docutils literal notranslate"><span class="pre">True</span></code>),
+or disable (<code class="docutils literal notranslate"><span class="pre">False</span></code>).</td>
 </tr>
 </tbody>
 </table>
@@ -1310,10 +1543,7 @@ Default: <code class="docutils literal notranslate"><span class="pre">True</span
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {

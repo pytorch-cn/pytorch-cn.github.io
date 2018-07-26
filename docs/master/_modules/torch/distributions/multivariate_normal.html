@@ -15,6 +15,8 @@
   
   
   
+    <link rel="canonical" href="https://pytorch.org/docs/stable/_modules/torch/distributions/multivariate_normal.html"/>
+  
 
   
 
@@ -24,8 +26,7 @@
 
   
 
-  
-    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/pytorch_theme.css" type="text/css" />
@@ -62,7 +63,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+6087a5f ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+5e4de08 ) &#x25BC</a>
               </div>
             
           
@@ -82,7 +83,7 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
 <div>
-  <a style="color:#F05732" href=http://pytorch.org/docs/stable/>
+  <a style="color:#F05732" href="https://pytorch.org/docs/stable/_modules/torch/distributions/multivariate_normal.html">
     You are viewing unstable developer preview docs.
     Click here to view docs for latest stable release.
   </a>
@@ -131,7 +132,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../notes/extending.html#adding-a-module">Adding a <code class="docutils literal notranslate"><span class="pre">Module</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../notes/extending.html#writing-custom-c-extensions">Writing custom C extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../notes/extending.html#writing-custom-c-extensions">Writing custom C++ extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../notes/extending.html#id1">Writing custom C extensions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notes/faq.html">Frequently Asked Questions</a><ul>
@@ -238,7 +240,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#module"><span class="hidden-section">Module</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#sequential"><span class="hidden-section">Sequential</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#modulelist"><span class="hidden-section">ModuleList</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#moduledict"><span class="hidden-section">ModuleDict</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#parameterlist"><span class="hidden-section">ParameterList</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#parameterdict"><span class="hidden-section">ParameterDict</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#convolution-layers">Convolution layers</a><ul>
@@ -248,6 +252,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#convtranspose1d"><span class="hidden-section">ConvTranspose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#convtranspose2d"><span class="hidden-section">ConvTranspose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#convtranspose3d"><span class="hidden-section">ConvTranspose3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#unfold"><span class="hidden-section">Unfold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#fold"><span class="hidden-section">Fold</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#pooling-layers">Pooling layers</a><ul>
@@ -308,13 +314,15 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#softmax"><span class="hidden-section">Softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#softmax2d"><span class="hidden-section">Softmax2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#logsoftmax"><span class="hidden-section">LogSoftmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#adaptivelogsoftmaxwithloss"><span class="hidden-section">AdaptiveLogSoftmaxWithLoss</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#normalization-layers">Normalization layers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#batchnorm1d"><span class="hidden-section">BatchNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#batchnorm2d"><span class="hidden-section">BatchNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#batchnorm3d"><span class="hidden-section">BatchNorm3d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#hidden-groupnorm">:hidden:`GroupNorm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#groupnorm"><span class="hidden-section">GroupNorm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#instancenorm1d"><span class="hidden-section">InstanceNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#instancenorm2d"><span class="hidden-section">InstanceNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#instancenorm3d"><span class="hidden-section">InstanceNorm3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#layernorm"><span class="hidden-section">LayerNorm</span></a></li>
@@ -387,6 +395,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#utilities">Utilities</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#clip-grad-norm"><span class="hidden-section">clip_grad_norm_</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#clip-grad-value"><span class="hidden-section">clip_grad_value_</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#parameters-to-vector"><span class="hidden-section">parameters_to_vector</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#vector-to-parameters"><span class="hidden-section">vector_to_parameters</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#weight-norm"><span class="hidden-section">weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#remove-weight-norm"><span class="hidden-section">remove_weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#spectral-norm"><span class="hidden-section">spectral_norm</span></a></li>
@@ -402,12 +412,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../nn.html#torch-nn-functional">torch.nn.functional</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#convolution-functions">Convolution functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id22"><span class="hidden-section">conv1d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id23"><span class="hidden-section">conv2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id24"><span class="hidden-section">conv3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id20"><span class="hidden-section">conv1d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id21"><span class="hidden-section">conv2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id22"><span class="hidden-section">conv3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#conv-transpose1d"><span class="hidden-section">conv_transpose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#conv-transpose2d"><span class="hidden-section">conv_transpose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#conv-transpose3d"><span class="hidden-section">conv_transpose3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id23"><span class="hidden-section">unfold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id24"><span class="hidden-section">fold</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#pooling-functions">Pooling functions</a><ul>
@@ -449,6 +461,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id38"><span class="hidden-section">softmin</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id39"><span class="hidden-section">softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id40"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#gumbel-softmax"><span class="hidden-section">gumbel_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id41"><span class="hidden-section">tanh</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id42"><span class="hidden-section">sigmoid</span></a></li>
@@ -464,21 +477,27 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#linear-functions">Linear functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id43"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id44"><span class="hidden-section">bilinear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id44"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id45"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id45"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id46"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id46"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id47"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../nn.html#id47">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../nn.html#sparse-functions">Sparse functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id48"><span class="hidden-section">embedding</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#embedding-bag"><span class="hidden-section">embedding_bag</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nn.html#id49">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../nn.html#id48">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../nn.html#id50">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
@@ -501,7 +520,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#vision-functions">Vision functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#pad"><span class="hidden-section">pad</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id49"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#interpolate"><span class="hidden-section">interpolate</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id51"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
@@ -539,7 +559,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../autograd.html#variable-deprecated">Variable (deprecated)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../autograd.html#tensor-autograd-functions">Tensor autograd functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../autograd.html#function"><span class="hidden-section">Function</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../autograd.html#numerical-gradient-checking">Numerical gradient checking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../autograd.html#profiler">Profiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../autograd.html#anomaly-detection">Anomaly detection</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../distributions.html">torch.distributions</a><ul>
@@ -559,9 +581,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#gamma"><span class="hidden-section">Gamma</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#geometric"><span class="hidden-section">Geometric</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#gumbel"><span class="hidden-section">Gumbel</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#halfcauchy"><span class="hidden-section">HalfCauchy</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#halfnormal"><span class="hidden-section">HalfNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#independent"><span class="hidden-section">Independent</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#laplace"><span class="hidden-section">Laplace</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#lognormal"><span class="hidden-section">LogNormal</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#lowrankmultivariatenormal"><span class="hidden-section">LowRankMultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#multinomial"><span class="hidden-section">Multinomial</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#multivariatenormal"><span class="hidden-section">MultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#normal"><span class="hidden-section">Normal</span></a></li>
@@ -573,6 +598,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#studentt"><span class="hidden-section">StudentT</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#transformeddistribution"><span class="hidden-section">TransformedDistribution</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#uniform"><span class="hidden-section">Uniform</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#weibull"><span class="hidden-section">Weibull</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#module-torch.distributions.kl"><cite>KL Divergence</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#module-torch.distributions.transforms"><cite>Transforms</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#module-torch.distributions.constraints"><cite>Constraints</cite></a></li>
@@ -608,6 +634,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../checkpoint.html">torch.utils.checkpoint</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp_extension.html">torch.utils.cpp_extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../data.html">torch.utils.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dlpack.html">torch.utils.dlpack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../ffi.html">torch.utils.ffi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../model_zoo.html">torch.utils.model_zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../onnx.html">torch.onnx</a><ul>
@@ -655,6 +682,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../torchvision/transforms.html#transforms-on-torch-tensor">Transforms on torch.*Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../torchvision/transforms.html#conversion-transforms">Conversion Transforms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../torchvision/transforms.html#generic-transforms">Generic Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../torchvision/transforms.html#module-torchvision.transforms.functional">Functional Transforms</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../torchvision/utils.html">torchvision.utils</a></li>
@@ -727,7 +755,6 @@
             
   <h1>Source code for torch.distributions.multivariate_normal</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">from</span> <span class="nn">numbers</span> <span class="k">import</span> <span class="n">Number</span>
 
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">from</span> <span class="nn">torch.distributions</span> <span class="k">import</span> <span class="n">constraints</span>
@@ -743,7 +770,7 @@
         <span class="n">vec_shape</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">_C</span><span class="o">.</span><span class="n">_infer_size</span><span class="p">(</span><span class="n">bvec</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">bmat</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
     <span class="k">except</span> <span class="ne">RuntimeError</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Incompatible batch shapes: vector </span><span class="si">{}</span><span class="s2">, matrix </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bvec</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">bmat</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="n">vec_shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">vec_shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
 
 <span class="k">def</span> <span class="nf">_batch_mv</span><span class="p">(</span><span class="n">bmat</span><span class="p">,</span> <span class="n">bvec</span><span class="p">):</span>
@@ -757,13 +784,7 @@
 <span class="sd">    to a batch shape. They are not necessarily assumed to have the same batch shape,</span>
 <span class="sd">    just ones which can be broadcasted.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">bvec</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">batch_shape</span> <span class="o">=</span> <span class="n">_get_batch_shape</span><span class="p">(</span><span class="n">bmat</span><span class="p">,</span> <span class="n">bvec</span><span class="p">)</span>
-
-    <span class="c1"># to conform with `torch.bmm` interface, both bmat and bvec should have `.dim() == 3`</span>
-    <span class="n">bmat</span> <span class="o">=</span> <span class="n">bmat</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">batch_shape</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-    <span class="n">bvec</span> <span class="o">=</span> <span class="n">bvec</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">batch_shape</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">bmm</span><span class="p">(</span><span class="n">bmat</span><span class="p">,</span> <span class="n">bvec</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">batch_shape</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span><span class="p">,))</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">bmat</span><span class="p">,</span> <span class="n">bvec</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">_batch_potrf_lower</span><span class="p">(</span><span class="n">bmat</span><span class="p">):</span>
@@ -771,15 +792,15 @@
 <span class="sd">    Applies a Cholesky decomposition to all matrices in a batch of arbitrary shape.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">bmat</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">cholesky</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">C</span><span class="o">.</span><span class="n">potrf</span><span class="p">(</span><span class="n">upper</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">for</span> <span class="n">C</span> <span class="ow">in</span> <span class="n">bmat</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))])</span>
-    <span class="k">return</span> <span class="n">cholesky</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">bmat</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">cholesky</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">m</span><span class="o">.</span><span class="n">potrf</span><span class="p">(</span><span class="n">upper</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">bmat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">cholesky</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">bmat</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">_batch_diag</span><span class="p">(</span><span class="n">bmat</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the diagonals of a batch of square matrices.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">bmat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">bmat</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,))[</span><span class="o">...</span><span class="p">,</span> <span class="p">::</span><span class="n">bmat</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">diagonal</span><span class="p">(</span><span class="n">bmat</span><span class="p">,</span> <span class="n">dim1</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim2</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">_batch_inverse</span><span class="p">(</span><span class="n">bmat</span><span class="p">):</span>
@@ -787,22 +808,36 @@
 <span class="sd">    Returns the inverses of a batch of square matrices.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">bmat</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">flat_bmat</span> <span class="o">=</span> <span class="n">bmat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-    <span class="n">flat_inv_bmat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">m</span><span class="o">.</span><span class="n">inverse</span><span class="p">()</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">flat_bmat</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">flat_inv_bmat</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">bmat</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">flat_bmat_inv</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">m</span><span class="o">.</span><span class="n">inverse</span><span class="p">()</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">bmat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">flat_bmat_inv</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">bmat</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_batch_mahalanobis</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_batch_trtrs_lower</span><span class="p">(</span><span class="n">bb</span><span class="p">,</span> <span class="n">bA</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Applies `torch.trtrs` for batches of matrices. `bb` and `bA` should have</span>
+<span class="sd">    the same batch shape.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">flat_b</span> <span class="o">=</span> <span class="n">bb</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,)</span> <span class="o">+</span> <span class="n">bb</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:])</span>
+    <span class="n">flat_A</span> <span class="o">=</span> <span class="n">bA</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,)</span> <span class="o">+</span> <span class="n">bA</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:])</span>
+    <span class="n">flat_X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">torch</span><span class="o">.</span><span class="n">trtrs</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">b</span><span class="p">,</span> <span class="n">A</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">flat_b</span><span class="p">,</span> <span class="n">flat_A</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">flat_X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">bb</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_batch_mahalanobis</span><span class="p">(</span><span class="n">bL</span><span class="p">,</span> <span class="n">bx</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the squared Mahalanobis distance :math:`\mathbf{x}^\top\mathbf{M}^{-1}\mathbf{x}`</span>
 <span class="sd">    for a factored :math:`\mathbf{M} = \mathbf{L}\mathbf{L}^\top`.</span>
 
-<span class="sd">    Accepts batches for both L and x.</span>
+<span class="sd">    Accepts batches for both bL and bx. They are not necessarily assumed to have the same batch</span>
+<span class="sd">    shape, but `bL` one should be able to broadcasted to `bx` one.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># TODO: use `torch.potrs` or similar once a backwards pass is implemented.</span>
-    <span class="n">flat_L</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,)</span> <span class="o">+</span> <span class="n">L</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:])</span>
-    <span class="n">L_inv</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">torch</span><span class="o">.</span><span class="n">inverse</span><span class="p">(</span><span class="n">Li</span><span class="o">.</span><span class="n">t</span><span class="p">())</span> <span class="k">for</span> <span class="n">Li</span> <span class="ow">in</span> <span class="n">flat_L</span><span class="p">])</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">L_inv</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">bx</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">bL</span> <span class="o">=</span> <span class="n">bL</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">bx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">bx</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">-</span> <span class="n">bL</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span><span class="p">,))</span>
+    <span class="n">flat_L</span> <span class="o">=</span> <span class="n">bL</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>  <span class="c1"># shape = b x n x n</span>
+    <span class="n">flat_x</span> <span class="o">=</span> <span class="n">bx</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">flat_L</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">n</span><span class="p">)</span>  <span class="c1"># shape = c x b x n</span>
+    <span class="n">flat_x_swap</span> <span class="o">=</span> <span class="n">flat_x</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># shape = b x n x c</span>
+    <span class="n">M_swap</span> <span class="o">=</span> <span class="n">_batch_trtrs_lower</span><span class="p">(</span><span class="n">flat_x_swap</span><span class="p">,</span> <span class="n">flat_L</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># shape = b x c</span>
+    <span class="k">return</span> <span class="n">M_swap</span><span class="o">.</span><span class="n">t</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">bx</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
 
 <div class="viewcode-block" id="MultivariateNormal"><a class="viewcode-back" href="../../../distributions.html#torch.distributions.multivariate_normal.MultivariateNormal">[docs]</a><span class="k">class</span> <span class="nc">MultivariateNormal</span><span class="p">(</span><span class="n">Distribution</span><span class="p">):</span>
@@ -812,7 +847,7 @@
 
 <span class="sd">    The multivariate normal distribution can be parameterized either</span>
 <span class="sd">    in terms of a positive definite covariance matrix :math:`\mathbf{\Sigma}`</span>
-<span class="sd">    or a positive definite precition matrix :math:`\mathbf{\Sigma}^{-1}`</span>
+<span class="sd">    or a positive definite precision matrix :math:`\mathbf{\Sigma}^{-1}`</span>
 <span class="sd">    or a lower-triangular matrix :math:`\mathbf{L}` with positive-valued</span>
 <span class="sd">    diagonal entries, such that</span>
 <span class="sd">    :math:`\mathbf{\Sigma} = \mathbf{L}\mathbf{L}^\top`. This triangular matrix</span>
@@ -822,9 +857,7 @@
 
 <span class="sd">        &gt;&gt;&gt; m = MultivariateNormal(torch.zeros(2), torch.eye(2))</span>
 <span class="sd">        &gt;&gt;&gt; m.sample()  # normally distributed with mean=`[0,0]` and covariance_matrix=`I`</span>
-<span class="sd">        -0.2102</span>
-<span class="sd">        -0.5429</span>
-<span class="sd">        [torch.FloatTensor of size 2]</span>
+<span class="sd">        tensor([-0.2102, -0.5429])</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        loc (Tensor): mean of the distribution</span>
@@ -849,44 +882,55 @@
     <span class="n">has_rsample</span> <span class="o">=</span> <span class="kc">True</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">covariance_matrix</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">precision_matrix</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale_tril</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">validate_args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="n">event_shape</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="n">loc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:])</span>
+        <span class="k">if</span> <span class="n">loc</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;loc must be at least one-dimensional.&quot;</span><span class="p">)</span>
+        <span class="n">event_shape</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">covariance_matrix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">scale_tril</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">precision_matrix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Exactly one of covariance_matrix or precision_matrix or scale_tril may be specified.&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">scale_tril</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">scale_tril</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;scale_tril matrix must be at least two-dimensional, &quot;</span>
                                  <span class="s2">&quot;with optional leading batch dimensions&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">scale_tril</span> <span class="o">=</span> <span class="n">scale_tril</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span> <span class="o">=</span> <span class="n">scale_tril</span>
             <span class="n">batch_shape</span> <span class="o">=</span> <span class="n">_get_batch_shape</span><span class="p">(</span><span class="n">scale_tril</span><span class="p">,</span> <span class="n">loc</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">scale_tril</span> <span class="o">=</span> <span class="n">scale_tril</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">batch_shape</span> <span class="o">+</span> <span class="n">event_shape</span> <span class="o">+</span> <span class="n">event_shape</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">covariance_matrix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">covariance_matrix</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;covariance_matrix must be at least two-dimensional, &quot;</span>
                                  <span class="s2">&quot;with optional leading batch dimensions&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">covariance_matrix</span> <span class="o">=</span> <span class="n">covariance_matrix</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span> <span class="o">=</span> <span class="n">_batch_potrf_lower</span><span class="p">(</span><span class="n">covariance_matrix</span><span class="p">)</span>
             <span class="n">batch_shape</span> <span class="o">=</span> <span class="n">_get_batch_shape</span><span class="p">(</span><span class="n">covariance_matrix</span><span class="p">,</span> <span class="n">loc</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">covariance_matrix</span> <span class="o">=</span> <span class="n">covariance_matrix</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">batch_shape</span> <span class="o">+</span> <span class="n">event_shape</span> <span class="o">+</span> <span class="n">event_shape</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">precision_matrix</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;precision_matrix must be at least two-dimensional, &quot;</span>
                                  <span class="s2">&quot;with optional leading batch dimensions&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">precision_matrix</span> <span class="o">=</span> <span class="n">precision_matrix</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">covariance_matrix</span> <span class="o">=</span> <span class="n">_batch_inverse</span><span class="p">(</span><span class="n">precision_matrix</span><span class="p">)</span>
+            <span class="n">covariance_matrix</span> <span class="o">=</span> <span class="n">_batch_inverse</span><span class="p">(</span><span class="n">precision_matrix</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span> <span class="o">=</span> <span class="n">_batch_potrf_lower</span><span class="p">(</span><span class="n">covariance_matrix</span><span class="p">)</span>
             <span class="n">batch_shape</span> <span class="o">=</span> <span class="n">_get_batch_shape</span><span class="p">(</span><span class="n">precision_matrix</span><span class="p">,</span> <span class="n">loc</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">loc</span> <span class="o">=</span> <span class="n">loc</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">precision_matrix</span> <span class="o">=</span> <span class="n">precision_matrix</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">batch_shape</span> <span class="o">+</span> <span class="n">event_shape</span> <span class="o">+</span> <span class="n">event_shape</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">covariance_matrix</span> <span class="o">=</span> <span class="n">covariance_matrix</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">batch_shape</span> <span class="o">+</span> <span class="n">event_shape</span> <span class="o">+</span> <span class="n">event_shape</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">loc</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">batch_shape</span> <span class="o">+</span> <span class="n">event_shape</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">MultivariateNormal</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">batch_shape</span><span class="p">,</span> <span class="n">event_shape</span><span class="p">,</span> <span class="n">validate_args</span><span class="o">=</span><span class="n">validate_args</span><span class="p">)</span>
 
 <div class="viewcode-block" id="MultivariateNormal.scale_tril"><a class="viewcode-back" href="../../../distributions.html#torch.distributions.multivariate_normal.MultivariateNormal.scale_tril">[docs]</a>    <span class="nd">@lazy_property</span>
     <span class="k">def</span> <span class="nf">scale_tril</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">_batch_potrf_lower</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">covariance_matrix</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_batch_shape</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_event_shape</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_event_shape</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="MultivariateNormal.covariance_matrix"><a class="viewcode-back" href="../../../distributions.html#torch.distributions.multivariate_normal.MultivariateNormal.covariance_matrix">[docs]</a>    <span class="nd">@lazy_property</span>
     <span class="k">def</span> <span class="nf">covariance_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scale_tril</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale_tril</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">))</span></div>
+        <span class="k">return</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="p">,</span>
+                             <span class="bp">self</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+                <span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_batch_shape</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_event_shape</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_event_shape</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="MultivariateNormal.precision_matrix"><a class="viewcode-back" href="../../../distributions.html#torch.distributions.multivariate_normal.MultivariateNormal.precision_matrix">[docs]</a>    <span class="nd">@lazy_property</span>
     <span class="k">def</span> <span class="nf">precision_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># TODO: use `torch.potri` on `scale_tril` once a backwards pass is implemented.</span>
-        <span class="n">scale_tril_inv</span> <span class="o">=</span> <span class="n">_batch_inverse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scale_tril</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">scale_tril_inv</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span> <span class="n">scale_tril_inv</span><span class="p">)</span></div>
+        <span class="n">scale_tril_inv</span> <span class="o">=</span> <span class="n">_batch_inverse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">scale_tril_inv</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span> <span class="n">scale_tril_inv</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_batch_shape</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_event_shape</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_event_shape</span><span class="p">)</span></div>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -894,26 +938,25 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">variance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">covariance_matrix</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">var</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">cov</span><span class="o">.</span><span class="n">diag</span><span class="p">()</span> <span class="k">for</span> <span class="n">cov</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">covariance_matrix</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)])</span>
-        <span class="k">return</span> <span class="n">var</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">covariance_matrix</span><span class="o">.</span><span class="n">size</span><span class="p">()[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_batch_shape</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_event_shape</span><span class="p">)</span>
 
 <div class="viewcode-block" id="MultivariateNormal.rsample"><a class="viewcode-back" href="../../../distributions.html#torch.distributions.multivariate_normal.MultivariateNormal.rsample">[docs]</a>    <span class="k">def</span> <span class="nf">rsample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sample_shape</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">Size</span><span class="p">()):</span>
         <span class="n">shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extended_shape</span><span class="p">(</span><span class="n">sample_shape</span><span class="p">)</span>
-        <span class="n">eps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">*</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">normal_</span><span class="p">()</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span> <span class="o">+</span> <span class="n">_batch_mv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scale_tril</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span></div>
+        <span class="n">eps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span><span class="o">.</span><span class="n">new_empty</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">normal_</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span> <span class="o">+</span> <span class="n">_batch_mv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="MultivariateNormal.log_prob"><a class="viewcode-back" href="../../../distributions.html#torch.distributions.multivariate_normal.MultivariateNormal.log_prob">[docs]</a>    <span class="k">def</span> <span class="nf">log_prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_args</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_validate_sample</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="n">diff</span> <span class="o">=</span> <span class="n">value</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span>
-        <span class="n">M</span> <span class="o">=</span> <span class="n">_batch_mahalanobis</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scale_tril</span><span class="p">,</span> <span class="n">diff</span><span class="p">)</span>
-        <span class="n">log_det</span> <span class="o">=</span> <span class="n">_batch_diag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scale_tril</span><span class="p">)</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">log</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">return</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">M</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> <span class="o">-</span> <span class="n">log_det</span></div>
+        <span class="n">M</span> <span class="o">=</span> <span class="n">_batch_mahalanobis</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="p">,</span> <span class="n">diff</span><span class="p">)</span>
+        <span class="n">half_log_det</span> <span class="o">=</span> <span class="n">_batch_diag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="p">)</span><span class="o">.</span><span class="n">log</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_event_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">+</span> <span class="n">M</span><span class="p">)</span> <span class="o">-</span> <span class="n">half_log_det</span></div>
 
 <div class="viewcode-block" id="MultivariateNormal.entropy"><a class="viewcode-back" href="../../../distributions.html#torch.distributions.multivariate_normal.MultivariateNormal.entropy">[docs]</a>    <span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">log_det</span> <span class="o">=</span> <span class="n">_batch_diag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scale_tril</span><span class="p">)</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">log</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">H</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_event_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">log_det</span>
+        <span class="n">half_log_det</span> <span class="o">=</span> <span class="n">_batch_diag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_unbroadcasted_scale_tril</span><span class="p">)</span><span class="o">.</span><span class="n">log</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">H</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_event_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> <span class="o">+</span> <span class="n">half_log_det</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_batch_shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">H</span>
         <span class="k">else</span><span class="p">:</span>
@@ -967,10 +1010,7 @@
 
   
 
-  
-  
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {

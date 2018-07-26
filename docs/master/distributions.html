@@ -15,6 +15,8 @@
   
   
   
+    <link rel="canonical" href="https://pytorch.org/docs/stable/distributions.html"/>
+  
 
   
 
@@ -24,8 +26,7 @@
 
   
 
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
   <link rel="stylesheet" href="_static/css/pytorch_theme.css" type="text/css" />
@@ -64,7 +65,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+6087a5f ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+5e4de08 ) &#x25BC</a>
               </div>
             
           
@@ -84,7 +85,7 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
 <div>
-  <a style="color:#F05732" href=http://pytorch.org/docs/stable/>
+  <a style="color:#F05732" href="https://pytorch.org/docs/stable/distributions.html">
     You are viewing unstable developer preview docs.
     Click here to view docs for latest stable release.
   </a>
@@ -133,7 +134,8 @@
 <li class="toctree-l3"><a class="reference internal" href="notes/extending.html#adding-a-module">Adding a <code class="docutils literal notranslate"><span class="pre">Module</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="notes/extending.html#writing-custom-c-extensions">Writing custom C extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/extending.html#writing-custom-c-extensions">Writing custom C++ extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/extending.html#id1">Writing custom C extensions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="notes/faq.html">Frequently Asked Questions</a><ul>
@@ -240,7 +242,9 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#module"><span class="hidden-section">Module</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#sequential"><span class="hidden-section">Sequential</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#modulelist"><span class="hidden-section">ModuleList</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#moduledict"><span class="hidden-section">ModuleDict</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#parameterlist"><span class="hidden-section">ParameterList</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#parameterdict"><span class="hidden-section">ParameterDict</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#convolution-layers">Convolution layers</a><ul>
@@ -250,6 +254,8 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#convtranspose1d"><span class="hidden-section">ConvTranspose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#convtranspose2d"><span class="hidden-section">ConvTranspose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#convtranspose3d"><span class="hidden-section">ConvTranspose3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#unfold"><span class="hidden-section">Unfold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#fold"><span class="hidden-section">Fold</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#pooling-layers">Pooling layers</a><ul>
@@ -310,13 +316,15 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#softmax"><span class="hidden-section">Softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#softmax2d"><span class="hidden-section">Softmax2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#logsoftmax"><span class="hidden-section">LogSoftmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#adaptivelogsoftmaxwithloss"><span class="hidden-section">AdaptiveLogSoftmaxWithLoss</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#normalization-layers">Normalization layers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#batchnorm1d"><span class="hidden-section">BatchNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#batchnorm2d"><span class="hidden-section">BatchNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#batchnorm3d"><span class="hidden-section">BatchNorm3d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#hidden-groupnorm">:hidden:`GroupNorm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#groupnorm"><span class="hidden-section">GroupNorm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#instancenorm1d"><span class="hidden-section">InstanceNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#instancenorm2d"><span class="hidden-section">InstanceNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#instancenorm3d"><span class="hidden-section">InstanceNorm3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#layernorm"><span class="hidden-section">LayerNorm</span></a></li>
@@ -389,6 +397,8 @@
 <li class="toctree-l2"><a class="reference internal" href="nn.html#utilities">Utilities</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#clip-grad-norm"><span class="hidden-section">clip_grad_norm_</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#clip-grad-value"><span class="hidden-section">clip_grad_value_</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#parameters-to-vector"><span class="hidden-section">parameters_to_vector</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#vector-to-parameters"><span class="hidden-section">vector_to_parameters</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#weight-norm"><span class="hidden-section">weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#remove-weight-norm"><span class="hidden-section">remove_weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#spectral-norm"><span class="hidden-section">spectral_norm</span></a></li>
@@ -404,12 +414,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nn.html#torch-nn-functional">torch.nn.functional</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#convolution-functions">Convolution functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id22"><span class="hidden-section">conv1d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id23"><span class="hidden-section">conv2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id24"><span class="hidden-section">conv3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id20"><span class="hidden-section">conv1d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id21"><span class="hidden-section">conv2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id22"><span class="hidden-section">conv3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#conv-transpose1d"><span class="hidden-section">conv_transpose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#conv-transpose2d"><span class="hidden-section">conv_transpose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#conv-transpose3d"><span class="hidden-section">conv_transpose3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id23"><span class="hidden-section">unfold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id24"><span class="hidden-section">fold</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#pooling-functions">Pooling functions</a><ul>
@@ -451,6 +463,7 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id38"><span class="hidden-section">softmin</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id39"><span class="hidden-section">softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id40"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#gumbel-softmax"><span class="hidden-section">gumbel_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id41"><span class="hidden-section">tanh</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id42"><span class="hidden-section">sigmoid</span></a></li>
@@ -466,21 +479,27 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#linear-functions">Linear functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id43"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id44"><span class="hidden-section">bilinear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id44"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id45"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id45"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id46"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id46"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id47"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="nn.html#id47">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nn.html#sparse-functions">Sparse functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id48"><span class="hidden-section">embedding</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#embedding-bag"><span class="hidden-section">embedding_bag</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nn.html#id49">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="nn.html#id48">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nn.html#id50">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
@@ -503,7 +522,8 @@
 <li class="toctree-l2"><a class="reference internal" href="nn.html#vision-functions">Vision functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pad"><span class="hidden-section">pad</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id49"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#interpolate"><span class="hidden-section">interpolate</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id51"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
@@ -541,7 +561,9 @@
 <li class="toctree-l2"><a class="reference internal" href="autograd.html#variable-deprecated">Variable (deprecated)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autograd.html#tensor-autograd-functions">Tensor autograd functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autograd.html#function"><span class="hidden-section">Function</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="autograd.html#numerical-gradient-checking">Numerical gradient checking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autograd.html#profiler">Profiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autograd.html#anomaly-detection">Anomaly detection</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">torch.distributions</a><ul>
@@ -561,9 +583,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#gamma"><span class="hidden-section">Gamma</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#geometric"><span class="hidden-section">Geometric</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gumbel"><span class="hidden-section">Gumbel</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#halfcauchy"><span class="hidden-section">HalfCauchy</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#halfnormal"><span class="hidden-section">HalfNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#independent"><span class="hidden-section">Independent</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#laplace"><span class="hidden-section">Laplace</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lognormal"><span class="hidden-section">LogNormal</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lowrankmultivariatenormal"><span class="hidden-section">LowRankMultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#multinomial"><span class="hidden-section">Multinomial</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#multivariatenormal"><span class="hidden-section">MultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#normal"><span class="hidden-section">Normal</span></a></li>
@@ -575,6 +600,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#studentt"><span class="hidden-section">StudentT</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#transformeddistribution"><span class="hidden-section">TransformedDistribution</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#uniform"><span class="hidden-section">Uniform</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#weibull"><span class="hidden-section">Weibull</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-torch.distributions.kl"><cite>KL Divergence</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-torch.distributions.transforms"><cite>Transforms</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-torch.distributions.constraints"><cite>Constraints</cite></a></li>
@@ -610,6 +636,7 @@
 <li class="toctree-l1"><a class="reference internal" href="checkpoint.html">torch.utils.checkpoint</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp_extension.html">torch.utils.cpp_extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data.html">torch.utils.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dlpack.html">torch.utils.dlpack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ffi.html">torch.utils.ffi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="model_zoo.html">torch.utils.model_zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="onnx.html">torch.onnx</a><ul>
@@ -657,6 +684,7 @@
 <li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#transforms-on-torch-tensor">Transforms on torch.*Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#conversion-transforms">Conversion Transforms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#generic-transforms">Generic Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torchvision/transforms.html#module-torchvision.transforms.functional">Functional Transforms</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="torchvision/utils.html">torchvision.utils</a></li>
@@ -731,7 +759,8 @@
 <span id="probability-distributions-torch-distributions"></span><h1>Probability distributions - torch.distributions<a class="headerlink" href="#module-torch.distributions" title="Permalink to this headline">¶</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">distributions</span></code> package contains parameterizable probability distributions
 and sampling functions. This allows the construction of stochastic computation
-graphs and stochastic gradient estimators for optimization.</p>
+graphs and stochastic gradient estimators for optimization. This package
+generally follows the design of the <a class="reference external" href="https://arxiv.org/abs/1711.10604">TensorFlow Distributions</a> package.</p>
 <p>It is not possible to directly backpropagate through random samples. However,
 there are two main methods for creating surrogate functions that can be
 backpropagated through. These are the score function estimator/likelihood ratio
@@ -792,7 +821,7 @@ derivative would be as follows:</p>
 <dl class="class">
 <dt id="torch.distributions.distribution.Distribution">
 <em class="property">class </em><code class="descclassname">torch.distributions.distribution.</code><code class="descname">Distribution</code><span class="sig-paren">(</span><em>batch_shape=torch.Size([])</em>, <em>event_shape=torch.Size([])</em>, <em>validate_args=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/distribution.html#Distribution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.distribution.Distribution" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Distribution is the abstract base class for probability distributions.</p>
 <dl class="attribute">
 <dt id="torch.distributions.distribution.Distribution.arg_constraints">
@@ -1000,8 +1029,7 @@ and <cite>0</cite> with probability <cite>1 - p</cite>.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Bernoulli</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.3</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># 30% chance 1; 70% chance 0</span>
-<span class="go"> 0.0</span>
-<span class="go">[torch.FloatTensor of size 1]</span>
+<span class="go">tensor([ 0.])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1018,7 +1046,7 @@ and <cite>0</cite> with probability <cite>1 - p</cite>.</p>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.bernoulli.Bernoulli.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'probs': &lt;torch.distributions.constraints._Interval object at 0x7feb44e76278&gt;}</em><a class="headerlink" href="#torch.distributions.bernoulli.Bernoulli.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'probs': &lt;torch.distributions.constraints._Interval object at 0x7fd7219da780&gt;}</em><a class="headerlink" href="#torch.distributions.bernoulli.Bernoulli.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1089,8 +1117,7 @@ and <cite>0</cite> with probability <cite>1 - p</cite>.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Beta</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.5</span><span class="p">]),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.5</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># Beta distributed with concentration concentration1 and concentration0</span>
-<span class="go"> 0.1046</span>
-<span class="go">[torch.FloatTensor of size 1]</span>
+<span class="go">tensor([ 0.1046])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1098,9 +1125,9 @@ and <cite>0</cite> with probability <cite>1 - p</cite>.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>concentration1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – 1st concentration parameter of the distribution
+<li><strong>concentration1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – 1st concentration parameter of the distribution
 (often referred to as alpha)</li>
-<li><strong>concentration0</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – 2nd concentration parameter of the distribution
+<li><strong>concentration0</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – 2nd concentration parameter of the distribution
 (often referred to as beta)</li>
 </ul>
 </td>
@@ -1109,7 +1136,7 @@ and <cite>0</cite> with probability <cite>1 - p</cite>.</p>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.beta.Beta.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'concentration0': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;, 'concentration1': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;}</em><a class="headerlink" href="#torch.distributions.beta.Beta.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'concentration0': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;, 'concentration1': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;}</em><a class="headerlink" href="#torch.distributions.beta.Beta.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1172,17 +1199,12 @@ broadcastable with <cite>probs</cite>/<cite>logits</cite>.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Binomial</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">0</span> <span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="o">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
-<span class="go"> 0</span>
-<span class="go"> 22</span>
-<span class="go"> 71</span>
-<span class="go"> 100</span>
-<span class="go">[torch.FloatTensor of size 4]]</span>
+<span class="go">tensor([   0.,   22.,   71.,  100.])</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Binomial</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">([[</span><span class="mf">5.</span><span class="p">],</span> <span class="p">[</span><span class="mf">10.</span><span class="p">]]),</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Binomial</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mf">5.</span><span class="p">],</span> <span class="p">[</span><span class="mf">10.</span><span class="p">]]),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
-<span class="go"> 4  5</span>
-<span class="go"> 7  6</span>
-<span class="go">[torch.FloatTensor of size (2,2)]</span>
+<span class="go">tensor([[ 4.,  5.],</span>
+<span class="go">        [ 7.,  6.]])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1190,7 +1212,7 @@ broadcastable with <cite>probs</cite>/<cite>logits</cite>.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>total_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – number of Bernoulli trials</li>
+<li><strong>total_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – number of Bernoulli trials</li>
 <li><strong>probs</strong> (<a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – Event probabilities</li>
 <li><strong>logits</strong> (<a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – Event log-odds</li>
 </ul>
@@ -1200,7 +1222,7 @@ broadcastable with <cite>probs</cite>/<cite>logits</cite>.</p>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.binomial.Binomial.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'probs': &lt;torch.distributions.constraints._Interval object at 0x7feb44e76278&gt;, 'total_count': &lt;torch.distributions.constraints._IntegerGreaterThan object at 0x7feb44e6ed30&gt;}</em><a class="headerlink" href="#torch.distributions.binomial.Binomial.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'probs': &lt;torch.distributions.constraints._Interval object at 0x7fd7219da780&gt;, 'total_count': &lt;torch.distributions.constraints._IntegerGreaterThan object at 0x7fd7219da668&gt;}</em><a class="headerlink" href="#torch.distributions.binomial.Binomial.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1276,14 +1298,14 @@ probability of sampling the class at that index.</p>
 vectors.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last"><a class="reference internal" href="#torch.distributions.categorical.Categorical.probs" title="torch.distributions.categorical.Categorical.probs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">probs</span></code></a> will be normalized to be summing to 1.</p>
+<p class="last"><a class="reference internal" href="#torch.distributions.categorical.Categorical.probs" title="torch.distributions.categorical.Categorical.probs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">probs</span></code></a> must be non-negative, finite and have a non-zero sum,
+and it will be normalized to sum to 1.</p>
 </div>
 <p>See also: <a class="reference internal" href="torch.html#torch.multinomial" title="torch.multinomial"><code class="xref py py-func docutils literal notranslate"><span class="pre">torch.multinomial()</span></code></a></p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Categorical</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span> <span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># equal probability of 0, 1, 2, 3</span>
-<span class="go"> 3</span>
-<span class="go">[torch.LongTensor of size 1]</span>
+<span class="go">tensor(3)</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1300,7 +1322,7 @@ vectors.</p>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.categorical.Categorical.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'probs': &lt;torch.distributions.constraints._Simplex object at 0x7feb44e762b0&gt;}</em><a class="headerlink" href="#torch.distributions.categorical.Categorical.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'probs': &lt;torch.distributions.constraints._Simplex object at 0x7fd7219da7b8&gt;}</em><a class="headerlink" href="#torch.distributions.categorical.Categorical.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1373,8 +1395,7 @@ Cauchy distribution.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Cauchy</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.0</span><span class="p">]),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># sample from a Cauchy distribution with loc=0 and scale=1</span>
-<span class="go"> 2.3214</span>
-<span class="go">[torch.FloatTensor of size 1]</span>
+<span class="go">tensor([ 2.3214])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1382,8 +1403,8 @@ Cauchy distribution.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>loc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – mode or median of the distribution.</li>
-<li><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – half width at half maximum.</li>
+<li><strong>loc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – mode or median of the distribution.</li>
+<li><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – half width at half maximum.</li>
 </ul>
 </td>
 </tr>
@@ -1391,7 +1412,7 @@ Cauchy distribution.</p>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.cauchy.Cauchy.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'loc': &lt;torch.distributions.constraints._Real object at 0x7feb44e761d0&gt;, 'scale': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;}</em><a class="headerlink" href="#torch.distributions.cauchy.Cauchy.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'loc': &lt;torch.distributions.constraints._Real object at 0x7fd7219da6d8&gt;, 'scale': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;}</em><a class="headerlink" href="#torch.distributions.cauchy.Cauchy.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1453,21 +1474,20 @@ This is exactly equivalent to Gamma(alpha=0.5*df, beta=0.5)</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Chi2</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># Chi2 distributed with shape df=1</span>
-<span class="go"> 0.1046</span>
-<span class="go">[torch.FloatTensor of size 1]</span>
+<span class="go">tensor([ 0.1046])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>df</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – shape parameter of the distribution</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>df</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – shape parameter of the distribution</td>
 </tr>
 </tbody>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.chi2.Chi2.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'df': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;}</em><a class="headerlink" href="#torch.distributions.chi2.Chi2.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'df': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;}</em><a class="headerlink" href="#torch.distributions.chi2.Chi2.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1488,9 +1508,7 @@ This is exactly equivalent to Gamma(alpha=0.5*df, beta=0.5)</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Dirichlet</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># Dirichlet distributed with concentrarion concentration</span>
-<span class="go"> 0.1046</span>
-<span class="go"> 0.8954</span>
-<span class="go">[torch.FloatTensor of size 2]</span>
+<span class="go">tensor([ 0.1046,  0.8954])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1504,7 +1522,7 @@ This is exactly equivalent to Gamma(alpha=0.5*df, beta=0.5)</p>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.dirichlet.Dirichlet.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'concentration': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;}</em><a class="headerlink" href="#torch.distributions.dirichlet.Dirichlet.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'concentration': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;}</em><a class="headerlink" href="#torch.distributions.dirichlet.Dirichlet.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1555,21 +1573,20 @@ This is exactly equivalent to Gamma(alpha=0.5*df, beta=0.5)</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Exponential</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># Exponential distributed with rate=1</span>
-<span class="go"> 0.1046</span>
-<span class="go">[torch.FloatTensor of size 1]</span>
+<span class="go">tensor([ 0.1046])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>rate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – rate = 1 / scale of the distribution</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>rate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – rate = 1 / scale of the distribution</td>
 </tr>
 </tbody>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.exponential.Exponential.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'rate': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;}</em><a class="headerlink" href="#torch.distributions.exponential.Exponential.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'rate': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;}</em><a class="headerlink" href="#torch.distributions.exponential.Exponential.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1635,8 +1652,7 @@ This is exactly equivalent to Gamma(alpha=0.5*df, beta=0.5)</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">FisherSnedecor</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">2.0</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># Fisher-Snedecor-distributed with df1=1 and df2=2</span>
-<span class="go"> 0.2453</span>
-<span class="go">[torch.FloatTensor of size 1]</span>
+<span class="go">tensor([ 0.2453])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1644,8 +1660,8 @@ This is exactly equivalent to Gamma(alpha=0.5*df, beta=0.5)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>df1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – degrees of freedom parameter 1</li>
-<li><strong>df2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – degrees of freedom parameter 2</li>
+<li><strong>df1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – degrees of freedom parameter 1</li>
+<li><strong>df2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – degrees of freedom parameter 2</li>
 </ul>
 </td>
 </tr>
@@ -1653,7 +1669,7 @@ This is exactly equivalent to Gamma(alpha=0.5*df, beta=0.5)</p>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.fishersnedecor.FisherSnedecor.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'df1': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;, 'df2': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;}</em><a class="headerlink" href="#torch.distributions.fishersnedecor.FisherSnedecor.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'df1': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;, 'df2': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;}</em><a class="headerlink" href="#torch.distributions.fishersnedecor.FisherSnedecor.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1699,8 +1715,7 @@ This is exactly equivalent to Gamma(alpha=0.5*df, beta=0.5)</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Gamma</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># Gamma distributed with concentration=1 and rate=1</span>
-<span class="go"> 0.1046</span>
-<span class="go">[torch.FloatTensor of size 1]</span>
+<span class="go">tensor([ 0.1046])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1708,9 +1723,9 @@ This is exactly equivalent to Gamma(alpha=0.5*df, beta=0.5)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>concentration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – shape parameter of the distribution
+<li><strong>concentration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – shape parameter of the distribution
 (often referred to as alpha)</li>
-<li><strong>rate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – rate = 1 / scale of the distribution
+<li><strong>rate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – rate = 1 / scale of the distribution
 (often referred to as beta)</li>
 </ul>
 </td>
@@ -1719,7 +1734,7 @@ This is exactly equivalent to Gamma(alpha=0.5*df, beta=0.5)</p>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.gamma.Gamma.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'concentration': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;, 'rate': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;}</em><a class="headerlink" href="#torch.distributions.gamma.Gamma.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'concentration': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;, 'rate': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;}</em><a class="headerlink" href="#torch.distributions.gamma.Gamma.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1773,8 +1788,7 @@ seeing a success.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Geometric</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.3</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># underlying Bernoulli has 30% chance 1; 70% chance 0</span>
-<span class="go"> 2</span>
-<span class="go">[torch.FloatTensor of size 1]</span>
+<span class="go">tensor([ 2.])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1791,7 +1805,7 @@ seeing a success.</p>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.geometric.Geometric.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'probs': &lt;torch.distributions.constraints._Interval object at 0x7feb44e76278&gt;}</em><a class="headerlink" href="#torch.distributions.geometric.Geometric.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'probs': &lt;torch.distributions.constraints._Interval object at 0x7fd7219da780&gt;}</em><a class="headerlink" href="#torch.distributions.geometric.Geometric.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1847,8 +1861,7 @@ seeing a success.</p>
 <p>Examples:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Gumbel</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">2.0</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># sample from Gumbel distribution with loc=1, scale=2</span>
-<span class="go"> 1.0124</span>
-<span class="go">[torch.FloatTensor of size 1]</span>
+<span class="go">tensor([ 1.0124])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1856,8 +1869,8 @@ seeing a success.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>loc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – Location parameter of the distribution</li>
-<li><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – Scale parameter of the distribution</li>
+<li><strong>loc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – Location parameter of the distribution</li>
+<li><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – Scale parameter of the distribution</li>
 </ul>
 </td>
 </tr>
@@ -1865,7 +1878,7 @@ seeing a success.</p>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.gumbel.Gumbel.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'loc': &lt;torch.distributions.constraints._Real object at 0x7feb44e761d0&gt;, 'scale': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;}</em><a class="headerlink" href="#torch.distributions.gumbel.Gumbel.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'loc': &lt;torch.distributions.constraints._Real object at 0x7fd7219da6d8&gt;, 'scale': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;}</em><a class="headerlink" href="#torch.distributions.gumbel.Gumbel.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1891,6 +1904,162 @@ seeing a success.</p>
 <dl class="attribute">
 <dt id="torch.distributions.gumbel.Gumbel.variance">
 <code class="descname">variance</code><a class="headerlink" href="#torch.distributions.gumbel.Gumbel.variance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="halfcauchy">
+<h2><span class="hidden-section">HalfCauchy</span><a class="headerlink" href="#halfcauchy" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="torch.distributions.half_cauchy.HalfCauchy">
+<em class="property">class </em><code class="descclassname">torch.distributions.half_cauchy.</code><code class="descname">HalfCauchy</code><span class="sig-paren">(</span><em>scale</em>, <em>validate_args=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/half_cauchy.html#HalfCauchy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.half_cauchy.HalfCauchy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#torch.distributions.transformed_distribution.TransformedDistribution" title="torch.distributions.transformed_distribution.TransformedDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.distributions.transformed_distribution.TransformedDistribution</span></code></a></p>
+<p>Creates a half-normal distribution parameterized by <cite>scale</cite> where:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">~</span> <span class="n">Cauchy</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="o">|</span><span class="n">X</span><span class="o">|</span> <span class="o">~</span> <span class="n">HalfCauchy</span><span class="p">(</span><span class="n">scale</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">HalfCauchy</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># half-cauchy distributed with scale=1</span>
+<span class="go">tensor([ 2.3214])</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – scale of the full Cauchy distribution</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="torch.distributions.half_cauchy.HalfCauchy.arg_constraints">
+<code class="descname">arg_constraints</code><em class="property"> = {'scale': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;}</em><a class="headerlink" href="#torch.distributions.half_cauchy.HalfCauchy.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="torch.distributions.half_cauchy.HalfCauchy.cdf">
+<code class="descname">cdf</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/half_cauchy.html#HalfCauchy.cdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.half_cauchy.HalfCauchy.cdf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="torch.distributions.half_cauchy.HalfCauchy.entropy">
+<code class="descname">entropy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/half_cauchy.html#HalfCauchy.entropy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.half_cauchy.HalfCauchy.entropy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.half_cauchy.HalfCauchy.has_rsample">
+<code class="descname">has_rsample</code><em class="property"> = True</em><a class="headerlink" href="#torch.distributions.half_cauchy.HalfCauchy.has_rsample" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="torch.distributions.half_cauchy.HalfCauchy.icdf">
+<code class="descname">icdf</code><span class="sig-paren">(</span><em>prob</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/half_cauchy.html#HalfCauchy.icdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.half_cauchy.HalfCauchy.icdf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="torch.distributions.half_cauchy.HalfCauchy.log_prob">
+<code class="descname">log_prob</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/half_cauchy.html#HalfCauchy.log_prob"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.half_cauchy.HalfCauchy.log_prob" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.half_cauchy.HalfCauchy.mean">
+<code class="descname">mean</code><a class="headerlink" href="#torch.distributions.half_cauchy.HalfCauchy.mean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.half_cauchy.HalfCauchy.scale">
+<code class="descname">scale</code><a class="headerlink" href="#torch.distributions.half_cauchy.HalfCauchy.scale" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.half_cauchy.HalfCauchy.support">
+<code class="descname">support</code><em class="property"> = &lt;torch.distributions.constraints._GreaterThan object&gt;</em><a class="headerlink" href="#torch.distributions.half_cauchy.HalfCauchy.support" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.half_cauchy.HalfCauchy.variance">
+<code class="descname">variance</code><a class="headerlink" href="#torch.distributions.half_cauchy.HalfCauchy.variance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="halfnormal">
+<h2><span class="hidden-section">HalfNormal</span><a class="headerlink" href="#halfnormal" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="torch.distributions.half_normal.HalfNormal">
+<em class="property">class </em><code class="descclassname">torch.distributions.half_normal.</code><code class="descname">HalfNormal</code><span class="sig-paren">(</span><em>scale</em>, <em>validate_args=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/half_normal.html#HalfNormal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.half_normal.HalfNormal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#torch.distributions.transformed_distribution.TransformedDistribution" title="torch.distributions.transformed_distribution.TransformedDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.distributions.transformed_distribution.TransformedDistribution</span></code></a></p>
+<p>Creates a half-normal distribution parameterized by <cite>scale</cite> where:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">~</span> <span class="n">Normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="o">|</span><span class="n">X</span><span class="o">|</span> <span class="o">~</span> <span class="n">HalfNormal</span><span class="p">(</span><span class="n">scale</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">HalfNormal</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># half-normal distributed with scale=1</span>
+<span class="go">tensor([ 0.1046])</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – scale of the full Normal distribution</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="torch.distributions.half_normal.HalfNormal.arg_constraints">
+<code class="descname">arg_constraints</code><em class="property"> = {'scale': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;}</em><a class="headerlink" href="#torch.distributions.half_normal.HalfNormal.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="torch.distributions.half_normal.HalfNormal.cdf">
+<code class="descname">cdf</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/half_normal.html#HalfNormal.cdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.half_normal.HalfNormal.cdf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="torch.distributions.half_normal.HalfNormal.entropy">
+<code class="descname">entropy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/half_normal.html#HalfNormal.entropy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.half_normal.HalfNormal.entropy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.half_normal.HalfNormal.has_rsample">
+<code class="descname">has_rsample</code><em class="property"> = True</em><a class="headerlink" href="#torch.distributions.half_normal.HalfNormal.has_rsample" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="torch.distributions.half_normal.HalfNormal.icdf">
+<code class="descname">icdf</code><span class="sig-paren">(</span><em>prob</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/half_normal.html#HalfNormal.icdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.half_normal.HalfNormal.icdf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="torch.distributions.half_normal.HalfNormal.log_prob">
+<code class="descname">log_prob</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/half_normal.html#HalfNormal.log_prob"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.half_normal.HalfNormal.log_prob" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.half_normal.HalfNormal.mean">
+<code class="descname">mean</code><a class="headerlink" href="#torch.distributions.half_normal.HalfNormal.mean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.half_normal.HalfNormal.scale">
+<code class="descname">scale</code><a class="headerlink" href="#torch.distributions.half_normal.HalfNormal.scale" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.half_normal.HalfNormal.support">
+<code class="descname">support</code><em class="property"> = &lt;torch.distributions.constraints._GreaterThan object&gt;</em><a class="headerlink" href="#torch.distributions.half_normal.HalfNormal.support" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.half_normal.HalfNormal.variance">
+<code class="descname">variance</code><a class="headerlink" href="#torch.distributions.half_normal.HalfNormal.variance" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1927,7 +2096,7 @@ interchangeable), you can:</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>base_distribution</strong> (<a class="reference internal" href="#torch.distributions.distribution.Distribution" title="torch.distributions.distribution.Distribution"><em>torch.distributions.distribution.Distribution</em></a>) – a
 base distribution</li>
-<li><strong>reinterpreted_batch_ndims</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – the number of batch dims to
+<li><strong>reinterpreted_batch_ndims</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – the number of batch dims to
 reinterpret as event dims</li>
 </ul>
 </td>
@@ -2002,8 +2171,7 @@ reinterpret as event dims</li>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Laplace</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.0</span><span class="p">]),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># Laplace distributed with loc=0, scale=1</span>
-<span class="go"> 0.1046</span>
-<span class="go">[torch.FloatTensor of size 1]</span>
+<span class="go">tensor([ 0.1046])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2011,8 +2179,8 @@ reinterpret as event dims</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>loc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – mean of the distribution</li>
-<li><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – scale of the distribution</li>
+<li><strong>loc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – mean of the distribution</li>
+<li><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – scale of the distribution</li>
 </ul>
 </td>
 </tr>
@@ -2020,7 +2188,7 @@ reinterpret as event dims</li>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.laplace.Laplace.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'loc': &lt;torch.distributions.constraints._Real object at 0x7feb44e761d0&gt;, 'scale': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;}</em><a class="headerlink" href="#torch.distributions.laplace.Laplace.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'loc': &lt;torch.distributions.constraints._Real object at 0x7fd7219da6d8&gt;, 'scale': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;}</em><a class="headerlink" href="#torch.distributions.laplace.Laplace.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -2091,8 +2259,7 @@ reinterpret as event dims</li>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">LogNormal</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.0</span><span class="p">]),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># log-normal distributed with mean=0 and stddev=1</span>
-<span class="go"> 0.1046</span>
-<span class="go">[torch.FloatTensor of size 1]</span>
+<span class="go">tensor([ 0.1046])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2100,8 +2267,8 @@ reinterpret as event dims</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>loc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – mean of log of distribution</li>
-<li><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – standard deviation of log ofthe distribution</li>
+<li><strong>loc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – mean of log of distribution</li>
+<li><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – standard deviation of log of the distribution</li>
 </ul>
 </td>
 </tr>
@@ -2109,7 +2276,7 @@ reinterpret as event dims</li>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.log_normal.LogNormal.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'loc': &lt;torch.distributions.constraints._Real object at 0x7feb44e761d0&gt;, 'scale': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;}</em><a class="headerlink" href="#torch.distributions.log_normal.LogNormal.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'loc': &lt;torch.distributions.constraints._Real object at 0x7fd7219da6d8&gt;, 'scale': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;}</em><a class="headerlink" href="#torch.distributions.log_normal.LogNormal.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -2150,6 +2317,107 @@ reinterpret as event dims</li>
 </dd></dl>
 
 </div>
+<div class="section" id="lowrankmultivariatenormal">
+<h2><span class="hidden-section">LowRankMultivariateNormal</span><a class="headerlink" href="#lowrankmultivariatenormal" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal">
+<em class="property">class </em><code class="descclassname">torch.distributions.lowrank_multivariate_normal.</code><code class="descname">LowRankMultivariateNormal</code><span class="sig-paren">(</span><em>loc</em>, <em>cov_factor</em>, <em>cov_diag</em>, <em>validate_args=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/lowrank_multivariate_normal.html#LowRankMultivariateNormal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#torch.distributions.distribution.Distribution" title="torch.distributions.distribution.Distribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.distributions.distribution.Distribution</span></code></a></p>
+<p>Creates a multivariate normal distribution with covariance matrix having a low-rank form
+parameterized by <cite>cov_factor</cite> and <cite>cov_diag</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">covariance_matrix</span> <span class="o">=</span> <span class="n">cov_factor</span> <span class="o">@</span> <span class="n">cov_factor</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">cov_diag</span>
+</pre></div>
+</div>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MultivariateNormal</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># normally distributed with mean=`[0,0]`, cov_factor=`[1,0]`, cov_diag=`[1,1]`</span>
+<span class="go">tensor([-0.2102, -0.5429])</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>loc</strong> (<a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – mean of the distribution with shape <cite>batch_shape + event_shape</cite></li>
+<li><strong>cov_factor</strong> (<a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – factor part of low-rank form of covariance matrix with shape
+<cite>batch_shape + event_shape + (rank,)</cite></li>
+<li><strong>cov_diag</strong> (<a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – diagonal part of low-rank form of covariance matrix with shape
+<cite>batch_shape + event_shape</cite></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The computation for determinant and inverse of covariance matrix is avoided when
+<cite>cov_factor.shape[1] &lt;&lt; cov_factor.shape[0]</cite> thanks to <a class="reference external" href="https://en.wikipedia.org/wiki/Woodbury_matrix_identity">Woodbury matrix identity</a> and
+<a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_determinant_lemma">matrix determinant lemma</a>.
+Thanks to these formulas, we just need to compute the determinant and inverse of
+the small size “capacitance” matrix:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">capacitance</span> <span class="o">=</span> <span class="n">I</span> <span class="o">+</span> <span class="n">cov_factor</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">inv</span><span class="p">(</span><span class="n">cov_diag</span><span class="p">)</span> <span class="o">@</span> <span class="n">cov_factor</span>
+</pre></div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.arg_constraints">
+<code class="descname">arg_constraints</code><em class="property"> = {'cov_diag': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;, 'cov_factor': &lt;torch.distributions.constraints._Real object at 0x7fd7219da6d8&gt;, 'loc': &lt;torch.distributions.constraints._Real object at 0x7fd7219da6d8&gt;}</em><a class="headerlink" href="#torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.covariance_matrix">
+<code class="descname">covariance_matrix</code><a class="reference internal" href="_modules/torch/distributions/lowrank_multivariate_normal.html#LowRankMultivariateNormal.covariance_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.covariance_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.entropy">
+<code class="descname">entropy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/lowrank_multivariate_normal.html#LowRankMultivariateNormal.entropy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.entropy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.has_rsample">
+<code class="descname">has_rsample</code><em class="property"> = True</em><a class="headerlink" href="#torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.has_rsample" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.log_prob">
+<code class="descname">log_prob</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/lowrank_multivariate_normal.html#LowRankMultivariateNormal.log_prob"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.log_prob" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.mean">
+<code class="descname">mean</code><a class="headerlink" href="#torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.mean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.precision_matrix">
+<code class="descname">precision_matrix</code><a class="reference internal" href="_modules/torch/distributions/lowrank_multivariate_normal.html#LowRankMultivariateNormal.precision_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.precision_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.rsample">
+<code class="descname">rsample</code><span class="sig-paren">(</span><em>sample_shape=torch.Size([])</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/lowrank_multivariate_normal.html#LowRankMultivariateNormal.rsample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.rsample" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.scale_tril">
+<code class="descname">scale_tril</code><a class="reference internal" href="_modules/torch/distributions/lowrank_multivariate_normal.html#LowRankMultivariateNormal.scale_tril"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.scale_tril" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.support">
+<code class="descname">support</code><em class="property"> = &lt;torch.distributions.constraints._Real object&gt;</em><a class="headerlink" href="#torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.support" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.variance">
+<code class="descname">variance</code><a class="headerlink" href="#torch.distributions.lowrank_multivariate_normal.LowRankMultivariateNormal.variance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="multinomial">
 <h2><span class="hidden-section">Multinomial</span><a class="headerlink" href="#multinomial" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -2163,7 +2431,8 @@ either <cite>probs</cite> or <cite>logits</cite> (but not both). The innermost d
 called (see example below)</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last"><a class="reference internal" href="#torch.distributions.multinomial.Multinomial.probs" title="torch.distributions.multinomial.Multinomial.probs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">probs</span></code></a> will be normalized to be summing to 1.</p>
+<p class="last"><a class="reference internal" href="#torch.distributions.multinomial.Multinomial.probs" title="torch.distributions.multinomial.Multinomial.probs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">probs</span></code></a> must be non-negative, finite and have a non-zero sum,
+and it will be normalized to sum to 1.</p>
 </div>
 <ul class="simple">
 <li><a class="reference internal" href="#torch.distributions.multinomial.Multinomial.sample" title="torch.distributions.multinomial.Multinomial.sample"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sample()</span></code></a> requires a single shared <cite>total_count</cite> for all
@@ -2172,17 +2441,12 @@ parameters and samples.</li>
 sample.</li>
 </ul>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Multinomial</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Multinomial</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># equal probability of 0, 1, 2, 3</span>
-<span class="go"> 21</span>
-<span class="go"> 24</span>
-<span class="go"> 30</span>
-<span class="go"> 25</span>
-<span class="go">[torch.FloatTensor of size 4]]</span>
+<span class="go">tensor([ 21.,  24.,  30.,  25.])</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Multinomial</span><span class="p">(</span><span class="n">probs</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="go">-4.1338</span>
-<span class="go">[torch.FloatTensor of size 1]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Multinomial</span><span class="p">(</span><span class="n">probs</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]))</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">tensor([-4.1338])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2190,7 +2454,7 @@ sample.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>total_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – number of trials</li>
+<li><strong>total_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – number of trials</li>
 <li><strong>probs</strong> (<a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – event probabilities</li>
 <li><strong>logits</strong> (<a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – event log probabilities</li>
 </ul>
@@ -2200,7 +2464,7 @@ sample.</li>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.multinomial.Multinomial.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'logits': &lt;torch.distributions.constraints._Real object at 0x7feb44e761d0&gt;}</em><a class="headerlink" href="#torch.distributions.multinomial.Multinomial.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'logits': &lt;torch.distributions.constraints._Real object at 0x7fd7219da6d8&gt;}</em><a class="headerlink" href="#torch.distributions.multinomial.Multinomial.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -2256,7 +2520,7 @@ sample.</li>
 parameterized by a mean vector and a covariance matrix.</p>
 <p>The multivariate normal distribution can be parameterized either
 in terms of a positive definite covariance matrix <span class="math notranslate nohighlight">\(\mathbf{\Sigma}\)</span>
-or a positive definite precition matrix <span class="math notranslate nohighlight">\(\mathbf{\Sigma}^{-1}\)</span>
+or a positive definite precision matrix <span class="math notranslate nohighlight">\(\mathbf{\Sigma}^{-1}\)</span>
 or a lower-triangular matrix <span class="math notranslate nohighlight">\(\mathbf{L}\)</span> with positive-valued
 diagonal entries, such that
 <span class="math notranslate nohighlight">\(\mathbf{\Sigma} = \mathbf{L}\mathbf{L}^\top\)</span>. This triangular matrix
@@ -2264,9 +2528,7 @@ can be obtained via e.g. Cholesky decomposition of the covariance.</p>
 <p class="rubric">Example</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MultivariateNormal</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># normally distributed with mean=`[0,0]` and covariance_matrix=`I`</span>
-<span class="go">-0.2102</span>
-<span class="go">-0.5429</span>
-<span class="go">[torch.FloatTensor of size 2]</span>
+<span class="go">tensor([-0.2102, -0.5429])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2294,7 +2556,7 @@ the corresponding lower triangular matrices using a Cholesky decomposition.</p>
 </div>
 <dl class="attribute">
 <dt id="torch.distributions.multivariate_normal.MultivariateNormal.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'covariance_matrix': &lt;torch.distributions.constraints._PositiveDefinite object at 0x7feb44e76358&gt;, 'loc': &lt;torch.distributions.constraints._RealVector object at 0x7feb44e76208&gt;, 'precision_matrix': &lt;torch.distributions.constraints._PositiveDefinite object at 0x7feb44e76358&gt;, 'scale_tril': &lt;torch.distributions.constraints._LowerCholesky object at 0x7feb44e76320&gt;}</em><a class="headerlink" href="#torch.distributions.multivariate_normal.MultivariateNormal.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'covariance_matrix': &lt;torch.distributions.constraints._PositiveDefinite object at 0x7fd7219da860&gt;, 'loc': &lt;torch.distributions.constraints._RealVector object at 0x7fd7219da710&gt;, 'precision_matrix': &lt;torch.distributions.constraints._PositiveDefinite object at 0x7fd7219da860&gt;, 'scale_tril': &lt;torch.distributions.constraints._LowerCholesky object at 0x7fd7219da828&gt;}</em><a class="headerlink" href="#torch.distributions.multivariate_normal.MultivariateNormal.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -2361,8 +2623,7 @@ the corresponding lower triangular matrices using a Cholesky decomposition.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.0</span><span class="p">]),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># normally distributed with loc=0 and scale=1</span>
-<span class="go"> 0.1046</span>
-<span class="go">[torch.FloatTensor of size 1]</span>
+<span class="go">tensor([ 0.1046])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2370,8 +2631,8 @@ the corresponding lower triangular matrices using a Cholesky decomposition.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>loc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – mean of the distribution (often referred to as mu)</li>
-<li><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – standard deviation of the distribution
+<li><strong>loc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – mean of the distribution (often referred to as mu)</li>
+<li><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – standard deviation of the distribution
 (often referred to as sigma)</li>
 </ul>
 </td>
@@ -2380,7 +2641,7 @@ the corresponding lower triangular matrices using a Cholesky decomposition.</p>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.normal.Normal.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'loc': &lt;torch.distributions.constraints._Real object at 0x7feb44e761d0&gt;, 'scale': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;}</em><a class="headerlink" href="#torch.distributions.normal.Normal.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'loc': &lt;torch.distributions.constraints._Real object at 0x7fd7219da6d8&gt;, 'scale': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;}</em><a class="headerlink" href="#torch.distributions.normal.Normal.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -2452,18 +2713,15 @@ the corresponding lower triangular matrices using a Cholesky decomposition.</p>
 <p>Samples are one-hot coded vectors of size <code class="docutils literal notranslate"><span class="pre">probs.size(-1)</span></code>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last"><a class="reference internal" href="#torch.distributions.one_hot_categorical.OneHotCategorical.probs" title="torch.distributions.one_hot_categorical.OneHotCategorical.probs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">probs</span></code></a> will be normalized to be summing to 1.</p>
+<p class="last"><a class="reference internal" href="#torch.distributions.one_hot_categorical.OneHotCategorical.probs" title="torch.distributions.one_hot_categorical.OneHotCategorical.probs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">probs</span></code></a> must be non-negative, finite and have a non-zero sum,
+and it will be normalized to sum to 1.</p>
 </div>
 <p>See also: <code class="xref py py-func docutils literal notranslate"><span class="pre">torch.distributions.Categorical()</span></code> for specifications of
 <a class="reference internal" href="#torch.distributions.one_hot_categorical.OneHotCategorical.probs" title="torch.distributions.one_hot_categorical.OneHotCategorical.probs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">probs</span></code></a> and <a class="reference internal" href="#torch.distributions.one_hot_categorical.OneHotCategorical.logits" title="torch.distributions.one_hot_categorical.OneHotCategorical.logits"><code class="xref py py-attr docutils literal notranslate"><span class="pre">logits</span></code></a>.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">OneHotCategorical</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span> <span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># equal probability of 0, 1, 2, 3</span>
-<span class="go"> 0</span>
-<span class="go"> 0</span>
-<span class="go"> 1</span>
-<span class="go"> 0</span>
-<span class="go">[torch.FloatTensor of size 4]</span>
+<span class="go">tensor([ 0.,  0.,  0.,  1.])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2480,7 +2738,7 @@ the corresponding lower triangular matrices using a Cholesky decomposition.</p>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.one_hot_categorical.OneHotCategorical.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'probs': &lt;torch.distributions.constraints._Simplex object at 0x7feb44e762b0&gt;}</em><a class="headerlink" href="#torch.distributions.one_hot_categorical.OneHotCategorical.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'probs': &lt;torch.distributions.constraints._Simplex object at 0x7fd7219da7b8&gt;}</em><a class="headerlink" href="#torch.distributions.one_hot_categorical.OneHotCategorical.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -2551,8 +2809,7 @@ the corresponding lower triangular matrices using a Cholesky decomposition.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Pareto</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># sample from a Pareto distribution with scale=1 and alpha=1</span>
-<span class="go"> 1.5623</span>
-<span class="go">[torch.FloatTensor of size 1]</span>
+<span class="go">tensor([ 1.5623])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2560,8 +2817,8 @@ the corresponding lower triangular matrices using a Cholesky decomposition.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – Scale parameter of the distribution</li>
-<li><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – Shape parameter of the distribution</li>
+<li><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – Scale parameter of the distribution</li>
+<li><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – Shape parameter of the distribution</li>
 </ul>
 </td>
 </tr>
@@ -2569,7 +2826,7 @@ the corresponding lower triangular matrices using a Cholesky decomposition.</p>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.pareto.Pareto.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'alpha': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;, 'scale': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;}</em><a class="headerlink" href="#torch.distributions.pareto.Pareto.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'alpha': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;, 'scale': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;}</em><a class="headerlink" href="#torch.distributions.pareto.Pareto.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -2602,13 +2859,13 @@ the corresponding lower triangular matrices using a Cholesky decomposition.</p>
 <em class="property">class </em><code class="descclassname">torch.distributions.poisson.</code><code class="descname">Poisson</code><span class="sig-paren">(</span><em>rate</em>, <em>validate_args=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/poisson.html#Poisson"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.poisson.Poisson" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#torch.distributions.exp_family.ExponentialFamily" title="torch.distributions.exp_family.ExponentialFamily"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.distributions.exp_family.ExponentialFamily</span></code></a></p>
 <p>Creates a Poisson distribution parameterized by <cite>rate</cite>, the rate parameter.</p>
-<p>Samples are nonnegative integers, with a pmf given by
-$rate^k e^{-rate}/k!$</p>
+<p>Samples are nonnegative integers, with a pmf given by</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{rate}^k \frac{e^{-\mathrm{rate}}}{k!}\]</div>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Poisson</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">4</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
-<span class="go"> 3</span>
-<span class="go">[torch.LongTensor of size 1]</span>
+<span class="go">tensor([ 3.])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2621,7 +2878,7 @@ $rate^k e^{-rate}/k!$</p>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.poisson.Poisson.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'rate': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;}</em><a class="headerlink" href="#torch.distributions.poisson.Poisson.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'rate': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;}</em><a class="headerlink" href="#torch.distributions.poisson.Poisson.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -2665,11 +2922,7 @@ the values are in (0, 1), and has reparametrizable samples.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">RelaxedBernoulli</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">2.2</span><span class="p">]),</span>
 <span class="go">                         torch.tensor([0.1, 0.2, 0.3, 0.99]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
-<span class="go"> 0.2951</span>
-<span class="go"> 0.3442</span>
-<span class="go"> 0.8918</span>
-<span class="go"> 0.9021</span>
-<span class="go">[torch.FloatTensor of size 4]</span>
+<span class="go">tensor([ 0.2951,  0.3442,  0.8918,  0.9021])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2677,7 +2930,7 @@ the values are in (0, 1), and has reparametrizable samples.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>temperature</strong> (<a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – </li>
+<li><strong>temperature</strong> (<a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – relaxation temperature</li>
 <li><strong>probs</strong> (<em>Number</em><em>, </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – the probabilty of sampling <cite>1</cite></li>
 <li><strong>logits</strong> (<em>Number</em><em>, </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – the log-odds of sampling <cite>1</cite></li>
 </ul>
@@ -2687,7 +2940,7 @@ the values are in (0, 1), and has reparametrizable samples.</p>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.relaxed_bernoulli.RelaxedBernoulli.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'probs': &lt;torch.distributions.constraints._Interval object at 0x7feb44e76278&gt;}</em><a class="headerlink" href="#torch.distributions.relaxed_bernoulli.RelaxedBernoulli.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'probs': &lt;torch.distributions.constraints._Interval object at 0x7fd7219da780&gt;}</em><a class="headerlink" href="#torch.distributions.relaxed_bernoulli.RelaxedBernoulli.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -2724,18 +2977,15 @@ the values are in (0, 1), and has reparametrizable samples.</p>
 <dt id="torch.distributions.relaxed_categorical.RelaxedOneHotCategorical">
 <em class="property">class </em><code class="descclassname">torch.distributions.relaxed_categorical.</code><code class="descname">RelaxedOneHotCategorical</code><span class="sig-paren">(</span><em>temperature</em>, <em>probs=None</em>, <em>logits=None</em>, <em>validate_args=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/relaxed_categorical.html#RelaxedOneHotCategorical"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.relaxed_categorical.RelaxedOneHotCategorical" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#torch.distributions.transformed_distribution.TransformedDistribution" title="torch.distributions.transformed_distribution.TransformedDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.distributions.transformed_distribution.TransformedDistribution</span></code></a></p>
-<p>Creates a RelaxedOneHotCategorical distribution parametrized by <cite>temperature</cite> and either <cite>probs</cite> or <cite>logits</cite>.
-This is a relaxed version of the <cite>OneHotCategorical</cite> distribution, so its
-values are on simplex, and has reparametrizable samples.</p>
+<p>Creates a RelaxedOneHotCategorical distribution parametrized by
+<a class="reference internal" href="#torch.distributions.relaxed_categorical.RelaxedOneHotCategorical.temperature" title="torch.distributions.relaxed_categorical.RelaxedOneHotCategorical.temperature"><code class="xref py py-attr docutils literal notranslate"><span class="pre">temperature</span></code></a>, and either <a class="reference internal" href="#torch.distributions.relaxed_categorical.RelaxedOneHotCategorical.probs" title="torch.distributions.relaxed_categorical.RelaxedOneHotCategorical.probs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">probs</span></code></a> or <a class="reference internal" href="#torch.distributions.relaxed_categorical.RelaxedOneHotCategorical.logits" title="torch.distributions.relaxed_categorical.RelaxedOneHotCategorical.logits"><code class="xref py py-attr docutils literal notranslate"><span class="pre">logits</span></code></a>.
+This is a relaxed version of the <code class="xref py py-class docutils literal notranslate"><span class="pre">OneHotCategorical</span></code> distribution, so
+its samples are on simplex, and are reparametrizable.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">RelaxedOneHotCategorical</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">2.2</span><span class="p">]),</span>
 <span class="go">                                 torch.tensor([0.1, 0.2, 0.3, 0.4]))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># equal probability of 1, 1, 2, 3</span>
-<span class="go"> 0.1294</span>
-<span class="go"> 0.2324</span>
-<span class="go"> 0.3859</span>
-<span class="go"> 0.2523</span>
-<span class="go">[torch.FloatTensor of size 4]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+<span class="go">tensor([ 0.1294,  0.2324,  0.3859,  0.2523])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2753,7 +3003,7 @@ values are on simplex, and has reparametrizable samples.</p>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.relaxed_categorical.RelaxedOneHotCategorical.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'probs': &lt;torch.distributions.constraints._Simplex object at 0x7feb44e762b0&gt;}</em><a class="headerlink" href="#torch.distributions.relaxed_categorical.RelaxedOneHotCategorical.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'probs': &lt;torch.distributions.constraints._Simplex object at 0x7fd7219da7b8&gt;}</em><a class="headerlink" href="#torch.distributions.relaxed_categorical.RelaxedOneHotCategorical.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -2794,21 +3044,20 @@ values are on simplex, and has reparametrizable samples.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">StudentT</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">2.0</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># Student&#39;s t-distributed with degrees of freedom=2</span>
-<span class="go"> 0.1046</span>
-<span class="go">[torch.FloatTensor of size 1]</span>
+<span class="go">tensor([ 0.1046])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>df</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – degrees of freedom</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>df</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – degrees of freedom</td>
 </tr>
 </tbody>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.studentT.StudentT.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'df': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;, 'loc': &lt;torch.distributions.constraints._Real object at 0x7feb44e761d0&gt;, 'scale': &lt;torch.distributions.constraints._GreaterThan object at 0x7feb44e76240&gt;}</em><a class="headerlink" href="#torch.distributions.studentT.StudentT.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'df': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;, 'loc': &lt;torch.distributions.constraints._Real object at 0x7fd7219da6d8&gt;, 'scale': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;}</em><a class="headerlink" href="#torch.distributions.studentT.StudentT.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -2865,6 +3114,25 @@ to a base distribution.  Let f be the composition of transforms applied:</p>
 <p>Note that the <code class="docutils literal notranslate"><span class="pre">.event_shape</span></code> of a <a class="reference internal" href="#torch.distributions.transformed_distribution.TransformedDistribution" title="torch.distributions.transformed_distribution.TransformedDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">TransformedDistribution</span></code></a> is the
 maximum shape of its base distribution and its transforms, since transforms
 can introduce correlations among events.</p>
+<p>An example for the usage of <a class="reference internal" href="#torch.distributions.transformed_distribution.TransformedDistribution" title="torch.distributions.transformed_distribution.TransformedDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">TransformedDistribution</span></code></a> would be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Building a Logistic Distribution</span>
+<span class="c1"># X ~ Uniform(0, 1)</span>
+<span class="c1"># f = a + b * logit(X)</span>
+<span class="c1"># Y ~ f(X) ~ Logistic(a, b)</span>
+<span class="n">base_distribution</span> <span class="o">=</span> <span class="n">Uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">transforms</span> <span class="o">=</span> <span class="p">[</span><span class="n">SigmoidTransform</span><span class="p">()</span><span class="o">.</span><span class="n">inv</span><span class="p">,</span> <span class="n">AffineTransform</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">b</span><span class="p">)]</span>
+<span class="n">logistic</span> <span class="o">=</span> <span class="n">TransformedDistribution</span><span class="p">(</span><span class="n">base_distribution</span><span class="p">,</span> <span class="n">transforms</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For more examples, please look at the implementations of
+<a class="reference internal" href="#torch.distributions.gumbel.Gumbel" title="torch.distributions.gumbel.Gumbel"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gumbel</span></code></a>,
+<a class="reference internal" href="#torch.distributions.half_cauchy.HalfCauchy" title="torch.distributions.half_cauchy.HalfCauchy"><code class="xref py py-class docutils literal notranslate"><span class="pre">HalfCauchy</span></code></a>,
+<a class="reference internal" href="#torch.distributions.half_normal.HalfNormal" title="torch.distributions.half_normal.HalfNormal"><code class="xref py py-class docutils literal notranslate"><span class="pre">HalfNormal</span></code></a>,
+<a class="reference internal" href="#torch.distributions.log_normal.LogNormal" title="torch.distributions.log_normal.LogNormal"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogNormal</span></code></a>,
+<a class="reference internal" href="#torch.distributions.pareto.Pareto" title="torch.distributions.pareto.Pareto"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pareto</span></code></a>,
+<a class="reference internal" href="#torch.distributions.weibull.Weibull" title="torch.distributions.weibull.Weibull"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weibull</span></code></a>,
+<a class="reference internal" href="#torch.distributions.relaxed_bernoulli.RelaxedBernoulli" title="torch.distributions.relaxed_bernoulli.RelaxedBernoulli"><code class="xref py py-class docutils literal notranslate"><span class="pre">RelaxedBernoulli</span></code></a> and
+<a class="reference internal" href="#torch.distributions.relaxed_categorical.RelaxedOneHotCategorical" title="torch.distributions.relaxed_categorical.RelaxedOneHotCategorical"><code class="xref py py-class docutils literal notranslate"><span class="pre">RelaxedOneHotCategorical</span></code></a></p>
 <dl class="attribute">
 <dt id="torch.distributions.transformed_distribution.TransformedDistribution.arg_constraints">
 <code class="descname">arg_constraints</code><em class="property"> = {}</em><a class="headerlink" href="#torch.distributions.transformed_distribution.TransformedDistribution.arg_constraints" title="Permalink to this definition">¶</a></dt>
@@ -2933,8 +3201,7 @@ list.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Uniform</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.0</span><span class="p">]),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">5.0</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># uniformly distributed in the range [0.0, 5.0)</span>
-<span class="go"> 2.3418</span>
-<span class="go">[torch.FloatTensor of size 1]</span>
+<span class="go">tensor([ 2.3418])</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2942,8 +3209,8 @@ list.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>low</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – lower range (inclusive).</li>
-<li><strong>high</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – upper range (exclusive).</li>
+<li><strong>low</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – lower range (inclusive).</li>
+<li><strong>high</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – upper range (exclusive).</li>
 </ul>
 </td>
 </tr>
@@ -2951,7 +3218,7 @@ list.</p>
 </table>
 <dl class="attribute">
 <dt id="torch.distributions.uniform.Uniform.arg_constraints">
-<code class="descname">arg_constraints</code><em class="property"> = {'high': &lt;torch.distributions.constraints._Dependent object at 0x7feb44e6ec18&gt;, 'low': &lt;torch.distributions.constraints._Dependent object at 0x7feb44e6ec18&gt;}</em><a class="headerlink" href="#torch.distributions.uniform.Uniform.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">arg_constraints</code><em class="property"> = {'high': &lt;torch.distributions.constraints._Dependent object at 0x7fd7219da1d0&gt;, 'low': &lt;torch.distributions.constraints._Dependent object at 0x7fd7219da1d0&gt;}</em><a class="headerlink" href="#torch.distributions.uniform.Uniform.arg_constraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -3007,6 +3274,59 @@ list.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="weibull">
+<h2><span class="hidden-section">Weibull</span><a class="headerlink" href="#weibull" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="torch.distributions.weibull.Weibull">
+<em class="property">class </em><code class="descclassname">torch.distributions.weibull.</code><code class="descname">Weibull</code><span class="sig-paren">(</span><em>scale</em>, <em>concentration</em>, <em>validate_args=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/weibull.html#Weibull"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.weibull.Weibull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#torch.distributions.transformed_distribution.TransformedDistribution" title="torch.distributions.transformed_distribution.TransformedDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.distributions.transformed_distribution.TransformedDistribution</span></code></a></p>
+<p>Samples from a two-parameter Weibull distribution.</p>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Weibull</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># sample from a Weibull distribution with scale=1, concentration=1</span>
+<span class="go">tensor([ 0.4784])</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – Scale parameter of distribution (lambda).</li>
+<li><strong>concentration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – Concentration parameter of distribution (k/shape).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="torch.distributions.weibull.Weibull.arg_constraints">
+<code class="descname">arg_constraints</code><em class="property"> = {'concentration': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;, 'scale': &lt;torch.distributions.constraints._GreaterThan object at 0x7fd7219da748&gt;}</em><a class="headerlink" href="#torch.distributions.weibull.Weibull.arg_constraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="torch.distributions.weibull.Weibull.entropy">
+<code class="descname">entropy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/distributions/weibull.html#Weibull.entropy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.distributions.weibull.Weibull.entropy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.weibull.Weibull.mean">
+<code class="descname">mean</code><a class="headerlink" href="#torch.distributions.weibull.Weibull.mean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.weibull.Weibull.support">
+<code class="descname">support</code><em class="property"> = &lt;torch.distributions.constraints._GreaterThan object&gt;</em><a class="headerlink" href="#torch.distributions.weibull.Weibull.support" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="torch.distributions.weibull.Weibull.variance">
+<code class="descname">variance</code><a class="headerlink" href="#torch.distributions.weibull.Weibull.variance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-torch.distributions.kl">
 <span id="kl-divergence"></span><h2><cite>KL Divergence</cite><a class="headerlink" href="#module-torch.distributions.kl" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
@@ -3031,7 +3351,7 @@ list.</p>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor">Tensor</a></p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#NotImplementedError" title="(in Python v3.6)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a> – If the distribution types have not been registered via
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#NotImplementedError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a> – If the distribution types have not been registered via
 <a class="reference internal" href="#torch.distributions.kl.register_kl" title="torch.distributions.kl.register_kl"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_kl()</span></code></a>.</p>
 </td>
 </tr>
@@ -3067,8 +3387,8 @@ resolve the ambiguous situation:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>type_p</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.6)"><em>type</em></a>) – A subclass of <code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code>.</li>
-<li><strong>type_q</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.6)"><em>type</em></a>) – A subclass of <code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code>.</li>
+<li><strong>type_p</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.7)"><em>type</em></a>) – A subclass of <code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code>.</li>
+<li><strong>type_q</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.7)"><em>type</em></a>) – A subclass of <code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code>.</li>
 </ul>
 </td>
 </tr>
@@ -3106,7 +3426,7 @@ implement <a class="reference internal" href="#torch.distributions.transforms.Tr
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>cache_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Size of cache. If zero, no caching is done. If one,
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>cache_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Size of cache. If zero, no caching is done. If one,
 the latest single value is cached. Only 0 and 1 are supported.</p>
 </td>
 </tr>
@@ -3114,16 +3434,16 @@ the latest single value is cached. Only 0 and 1 are supported.</p>
 <li><strong>domain</strong> (<a class="reference internal" href="#torch.distributions.constraints.Constraint" title="torch.distributions.constraints.Constraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">Constraint</span></code></a>) – The constraint representing valid inputs to this transform.</li>
 <li><strong>codomain</strong> (<a class="reference internal" href="#torch.distributions.constraints.Constraint" title="torch.distributions.constraints.Constraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">Constraint</span></code></a>) – The constraint representing valid outputs to this transform
 which are inputs to the inverse transform.</li>
-<li><strong>bijective</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a>) – Whether this transform is bijective. A transform
+<li><strong>bijective</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Whether this transform is bijective. A transform
 <code class="docutils literal notranslate"><span class="pre">t</span></code> is bijective iff <code class="docutils literal notranslate"><span class="pre">t.inv(t(x))</span> <span class="pre">==</span> <span class="pre">x</span></code> and
 <code class="docutils literal notranslate"><span class="pre">t(t.inv(y))</span> <span class="pre">==</span> <span class="pre">y</span></code> for every <code class="docutils literal notranslate"><span class="pre">x</span></code> in the domain and <code class="docutils literal notranslate"><span class="pre">y</span></code> in
 the codomain. Transforms that are not bijective should at least
 maintain the weaker pseudoinverse properties
 <code class="docutils literal notranslate"><span class="pre">t(t.inv(t(x))</span> <span class="pre">==</span> <span class="pre">t(x)</span></code> and <code class="docutils literal notranslate"><span class="pre">t.inv(t(t.inv(y)))</span> <span class="pre">==</span> <span class="pre">t.inv(y)</span></code>.</li>
-<li><strong>sign</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – For bijective univariate transforms, this
+<li><strong>sign</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em> or </em><a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a>) – For bijective univariate transforms, this
 should be +1 or -1 depending on whether transform is monotone
 increasing or decreasing.</li>
-<li><strong>event_dim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Number of dimensions that are correlated together in
+<li><strong>event_dim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Number of dimensions that are correlated together in
 the transform <code class="docutils literal notranslate"><span class="pre">event_shape</span></code>. This should be 0 for pointwise
 transforms, 1 for transforms that act jointly on vectors, 2 for
 transforms that act jointly on matrices, etc.</li>
@@ -3202,9 +3522,9 @@ The transforms being composed are responsible for caching.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>loc</strong> (<a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – Location parameter.</li>
-<li><strong>scale</strong> (<a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – Scale parameter.</li>
-<li><strong>event_dim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Optional size of <cite>event_shape</cite>. This should be zero
+<li><strong>loc</strong> (<a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Location parameter.</li>
+<li><strong>scale</strong> (<a class="reference internal" href="tensors.html#torch.Tensor" title="torch.Tensor"><em>Tensor</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Scale parameter.</li>
+<li><strong>event_dim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Optional size of <cite>event_shape</cite>. This should be zero
 for univariate random variables, 1 for distributions over vectors,
 2 for distributions over matrices, etc.</li>
 </ul>
@@ -3472,10 +3792,7 @@ a  <a class="reference internal" href="#torch.distributions.transforms.Transform
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {
