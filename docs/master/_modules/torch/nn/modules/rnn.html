@@ -15,6 +15,8 @@
   
   
   
+    <link rel="canonical" href="https://pytorch.org/docs/stable/_modules/torch/nn/modules/rnn.html"/>
+  
 
   
 
@@ -24,8 +26,7 @@
 
   
 
-  
-    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
   <link rel="stylesheet" href="../../../../_static/css/pytorch_theme.css" type="text/css" />
@@ -62,7 +63,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+6087a5f ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+5e4de08 ) &#x25BC</a>
               </div>
             
           
@@ -82,7 +83,7 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
 <div>
-  <a style="color:#F05732" href=http://pytorch.org/docs/stable/>
+  <a style="color:#F05732" href="https://pytorch.org/docs/stable/_modules/torch/nn/modules/rnn.html">
     You are viewing unstable developer preview docs.
     Click here to view docs for latest stable release.
   </a>
@@ -131,7 +132,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../notes/extending.html#adding-a-module">Adding a <code class="docutils literal notranslate"><span class="pre">Module</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../notes/extending.html#writing-custom-c-extensions">Writing custom C extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../notes/extending.html#writing-custom-c-extensions">Writing custom C++ extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../notes/extending.html#id1">Writing custom C extensions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notes/faq.html">Frequently Asked Questions</a><ul>
@@ -238,7 +240,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#module"><span class="hidden-section">Module</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#sequential"><span class="hidden-section">Sequential</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#modulelist"><span class="hidden-section">ModuleList</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#moduledict"><span class="hidden-section">ModuleDict</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#parameterlist"><span class="hidden-section">ParameterList</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#parameterdict"><span class="hidden-section">ParameterDict</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#convolution-layers">Convolution layers</a><ul>
@@ -248,6 +252,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#convtranspose1d"><span class="hidden-section">ConvTranspose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#convtranspose2d"><span class="hidden-section">ConvTranspose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#convtranspose3d"><span class="hidden-section">ConvTranspose3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#unfold"><span class="hidden-section">Unfold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#fold"><span class="hidden-section">Fold</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#pooling-layers">Pooling layers</a><ul>
@@ -308,13 +314,15 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#softmax"><span class="hidden-section">Softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#softmax2d"><span class="hidden-section">Softmax2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#logsoftmax"><span class="hidden-section">LogSoftmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#adaptivelogsoftmaxwithloss"><span class="hidden-section">AdaptiveLogSoftmaxWithLoss</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#normalization-layers">Normalization layers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#batchnorm1d"><span class="hidden-section">BatchNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#batchnorm2d"><span class="hidden-section">BatchNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#batchnorm3d"><span class="hidden-section">BatchNorm3d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#hidden-groupnorm">:hidden:`GroupNorm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#groupnorm"><span class="hidden-section">GroupNorm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#instancenorm1d"><span class="hidden-section">InstanceNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#instancenorm2d"><span class="hidden-section">InstanceNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#instancenorm3d"><span class="hidden-section">InstanceNorm3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#layernorm"><span class="hidden-section">LayerNorm</span></a></li>
@@ -387,6 +395,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#utilities">Utilities</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#clip-grad-norm"><span class="hidden-section">clip_grad_norm_</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#clip-grad-value"><span class="hidden-section">clip_grad_value_</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#parameters-to-vector"><span class="hidden-section">parameters_to_vector</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#vector-to-parameters"><span class="hidden-section">vector_to_parameters</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#weight-norm"><span class="hidden-section">weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#remove-weight-norm"><span class="hidden-section">remove_weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#spectral-norm"><span class="hidden-section">spectral_norm</span></a></li>
@@ -402,12 +412,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../nn.html#torch-nn-functional">torch.nn.functional</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#convolution-functions">Convolution functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id22"><span class="hidden-section">conv1d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id23"><span class="hidden-section">conv2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id24"><span class="hidden-section">conv3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id20"><span class="hidden-section">conv1d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id21"><span class="hidden-section">conv2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id22"><span class="hidden-section">conv3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#conv-transpose1d"><span class="hidden-section">conv_transpose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#conv-transpose2d"><span class="hidden-section">conv_transpose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#conv-transpose3d"><span class="hidden-section">conv_transpose3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id23"><span class="hidden-section">unfold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id24"><span class="hidden-section">fold</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#pooling-functions">Pooling functions</a><ul>
@@ -449,6 +461,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id38"><span class="hidden-section">softmin</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id39"><span class="hidden-section">softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id40"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#gumbel-softmax"><span class="hidden-section">gumbel_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id41"><span class="hidden-section">tanh</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id42"><span class="hidden-section">sigmoid</span></a></li>
@@ -464,21 +477,27 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#linear-functions">Linear functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id43"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id44"><span class="hidden-section">bilinear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id44"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id45"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id45"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id46"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id46"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id47"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#id47">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#sparse-functions">Sparse functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id48"><span class="hidden-section">embedding</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#embedding-bag"><span class="hidden-section">embedding_bag</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#id49">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#id48">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#id50">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
@@ -501,7 +520,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#vision-functions">Vision functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pad"><span class="hidden-section">pad</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id49"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#interpolate"><span class="hidden-section">interpolate</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id51"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
@@ -539,7 +559,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../autograd.html#variable-deprecated">Variable (deprecated)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../autograd.html#tensor-autograd-functions">Tensor autograd functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../autograd.html#function"><span class="hidden-section">Function</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../autograd.html#numerical-gradient-checking">Numerical gradient checking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../autograd.html#profiler">Profiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../autograd.html#anomaly-detection">Anomaly detection</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../distributions.html">torch.distributions</a><ul>
@@ -559,9 +581,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#gamma"><span class="hidden-section">Gamma</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#geometric"><span class="hidden-section">Geometric</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#gumbel"><span class="hidden-section">Gumbel</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#halfcauchy"><span class="hidden-section">HalfCauchy</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#halfnormal"><span class="hidden-section">HalfNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#independent"><span class="hidden-section">Independent</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#laplace"><span class="hidden-section">Laplace</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#lognormal"><span class="hidden-section">LogNormal</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#lowrankmultivariatenormal"><span class="hidden-section">LowRankMultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#multinomial"><span class="hidden-section">Multinomial</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#multivariatenormal"><span class="hidden-section">MultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#normal"><span class="hidden-section">Normal</span></a></li>
@@ -573,6 +598,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#studentt"><span class="hidden-section">StudentT</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#transformeddistribution"><span class="hidden-section">TransformedDistribution</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#uniform"><span class="hidden-section">Uniform</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#weibull"><span class="hidden-section">Weibull</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#module-torch.distributions.kl"><cite>KL Divergence</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#module-torch.distributions.transforms"><cite>Transforms</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#module-torch.distributions.constraints"><cite>Constraints</cite></a></li>
@@ -608,6 +634,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../checkpoint.html">torch.utils.checkpoint</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cpp_extension.html">torch.utils.cpp_extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../data.html">torch.utils.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dlpack.html">torch.utils.dlpack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../ffi.html">torch.utils.ffi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../model_zoo.html">torch.utils.model_zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../onnx.html">torch.onnx</a><ul>
@@ -655,6 +682,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/transforms.html#transforms-on-torch-tensor">Transforms on torch.*Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/transforms.html#conversion-transforms">Conversion Transforms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/transforms.html#generic-transforms">Generic Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../torchvision/transforms.html#module-torchvision.transforms.functional">Functional Transforms</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../torchvision/utils.html">torchvision.utils</a></li>
@@ -735,6 +763,7 @@
 <span class="kn">from</span> <span class="nn">.module</span> <span class="k">import</span> <span class="n">Module</span>
 <span class="kn">from</span> <span class="nn">..parameter</span> <span class="k">import</span> <span class="n">Parameter</span>
 <span class="kn">from</span> <span class="nn">..utils.rnn</span> <span class="k">import</span> <span class="n">PackedSequence</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">init</span>
 
 
 <span class="k">class</span> <span class="nc">RNNBase</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
@@ -843,7 +872,7 @@
     <span class="k">def</span> <span class="nf">reset_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">stdv</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">weight</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
-            <span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="o">-</span><span class="n">stdv</span><span class="p">,</span> <span class="n">stdv</span><span class="p">)</span>
+            <span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="o">-</span><span class="n">stdv</span><span class="p">,</span> <span class="n">stdv</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">check_forward_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">hidden</span><span class="p">,</span> <span class="n">batch_sizes</span><span class="p">):</span>
         <span class="n">is_input_packed</span> <span class="o">=</span> <span class="n">batch_sizes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
@@ -976,7 +1005,7 @@
 <span class="sd">    where :math:`h_t` is the hidden state at time `t`, :math:`x_t` is</span>
 <span class="sd">    the input at time `t`, and :math:`h_{(t-1)}` is the hidden state of the</span>
 <span class="sd">    previous layer at time `t-1` or the initial hidden state at time `0`.</span>
-<span class="sd">    If :attr:`nonlinearity`=&#39;relu&#39;, then `ReLU` is used instead of `tanh`.</span>
+<span class="sd">    If :attr:`nonlinearity` is `&#39;relu&#39;`, then `ReLU` is used instead of `tanh`.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        input_size: The number of expected features in the input `x`</span>
@@ -989,7 +1018,7 @@
 <span class="sd">        bias: If ``False``, then the layer does not use bias weights `b_ih` and `b_hh`.</span>
 <span class="sd">            Default: ``True``</span>
 <span class="sd">        batch_first: If ``True``, then the input and output tensors are provided</span>
-<span class="sd">            as `(batch, seq, feature)`</span>
+<span class="sd">            as `(batch, seq, feature)`. Default: ``False``</span>
 <span class="sd">        dropout: If non-zero, introduces a `Dropout` layer on the outputs of each</span>
 <span class="sd">            RNN layer except the last layer, with dropout probability equal to</span>
 <span class="sd">            :attr:`dropout`. Default: 0</span>
@@ -1006,12 +1035,20 @@
 <span class="sd">          Defaults to zero if not provided.</span>
 
 <span class="sd">    Outputs: output, h_n</span>
-<span class="sd">        - **output** of shape `(seq_len, batch, hidden_size * num_directions)`: tensor</span>
+<span class="sd">        - **output** of shape `(seq_len, batch, num_directions * hidden_size)`: tensor</span>
 <span class="sd">          containing the output features (`h_k`) from the last layer of the RNN,</span>
 <span class="sd">          for each `k`.  If a :class:`torch.nn.utils.rnn.PackedSequence` has</span>
 <span class="sd">          been given as the input, the output will also be a packed sequence.</span>
+
+<span class="sd">          For the unpacked case, the directions can be separated</span>
+<span class="sd">          using ``output.view(seq_len, batch, num_directions, hidden_size)``,</span>
+<span class="sd">          with forward and backward being direction `0` and `1` respectively.</span>
+<span class="sd">          Similarly, the directions can be separated in the packed case.</span>
 <span class="sd">        - **h_n** (num_layers * num_directions, batch, hidden_size): tensor</span>
 <span class="sd">          containing the hidden state for `k = seq_len`.</span>
+
+<span class="sd">          Like *output*, the layers can be separated using</span>
+<span class="sd">          ``h_n.view(num_layers, num_directions, batch, hidden_size)``.</span>
 
 <span class="sd">    Attributes:</span>
 <span class="sd">        weight_ih_l[k]: the learnable input-hidden weights of the k-th layer,</span>
@@ -1023,6 +1060,10 @@
 <span class="sd">            of shape `(hidden_size)`</span>
 <span class="sd">        bias_hh_l[k]: the learnable hidden-hidden bias of the k-th layer,</span>
 <span class="sd">            of shape `(hidden_size)`</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        All the weights and biases are initialized from :math:`\mathcal{U}(-\sqrt{k}, \sqrt{k})`</span>
+<span class="sd">        where :math:`k = \frac{1}{\text{hidden_size}}`</span>
 
 <span class="sd">    Examples::</span>
 
@@ -1084,7 +1125,7 @@
 <span class="sd">        bias: If ``False``, then the layer does not use bias weights `b_ih` and `b_hh`.</span>
 <span class="sd">            Default: ``True``</span>
 <span class="sd">        batch_first: If ``True``, then the input and output tensors are provided</span>
-<span class="sd">            as (batch, seq, feature)</span>
+<span class="sd">            as (batch, seq, feature). Default: ``False``</span>
 <span class="sd">        dropout: If non-zero, introduces a `Dropout` layer on the outputs of each</span>
 <span class="sd">            LSTM layer except the last layer, with dropout probability equal to</span>
 <span class="sd">            :attr:`dropout`. Default: 0</span>
@@ -1105,12 +1146,20 @@
 
 
 <span class="sd">    Outputs: output, (h_n, c_n)</span>
-<span class="sd">        - **output** of shape `(seq_len, batch, hidden_size * num_directions)`: tensor</span>
+<span class="sd">        - **output** of shape `(seq_len, batch, num_directions * hidden_size)`: tensor</span>
 <span class="sd">          containing the output features `(h_t)` from the last layer of the LSTM,</span>
 <span class="sd">          for each t. If a :class:`torch.nn.utils.rnn.PackedSequence` has been</span>
 <span class="sd">          given as the input, the output will also be a packed sequence.</span>
+
+<span class="sd">          For the unpacked case, the directions can be separated</span>
+<span class="sd">          using ``output.view(seq_len, batch, num_directions, hidden_size)``,</span>
+<span class="sd">          with forward and backward being direction `0` and `1` respectively.</span>
+<span class="sd">          Similarly, the directions can be separated in the packed case.</span>
 <span class="sd">        - **h_n** of shape `(num_layers * num_directions, batch, hidden_size)`: tensor</span>
-<span class="sd">          containing the hidden state for `t = seq_len`</span>
+<span class="sd">          containing the hidden state for `t = seq_len`.</span>
+
+<span class="sd">          Like *output*, the layers can be separated using</span>
+<span class="sd">          ``h_n.view(num_layers, num_directions, batch, hidden_size)`` and similarly for *c_n*.</span>
 <span class="sd">        - **c_n** (num_layers * num_directions, batch, hidden_size): tensor</span>
 <span class="sd">          containing the cell state for `t = seq_len`</span>
 
@@ -1124,13 +1173,17 @@
 <span class="sd">        bias_hh_l[k] : the learnable hidden-hidden bias of the :math:`\text{k}^{th}` layer</span>
 <span class="sd">            `(b_hi|b_hf|b_hg|b_ho)`, of shape `(4*hidden_size)`</span>
 
+<span class="sd">    .. note::</span>
+<span class="sd">        All the weights and biases are initialized from :math:`\mathcal{U}(-\sqrt{k}, \sqrt{k})`</span>
+<span class="sd">        where :math:`k = \frac{1}{\text{hidden_size}}`</span>
+
 <span class="sd">    Examples::</span>
 
 <span class="sd">        &gt;&gt;&gt; rnn = nn.LSTM(10, 20, 2)</span>
 <span class="sd">        &gt;&gt;&gt; input = torch.randn(5, 3, 10)</span>
 <span class="sd">        &gt;&gt;&gt; h0 = torch.randn(2, 3, 20)</span>
 <span class="sd">        &gt;&gt;&gt; c0 = torch.randn(2, 3, 20)</span>
-<span class="sd">        &gt;&gt;&gt; output, hn = rnn(input, (h0, c0))</span>
+<span class="sd">        &gt;&gt;&gt; output, (hn, cn) = rnn(input, (h0, c0))</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -1169,7 +1222,7 @@
 <span class="sd">        bias: If ``False``, then the layer does not use bias weights `b_ih` and `b_hh`.</span>
 <span class="sd">            Default: ``True``</span>
 <span class="sd">        batch_first: If ``True``, then the input and output tensors are provided</span>
-<span class="sd">            as (batch, seq, feature)</span>
+<span class="sd">            as (batch, seq, feature). Default: ``False``</span>
 <span class="sd">        dropout: If non-zero, introduces a `Dropout` layer on the outputs of each</span>
 <span class="sd">            GRU layer except the last layer, with dropout probability equal to</span>
 <span class="sd">            :attr:`dropout`. Default: 0</span>
@@ -1185,12 +1238,20 @@
 <span class="sd">          Defaults to zero if not provided.</span>
 
 <span class="sd">    Outputs: output, h_n</span>
-<span class="sd">        - **output** of shape `(seq_len, batch, hidden_size * num_directions)`: tensor</span>
+<span class="sd">        - **output** of shape `(seq_len, batch, num_directions * hidden_size)`: tensor</span>
 <span class="sd">          containing the output features h_t from the last layer of the GRU,</span>
 <span class="sd">          for each t. If a :class:`torch.nn.utils.rnn.PackedSequence` has been</span>
 <span class="sd">          given as the input, the output will also be a packed sequence.</span>
+<span class="sd">          For the unpacked case, the directions can be separated</span>
+<span class="sd">          using ``output.view(seq_len, batch, num_directions, hidden_size)``,</span>
+<span class="sd">          with forward and backward being direction `0` and `1` respectively.</span>
+
+<span class="sd">          Similarly, the directions can be separated in the packed case.</span>
 <span class="sd">        - **h_n** of shape `(num_layers * num_directions, batch, hidden_size)`: tensor</span>
 <span class="sd">          containing the hidden state for `t = seq_len`</span>
+
+<span class="sd">          Like *output*, the layers can be separated using</span>
+<span class="sd">          ``h_n.view(num_layers, num_directions, batch, hidden_size)``.</span>
 
 <span class="sd">    Attributes:</span>
 <span class="sd">        weight_ih_l[k] : the learnable input-hidden weights of the :math:`\text{k}^{th}` layer</span>
@@ -1201,6 +1262,11 @@
 <span class="sd">            (b_ir|b_iz|b_in), of shape `(3*hidden_size)`</span>
 <span class="sd">        bias_hh_l[k] : the learnable hidden-hidden bias of the :math:`\text{k}^{th}` layer</span>
 <span class="sd">            (b_hr|b_hz|b_hn), of shape `(3*hidden_size)`</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        All the weights and biases are initialized from :math:`\mathcal{U}(-\sqrt{k}, \sqrt{k})`</span>
+<span class="sd">        where :math:`k = \frac{1}{\text{hidden_size}}`</span>
+
 <span class="sd">    Examples::</span>
 
 <span class="sd">        &gt;&gt;&gt; rnn = nn.GRU(10, 20, 2)</span>
@@ -1248,7 +1314,7 @@
 
 <span class="sd">        h&#39; = \tanh(w_{ih} x + b_{ih}  +  w_{hh} h + b_{hh})</span>
 
-<span class="sd">    If :attr:`nonlinearity`=&#39;relu&#39;, then ReLU is used in place of tanh.</span>
+<span class="sd">    If :attr:`nonlinearity` is `&#39;relu&#39;`, then ReLU is used in place of tanh.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        input_size: The number of expected features in the input `x`</span>
@@ -1274,6 +1340,10 @@
 <span class="sd">            `(hidden_size x hidden_size)`</span>
 <span class="sd">        bias_ih: the learnable input-hidden bias, of shape `(hidden_size)`</span>
 <span class="sd">        bias_hh: the learnable hidden-hidden bias, of shape `(hidden_size)`</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        All the weights and biases are initialized from :math:`\mathcal{U}(-\sqrt{k}, \sqrt{k})`</span>
+<span class="sd">        where :math:`k = \frac{1}{\text{hidden_size}}`</span>
 
 <span class="sd">    Examples::</span>
 
@@ -1305,10 +1375,12 @@
     <span class="k">def</span> <span class="nf">reset_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">stdv</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">weight</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
-            <span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="o">-</span><span class="n">stdv</span><span class="p">,</span> <span class="n">stdv</span><span class="p">)</span>
+            <span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="o">-</span><span class="n">stdv</span><span class="p">,</span> <span class="n">stdv</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">hx</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">hx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">check_forward_input</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">hx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">hx</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">new_zeros</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">check_forward_hidden</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">hx</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nonlinearity</span> <span class="o">==</span> <span class="s2">&quot;tanh&quot;</span><span class="p">:</span>
             <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">RNNTanhCell</span>
@@ -1370,6 +1442,10 @@
 <span class="sd">        bias_ih: the learnable input-hidden bias, of shape `(4*hidden_size)`</span>
 <span class="sd">        bias_hh: the learnable hidden-hidden bias, of shape `(4*hidden_size)`</span>
 
+<span class="sd">    .. note::</span>
+<span class="sd">        All the weights and biases are initialized from :math:`\mathcal{U}(-\sqrt{k}, \sqrt{k})`</span>
+<span class="sd">        where :math:`k = \frac{1}{\text{hidden_size}}`</span>
+
 <span class="sd">    Examples::</span>
 
 <span class="sd">        &gt;&gt;&gt; rnn = nn.LSTMCell(10, 20)</span>
@@ -1400,10 +1476,13 @@
     <span class="k">def</span> <span class="nf">reset_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">stdv</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">weight</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
-            <span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="o">-</span><span class="n">stdv</span><span class="p">,</span> <span class="n">stdv</span><span class="p">)</span>
+            <span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="o">-</span><span class="n">stdv</span><span class="p">,</span> <span class="n">stdv</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">hx</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">hx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">check_forward_input</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">hx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">hx</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">new_zeros</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">hx</span> <span class="o">=</span> <span class="p">(</span><span class="n">hx</span><span class="p">,</span> <span class="n">hx</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">check_forward_hidden</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">hx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;[0]&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">check_forward_hidden</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">hx</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;[1]&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">LSTMCell</span><span class="p">(</span>
@@ -1451,6 +1530,10 @@
 <span class="sd">        bias_ih: the learnable input-hidden bias, of shape `(3*hidden_size)`</span>
 <span class="sd">        bias_hh: the learnable hidden-hidden bias, of shape `(3*hidden_size)`</span>
 
+<span class="sd">    .. note::</span>
+<span class="sd">        All the weights and biases are initialized from :math:`\mathcal{U}(-\sqrt{k}, \sqrt{k})`</span>
+<span class="sd">        where :math:`k = \frac{1}{\text{hidden_size}}`</span>
+
 <span class="sd">    Examples::</span>
 
 <span class="sd">        &gt;&gt;&gt; rnn = nn.GRUCell(10, 20)</span>
@@ -1480,10 +1563,12 @@
     <span class="k">def</span> <span class="nf">reset_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">stdv</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">weight</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
-            <span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="o">-</span><span class="n">stdv</span><span class="p">,</span> <span class="n">stdv</span><span class="p">)</span>
+            <span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="o">-</span><span class="n">stdv</span><span class="p">,</span> <span class="n">stdv</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">hx</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">hx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">check_forward_input</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">hx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">hx</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">new_zeros</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">check_forward_hidden</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">hx</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">GRUCell</span><span class="p">(</span>
             <span class="nb">input</span><span class="p">,</span> <span class="n">hx</span><span class="p">,</span>
@@ -1539,10 +1624,7 @@
 
   
 
-  
-  
-    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {

@@ -15,6 +15,8 @@
   
   
   
+    <link rel="canonical" href="https://pytorch.org/docs/stable/_modules/torch/functional.html"/>
+  
 
   
 
@@ -24,8 +26,7 @@
 
   
 
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/pytorch_theme.css" type="text/css" />
@@ -62,7 +63,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+6087a5f ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+5e4de08 ) &#x25BC</a>
               </div>
             
           
@@ -82,7 +83,7 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
 <div>
-  <a style="color:#F05732" href=http://pytorch.org/docs/stable/>
+  <a style="color:#F05732" href="https://pytorch.org/docs/stable/_modules/torch/functional.html">
     You are viewing unstable developer preview docs.
     Click here to view docs for latest stable release.
   </a>
@@ -131,7 +132,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../notes/extending.html#adding-a-module">Adding a <code class="docutils literal notranslate"><span class="pre">Module</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../notes/extending.html#writing-custom-c-extensions">Writing custom C extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/extending.html#writing-custom-c-extensions">Writing custom C++ extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/extending.html#id1">Writing custom C extensions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/faq.html">Frequently Asked Questions</a><ul>
@@ -238,7 +240,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#module"><span class="hidden-section">Module</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#sequential"><span class="hidden-section">Sequential</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#modulelist"><span class="hidden-section">ModuleList</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#moduledict"><span class="hidden-section">ModuleDict</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#parameterlist"><span class="hidden-section">ParameterList</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#parameterdict"><span class="hidden-section">ParameterDict</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#convolution-layers">Convolution layers</a><ul>
@@ -248,6 +252,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#convtranspose1d"><span class="hidden-section">ConvTranspose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#convtranspose2d"><span class="hidden-section">ConvTranspose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#convtranspose3d"><span class="hidden-section">ConvTranspose3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#unfold"><span class="hidden-section">Unfold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#fold"><span class="hidden-section">Fold</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#pooling-layers">Pooling layers</a><ul>
@@ -308,13 +314,15 @@
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#softmax"><span class="hidden-section">Softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#softmax2d"><span class="hidden-section">Softmax2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#logsoftmax"><span class="hidden-section">LogSoftmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#adaptivelogsoftmaxwithloss"><span class="hidden-section">AdaptiveLogSoftmaxWithLoss</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#normalization-layers">Normalization layers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#batchnorm1d"><span class="hidden-section">BatchNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#batchnorm2d"><span class="hidden-section">BatchNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#batchnorm3d"><span class="hidden-section">BatchNorm3d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#hidden-groupnorm">:hidden:`GroupNorm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#groupnorm"><span class="hidden-section">GroupNorm</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#instancenorm1d"><span class="hidden-section">InstanceNorm1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#instancenorm2d"><span class="hidden-section">InstanceNorm2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#instancenorm3d"><span class="hidden-section">InstanceNorm3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#layernorm"><span class="hidden-section">LayerNorm</span></a></li>
@@ -387,6 +395,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#utilities">Utilities</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#clip-grad-norm"><span class="hidden-section">clip_grad_norm_</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#clip-grad-value"><span class="hidden-section">clip_grad_value_</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#parameters-to-vector"><span class="hidden-section">parameters_to_vector</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#vector-to-parameters"><span class="hidden-section">vector_to_parameters</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#weight-norm"><span class="hidden-section">weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#remove-weight-norm"><span class="hidden-section">remove_weight_norm</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#spectral-norm"><span class="hidden-section">spectral_norm</span></a></li>
@@ -402,12 +412,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../nn.html#torch-nn-functional">torch.nn.functional</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#convolution-functions">Convolution functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id22"><span class="hidden-section">conv1d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id23"><span class="hidden-section">conv2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id24"><span class="hidden-section">conv3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id20"><span class="hidden-section">conv1d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id21"><span class="hidden-section">conv2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id22"><span class="hidden-section">conv3d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#conv-transpose1d"><span class="hidden-section">conv_transpose1d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#conv-transpose2d"><span class="hidden-section">conv_transpose2d</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#conv-transpose3d"><span class="hidden-section">conv_transpose3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id23"><span class="hidden-section">unfold</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id24"><span class="hidden-section">fold</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#pooling-functions">Pooling functions</a><ul>
@@ -449,6 +461,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#id38"><span class="hidden-section">softmin</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#id39"><span class="hidden-section">softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#id40"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#gumbel-softmax"><span class="hidden-section">gumbel_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#id41"><span class="hidden-section">tanh</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#id42"><span class="hidden-section">sigmoid</span></a></li>
@@ -464,21 +477,27 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#linear-functions">Linear functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#id43"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id44"><span class="hidden-section">bilinear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id44"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id45"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id45"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id46"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id46"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id47"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../nn.html#id47">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../nn.html#sparse-functions">Sparse functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id48"><span class="hidden-section">embedding</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#embedding-bag"><span class="hidden-section">embedding_bag</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nn.html#id49">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../nn.html#id48">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../nn.html#id50">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
@@ -501,7 +520,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#vision-functions">Vision functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#pad"><span class="hidden-section">pad</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id49"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#interpolate"><span class="hidden-section">interpolate</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id51"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
@@ -539,7 +559,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../autograd.html#variable-deprecated">Variable (deprecated)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../autograd.html#tensor-autograd-functions">Tensor autograd functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../autograd.html#function"><span class="hidden-section">Function</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../autograd.html#numerical-gradient-checking">Numerical gradient checking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../autograd.html#profiler">Profiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../autograd.html#anomaly-detection">Anomaly detection</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../distributions.html">torch.distributions</a><ul>
@@ -559,9 +581,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#gamma"><span class="hidden-section">Gamma</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#geometric"><span class="hidden-section">Geometric</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#gumbel"><span class="hidden-section">Gumbel</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../distributions.html#halfcauchy"><span class="hidden-section">HalfCauchy</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../distributions.html#halfnormal"><span class="hidden-section">HalfNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#independent"><span class="hidden-section">Independent</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#laplace"><span class="hidden-section">Laplace</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#lognormal"><span class="hidden-section">LogNormal</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../distributions.html#lowrankmultivariatenormal"><span class="hidden-section">LowRankMultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#multinomial"><span class="hidden-section">Multinomial</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#multivariatenormal"><span class="hidden-section">MultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#normal"><span class="hidden-section">Normal</span></a></li>
@@ -573,6 +598,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#studentt"><span class="hidden-section">StudentT</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#transformeddistribution"><span class="hidden-section">TransformedDistribution</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#uniform"><span class="hidden-section">Uniform</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../distributions.html#weibull"><span class="hidden-section">Weibull</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#module-torch.distributions.kl"><cite>KL Divergence</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#module-torch.distributions.transforms"><cite>Transforms</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#module-torch.distributions.constraints"><cite>Constraints</cite></a></li>
@@ -608,6 +634,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../checkpoint.html">torch.utils.checkpoint</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp_extension.html">torch.utils.cpp_extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../data.html">torch.utils.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dlpack.html">torch.utils.dlpack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../ffi.html">torch.utils.ffi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../model_zoo.html">torch.utils.model_zoo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../onnx.html">torch.onnx</a><ul>
@@ -655,6 +682,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../torchvision/transforms.html#transforms-on-torch-tensor">Transforms on torch.*Tensor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../torchvision/transforms.html#conversion-transforms">Conversion Transforms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../torchvision/transforms.html#generic-transforms">Generic Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torchvision/transforms.html#module-torchvision.transforms.functional">Functional Transforms</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../torchvision/utils.html">torchvision.utils</a></li>
@@ -727,6 +755,8 @@
             
   <h1>Source code for torch.functional</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="kn">from</span> <span class="nn">torch._six</span> <span class="k">import</span> <span class="n">inf</span>
 <span class="kn">from</span> <span class="nn">operator</span> <span class="k">import</span> <span class="n">mul</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">reduce</span>
 <span class="kn">import</span> <span class="nn">math</span>
@@ -734,14 +764,13 @@
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;argmax&#39;</span><span class="p">,</span>
     <span class="s1">&#39;argmin&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;bartlett_window&#39;</span><span class="p">,</span>
     <span class="s1">&#39;btrifact&#39;</span><span class="p">,</span>
     <span class="s1">&#39;btriunpack&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;hamming_window&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;hann_window&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;isfinite&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;isinf&#39;</span><span class="p">,</span>
     <span class="s1">&#39;isnan&#39;</span><span class="p">,</span>
     <span class="s1">&#39;split&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;unbind&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;stft&#39;</span><span class="p">,</span>
     <span class="s1">&#39;unique&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 
@@ -761,7 +790,7 @@
 <span class="sd">    Arguments:</span>
 <span class="sd">        tensor (Tensor): tensor to split.</span>
 <span class="sd">        split_size_or_sections (int) or (list(int)): size of a single chunk or</span>
-<span class="sd">        list of sizes for each chunk</span>
+<span class="sd">            list of sizes for each chunk</span>
 <span class="sd">        dim (int): dimension along which to split the tensor.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Overwriting reason:</span>
@@ -818,18 +847,6 @@
     <span class="k">return</span> <span class="n">A</span><span class="o">.</span><span class="n">btrifact</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">pivot</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="unbind"><a class="viewcode-back" href="../../torch.html#torch.unbind">[docs]</a><span class="k">def</span> <span class="nf">unbind</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Removes a tensor dimension.</span>
-
-<span class="sd">    Returns a tuple of all slices along a given dimension, already without it.</span>
-
-<span class="sd">    Arguments:</span>
-<span class="sd">        tensor (Tensor): the tensor to unbind</span>
-<span class="sd">        dim (int): dimension to remove</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">dim</span><span class="p">)))</span></div>
-
-
 <div class="viewcode-block" id="btriunpack"><a class="viewcode-back" href="../../torch.html#torch.btriunpack">[docs]</a><span class="k">def</span> <span class="nf">btriunpack</span><span class="p">(</span><span class="n">LU_data</span><span class="p">,</span> <span class="n">LU_pivots</span><span class="p">,</span> <span class="n">unpack_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">unpack_pivots</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Unpacks the data and pivots from a batched LU factorization (btrifact) of a tensor.</span>
 
@@ -879,145 +896,135 @@
     <span class="k">return</span> <span class="n">P</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">U</span></div>
 
 
-<div class="viewcode-block" id="hann_window"><a class="viewcode-back" href="../../torch.html#torch.hann_window">[docs]</a><span class="k">def</span> <span class="nf">hann_window</span><span class="p">(</span><span class="n">window_length</span><span class="p">,</span> <span class="n">periodic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Hann window function.</span>
-
-<span class="sd">    This method computes the Hann window function:</span>
-
-<span class="sd">    .. math::</span>
-<span class="sd">        w[n] = \frac{1}{2}\ \left[1 - \cos \left( \frac{2 \pi n}{N - 1} \right)\right] =</span>
-<span class="sd">                \sin^2 \left( \frac{\pi n}{N - 1} \right),</span>
-
-<span class="sd">    where :math:`N` is the full window size.</span>
-
-<span class="sd">    The input :attr:`window_length` is a positive integer controlling the</span>
-<span class="sd">    returned window size. :attr:`periodic` flag determines whether the returned</span>
-<span class="sd">    window trims off the last duplicate value from the symmetric window and is</span>
-<span class="sd">    ready to be used as a periodic window with functions like</span>
-<span class="sd">    :meth:`torch.stft`. Therefore, if :attr:`periodic` is true, the :math:`N` in</span>
-<span class="sd">    above formula is in fact :math:`\text{window_length} + 1`. Also, we always have</span>
-<span class="sd">    ``torch.hann_window(L, periodic=True)`` equal to</span>
-<span class="sd">    ``torch.hann_window(L + 1, periodic=False)[:-1])``.</span>
-
-<span class="sd">    .. note::</span>
-<span class="sd">        If :attr:`window_length` :math:`=1`, the returned window contains a single value 1.</span>
+<div class="viewcode-block" id="isfinite"><a class="viewcode-back" href="../../torch.html#torch.isfinite">[docs]</a><span class="k">def</span> <span class="nf">isfinite</span><span class="p">(</span><span class="n">tensor</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns a new tensor with boolean elements representing if each element is `Finite` or not.</span>
 
 <span class="sd">    Arguments:</span>
-<span class="sd">        window_length (int): the size of returned window</span>
-<span class="sd">        periodic (bool, optional): If True, returns a window to be used as periodic</span>
-<span class="sd">            function. If False, return a symmetric window.</span>
-<span class="sd">        dtype (:class:`torch.dtype`, optional): the desired type of returned window.</span>
-<span class="sd">            Default: `torch.float32`</span>
+<span class="sd">        tensor (Tensor): A tensor to check</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Tensor: A 1-D tensor of size :math:`(\text{window_length},)` containing the window</span>
+<span class="sd">        Tensor: A ``torch.ByteTensor`` containing a 1 at each location of finite elements and 0 otherwise</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        &gt;&gt;&gt; torch.isfinite(torch.Tensor([1, float(&#39;inf&#39;), 2, float(&#39;-inf&#39;), float(&#39;nan&#39;)]))</span>
+<span class="sd">        tensor([ 1,  0,  1,  0,  0], dtype=torch.uint8)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">dtype</span><span class="o">.</span><span class="n">is_floating_point</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;dtype must be a floating point type, but got dtype=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dtype</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">window_length</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;window_length must be positive&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">hamming_window</span><span class="p">(</span><span class="n">window_length</span><span class="p">,</span> <span class="n">periodic</span><span class="o">=</span><span class="n">periodic</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span></div>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The argument is not a tensor&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">tensor</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">tensor</span> <span class="o">==</span> <span class="n">tensor</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">!=</span> <span class="n">inf</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="hamming_window"><a class="viewcode-back" href="../../torch.html#torch.hamming_window">[docs]</a><span class="k">def</span> <span class="nf">hamming_window</span><span class="p">(</span><span class="n">window_length</span><span class="p">,</span> <span class="n">periodic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.54</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.46</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Hamming window function.</span>
-
-<span class="sd">    This method computes the Hamming window function:</span>
-
-<span class="sd">    .. math::</span>
-<span class="sd">        w[n] = \alpha - \beta\ \cos \left( \frac{2 \pi n}{N - 1} \right),</span>
-
-<span class="sd">    where :math:`N` is the full window size.</span>
-
-<span class="sd">    The input :attr:`window_length` is a positive integer controlling the</span>
-<span class="sd">    returned window size. :attr:`periodic` flag determines whether the returned</span>
-<span class="sd">    window trims off the last duplicate value from the symmetric window and is</span>
-<span class="sd">    ready to be used as a periodic window with functions like</span>
-<span class="sd">    :meth:`torch.stft`. Therefore, if :attr:`periodic` is true, the :math:`N` in</span>
-<span class="sd">    above formula is in fact :math:`\text{window_length} + 1`. Also, we always have</span>
-<span class="sd">    ``torch.hamming_window(L, periodic=True)`` equal to</span>
-<span class="sd">    ``torch.hamming_window(L + 1, periodic=False)[:-1])``.</span>
-
-<span class="sd">    .. note::</span>
-<span class="sd">        If :attr:`window_length` :math:`=1`, the returned window contains a single value 1.</span>
-
-<span class="sd">    .. note::</span>
-<span class="sd">        This is a generalized version of :meth:`torch.hann_window`.</span>
+<div class="viewcode-block" id="isinf"><a class="viewcode-back" href="../../torch.html#torch.isinf">[docs]</a><span class="k">def</span> <span class="nf">isinf</span><span class="p">(</span><span class="n">tensor</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns a new tensor with boolean elements representing if each element is `+/-INF` or not.</span>
 
 <span class="sd">    Arguments:</span>
-<span class="sd">        window_length (int): the size of returned window</span>
-<span class="sd">        periodic (bool, optional): If True, returns a window to be used as periodic</span>
-<span class="sd">            function. If False, return a symmetric window.</span>
-<span class="sd">        dtype (:class:`torch.dtype`, optional): the desired type of returned window.</span>
-<span class="sd">            Default: `torch.float32`</span>
+<span class="sd">        tensor (Tensor): A tensor to check</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Tensor: A 1-D tensor of size :math:`(\text{window_length},)` containing the window</span>
+<span class="sd">        Tensor: A ``torch.ByteTensor`` containing a 1 at each location of `+/-INF` elements and 0 otherwise</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        &gt;&gt;&gt; torch.isinf(torch.Tensor([1, float(&#39;inf&#39;), 2, float(&#39;-inf&#39;), float(&#39;nan&#39;)]))</span>
+<span class="sd">        tensor([ 0,  1,  0,  1,  0], dtype=torch.uint8)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">dtype</span><span class="o">.</span><span class="n">is_floating_point</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;dtype must be a floating point type, but got dtype=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dtype</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">window_length</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;window_length must be positive&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">window_length</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">window_length</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-    <span class="n">window_length</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">periodic</span><span class="p">)</span>
-    <span class="n">window</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">window_length</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-    <span class="n">window</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">mul_</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">window_length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">cos_</span><span class="p">()</span><span class="o">.</span><span class="n">mul_</span><span class="p">(</span><span class="o">-</span><span class="n">beta</span><span class="p">)</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">periodic</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">window</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">window</span></div>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The argument is not a tensor&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">tensor</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">tensor</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">==</span> <span class="n">inf</span></div>
 
 
-<div class="viewcode-block" id="bartlett_window"><a class="viewcode-back" href="../../torch.html#torch.bartlett_window">[docs]</a><span class="k">def</span> <span class="nf">bartlett_window</span><span class="p">(</span><span class="n">window_length</span><span class="p">,</span> <span class="n">periodic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Bartlett window function.</span>
+<div class="viewcode-block" id="stft"><a class="viewcode-back" href="../../torch.html#torch.stft">[docs]</a><span class="k">def</span> <span class="nf">stft</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">n_fft</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">win_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+         <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">pad_mode</span><span class="o">=</span><span class="s1">&#39;reflect&#39;</span><span class="p">,</span> <span class="n">normalized</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">onesided</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Short-time Fourier transform (STFT).</span>
 
-<span class="sd">    This method computes the Bartlett window function:</span>
+<span class="sd">    Ignoring the optional batch dimension, this method computes the following</span>
+<span class="sd">    expression:</span>
 
 <span class="sd">    .. math::</span>
-<span class="sd">        w[n] = 1 - \left| \frac{2n}{N-1} - 1 \right| = \begin{cases}</span>
-<span class="sd">            \frac{2n}{N - 1} &amp; \text{if } 0 \leq n \leq \frac{N - 1}{2} \\</span>
-<span class="sd">            2 - \frac{2n}{N - 1} &amp; \text{if } \frac{N - 1}{2} &lt; n &lt; N \\</span>
-<span class="sd">        \end{cases},</span>
+<span class="sd">        X[m, \omega] = \sum_{k = 0}^{\text{win_length}}%</span>
+<span class="sd">                            window[k]\ input[m \times hop_length + k]\ %</span>
+<span class="sd">                            e^{- j \frac{2 \pi \cdot \omega k}{\text{win_length}}},</span>
 
-<span class="sd">    where :math:`N` is the full window size.</span>
+<span class="sd">    where :math:`m` is the index of the sliding window, and :math:`\omega` is</span>
+<span class="sd">    the frequency that :math:`0 \leq \omega &lt; \text{n_fft}`. When</span>
+<span class="sd">    :attr:`onesided` is the default value ``True``,</span>
 
-<span class="sd">    The input :attr:`window_length` is a positive integer controlling the</span>
-<span class="sd">    returned window size. :attr:`periodic` flag determines whether the returned</span>
-<span class="sd">    window trims off the last duplicate value from the symmetric window and is</span>
-<span class="sd">    ready to be used as a periodic window with functions like</span>
-<span class="sd">    :meth:`torch.stft`. Therefore, if :attr:`periodic` is true, the :math:`N` in</span>
-<span class="sd">    above formula is in fact :math:`\text{window_length} + 1`. Also, we always have</span>
-<span class="sd">    ``torch.bartlett_window(L, periodic=True)`` equal to</span>
-<span class="sd">    ``torch.bartlett_window(L + 1, periodic=False)[:-1])``.</span>
+<span class="sd">    * :attr:`input` must be either a 1-D time sequenceor 2-D a batch of time</span>
+<span class="sd">      sequences.</span>
 
-<span class="sd">    .. note::</span>
-<span class="sd">        If :attr:`window_length` :math:`=1`, the returned window contains a single value 1.</span>
+<span class="sd">    * If :attr:`hop_length` is ``None`` (default), it is treated as equal to</span>
+<span class="sd">      ``floor(n_fft / 4)``.</span>
+
+<span class="sd">    * If :attr:`win_length` is ``None`` (default), it is treated as equal to</span>
+<span class="sd">      :attr:`n_fft`.</span>
+
+<span class="sd">    * :attr:`window` can be a 1-D tensor of size :attr:`win_length`, e.g., from</span>
+<span class="sd">      :meth:`torch.hann_window`. If :attr:`window` is ``None`` (default), it is</span>
+<span class="sd">      treated as if having :math:`1` everywhere in the window. If</span>
+<span class="sd">      :math:`\text{win_length} &lt; \text{n_fft}`, :attr:`window` will be padded on</span>
+<span class="sd">      both sides to length :attr:`n_fft` before being applied.</span>
+
+<span class="sd">    * If :attr:`center` is ``True`` (default), :attr:`input` will be padded on</span>
+<span class="sd">      both sides so that the :math:`t`-th frame is centered at time</span>
+<span class="sd">      :math:`t \times \text{hop_length}`. Otherwise, the :math:`t`-th frame</span>
+<span class="sd">      begins at time  :math:`t \times \text{hop_length}`.</span>
+
+<span class="sd">    * :attr:`pad_mode` determines the padding method used on :attr:`input` when</span>
+<span class="sd">      :attr:`center` is ``True``. See :meth:`torch.nn.functional.pad` for</span>
+<span class="sd">      all available options. Default is ``&quot;reflect&quot;``.</span>
+
+<span class="sd">    * If :attr:`onesided` is ``True`` (default), only values for :math:`\omega`</span>
+<span class="sd">      in :math:`\left[0, 1, 2, \dots, \left\lfloor \frac{\text{n_fft}}{2} \right\rfloor + 1\right]`</span>
+<span class="sd">      are returned because the real-to-complex Fourier transform satisfies the</span>
+<span class="sd">      conjugate symmetry, i.e., :math:`X[m, \omega] = X[m, \text{n_fft} - \omega]^*`.</span>
+
+<span class="sd">    * If :attr:`normalized` is ``True`` (default is ``False``), the function</span>
+<span class="sd">      returns the normalized STFT results, i.e., multiplied by :math:`(\text{frame_length})^{-0.5}`.</span>
+
+<span class="sd">    Returns the real and the imaginary parts together as one tensor of size</span>
+<span class="sd">    :math:`(* \times N \times T \times 2)`, where :math:`*` is the optional</span>
+<span class="sd">    batch size of :attr:`input`, :math:`N` is the number of frequencies where</span>
+<span class="sd">    STFT is applied, :math:`T` is the total number of frames used, and each pair</span>
+<span class="sd">    in the last dimension represents a complex number as the real part and the</span>
+<span class="sd">    imaginary part.</span>
+
+<span class="sd">    .. warning::</span>
+<span class="sd">      This function changed signature at version 0.4.1. Calling with the</span>
+<span class="sd">      previous signature may cause error or return incorrect result.</span>
 
 <span class="sd">    Arguments:</span>
-<span class="sd">        window_length (int): the size of returned window</span>
-<span class="sd">        periodic (bool, optional): If True, returns a window to be used as periodic</span>
-<span class="sd">            function. If False, return a symmetric window.</span>
-<span class="sd">        dtype (:class:`torch.dtype`, optional): the desired type of returned window.</span>
-<span class="sd">            Default: `torch.float32`</span>
+<span class="sd">        input (Tensor): the input tensor</span>
+<span class="sd">        n_fft (int, optional): size of Fourier transform</span>
+<span class="sd">        hop_length (int): the distance between neighboring sliding window</span>
+<span class="sd">            frames. Default: ``None`` (treated as equal to ``floor(n_fft / 4)``)</span>
+<span class="sd">        win_length (int): the size of window frame and STFT filter.</span>
+<span class="sd">            Default: ``None``  (treated as equal to :attr:`n_fft`)</span>
+<span class="sd">        window (Tensor, optional): the optional window function.</span>
+<span class="sd">            Default: ``None`` (treated as window of all :math:`1`s)</span>
+<span class="sd">        center (bool, optional): whether to pad :attr:`input` on both sides so</span>
+<span class="sd">            that the :math:`t`-th frame is centered at time :math:`t \times \text{hop_length}`.</span>
+<span class="sd">            Default: ``True``</span>
+<span class="sd">        pad_mode (string, optional): controls the padding method used when</span>
+<span class="sd">            :attr:`center` is ``True``. Default: ``&quot;reflect&quot;``</span>
+<span class="sd">        normalized (bool, optional): controls whether to return the normalized STFT results</span>
+<span class="sd">             Default: ``False``</span>
+<span class="sd">        onesided (bool, optional): controls whether to return half of results to</span>
+<span class="sd">            avoid redundancy Default: ``True``</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Tensor: A 1-D tensor of size :math:`(\text{window_length},)` containing the window</span>
+<span class="sd">        Tensor: A tensor containing the STFT result with shape described above</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">dtype</span><span class="o">.</span><span class="n">is_floating_point</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;dtype must be a floating point type, but got dtype=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dtype</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">window_length</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;window_length must be positive&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">window_length</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">window_length</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-    <span class="n">window_length</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">periodic</span><span class="p">)</span>
-    <span class="n">window</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">window_length</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">mul_</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">window_length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
-    <span class="n">first_half_size</span> <span class="o">=</span> <span class="p">((</span><span class="n">window_length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="n">window</span><span class="o">.</span><span class="n">narrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">first_half_size</span><span class="p">,</span> <span class="n">window_length</span> <span class="o">-</span> <span class="n">first_half_size</span><span class="p">)</span><span class="o">.</span><span class="n">mul_</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">periodic</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">window</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">window</span></div>
+    <span class="c1"># TODO: after having proper ways to map Python strings to ATen Enum, move</span>
+    <span class="c1">#       this and F.pad to ATen.</span>
+    <span class="k">if</span> <span class="n">center</span><span class="p">:</span>
+        <span class="n">signal_dim</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span>
+        <span class="n">extended_shape</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="n">signal_dim</span><span class="p">)</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+        <span class="n">pad</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_fft</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="nb">input</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">extended_shape</span><span class="p">),</span> <span class="p">(</span><span class="n">pad</span><span class="p">,</span> <span class="n">pad</span><span class="p">),</span> <span class="n">pad_mode</span><span class="p">)</span>
+        <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="n">signal_dim</span><span class="p">:])</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">_C</span><span class="o">.</span><span class="n">_VariableFunctions</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">n_fft</span><span class="p">,</span> <span class="n">hop_length</span><span class="p">,</span> <span class="n">win_length</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">normalized</span><span class="p">,</span> <span class="n">onesided</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="isnan"><a class="viewcode-back" href="../../torch.html#torch.isnan">[docs]</a><span class="k">def</span> <span class="nf">isnan</span><span class="p">(</span><span class="n">tensor</span><span class="p">):</span>
@@ -1035,7 +1042,7 @@
 <span class="sd">        tensor([ 0,  1,  0], dtype=torch.uint8)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The argument is not a tensor&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The argument is not a tensor&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">tensor</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">tensor</span> <span class="o">!=</span> <span class="n">tensor</span></div>
 
 
@@ -1201,10 +1208,7 @@
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {
