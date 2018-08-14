@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
   <link rel="stylesheet" href="../../../../_static/css/pytorch_theme.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" /> 
 
@@ -63,7 +64,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+5e4de08 ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+329d901 ) &#x25BC</a>
               </div>
             
           
@@ -215,6 +216,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../torch.html#blas-and-lapack-operations">BLAS and LAPACK Operations</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../torch.html#utilities">Utilities</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../tensors.html">torch.Tensor</a></li>
@@ -300,6 +302,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#relu6"><span class="hidden-section">ReLU6</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#rrelu"><span class="hidden-section">RReLU</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#selu"><span class="hidden-section">SELU</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#celu"><span class="hidden-section">CELU</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#sigmoid"><span class="hidden-section">Sigmoid</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#softplus"><span class="hidden-section">Softplus</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#softshrink"><span class="hidden-section">Softshrink</span></a></li>
@@ -364,6 +367,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#l1loss"><span class="hidden-section">L1Loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#mseloss"><span class="hidden-section">MSELoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#crossentropyloss"><span class="hidden-section">CrossEntropyLoss</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#ctcloss"><span class="hidden-section">CTCLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#nllloss"><span class="hidden-section">NLLLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#poissonnllloss"><span class="hidden-section">PoissonNLLLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#kldivloss"><span class="hidden-section">KLDivLoss</span></a></li>
@@ -449,22 +453,23 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id28"><span class="hidden-section">relu6</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id29"><span class="hidden-section">elu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id30"><span class="hidden-section">selu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id31"><span class="hidden-section">celu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#leaky-relu"><span class="hidden-section">leaky_relu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id31"><span class="hidden-section">prelu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id32"><span class="hidden-section">rrelu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id32"><span class="hidden-section">prelu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id33"><span class="hidden-section">rrelu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#glu"><span class="hidden-section">glu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id33"><span class="hidden-section">logsigmoid</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id34"><span class="hidden-section">hardshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id35"><span class="hidden-section">tanhshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id36"><span class="hidden-section">softsign</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id37"><span class="hidden-section">softplus</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id38"><span class="hidden-section">softmin</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id39"><span class="hidden-section">softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id40"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id34"><span class="hidden-section">logsigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id35"><span class="hidden-section">hardshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id36"><span class="hidden-section">tanhshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id37"><span class="hidden-section">softsign</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id38"><span class="hidden-section">softplus</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id39"><span class="hidden-section">softmin</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id40"><span class="hidden-section">softmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id41"><span class="hidden-section">softshrink</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#gumbel-softmax"><span class="hidden-section">gumbel_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id41"><span class="hidden-section">tanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id42"><span class="hidden-section">sigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id42"><span class="hidden-section">tanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id43"><span class="hidden-section">sigmoid</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#normalization-functions">Normalization functions</a><ul>
@@ -476,32 +481,34 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#linear-functions">Linear functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id43"><span class="hidden-section">linear</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id44"><span class="hidden-section">bilinear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id44"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id45"><span class="hidden-section">bilinear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id45"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id46"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id46"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id47"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id47"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id48"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#sparse-functions">Sparse functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id48"><span class="hidden-section">embedding</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id49"><span class="hidden-section">embedding</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#embedding-bag"><span class="hidden-section">embedding_bag</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#id49">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#id50">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#id50">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../nn.html#id51">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#binary-cross-entropy-with-logits"><span class="hidden-section">binary_cross_entropy_with_logits</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#cross-entropy"><span class="hidden-section">cross_entropy</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#ctc-loss"><span class="hidden-section">ctc_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#hinge-embedding-loss"><span class="hidden-section">hinge_embedding_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#kl-div"><span class="hidden-section">kl_div</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#l1-loss"><span class="hidden-section">l1_loss</span></a></li>
@@ -511,7 +518,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#multilabel-soft-margin-loss"><span class="hidden-section">multilabel_soft_margin_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#multi-margin-loss"><span class="hidden-section">multi_margin_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#nll-loss"><span class="hidden-section">nll_loss</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#binary-cross-entropy-with-logits"><span class="hidden-section">binary_cross_entropy_with_logits</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#smooth-l1-loss"><span class="hidden-section">smooth_l1_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#soft-margin-loss"><span class="hidden-section">soft_margin_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#triplet-margin-loss"><span class="hidden-section">triplet_margin_loss</span></a></li>
@@ -521,7 +527,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#pad"><span class="hidden-section">pad</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#interpolate"><span class="hidden-section">interpolate</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id51"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#id52"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
@@ -589,6 +595,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#lowrankmultivariatenormal"><span class="hidden-section">LowRankMultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#multinomial"><span class="hidden-section">Multinomial</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#multivariatenormal"><span class="hidden-section">MultivariateNormal</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#negativebinomial"><span class="hidden-section">NegativeBinomial</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#normal"><span class="hidden-section">Normal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#onehotcategorical"><span class="hidden-section">OneHotCategorical</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../distributions.html#pareto"><span class="hidden-section">Pareto</span></a></li>
@@ -838,17 +845,19 @@
 
 
 <div class="viewcode-block" id="RReLU"><a class="viewcode-back" href="../../../../nn.html#torch.nn.RReLU">[docs]</a><span class="k">class</span> <span class="nc">RReLU</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the randomized leaky rectified liner unit function element-wise</span>
-<span class="sd">    described in the paper</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the randomized leaky rectified liner unit function, element-wise,</span>
+<span class="sd">    as described in the paper:</span>
+
 <span class="sd">    `Empirical Evaluation of Rectified Activations in Convolutional Network`_.</span>
 
 <span class="sd">    The function is defined as:</span>
 
 <span class="sd">    .. math::</span>
-<span class="sd">        \text{RReLU}(x) = \begin{cases}</span>
+<span class="sd">        \text{RReLU}(x) =</span>
+<span class="sd">        \begin{cases}</span>
 <span class="sd">            x &amp; \text{if } x \geq 0 \\</span>
 <span class="sd">            ax &amp; \text{ otherwise }</span>
-<span class="sd">        \end{cases},</span>
+<span class="sd">        \end{cases}</span>
 
 <span class="sd">    where :math:`a` is randomly sampled from uniform distribution</span>
 <span class="sd">    :math:`\mathcal{U}(\text{lower}, \text{upper})`.</span>
@@ -874,6 +883,7 @@
 <span class="sd">    .. _`Empirical Evaluation of Rectified Activations in Convolutional Network`:</span>
 <span class="sd">        https://arxiv.org/abs/1505.00853</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">1.</span> <span class="o">/</span> <span class="mi">8</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">1.</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">RReLU</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lower</span> <span class="o">=</span> <span class="n">lower</span>
@@ -950,7 +960,10 @@
 
 
 <div class="viewcode-block" id="ReLU6"><a class="viewcode-back" href="../../../../nn.html#torch.nn.ReLU6">[docs]</a><span class="k">class</span> <span class="nc">ReLU6</span><span class="p">(</span><span class="n">Hardtanh</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the element-wise function :math:`\text{ReLU6}(x) = \min(\max(0,x), 6)`</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the element-wise function:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \text{ReLU6}(x) = \min(\max(0,x), 6)</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        inplace: can optionally do the operation in-place. Default: ``False``</span>
@@ -978,7 +991,11 @@
 
 
 <div class="viewcode-block" id="Sigmoid"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Sigmoid">[docs]</a><span class="k">class</span> <span class="nc">Sigmoid</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the element-wise function :math:`\text{Sigmoid}(x) = \frac{1}{1 + \exp(-x)}`</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the element-wise function:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \text{Sigmoid}(x) = \frac{1}{1 + \exp(-x)}</span>
+
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: :math:`(N, *)` where `*` means, any number of additional</span>
@@ -999,8 +1016,10 @@
 
 
 <div class="viewcode-block" id="Tanh"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Tanh">[docs]</a><span class="k">class</span> <span class="nc">Tanh</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies element-wise,</span>
-<span class="sd">    :math:`\text{Tanh}(x) = \tanh(x) = \frac{e^x - e^{-x}} {e^x + e^{-x}}`</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the element-wise function:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \text{Tanh}(x) = \tanh(x) = \frac{e^x - e^{-x}} {e^x + e^{-x}}</span>
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: :math:`(N, *)` where `*` means, any number of additional</span>
@@ -1021,8 +1040,10 @@
 
 
 <div class="viewcode-block" id="ELU"><a class="viewcode-back" href="../../../../nn.html#torch.nn.ELU">[docs]</a><span class="k">class</span> <span class="nc">ELU</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies element-wise,</span>
-<span class="sd">    :math:`\text{ELU}(x) = \max(0,x) + \min(0, \alpha * (\exp(x) - 1))`</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the element-wise function:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \text{ELU}(x) = \max(0,x) + \min(0, \alpha * (\exp(x) - 1))</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        alpha: the :math:`\alpha` value for the ELU formulation. Default: 1.0</span>
@@ -1055,9 +1076,54 @@
         <span class="k">return</span> <span class="s1">&#39;alpha=</span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">,</span> <span class="n">inplace_str</span><span class="p">)</span></div>
 
 
+<div class="viewcode-block" id="CELU"><a class="viewcode-back" href="../../../../nn.html#torch.nn.CELU">[docs]</a><span class="k">class</span> <span class="nc">CELU</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the element-wise function:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \text{CELU}(x) = \max(0,x) + \min(0, \alpha * (\exp(x/\alpha) - 1))</span>
+
+<span class="sd">    More details can be found in the paper `Continuously Differentiable Exponential Linear Units`_ .</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        alpha: the :math:`\alpha` value for the CELU formulation. Default: 1.0</span>
+<span class="sd">        inplace: can optionally do the operation in-place. Default: ``False``</span>
+
+<span class="sd">    Shape:</span>
+<span class="sd">        - Input: :math:`(N, *)` where `*` means, any number of additional</span>
+<span class="sd">          dimensions</span>
+<span class="sd">        - Output: :math:`(N, *)`, same shape as the input</span>
+
+<span class="sd">    .. image:: scripts/activation_images/CELU.png</span>
+
+<span class="sd">    Examples::</span>
+
+<span class="sd">        &gt;&gt;&gt; m = nn.CELU()</span>
+<span class="sd">        &gt;&gt;&gt; input = torch.randn(2)</span>
+<span class="sd">        &gt;&gt;&gt; output = m(input)</span>
+
+<span class="sd">    .. _`Continuously Differentiable Exponential Linear Units`:</span>
+<span class="sd">        https://arxiv.org/abs/1704.07483</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">CELU</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inplace</span> <span class="o">=</span> <span class="n">inplace</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">celu</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inplace</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">extra_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">inplace_str</span> <span class="o">=</span> <span class="s1">&#39;, inplace&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inplace</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">return</span> <span class="s1">&#39;alpha=</span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">,</span> <span class="n">inplace_str</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="SELU"><a class="viewcode-back" href="../../../../nn.html#torch.nn.SELU">[docs]</a><span class="k">class</span> <span class="nc">SELU</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies element-wise,</span>
-<span class="sd">    :math:`\text{SELU}(x) = \text{scale} * (\max(0,x) + \min(0, \alpha * (\exp(x) - 1)))`,</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applied element-wise, as:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \text{SELU}(x) = \text{scale} * (\max(0,x) + \min(0, \alpha * (\exp(x) - 1)))</span>
+
 <span class="sd">    with :math:`\alpha = 1.6732632423543772848170429916717` and</span>
 <span class="sd">    :math:`\text{scale} = 1.0507009873554804934193349852946`.</span>
 
@@ -1096,8 +1162,8 @@
 
 <span class="k">class</span> <span class="nc">GLU</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the gated linear unit function</span>
-<span class="sd">    :math:`{GLU}(a, b)= a \otimes \sigma(b)` where `a` is the first half of</span>
-<span class="sd">    the input vector and `b` is the second half.</span>
+<span class="sd">    :math:`{GLU}(a, b)= a \otimes \sigma(b)` where :math:`a` is the first half</span>
+<span class="sd">    of the input vector and :math:`b` is the second half.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        dim (int): the dimension on which to split the input. Default: -1</span>
@@ -1126,8 +1192,7 @@
 
 
 <div class="viewcode-block" id="Hardshrink"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Hardshrink">[docs]</a><span class="k">class</span> <span class="nc">Hardshrink</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the hard shrinkage function element-wise</span>
-<span class="sd">    Hardshrink is defined as:</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the hard shrinkage function element-wise:</span>
 
 <span class="sd">    .. math::</span>
 <span class="sd">        \text{HardShrink}(x) =</span>
@@ -1166,14 +1231,19 @@
 
 
 <div class="viewcode-block" id="LeakyReLU"><a class="viewcode-back" href="../../../../nn.html#torch.nn.LeakyReLU">[docs]</a><span class="k">class</span> <span class="nc">LeakyReLU</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies element-wise,</span>
-<span class="sd">    :math:`\text{LeakyReLU}(x) = \max(0, x) + \text{negative_slope} * \min(0, x)` or</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the element-wise function:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \text{LeakyReLU}(x) = \max(0, x) + \text{negative\_slope} * \min(0, x)</span>
+
+
+<span class="sd">    or</span>
 
 <span class="sd">    .. math::</span>
 <span class="sd">        \text{LeakyRELU}(x) =</span>
 <span class="sd">        \begin{cases}</span>
 <span class="sd">        x, &amp; \text{ if } x \geq 0 \\</span>
-<span class="sd">        \text{negative_slope} \times x, &amp; \text{ otherwise }</span>
+<span class="sd">        \text{negative\_slope} \times x, &amp; \text{ otherwise }</span>
 <span class="sd">        \end{cases}</span>
 
 <span class="sd">    Args:</span>
@@ -1208,7 +1278,9 @@
 
 
 <div class="viewcode-block" id="LogSigmoid"><a class="viewcode-back" href="../../../../nn.html#torch.nn.LogSigmoid">[docs]</a><span class="k">class</span> <span class="nc">LogSigmoid</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies element-wise :math:`\text{LogSigmoid}(x) = \log\left(\frac{ 1 }{ 1 + \exp(-x)}\right)`</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the element-wise function:</span>
+
+<span class="sd">    .. math:`\text{LogSigmoid}(x) = \log\left(\frac{ 1 }{ 1 + \exp(-x)}\right)`</span>
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: :math:`(N, *)` where `*` means, any number of additional</span>
@@ -1229,7 +1301,10 @@
 
 
 <div class="viewcode-block" id="Softplus"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Softplus">[docs]</a><span class="k">class</span> <span class="nc">Softplus</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies element-wise :math:`\text{Softplus}(x) = \frac{1}{\beta} * \log(1 + \exp(\beta * x))`</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the element-wise function:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \text{Softplus}(x) = \frac{1}{\beta} * \log(1 + \exp(\beta * x))</span>
 
 <span class="sd">    SoftPlus is a smooth approximation to the ReLU function and can be used</span>
 <span class="sd">    to constrain the output of a machine to always be positive.</span>
@@ -1268,9 +1343,7 @@
 
 
 <div class="viewcode-block" id="Softshrink"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Softshrink">[docs]</a><span class="k">class</span> <span class="nc">Softshrink</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the soft shrinkage function elementwise</span>
-
-<span class="sd">    SoftShrinkage function is defined as:</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the soft shrinkage function elementwise:</span>
 
 <span class="sd">    .. math::</span>
 <span class="sd">        \text{SoftShrinkage}(x) =</span>
@@ -1309,8 +1382,12 @@
 
 
 <div class="viewcode-block" id="PReLU"><a class="viewcode-back" href="../../../../nn.html#torch.nn.PReLU">[docs]</a><span class="k">class</span> <span class="nc">PReLU</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies element-wise the function</span>
-<span class="sd">    :math:`\text{PReLU}(x) = \max(0,x) + a * \min(0,x)` or</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the element-wise function:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \text{PReLU}(x) = \max(0,x) + a * \min(0,x)</span>
+
+<span class="sd">    or</span>
 
 <span class="sd">    .. math::</span>
 <span class="sd">        \text{PReLU}(x) =</span>
@@ -1358,7 +1435,10 @@
 
 
 <div class="viewcode-block" id="Softsign"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Softsign">[docs]</a><span class="k">class</span> <span class="nc">Softsign</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies element-wise, the function :math:`\text{SoftSign}(x) = \frac{x}{ 1 + |x|}`</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the element-wise function:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \text{SoftSign}(x) = \frac{x}{ 1 + |x|}</span>
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: :math:`(N, *)` where `*` means, any number of additional</span>
@@ -1379,7 +1459,10 @@
 
 
 <div class="viewcode-block" id="Tanhshrink"><a class="viewcode-back" href="../../../../nn.html#torch.nn.Tanhshrink">[docs]</a><span class="k">class</span> <span class="nc">Tanhshrink</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies element-wise, :math:`\text{Tanhshrink}(x) = x - \text{Tanh}(x)`</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the element-wise function:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \text{Tanhshrink}(x) = x - \text{Tanh}(x)</span>
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: :math:`(N, *)` where `*` means, any number of additional</span>
@@ -1404,7 +1487,8 @@
 <span class="sd">    rescaling them so that the elements of the n-dimensional output Tensor</span>
 <span class="sd">    lie in the range `(0, 1)` and sum to 1</span>
 
-<span class="sd">    :math:`\text{Softmin}(x_{i}) = \frac{\exp(-x_i)}{\sum_j \exp(-x_j)}`</span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \text{Softmin}(x_{i}) = \frac{\exp(-x_i)}{\sum_j \exp(-x_j)}</span>
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: any shape</span>
@@ -1424,6 +1508,7 @@
 <span class="sd">        &gt;&gt;&gt; input = torch.randn(2, 3)</span>
 <span class="sd">        &gt;&gt;&gt; output = m(input)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Softmin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="n">dim</span>
@@ -1437,8 +1522,10 @@
 <span class="sd">    rescaling them so that the elements of the n-dimensional output Tensor</span>
 <span class="sd">    lie in the range (0,1) and sum to 1</span>
 
-<span class="sd">    Softmax is defined as</span>
-<span class="sd">    :math:`\text{Softmax}(x_{i}) = \frac{\exp(x_i)}{\sum_j \exp(x_j)}`</span>
+<span class="sd">    Softmax is defined as:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \text{Softmax}(x_{i}) = \frac{\exp(x_i)}{\sum_j \exp(x_j)}</span>
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: any shape</span>
@@ -1505,10 +1592,11 @@
 
 
 <div class="viewcode-block" id="LogSoftmax"><a class="viewcode-back" href="../../../../nn.html#torch.nn.LogSoftmax">[docs]</a><span class="k">class</span> <span class="nc">LogSoftmax</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the `Log(Softmax(x))` function to an n-dimensional input Tensor.</span>
-<span class="sd">    The LogSoftmax formulation can be simplified as</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Applies the :math:`\log(\text{Softmax}(x))` function to an n-dimensional</span>
+<span class="sd">    input Tensor. The LogSoftmax formulation can be simplified as:</span>
 
-<span class="sd">    :math:`\text{LogSoftmax}(x_{i}) = \log\left(\frac{\exp(x_i) }{ \sum_j \exp(x_j)} \right)`</span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \text{LogSoftmax}(x_{i}) = \log\left(\frac{\exp(x_i) }{ \sum_j \exp(x_j)} \right)</span>
 
 <span class="sd">    Shape:</span>
 <span class="sd">        - Input: any shape</span>
@@ -1585,7 +1673,9 @@
       <script type="text/javascript" src="../../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../../_static/katex_autorenderer.js"></script>
 
   
 

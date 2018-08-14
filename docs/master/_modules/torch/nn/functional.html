@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/pytorch_theme.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 
@@ -63,7 +64,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+5e4de08 ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+329d901 ) &#x25BC</a>
               </div>
             
           
@@ -215,6 +216,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../torch.html#blas-and-lapack-operations">BLAS and LAPACK Operations</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../torch.html#utilities">Utilities</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tensors.html">torch.Tensor</a></li>
@@ -300,6 +302,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#relu6"><span class="hidden-section">ReLU6</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#rrelu"><span class="hidden-section">RReLU</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#selu"><span class="hidden-section">SELU</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#celu"><span class="hidden-section">CELU</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#sigmoid"><span class="hidden-section">Sigmoid</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#softplus"><span class="hidden-section">Softplus</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#softshrink"><span class="hidden-section">Softshrink</span></a></li>
@@ -364,6 +367,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#l1loss"><span class="hidden-section">L1Loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#mseloss"><span class="hidden-section">MSELoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#crossentropyloss"><span class="hidden-section">CrossEntropyLoss</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#ctcloss"><span class="hidden-section">CTCLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#nllloss"><span class="hidden-section">NLLLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#poissonnllloss"><span class="hidden-section">PoissonNLLLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#kldivloss"><span class="hidden-section">KLDivLoss</span></a></li>
@@ -449,22 +453,23 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id28"><span class="hidden-section">relu6</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id29"><span class="hidden-section">elu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id30"><span class="hidden-section">selu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id31"><span class="hidden-section">celu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#leaky-relu"><span class="hidden-section">leaky_relu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id31"><span class="hidden-section">prelu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id32"><span class="hidden-section">rrelu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id32"><span class="hidden-section">prelu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id33"><span class="hidden-section">rrelu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#glu"><span class="hidden-section">glu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id33"><span class="hidden-section">logsigmoid</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id34"><span class="hidden-section">hardshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id35"><span class="hidden-section">tanhshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id36"><span class="hidden-section">softsign</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id37"><span class="hidden-section">softplus</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id38"><span class="hidden-section">softmin</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id39"><span class="hidden-section">softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id40"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id34"><span class="hidden-section">logsigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id35"><span class="hidden-section">hardshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id36"><span class="hidden-section">tanhshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id37"><span class="hidden-section">softsign</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id38"><span class="hidden-section">softplus</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id39"><span class="hidden-section">softmin</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id40"><span class="hidden-section">softmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id41"><span class="hidden-section">softshrink</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#gumbel-softmax"><span class="hidden-section">gumbel_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id41"><span class="hidden-section">tanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id42"><span class="hidden-section">sigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id42"><span class="hidden-section">tanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id43"><span class="hidden-section">sigmoid</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#normalization-functions">Normalization functions</a><ul>
@@ -476,32 +481,34 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#linear-functions">Linear functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id43"><span class="hidden-section">linear</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id44"><span class="hidden-section">bilinear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id44"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id45"><span class="hidden-section">bilinear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id45"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id46"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id46"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id47"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id47"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id48"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../nn.html#sparse-functions">Sparse functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id48"><span class="hidden-section">embedding</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id49"><span class="hidden-section">embedding</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#embedding-bag"><span class="hidden-section">embedding_bag</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../nn.html#id49">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../nn.html#id50">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../nn.html#id50">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../nn.html#id51">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#binary-cross-entropy-with-logits"><span class="hidden-section">binary_cross_entropy_with_logits</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#cross-entropy"><span class="hidden-section">cross_entropy</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#ctc-loss"><span class="hidden-section">ctc_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#hinge-embedding-loss"><span class="hidden-section">hinge_embedding_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#kl-div"><span class="hidden-section">kl_div</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#l1-loss"><span class="hidden-section">l1_loss</span></a></li>
@@ -511,7 +518,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#multilabel-soft-margin-loss"><span class="hidden-section">multilabel_soft_margin_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#multi-margin-loss"><span class="hidden-section">multi_margin_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#nll-loss"><span class="hidden-section">nll_loss</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#binary-cross-entropy-with-logits"><span class="hidden-section">binary_cross_entropy_with_logits</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#smooth-l1-loss"><span class="hidden-section">smooth_l1_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#soft-margin-loss"><span class="hidden-section">soft_margin_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#triplet-margin-loss"><span class="hidden-section">triplet_margin_loss</span></a></li>
@@ -521,7 +527,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#pad"><span class="hidden-section">pad</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#interpolate"><span class="hidden-section">interpolate</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id51"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nn.html#id52"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
@@ -589,6 +595,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#lowrankmultivariatenormal"><span class="hidden-section">LowRankMultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#multinomial"><span class="hidden-section">Multinomial</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#multivariatenormal"><span class="hidden-section">MultivariateNormal</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#negativebinomial"><span class="hidden-section">NegativeBinomial</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#normal"><span class="hidden-section">Normal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#onehotcategorical"><span class="hidden-section">OneHotCategorical</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../distributions.html#pareto"><span class="hidden-section">Pareto</span></a></li>
@@ -754,7 +761,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for torch.nn.functional</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Functional interface&quot;&quot;&quot;</span>
+<span></span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Functional interface&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">import</span> <span class="nn">math</span>
@@ -770,6 +777,8 @@
 <span class="kn">from</span> <span class="nn">._functions.thnn.fold</span> <span class="k">import</span> <span class="n">Col2Im</span><span class="p">,</span> <span class="n">Im2Col</span>
 <span class="kn">from</span> <span class="nn">.modules.utils</span> <span class="k">import</span> <span class="n">_single</span><span class="p">,</span> <span class="n">_pair</span><span class="p">,</span> <span class="n">_triple</span><span class="p">,</span> <span class="n">_list_with_default</span>
 <span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">grad</span>
+
+<span class="n">_VF</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">_C</span><span class="o">.</span><span class="n">_VariableFunctions</span>
 
 
 <span class="k">class</span> <span class="nc">_Reduction</span><span class="p">:</span>
@@ -1348,7 +1357,11 @@
 
 <span class="c1"># Activation functions</span>
 <div class="viewcode-block" id="dropout"><a class="viewcode-back" href="../../../nn.html#torch.nn.functional.dropout">[docs]</a><span class="k">def</span> <span class="nf">dropout</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">_functions</span><span class="o">.</span><span class="n">dropout</span><span class="o">.</span><span class="n">Dropout</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">training</span><span class="p">,</span> <span class="n">inplace</span><span class="p">)</span></div>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;dropout probability has to be between 0 and 1, &quot;</span>
+                         <span class="s2">&quot;but got </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">_VF</span><span class="o">.</span><span class="n">dropout_</span> <span class="k">if</span> <span class="n">inplace</span> <span class="k">else</span> <span class="n">_VF</span><span class="o">.</span><span class="n">dropout</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">training</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="alpha_dropout"><a class="viewcode-back" href="../../../nn.html#torch.nn.functional.alpha_dropout">[docs]</a><span class="k">def</span> <span class="nf">alpha_dropout</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -1356,19 +1369,35 @@
 
 <span class="sd">    See :class:`~torch.nn.AlphaDropout` for details.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_functions</span><span class="o">.</span><span class="n">dropout</span><span class="o">.</span><span class="n">AlphaDropout</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">training</span><span class="p">,</span> <span class="n">inplace</span><span class="p">)</span></div>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;dropout probability has to be between 0 and 1, &quot;</span>
+                         <span class="s2">&quot;but got </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">_VF</span><span class="o">.</span><span class="n">alpha_dropout_</span> <span class="k">if</span> <span class="n">inplace</span> <span class="k">else</span> <span class="n">_VF</span><span class="o">.</span><span class="n">alpha_dropout</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">training</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="dropout2d"><a class="viewcode-back" href="../../../nn.html#torch.nn.functional.dropout2d">[docs]</a><span class="k">def</span> <span class="nf">dropout2d</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">_functions</span><span class="o">.</span><span class="n">dropout</span><span class="o">.</span><span class="n">FeatureDropout</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">training</span><span class="p">,</span> <span class="n">inplace</span><span class="p">)</span></div>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;dropout probability has to be between 0 and 1, &quot;</span>
+                         <span class="s2">&quot;but got </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">_VF</span><span class="o">.</span><span class="n">feature_dropout_</span> <span class="k">if</span> <span class="n">inplace</span> <span class="k">else</span> <span class="n">_VF</span><span class="o">.</span><span class="n">feature_dropout</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">training</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="dropout3d"><a class="viewcode-back" href="../../../nn.html#torch.nn.functional.dropout3d">[docs]</a><span class="k">def</span> <span class="nf">dropout3d</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">_functions</span><span class="o">.</span><span class="n">dropout</span><span class="o">.</span><span class="n">FeatureDropout</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">training</span><span class="p">,</span> <span class="n">inplace</span><span class="p">)</span></div>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;dropout probability has to be between 0 and 1, &quot;</span>
+                         <span class="s2">&quot;but got </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">_VF</span><span class="o">.</span><span class="n">feature_dropout_</span> <span class="k">if</span> <span class="n">inplace</span> <span class="k">else</span> <span class="n">_VF</span><span class="o">.</span><span class="n">feature_dropout</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">training</span><span class="p">)</span></div>
 
 
 <span class="k">def</span> <span class="nf">feature_alpha_dropout</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">_functions</span><span class="o">.</span><span class="n">dropout</span><span class="o">.</span><span class="n">FeatureAlphaDropout</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">training</span><span class="p">,</span> <span class="n">inplace</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;dropout probability has to be between 0 and 1, &quot;</span>
+                         <span class="s2">&quot;but got </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">_VF</span><span class="o">.</span><span class="n">feature_alpha_dropout_</span> <span class="k">if</span> <span class="n">inplace</span> <span class="k">else</span> <span class="n">_VF</span><span class="o">.</span><span class="n">feature_alpha_dropout</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">training</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="threshold"><a class="viewcode-back" href="../../../nn.html#torch.nn.functional.threshold">[docs]</a><span class="k">def</span> <span class="nf">threshold</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -1497,12 +1526,31 @@
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 
 
+<div class="viewcode-block" id="celu"><a class="viewcode-back" href="../../../nn.html#torch.nn.functional.celu">[docs]</a><span class="k">def</span> <span class="nf">celu</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;celu(input, alpha=1., inplace=False) -&gt; Tensor</span>
+
+<span class="sd">    Applies element-wise,</span>
+<span class="sd">    :math:`\text{CELU}(x) = \max(0,x) + \min(0, \alpha * (\exp(x/\alpha) - 1))`.</span>
+
+<span class="sd">    See :class:`~torch.nn.CELU` for more details.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">celu_</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">celu</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span></div>
+
+<span class="n">celu_</span> <span class="o">=</span> <span class="n">_add_docstr</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">celu_</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">celu_(input, alpha=1.) -&gt; Tensor</span>
+
+<span class="s2">In-place version of :func:`~celu`.</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+
 <div class="viewcode-block" id="leaky_relu"><a class="viewcode-back" href="../../../nn.html#torch.nn.functional.leaky_relu">[docs]</a><span class="k">def</span> <span class="nf">leaky_relu</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">negative_slope</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    leaky_relu(input, negative_slope=0.01, inplace=False) -&gt; Tensor</span>
 
 <span class="sd">    Applies element-wise,</span>
-<span class="sd">    :math:`\text{LeakyReLU}(x) = \max(0, x) + \text{negative_slope} * \min(0, x)`</span>
+<span class="sd">    :math:`\text{LeakyReLU}(x) = \max(0, x) + \text{negative\_slope} * \min(0, x)`</span>
 
 <span class="sd">    See :class:`~torch.nn.LeakyReLU` for more details.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1615,7 +1663,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">dim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">dim</span> <span class="o">=</span> <span class="n">_get_softmax_dim</span><span class="p">(</span><span class="s1">&#39;softmin&#39;</span><span class="p">,</span> <span class="nb">input</span><span class="o">.</span><span class="n">dim</span><span class="p">(),</span> <span class="n">_stacklevel</span><span class="p">)</span>
-    <span class="k">return</span> <span class="o">-</span><span class="nb">input</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="nb">input</span><span class="p">)</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="softmax"><a class="viewcode-back" href="../../../nn.html#torch.nn.functional.softmax">[docs]</a><span class="k">def</span> <span class="nf">softmax</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_stacklevel</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
@@ -1855,7 +1903,7 @@
             <span class="k">assert</span> <span class="n">padding_idx</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="n">weight</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;Padding_idx must be within num_embeddings&#39;</span>
             <span class="n">padding_idx</span> <span class="o">=</span> <span class="n">weight</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">padding_idx</span>
     <span class="k">elif</span> <span class="n">padding_idx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">padding_idx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">padding_idx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
     <span class="k">if</span> <span class="n">max_norm</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="c1"># `embedding_renorm_` will call .contiguous() on input anyways, so we</span>
         <span class="c1"># call it here and take advantage of the improved locality in the</span>
@@ -2105,6 +2153,41 @@
 
 
 <span class="c1"># loss</span>
+
+<div class="viewcode-block" id="ctc_loss"><a class="viewcode-back" href="../../../nn.html#torch.nn.functional.ctc_loss">[docs]</a><span class="k">def</span> <span class="nf">ctc_loss</span><span class="p">(</span><span class="n">log_probs</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">input_lengths</span><span class="p">,</span> <span class="n">target_lengths</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+             <span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;elementwise_mean&#39;</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;The Connectionist Temporal Classification loss.</span>
+
+<span class="sd">    See :class:`~torch.nn.CTCLoss` for details.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        log_probs: :math:`(T, N, C)` where `C = number of characters in alphabet including blank`,</span>
+<span class="sd">            `T = input length`, and `N = batch size`.</span>
+<span class="sd">            The logarithmized probabilities of the outputs</span>
+<span class="sd">            (e.g. obtained with :func:`torch.nn.functional.log_softmax`).</span>
+<span class="sd">        targets: :math:`(N, S)` or `(sum(target_lenghts))`.</span>
+<span class="sd">            Targets (cannot be blank). In the second form, the targets are assumed to be concatenated.</span>
+<span class="sd">        input_lengths: :math:`(N)`.</span>
+<span class="sd">            Lengths of the inputs (must each be :math:`\leq T`)</span>
+<span class="sd">        target_lengths: :math:`(N)`.</span>
+<span class="sd">            Lengths of the targets</span>
+<span class="sd">        blank (int, optional):</span>
+<span class="sd">            Blank label. Default :math:`0`.</span>
+<span class="sd">        reduction (string, optional): Specifies the reduction to apply to the output:</span>
+<span class="sd">            &#39;none&#39; | &#39;elementwise_mean&#39; | &#39;sum&#39;. &#39;none&#39;: no reduction will be applied,</span>
+<span class="sd">            &#39;elementwise_mean&#39;: the output losses will be divided by the target lengths and</span>
+<span class="sd">            then the mean over the batch is taken. Default: &#39;elementwise_mean&#39;</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        &gt;&gt;&gt; log_probs = torch.randn(50, 16, 20).log_softmax(2).detach().requires_grad_()</span>
+<span class="sd">        &gt;&gt;&gt; targets = torch.randint(1, 21, (16, 30), dtype=torch.long)</span>
+<span class="sd">        &gt;&gt;&gt; input_lengths = torch.full((16,), 50, dtype=torch.long)</span>
+<span class="sd">        &gt;&gt;&gt; target_lengths = torch.randint(10,30,(16,), dtype=torch.long)</span>
+<span class="sd">        &gt;&gt;&gt; loss = F.ctc_loss(log_probs, targets, input_lengths, target_lengths)</span>
+<span class="sd">        &gt;&gt;&gt; loss.backward()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">ctc_loss</span><span class="p">(</span><span class="n">log_probs</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">input_lengths</span><span class="p">,</span> <span class="n">target_lengths</span><span class="p">,</span> <span class="n">blank</span><span class="p">,</span> <span class="n">_Reduction</span><span class="o">.</span><span class="n">get_enum</span><span class="p">(</span><span class="n">reduction</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="nll_loss"><a class="viewcode-back" href="../../../nn.html#torch.nn.functional.nll_loss">[docs]</a><span class="k">def</span> <span class="nf">nll_loss</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size_average</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=-</span><span class="mi">100</span><span class="p">,</span>
@@ -2427,7 +2510,7 @@
             <span class="k">return</span> <span class="n">d</span>
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="k">if</span> <span class="n">reduction</span> <span class="o">==</span> <span class="s1">&#39;elementwise_mean&#39;</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">lambd_optimized</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">reduction</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">lambd_optimized</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">_Reduction</span><span class="o">.</span><span class="n">get_enum</span><span class="p">(</span><span class="n">reduction</span><span class="p">))</span>
 
 
 <div class="viewcode-block" id="smooth_l1_loss"><a class="viewcode-back" href="../../../nn.html#torch.nn.functional.smooth_l1_loss">[docs]</a><span class="k">def</span> <span class="nf">smooth_l1_loss</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">size_average</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reduce</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;elementwise_mean&#39;</span><span class="p">):</span>
@@ -2451,9 +2534,7 @@
 <span class="sd">    See :class:`~torch.nn.L1Loss` for details.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">size_average</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">reduce</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">reduction</span> <span class="o">=</span> <span class="n">_Reduction</span><span class="o">.</span><span class="n">legacy_get_enum</span><span class="p">(</span><span class="n">size_average</span><span class="p">,</span> <span class="n">reduce</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">reduction</span> <span class="o">=</span> <span class="n">_Reduction</span><span class="o">.</span><span class="n">get_enum</span><span class="p">(</span><span class="n">reduction</span><span class="p">)</span>
+        <span class="n">reduction</span> <span class="o">=</span> <span class="n">_Reduction</span><span class="o">.</span><span class="n">legacy_get_string</span><span class="p">(</span><span class="n">size_average</span><span class="p">,</span> <span class="n">reduce</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">_pointwise_loss</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">_C</span><span class="o">.</span><span class="n">_nn</span><span class="o">.</span><span class="n">l1_loss</span><span class="p">,</span>
                            <span class="nb">input</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">reduction</span><span class="p">)</span></div>
 
@@ -2466,9 +2547,7 @@
 <span class="sd">    See :class:`~torch.nn.MSELoss` for details.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">size_average</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">reduce</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">reduction</span> <span class="o">=</span> <span class="n">_Reduction</span><span class="o">.</span><span class="n">legacy_get_enum</span><span class="p">(</span><span class="n">size_average</span><span class="p">,</span> <span class="n">reduce</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">reduction</span> <span class="o">=</span> <span class="n">_Reduction</span><span class="o">.</span><span class="n">get_enum</span><span class="p">(</span><span class="n">reduction</span><span class="p">)</span>
+        <span class="n">reduction</span> <span class="o">=</span> <span class="n">_Reduction</span><span class="o">.</span><span class="n">legacy_get_string</span><span class="p">(</span><span class="n">size_average</span><span class="p">,</span> <span class="n">reduce</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">_pointwise_loss</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">_C</span><span class="o">.</span><span class="n">_nn</span><span class="o">.</span><span class="n">mse_loss</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">reduction</span><span class="p">)</span></div>
 
 
@@ -2533,8 +2612,22 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">size_average</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">reduce</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">reduction</span> <span class="o">=</span> <span class="n">_Reduction</span><span class="o">.</span><span class="n">legacy_get_string</span><span class="p">(</span><span class="n">size_average</span><span class="p">,</span> <span class="n">reduce</span><span class="p">)</span>
-    <span class="nb">input</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">binary_cross_entropy</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">reduction</span><span class="p">)</span></div>
+
+    <span class="n">loss</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">target</span> <span class="o">*</span> <span class="n">logsigmoid</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">target</span><span class="p">)</span> <span class="o">*</span> <span class="n">logsigmoid</span><span class="p">(</span><span class="o">-</span><span class="nb">input</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">weight</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss</span> <span class="o">*</span> <span class="n">weight</span>
+
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="nb">input</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># only return N loss values</span>
+
+    <span class="k">if</span> <span class="n">reduction</span> <span class="o">==</span> <span class="s1">&#39;none&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">loss</span>
+    <span class="k">elif</span> <span class="n">reduction</span> <span class="o">==</span> <span class="s1">&#39;elementwise_mean&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">loss</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">reduction</span> <span class="o">==</span> <span class="s1">&#39;sum&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">loss</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">reduction</span> <span class="o">+</span> <span class="s2">&quot; is not valid&quot;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="cosine_embedding_loss"><a class="viewcode-back" href="../../../nn.html#torch.nn.functional.cosine_embedding_loss">[docs]</a><span class="k">def</span> <span class="nf">cosine_embedding_loss</span><span class="p">(</span><span class="n">input1</span><span class="p">,</span> <span class="n">input2</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">size_average</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -2795,58 +2888,81 @@
     <span class="k">return</span> <span class="n">interpolate</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">scale_factor</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 
-<span class="n">GRID_SAMPLE_MODE_ZEROS</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">GRID_SAMPLE_MODE_BORDER</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">GRID_SAMPLE_INTERPOLATION_MODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;bilinear&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s1">&#39;nearest&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">GRID_SAMPLE_PADDING_MODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;zeros&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s1">&#39;border&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;reflection&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="p">}</span>
 
 
 <div class="viewcode-block" id="grid_sample"><a class="viewcode-back" href="../../../nn.html#torch.nn.functional.grid_sample">[docs]</a><span class="k">def</span> <span class="nf">grid_sample</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">,</span> <span class="n">padding_mode</span><span class="o">=</span><span class="s1">&#39;zeros&#39;</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Given an :attr:`input` and a flow-field :attr:`grid`, computes the</span>
-<span class="sd">    `output` using input pixel locations from the grid.</span>
+<span class="sd">    ``output`` using :attr:`input` values and pixel locations from :attr:`grid`.</span>
 
-<span class="sd">    Uses bilinear interpolation to sample the input pixels.</span>
-<span class="sd">    Currently, only spatial (4 dimensional) and volumetric (5 dimensional)</span>
-<span class="sd">    inputs are supported.</span>
+<span class="sd">    Currently, only spatial (4-D) and volumetric (5-D) :attr:`input` are</span>
+<span class="sd">    supported.</span>
 
-<span class="sd">    For each output location, :attr:`grid` has `x`, `y`</span>
-<span class="sd">    input pixel locations which are used to compute output.</span>
-<span class="sd">    In the case of 5D inputs, :attr:`grid` has `x`, `y`, `z` pixel locations.</span>
+<span class="sd">    In the spatial (4-D) case, for :attr:`input` with shape</span>
+<span class="sd">    :math:`(N, C, H_\text{in}, W_\text{in})` and :attr:`grid` with shape</span>
+<span class="sd">    :math:`(N, H_\text{out}, W_\text{out}, 2)`, the output will have shape</span>
+<span class="sd">    :math:`(N, C, H_\text{out}, W_\text{out})`.</span>
 
-<span class="sd">    .. Note::</span>
-<span class="sd">        To avoid confusion in notation, let&#39;s note that `x` corresponds to the `width` dimension `IW`,</span>
-<span class="sd">        `y` corresponds to the height dimension `IH` and `z` corresponds to the `depth` dimension `ID`.</span>
+<span class="sd">    For each output location ``output[n, :, h, w]``, the size-2 vector</span>
+<span class="sd">    ``grid[n, h, w]`` specifies :attr:`input` pixel locations ``x`` and ``y``,</span>
+<span class="sd">    which are used to interpolate the output value ``output[n, :, h, w]``.</span>
+<span class="sd">    In the case of 5D inputs, ``grid[n, d, h, w]`` specifies the</span>
+<span class="sd">    ``x``, ``y``, ``z`` pixel locations for interpolating</span>
+<span class="sd">    ``output[n, :, d, h, w]``. :attr:`mode` argument specifies ``nearest`` or</span>
+<span class="sd">    ``bilinear`` interpolation method to sample the input pixels.</span>
 
-<span class="sd">    :attr:`grid` has values in the range of `[-1, 1]`. This is because the</span>
-<span class="sd">    pixel locations are normalized by the input height and width.</span>
+<span class="sd">    :attr:`grid` should have most values in the range of ``[-1, 1]``. This is</span>
+<span class="sd">    because the pixel locations are normalized by the :attr:`input` spatial</span>
+<span class="sd">    dimensions. For example, values ``x = -1, y = -1`` is the left-top pixel of</span>
+<span class="sd">    :attr:`input`, and values  ``x = 1, y = 1`` is the right-bottom pixel of</span>
+<span class="sd">    :attr:`input`.</span>
 
-<span class="sd">    For example, values: x: -1, y: -1 is the left-top pixel of the input, and</span>
-<span class="sd">    values: x: 1, y: 1 is the right-bottom pixel of the input.</span>
+<span class="sd">    If :attr:`grid` has values outside the range of ``[-1, 1]``, those locations</span>
+<span class="sd">    are handled as defined by :attr:`padding_mode`. Options are</span>
 
-<span class="sd">    If :attr:`grid` has values outside the range of `[-1, 1]`, those locations</span>
-<span class="sd">    are handled as defined by `padding_mode`. Options are `zeros` or `border`,</span>
-<span class="sd">    defining those locations to use 0 or image border values as contribution</span>
-<span class="sd">    to the bilinear interpolation.</span>
+<span class="sd">        * ``padding_mode=&quot;zeros&quot;``: use ``0`` for out-of-bound values,</span>
+<span class="sd">        * ``padding_mode=&quot;border&quot;``: use border values for out-of-bound values,</span>
+<span class="sd">        * ``padding_mode=&quot;reflection&quot;``: use values at locations reflected by</span>
+<span class="sd">          the border for out-of-bound values. For location far away from the</span>
+<span class="sd">          border, it will keep being reflected until becoming in bound, e.g.,</span>
+<span class="sd">          (normalized) pixel location ``x = -3.5`` reflects by ``-1`` and</span>
+<span class="sd">          becomes ``x&#39; = 2.5``, then reflects by border ``1`` and becomes</span>
+<span class="sd">          ``x&#39;&#39; = -0.5``.</span>
 
-<span class="sd">    .. Note:: This function is used in building Spatial Transformer Networks</span>
+<span class="sd">    .. Note:: This function is often used in building Spatial Transformer Networks.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        input (Tensor): input batch (N x C x IH x IW) or (N x C x ID x IH x IW)</span>
-<span class="sd">        grid (Tensor): flow-field of size (N x OH x OW x 2) or (N x OD x OH x OW x 3)</span>
+<span class="sd">        input (Tensor): input of shape :math:`(N, C, H_\text{in}, W_\text{in})` (4-D case)</span>
+<span class="sd">                        or :math:`(N, C, D_\text{in}, H_\text{in}, W_\text{in})` (5-D case)</span>
+<span class="sd">        grid (Tensor): flow-field of shape :math:`(N, H_\text{out}, W_\text{out}, 2)` (4-D case)</span>
+<span class="sd">                       or :math:`(N, D_\text{out}, H_\text{out}, W_\text{out}, 3)` (5-D case)</span>
+<span class="sd">        mode (str): interpolation mode to calculate output values</span>
+<span class="sd">            &#39;bilinear&#39; | &#39;nearest&#39;. Default: &#39;bilinear&#39;</span>
 <span class="sd">        padding_mode (str): padding mode for outside grid values</span>
-<span class="sd">            &#39;zeros&#39; | &#39;border&#39;. Default: &#39;zeros&#39;</span>
+<span class="sd">            &#39;zeros&#39; | &#39;border&#39; | &#39;reflection&#39;. Default: &#39;zeros&#39;</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        output (Tensor): output Tensor</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">mode</span> <span class="o">!=</span> <span class="s1">&#39;bilinear&#39;</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;nn.functional.grid_sample got unsupported mode: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mode</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">padding_mode</span> <span class="o">==</span> <span class="s1">&#39;zeros&#39;</span><span class="p">:</span>
-        <span class="n">padding_mode</span> <span class="o">=</span> <span class="n">GRID_SAMPLE_MODE_ZEROS</span>
-    <span class="k">elif</span> <span class="n">padding_mode</span> <span class="o">==</span> <span class="s1">&#39;border&#39;</span><span class="p">:</span>
-        <span class="n">padding_mode</span> <span class="o">=</span> <span class="n">GRID_SAMPLE_MODE_BORDER</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;padding_mode needs to be &#39;zeros&#39; or &#39;border&#39;, but got </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">padding_mode</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">grid_sampler</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">padding_mode</span><span class="p">)</span></div>
+    <span class="k">if</span> <span class="n">mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">GRID_SAMPLE_INTERPOLATION_MODES</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;nn.functional.grid_sample(): expected mode to be &quot;</span>
+                         <span class="s2">&quot;&#39;bilinear&#39; or &#39;nearest&#39;, but got: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mode</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">padding_mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">GRID_SAMPLE_PADDING_MODES</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;nn.functional.grid_sample(): expected padding_mode &quot;</span>
+                         <span class="s2">&quot;to be &#39;zeros&#39;, &#39;border&#39;, or &#39;reflection&#39;, &quot;</span>
+                         <span class="s2">&quot;but got: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">padding_mode</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">grid_sampler</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">GRID_SAMPLE_INTERPOLATION_MODES</span><span class="p">[</span><span class="n">mode</span><span class="p">],</span>
+                              <span class="n">GRID_SAMPLE_PADDING_MODES</span><span class="p">[</span><span class="n">padding_mode</span><span class="p">])</span></div>
 
 
 <div class="viewcode-block" id="affine_grid"><a class="viewcode-back" href="../../../nn.html#torch.nn.functional.affine_grid">[docs]</a><span class="k">def</span> <span class="nf">affine_grid</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
@@ -3107,7 +3223,9 @@
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
 
   
 

@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
   <link rel="stylesheet" href="_static/css/pytorch_theme.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Automatic differentiation package - torch.autograd" href="autograd.html" />
@@ -65,7 +66,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+5e4de08 ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+329d901 ) &#x25BC</a>
               </div>
             
           
@@ -217,6 +218,7 @@
 <li class="toctree-l3"><a class="reference internal" href="torch.html#blas-and-lapack-operations">BLAS and LAPACK Operations</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="torch.html#utilities">Utilities</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tensors.html">torch.Tensor</a></li>
@@ -302,6 +304,7 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#relu6"><span class="hidden-section">ReLU6</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#rrelu"><span class="hidden-section">RReLU</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#selu"><span class="hidden-section">SELU</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#celu"><span class="hidden-section">CELU</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#sigmoid"><span class="hidden-section">Sigmoid</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#softplus"><span class="hidden-section">Softplus</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#softshrink"><span class="hidden-section">Softshrink</span></a></li>
@@ -366,6 +369,7 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#l1loss"><span class="hidden-section">L1Loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#mseloss"><span class="hidden-section">MSELoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#crossentropyloss"><span class="hidden-section">CrossEntropyLoss</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#ctcloss"><span class="hidden-section">CTCLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#nllloss"><span class="hidden-section">NLLLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#poissonnllloss"><span class="hidden-section">PoissonNLLLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#kldivloss"><span class="hidden-section">KLDivLoss</span></a></li>
@@ -451,22 +455,23 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id28"><span class="hidden-section">relu6</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id29"><span class="hidden-section">elu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#id30"><span class="hidden-section">selu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id31"><span class="hidden-section">celu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#leaky-relu"><span class="hidden-section">leaky_relu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id31"><span class="hidden-section">prelu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id32"><span class="hidden-section">rrelu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id32"><span class="hidden-section">prelu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id33"><span class="hidden-section">rrelu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#glu"><span class="hidden-section">glu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id33"><span class="hidden-section">logsigmoid</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id34"><span class="hidden-section">hardshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id35"><span class="hidden-section">tanhshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id36"><span class="hidden-section">softsign</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id37"><span class="hidden-section">softplus</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id38"><span class="hidden-section">softmin</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id39"><span class="hidden-section">softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id40"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id34"><span class="hidden-section">logsigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id35"><span class="hidden-section">hardshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id36"><span class="hidden-section">tanhshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id37"><span class="hidden-section">softsign</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id38"><span class="hidden-section">softplus</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id39"><span class="hidden-section">softmin</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id40"><span class="hidden-section">softmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id41"><span class="hidden-section">softshrink</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#gumbel-softmax"><span class="hidden-section">gumbel_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id41"><span class="hidden-section">tanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id42"><span class="hidden-section">sigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id42"><span class="hidden-section">tanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id43"><span class="hidden-section">sigmoid</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#normalization-functions">Normalization functions</a><ul>
@@ -478,32 +483,34 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#linear-functions">Linear functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id43"><span class="hidden-section">linear</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id44"><span class="hidden-section">bilinear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id44"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id45"><span class="hidden-section">bilinear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id45"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id46"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id46"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id47"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id47"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id48"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nn.html#sparse-functions">Sparse functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id48"><span class="hidden-section">embedding</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id49"><span class="hidden-section">embedding</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#embedding-bag"><span class="hidden-section">embedding_bag</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="nn.html#id49">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nn.html#id50">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="nn.html#id50">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nn.html#id51">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#binary-cross-entropy-with-logits"><span class="hidden-section">binary_cross_entropy_with_logits</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#cross-entropy"><span class="hidden-section">cross_entropy</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#ctc-loss"><span class="hidden-section">ctc_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#hinge-embedding-loss"><span class="hidden-section">hinge_embedding_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#kl-div"><span class="hidden-section">kl_div</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#l1-loss"><span class="hidden-section">l1_loss</span></a></li>
@@ -513,7 +520,6 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#multilabel-soft-margin-loss"><span class="hidden-section">multilabel_soft_margin_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#multi-margin-loss"><span class="hidden-section">multi_margin_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#nll-loss"><span class="hidden-section">nll_loss</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#binary-cross-entropy-with-logits"><span class="hidden-section">binary_cross_entropy_with_logits</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#smooth-l1-loss"><span class="hidden-section">smooth_l1_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#soft-margin-loss"><span class="hidden-section">soft_margin_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#triplet-margin-loss"><span class="hidden-section">triplet_margin_loss</span></a></li>
@@ -523,7 +529,7 @@
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#pad"><span class="hidden-section">pad</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#interpolate"><span class="hidden-section">interpolate</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nn.html#id51"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nn.html#id52"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
@@ -591,6 +597,7 @@
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#lowrankmultivariatenormal"><span class="hidden-section">LowRankMultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#multinomial"><span class="hidden-section">Multinomial</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#multivariatenormal"><span class="hidden-section">MultivariateNormal</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#negativebinomial"><span class="hidden-section">NegativeBinomial</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#normal"><span class="hidden-section">Normal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#onehotcategorical"><span class="hidden-section">OneHotCategorical</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributions.html#pareto"><span class="hidden-section">Pareto</span></a></li>
@@ -1046,7 +1053,8 @@ running averages of gradient and its square (default: (0.9, 0.999))</li>
 numerical stability (default: 1e-8)</li>
 <li><strong>weight_decay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – weight decay (L2 penalty) (default: 0)</li>
 <li><strong>amsgrad</strong> (<em>boolean</em><em>, </em><em>optional</em>) – whether to use the AMSGrad variant of this
-algorithm from the paper <a class="reference external" href="https://openreview.net/forum?id=ryQu7f-RZ">On the Convergence of Adam and Beyond</a></li>
+algorithm from the paper <a class="reference external" href="https://openreview.net/forum?id=ryQu7f-RZ">On the Convergence of Adam and Beyond</a>
+(default: False)</li>
 </ul>
 </td>
 </tr>
@@ -1365,16 +1373,20 @@ parameter groups</li>
 <p>The implementation of SGD with Momentum/Nesterov subtly differs from
 Sutskever et. al. and implementations in some other frameworks.</p>
 <p>Considering the specific case of Momentum, the update can be written as</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}v = \rho * v + g \\
-p = p - lr * v\end{split}\]</div>
-<p>where p, g, v and <span class="math notranslate nohighlight">\(\rho\)</span> denote the parameters, gradient,
+<div class="math">
+\[v = \rho * v + g \\
+p = p - lr * v
+
+\]</div>
+<p>where p, g, v and <span class="math">\(\rho\)</span> denote the parameters, gradient,
 velocity, and momentum respectively.</p>
 <p>This is in contrast to Sutskever et. al. and
 other frameworks which employ an update of the form</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}v = \rho * v + lr * g \\
-p = p - v\end{split}\]</div>
+<div class="math">
+\[v = \rho * v + lr * g \\
+p = p - v
+
+\]</div>
 <p class="last">The Nesterov version is analogously modified.</p>
 </div>
 <dl class="method">
@@ -1431,6 +1443,31 @@ functions, one for each group in optimizer.param_groups.</li>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">validate</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
+<dl class="method">
+<dt id="torch.optim.lr_scheduler.LambdaLR.load_state_dict">
+<code class="descname">load_state_dict</code><span class="sig-paren">(</span><em>state_dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/optim/lr_scheduler.html#LambdaLR.load_state_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.optim.lr_scheduler.LambdaLR.load_state_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the schedulers state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>state_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – scheduler state. Should be an object returned
+from a call to <a class="reference internal" href="#torch.optim.lr_scheduler.LambdaLR.state_dict" title="torch.optim.lr_scheduler.LambdaLR.state_dict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">state_dict()</span></code></a>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="torch.optim.lr_scheduler.LambdaLR.state_dict">
+<code class="descname">state_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/optim/lr_scheduler.html#LambdaLR.state_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.optim.lr_scheduler.LambdaLR.state_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the state of the scheduler as a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>.</p>
+<p>It contains an entry for every variable in self.__dict__ which
+is not the optimizer.
+The learning rate lambda functions will only be saved if they are callable objects
+and not if they are functions or lambdas.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1528,9 +1565,9 @@ by gamma every epoch. When last_epoch=-1, sets initial lr as lr.</p>
 <dt id="torch.optim.lr_scheduler.CosineAnnealingLR">
 <em class="property">class </em><code class="descclassname">torch.optim.lr_scheduler.</code><code class="descname">CosineAnnealingLR</code><span class="sig-paren">(</span><em>optimizer</em>, <em>T_max</em>, <em>eta_min=0</em>, <em>last_epoch=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/torch/optim/lr_scheduler.html#CosineAnnealingLR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#torch.optim.lr_scheduler.CosineAnnealingLR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the learning rate of each parameter group using a cosine annealing
-schedule, where <span class="math notranslate nohighlight">\(\eta_{max}\)</span> is set to the initial lr and
-<span class="math notranslate nohighlight">\(T_{cur}\)</span> is the number of epochs since the last restart in SGDR:</p>
-<div class="math notranslate nohighlight">
+schedule, where <span class="math">\(\eta_{max}\)</span> is set to the initial lr and
+<span class="math">\(T_{cur}\)</span> is the number of epochs since the last restart in SGDR:</p>
+<div class="math">
 \[\eta_t = \eta_{min} + \frac{1}{2}(\eta_{max} - \eta_{min})(1 +
 \cos(\frac{T_{cur}}{T_{max}}\pi))\]</div>
 <p>When last_epoch=-1, sets initial lr as lr.</p>
@@ -1669,7 +1706,9 @@ ignored. Default: 1e-8.</li>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="_static/katex_autorenderer.js"></script>
 
   
 

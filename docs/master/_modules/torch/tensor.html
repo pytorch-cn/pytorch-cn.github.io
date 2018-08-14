@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/pytorch_theme.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
 
@@ -63,7 +64,7 @@
             
             
               <div class="version">
-                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+5e4de08 ) &#x25BC</a>
+                <a href="http://pytorch.org/docs/versions.html">master (0.5.0a0+329d901 ) &#x25BC</a>
               </div>
             
           
@@ -215,6 +216,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../torch.html#blas-and-lapack-operations">BLAS and LAPACK Operations</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../torch.html#utilities">Utilities</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../tensors.html">torch.Tensor</a></li>
@@ -300,6 +302,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#relu6"><span class="hidden-section">ReLU6</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#rrelu"><span class="hidden-section">RReLU</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#selu"><span class="hidden-section">SELU</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#celu"><span class="hidden-section">CELU</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#sigmoid"><span class="hidden-section">Sigmoid</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#softplus"><span class="hidden-section">Softplus</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#softshrink"><span class="hidden-section">Softshrink</span></a></li>
@@ -364,6 +367,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#l1loss"><span class="hidden-section">L1Loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#mseloss"><span class="hidden-section">MSELoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#crossentropyloss"><span class="hidden-section">CrossEntropyLoss</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#ctcloss"><span class="hidden-section">CTCLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#nllloss"><span class="hidden-section">NLLLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#poissonnllloss"><span class="hidden-section">PoissonNLLLoss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#kldivloss"><span class="hidden-section">KLDivLoss</span></a></li>
@@ -449,22 +453,23 @@
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#id28"><span class="hidden-section">relu6</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#id29"><span class="hidden-section">elu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#id30"><span class="hidden-section">selu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id31"><span class="hidden-section">celu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#leaky-relu"><span class="hidden-section">leaky_relu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id31"><span class="hidden-section">prelu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id32"><span class="hidden-section">rrelu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id32"><span class="hidden-section">prelu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id33"><span class="hidden-section">rrelu</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#glu"><span class="hidden-section">glu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id33"><span class="hidden-section">logsigmoid</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id34"><span class="hidden-section">hardshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id35"><span class="hidden-section">tanhshrink</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id36"><span class="hidden-section">softsign</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id37"><span class="hidden-section">softplus</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id38"><span class="hidden-section">softmin</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id39"><span class="hidden-section">softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id40"><span class="hidden-section">softshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id34"><span class="hidden-section">logsigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id35"><span class="hidden-section">hardshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id36"><span class="hidden-section">tanhshrink</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id37"><span class="hidden-section">softsign</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id38"><span class="hidden-section">softplus</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id39"><span class="hidden-section">softmin</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id40"><span class="hidden-section">softmax</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id41"><span class="hidden-section">softshrink</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#gumbel-softmax"><span class="hidden-section">gumbel_softmax</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#log-softmax"><span class="hidden-section">log_softmax</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id41"><span class="hidden-section">tanh</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id42"><span class="hidden-section">sigmoid</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id42"><span class="hidden-section">tanh</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id43"><span class="hidden-section">sigmoid</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#normalization-functions">Normalization functions</a><ul>
@@ -476,32 +481,34 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#linear-functions">Linear functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id43"><span class="hidden-section">linear</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id44"><span class="hidden-section">bilinear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id44"><span class="hidden-section">linear</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id45"><span class="hidden-section">bilinear</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#dropout-functions">Dropout functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id45"><span class="hidden-section">dropout</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id46"><span class="hidden-section">dropout</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#alpha-dropout"><span class="hidden-section">alpha_dropout</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id46"><span class="hidden-section">dropout2d</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id47"><span class="hidden-section">dropout3d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id47"><span class="hidden-section">dropout2d</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id48"><span class="hidden-section">dropout3d</span></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../nn.html#sparse-functions">Sparse functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id48"><span class="hidden-section">embedding</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id49"><span class="hidden-section">embedding</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#embedding-bag"><span class="hidden-section">embedding_bag</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../nn.html#id49">Distance functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../nn.html#id50">Distance functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#pairwise-distance"><span class="hidden-section">pairwise_distance</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#cosine-similarity"><span class="hidden-section">cosine_similarity</span></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../nn.html#id50">Loss functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../nn.html#id51">Loss functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#binary-cross-entropy"><span class="hidden-section">binary_cross_entropy</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#binary-cross-entropy-with-logits"><span class="hidden-section">binary_cross_entropy_with_logits</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#poisson-nll-loss"><span class="hidden-section">poisson_nll_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#cosine-embedding-loss"><span class="hidden-section">cosine_embedding_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#cross-entropy"><span class="hidden-section">cross_entropy</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#ctc-loss"><span class="hidden-section">ctc_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#hinge-embedding-loss"><span class="hidden-section">hinge_embedding_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#kl-div"><span class="hidden-section">kl_div</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#l1-loss"><span class="hidden-section">l1_loss</span></a></li>
@@ -511,7 +518,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#multilabel-soft-margin-loss"><span class="hidden-section">multilabel_soft_margin_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#multi-margin-loss"><span class="hidden-section">multi_margin_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#nll-loss"><span class="hidden-section">nll_loss</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#binary-cross-entropy-with-logits"><span class="hidden-section">binary_cross_entropy_with_logits</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#smooth-l1-loss"><span class="hidden-section">smooth_l1_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#soft-margin-loss"><span class="hidden-section">soft_margin_loss</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#triplet-margin-loss"><span class="hidden-section">triplet_margin_loss</span></a></li>
@@ -521,7 +527,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#pixel-shuffle"><span class="hidden-section">pixel_shuffle</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#pad"><span class="hidden-section">pad</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#interpolate"><span class="hidden-section">interpolate</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id51"><span class="hidden-section">upsample</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nn.html#id52"><span class="hidden-section">upsample</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#upsample-nearest"><span class="hidden-section">upsample_nearest</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#upsample-bilinear"><span class="hidden-section">upsample_bilinear</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../nn.html#grid-sample"><span class="hidden-section">grid_sample</span></a></li>
@@ -589,6 +595,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#lowrankmultivariatenormal"><span class="hidden-section">LowRankMultivariateNormal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#multinomial"><span class="hidden-section">Multinomial</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#multivariatenormal"><span class="hidden-section">MultivariateNormal</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../distributions.html#negativebinomial"><span class="hidden-section">NegativeBinomial</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#normal"><span class="hidden-section">Normal</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#onehotcategorical"><span class="hidden-section">OneHotCategorical</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../distributions.html#pareto"><span class="hidden-section">Pareto</span></a></li>
@@ -765,6 +772,9 @@
 <span class="kn">from</span> <span class="nn">torch._C</span> <span class="k">import</span> <span class="n">_add_docstr</span>
 
 
+<span class="c1"># NB: If you subclass Tensor, and want to share the subclassed class</span>
+<span class="c1"># across processes, you must also update torch/multiprocessing/reductions.py</span>
+<span class="c1"># to define a ForkingPickler serialization mode for the class.</span>
 <span class="k">class</span> <span class="nc">Tensor</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">_C</span><span class="o">.</span><span class="n">_TensorBase</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__deepcopy__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">memo</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_leaf</span><span class="p">:</span>
@@ -990,6 +1000,10 @@
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;See :func:`torch.argmin`&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">keepdim</span><span class="p">)</span></div>
 
+    <span class="k">def</span> <span class="nf">argsort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;See :func: `torch.argsort`&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">descending</span><span class="p">)</span>
+
 <div class="viewcode-block" id="Tensor.btrifact"><a class="viewcode-back" href="../../tensors.html#torch.Tensor.btrifact">[docs]</a>    <span class="k">def</span> <span class="nf">btrifact</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pivot</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;See :func:`torch.btrifact`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -998,7 +1012,7 @@
                           <span class="s2">&quot;consider using btrifact_with_info instead&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
             <span class="n">factorization</span><span class="p">,</span> <span class="n">pivots</span><span class="p">,</span> <span class="n">_info</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">Tensor</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">btrifact_with_info</span><span class="p">(</span><span class="n">pivot</span><span class="o">=</span><span class="n">pivot</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">type</span><span class="p">()</span> <span class="o">!=</span> <span class="n">_info</span><span class="o">.</span><span class="n">type</span><span class="p">():</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;btrifact expects info to be an IntTenor&#39;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;btrifact expects info to be an IntTensor&#39;</span><span class="p">)</span>
             <span class="n">info</span><span class="o">.</span><span class="n">resize_as_</span><span class="p">(</span><span class="n">_info</span><span class="p">)</span><span class="o">.</span><span class="n">copy_</span><span class="p">(</span><span class="n">_info</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">factorization</span><span class="p">,</span> <span class="n">pivots</span>
         <span class="k">else</span><span class="p">:</span>
@@ -1048,14 +1062,6 @@
     <span class="k">def</span> <span class="nf">scatter_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">scatter_add_</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">source</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">masked_copy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">tensor</span><span class="p">):</span>
-        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;masked_copy is deprecated and renamed to masked_scatter, and will be removed in v0.3&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">masked_scatter</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">tensor</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">masked_copy_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">tensor</span><span class="p">):</span>
-        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;masked_copy_ is deprecated and renamed to masked_scatter_, and will be removed in v0.3&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">masked_scatter_</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">tensor</span><span class="p">)</span>
-
     <span class="k">def</span> <span class="nf">masked_scatter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">tensor</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">masked_scatter_</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">tensor</span><span class="p">)</span>
 
@@ -1075,7 +1081,7 @@
             <span class="k">return</span> <span class="n">output</span></div>
 
     <span class="k">def</span> <span class="nf">__rsub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="k">return</span> <span class="o">-</span><span class="bp">self</span> <span class="o">+</span> <span class="n">other</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__rdiv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">is_floating_point</span><span class="p">:</span>
@@ -1148,6 +1154,8 @@
         <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
 
     <span class="c1"># Numpy array interface, to support `numpy.asarray(tensor) -&gt; ndarray`</span>
+    <span class="n">__array_priority__</span> <span class="o">=</span> <span class="mi">1000</span>    <span class="c1"># prefer Tensor ops over numpy ones</span>
+
     <span class="k">def</span> <span class="nf">__array__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
@@ -1208,7 +1216,9 @@
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../_static/katex_autorenderer.js"></script>
 
   
 
